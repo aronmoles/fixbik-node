@@ -7,9 +7,9 @@
   "scripts": {
     "start": "NODE_ENV=prod ts-node src/app/start.ts",
     "dev": "node -v && NODE_ENV=dev ts-node-dev src/app/start.ts",
-    "lint": "node_modules/.bin/eslint 'src/**/*' --fix && git add -A"
+    "lint": "node_modules/.bin/eslint 'src/**/*' --fix",
+    "pre-commit": "yarn lint && git add -A"
   },
-  "pre-commit": ["lint"],
   "dependencies": {
     "amqp-ts": "^1.8.0",
     "compression": "^1.7.4",
@@ -27,7 +27,6 @@
     "@typescript-eslint/eslint-plugin": "^5.8.0",
     "@typescript-eslint/parser": "^5.8.0",
     "eslint": "^8.5.0",
-    "pre-commit": "^1.2.2",
     "ts-node": "^10.4.0",
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.5.3"
