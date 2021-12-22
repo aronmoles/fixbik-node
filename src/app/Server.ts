@@ -1,6 +1,6 @@
 import bodyParser from 'body-parser';
 import compress from 'compression';
-import express from 'express';
+import express, { Request, Response } from 'express';
 import Router from 'express-promise-router';
 import helmet from 'helmet';
 import * as http from 'http';
@@ -16,6 +16,11 @@ export type ServerController = {
     method: HttpMethod,
     path: string,
     controller: Controller,
+}
+
+export type ServerControllers = {
+    serverControllers: ServerController[],
+    middlewares: Middleware[],
 }
 
 export default class Server {
@@ -53,12 +58,25 @@ export default class Server {
         });
     }
 
-    registerControllers(serverControllers: ServerController[]): void {
+    registerControllers(serverControllers: ServerControllers): void {
+        const commonRequestHandlers = [];
+        serverControllers.middlewares.forEach((middleware) => {
+            commonRequestHandlers.push((req: Request, res: Response, next: () => void) => {
+                middleware.apply(req, res, next)
+            })
+        })
+
         const router = Router();
-        serverControllers.forEach((serverController) => {
+        serverControllers.serverControllers.forEach((serverController) => {
             switch (serverController.method) {
             case HttpMethod.GET:
-                router.get(serverController.path, (req, res) => serverController.controller.run(req, res));
+                router.get(
+                    serverController.path,
+                    ...[
+                        ...commonRequestHandlers,
+                        (req, res) => serverController.controller.run(req, res),
+                    ],
+                );
                 break;
             case HttpMethod.POST:
                 router.post(serverController.path, (req, res) => serverController.controller.run(req, res));

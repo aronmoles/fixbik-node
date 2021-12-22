@@ -3,6 +3,7 @@ import { Type } from './Type';
 import { Dependency } from './di/Dependency';
 import { HttpMethod } from '../http/HttpMethod';
 import { ContainerKey } from './di/Container';
+import { Middleware } from './Middleware';
 
 export interface ModuleService<T> {
     key: ContainerKey,
@@ -18,5 +19,6 @@ export interface ModuleController extends ModuleService<Controller> {
 export default interface Module {
     basePath?: string,
     controllers?: ModuleController[],
+    middlewares?: ModuleService<Middleware>[],
     services?: ModuleService<any>[],
 }

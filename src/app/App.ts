@@ -9,7 +9,6 @@ import SystemLogger from '../modules/shared/infrastructure/SystemLogger';
 import { ContainerService } from '../modules/shared/domain/framework/di/Container';
 import { ContainerKeys } from './ContainerKeys';
 import HttpErrorMiddleware from '../modules/shared/infrastructure/HttpErrorMiddleware';
-import AuthMiddleware from '../modules/info/infrastructure/AuthMiddleware';
 import TimeMiddleware from '../modules/shared/infrastructure/TimeMiddleware';
 
 export default class App {
@@ -54,7 +53,6 @@ export default class App {
     private async initMiddleware() {
         this.server.registerControllerMiddleware([
             new TimeMiddleware(this.container.get(ContainerKeys.Logger)),
-            new AuthMiddleware(),
         ]);
     }
 
@@ -68,10 +66,9 @@ export default class App {
 
     private async registerRoutes() {
         const moduleServerRoutesDiscover = new ServerRoutesModuleDiscoverer(this.container);
-        const serverControllers = this.modules
+        this.modules
             .map((module) => moduleServerRoutesDiscover.discover(module))
-            .reduce((prev, current) => prev.concat(current), []);
-        this.server.registerControllers(serverControllers);
+            .forEach((serverControllers) => this.server.registerControllers(serverControllers))
     }
 
     private async initErrorMiddleware() {
