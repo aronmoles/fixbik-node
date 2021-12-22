@@ -1,14 +1,10 @@
-import { Request, Response } from 'express';
 import Controller from '../../shared/domain/framework/Controller';
 import { HttpStatus } from '../../shared/domain/http/HttpStatus';
 import InfoService from '../application/InfoService';
-import { HttpMethod } from '../../shared/domain/http/HttpMethod';
+import { Request } from '../../shared/domain/framework/Request';
+import { Response } from '../../shared/domain/framework/Response';
 
 export default class InfoController implements Controller {
-    readonly METHOD = HttpMethod.GET;
-
-    readonly PATH = '/';
-
     constructor(
        private readonly infoService: InfoService,
     ) {

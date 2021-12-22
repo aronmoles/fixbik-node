@@ -1,4 +1,5 @@
-import { Request, Response } from 'express';
+import { Request } from './Request';
+import { Response } from './Response';
 
 export type MiddlewareNext = () => void;
 

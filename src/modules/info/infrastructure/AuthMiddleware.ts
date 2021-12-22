@@ -1,6 +1,7 @@
-import { Request, Response } from 'express';
 import { Middleware, MiddlewareNext } from '../../shared/domain/framework/Middleware';
 import UnauthorizedHttpError from '../../shared/domain/http/errors/UnauthorizedHttpError';
+import { Request } from '../../shared/domain/framework/Request';
+import { Response } from '../../shared/domain/framework/Response';
 
 export default class AuthMiddleware implements Middleware {
     apply(req: Request, res: Response, next: MiddlewareNext): void {

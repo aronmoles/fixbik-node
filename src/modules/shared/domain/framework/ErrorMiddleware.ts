@@ -1,5 +1,8 @@
-import { Request, Response } from 'express';
+import { Request } from './Request';
+import { Response } from './Response';
+
+export type ErrorMiddlewareNext = (error: Error) => void;
 
 export interface ErrorMiddleware {
-    apply(error: Error, req: Request, res: Response, next: (error: Error) => void): void;
+    apply(error: Error, req: Request, res: Response, next: ErrorMiddlewareNext): void;
 }

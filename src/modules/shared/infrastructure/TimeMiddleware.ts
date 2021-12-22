@@ -1,6 +1,7 @@
-import { Request, Response } from 'express';
 import { Middleware, MiddlewareNext } from '../domain/framework/Middleware';
 import Logger from '../domain/Logger';
+import { Request } from '../domain/framework/Request';
+import { Response } from '../domain/framework/Response';
 
 export default class TimeMiddleware implements Middleware {
     constructor(private readonly logger: Logger) {}

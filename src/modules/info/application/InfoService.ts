@@ -3,7 +3,7 @@ export default class InfoService {
     }
 
     public async invoke(): Promise<string> {
-        // Throw new NotFoundHttpException('Esto es un error tocho');
+        // Throw new NotFoundHttpError('Esto es un error tocho');
         return 'Hola';
     }
 }
