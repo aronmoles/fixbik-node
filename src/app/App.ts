@@ -6,7 +6,6 @@ import ModuleDependencyMapper from '../modules/shared/infrastructure/framework/d
 import ServerRoutesModuleDiscoverer from '../modules/shared/infrastructure/framework/module/ServerRoutesModuleDiscoverer';
 import ServiceModuleDiscoverer from '../modules/shared/infrastructure/framework/module/ServiceModuleDiscoverer';
 import SystemLogger from '../modules/shared/infrastructure/SystemLogger';
-import { ContainerService } from '../modules/shared/domain/framework/di/Container';
 import { ContainerKeys } from './ContainerKeys';
 import HttpErrorMiddleware from '../modules/shared/infrastructure/HttpErrorMiddleware';
 import TimeMiddleware from '../modules/shared/infrastructure/TimeMiddleware';
@@ -17,9 +16,15 @@ import CommandHandlersModuleDiscoverer
     from '../modules/shared/infrastructure/framework/module/CommandHandlersModuleDiscoverer';
 import { CommandHandlersMapper } from '../modules/shared/infrastructure/command-bus/CommandHandlersMapper';
 import { InMemoryCommandBus } from '../modules/shared/infrastructure/command-bus/InMemoryCommandBus';
+import BusTimeMiddleware from '../modules/shared/infrastructure/BusTimeMiddleware';
+import { QueryHandler } from '../modules/shared/domain/query-bus/QueryHandler';
+import Query from '../modules/shared/domain/query-bus/Query';
+import CommandHandler from '../modules/shared/domain/command-bus/CommandHandler';
+import Command from '../modules/shared/domain/command-bus/Command';
+import InMemoryMiddlewareQueryBus from '../modules/shared/infrastructure/query-bus/InMemoryMiddlewareQueryBus';
 
 export default class App {
-    private readonly container: ContainerService;
+    private readonly container: DependencyContainer;
 
     private readonly modules = [InfoModule];
 
@@ -78,9 +83,10 @@ export default class App {
         const queryHandlers = this.modules
             .map((module) => moduleServiceDiscover.discover(module))
             .reduce((prev, current) => prev.concat(current), [])
-            .map((moduleService) => this.container.get(moduleService.key));
+            .map((moduleService) => this.container.get<QueryHandler<Query, Response>>(moduleService.key));
         const queryHandlerMapper = new QueryHandlersMapper(queryHandlers);
-        const queryBus = new InMemoryQueryBus(queryHandlerMapper);
+        const queryBus = new InMemoryMiddlewareQueryBus(queryHandlerMapper);
+        queryBus.addMiddleware(new BusTimeMiddleware(this.container.get(ContainerKeys.Logger)))
         this.container.addInstance(ContainerKeys.QueryBus, queryBus)
     }
 
@@ -89,7 +95,7 @@ export default class App {
         const commandHandlers = this.modules
             .map((module) => moduleServiceDiscover.discover(module))
             .reduce((prev, current) => prev.concat(current), [])
-            .map((moduleService) => this.container.get(moduleService.key));
+            .map((moduleService) => this.container.get<CommandHandler<Command>>(moduleService.key));
         const commandHandlerMapper = new CommandHandlersMapper(commandHandlers);
         const commandBus = new InMemoryCommandBus(commandHandlerMapper);
         this.container.addInstance(ContainerKeys.CommandBus, commandBus)
