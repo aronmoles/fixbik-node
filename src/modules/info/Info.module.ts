@@ -6,11 +6,16 @@ import { HttpMethod } from '../shared/domain/http/HttpMethod';
 import AuthMiddleware from './infrastructure/AuthMiddleware';
 import { ContainerKeys } from '../../app/ContainerKeys';
 import InfoQueryHandler from './application/info/InfoQueryHandler';
+import SetInfoService from './application/set-info/SetInfoService';
+import SetInfoCommandHandler from './application/set-info/SetInfoCommandHandler';
+import SetInfoController from './infrastructure/SetInfoController';
 
 export const InfoModuleKeys: ModuleKeys = {
     InfoController: Symbol.for('InfoController'),
+    SetInfoController: Symbol.for('SetInfoController'),
     InfoService: Symbol.for('InfoService'),
     InfoQueryHandler: Symbol.for('InfoQueryHandler'),
+    SetInfoCommandHandler: Symbol.for('SetInfoCommandHandler'),
     AuthMiddleware: Symbol.for('AuthMiddleware'),
 };
 
@@ -22,6 +27,13 @@ export const InfoModule: Module = {
             httpMethod: HttpMethod.GET,
             path: '/',
             dep: [ContainerKeys.QueryBus],
+        },
+        {
+            key: InfoModuleKeys.SetInfoController,
+            class: SetInfoController,
+            httpMethod: HttpMethod.PUT,
+            path: '/',
+            dep: [ContainerKeys.CommandBus],
         },
     ],
     middlewares: [
@@ -36,12 +48,24 @@ export const InfoModule: Module = {
             key: InfoModuleKeys.InfoService,
             class: InfoService,
         },
+        {
+            key: InfoModuleKeys.SetInfoService,
+            class: SetInfoService,
+            dep: [ContainerKeys.Logger],
+        },
     ],
     queryHandlers: [
         {
             key: InfoModuleKeys.InfoQueryHandler,
             class: InfoQueryHandler,
             dep: [InfoModuleKeys.InfoService],
+        },
+    ],
+    commandHandlers: [
+        {
+            key: InfoModuleKeys.SetInfoCommandHandler,
+            class: SetInfoCommandHandler,
+            dep: [InfoModuleKeys.SetInfoService],
         },
     ],
 };

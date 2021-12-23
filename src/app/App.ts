@@ -10,9 +10,13 @@ import { ContainerService } from '../modules/shared/domain/framework/di/Containe
 import { ContainerKeys } from './ContainerKeys';
 import HttpErrorMiddleware from '../modules/shared/infrastructure/HttpErrorMiddleware';
 import TimeMiddleware from '../modules/shared/infrastructure/TimeMiddleware';
-import QueryModuleDiscoverer from '../modules/shared/infrastructure/framework/module/QueryModuleDiscoverer';
+import QueryHandlersModuleDiscoverer from '../modules/shared/infrastructure/framework/module/QueryHandlersModuleDiscoverer';
 import InMemoryQueryBus from '../modules/shared/infrastructure/query-bus/InMemoryQueryBus';
 import QueryHandlersMapper from '../modules/shared/infrastructure/query-bus/QueryHandlersMapper';
+import CommandHandlersModuleDiscoverer
+    from '../modules/shared/infrastructure/framework/module/CommandHandlersModuleDiscoverer';
+import { CommandHandlersMapper } from '../modules/shared/infrastructure/command-bus/CommandHandlersMapper';
+import { InMemoryCommandBus } from '../modules/shared/infrastructure/command-bus/InMemoryCommandBus';
 
 export default class App {
     private readonly container: ContainerService;
@@ -35,6 +39,7 @@ export default class App {
         await this.initMiddleware();
         await this.registerServices();
         await this.initQueryBus();
+        await this.initCommandBus();
         await this.registerRoutes();
         await this.initErrorMiddleware();
         await this.initEventBus();
@@ -69,7 +74,7 @@ export default class App {
     }
 
     private async initQueryBus() {
-        const moduleServiceDiscover = new QueryModuleDiscoverer();
+        const moduleServiceDiscover = new QueryHandlersModuleDiscoverer();
         const queryHandlers = this.modules
             .map((module) => moduleServiceDiscover.discover(module))
             .reduce((prev, current) => prev.concat(current), [])
@@ -77,6 +82,17 @@ export default class App {
         const queryHandlerMapper = new QueryHandlersMapper(queryHandlers);
         const queryBus = new InMemoryQueryBus(queryHandlerMapper);
         this.container.addInstance(ContainerKeys.QueryBus, queryBus)
+    }
+
+    private async initCommandBus() {
+        const moduleServiceDiscover = new CommandHandlersModuleDiscoverer();
+        const commandHandlers = this.modules
+            .map((module) => moduleServiceDiscover.discover(module))
+            .reduce((prev, current) => prev.concat(current), [])
+            .map((moduleService) => this.container.get(moduleService.key));
+        const commandHandlerMapper = new CommandHandlersMapper(commandHandlers);
+        const commandBus = new InMemoryCommandBus(commandHandlerMapper);
+        this.container.addInstance(ContainerKeys.CommandBus, commandBus)
     }
 
     private async registerRoutes() {
