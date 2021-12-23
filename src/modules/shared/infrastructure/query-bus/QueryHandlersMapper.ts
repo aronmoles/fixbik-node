@@ -1,6 +1,7 @@
 import Query from '../../domain/query-bus/Query';
 import { QueryHandler } from '../../domain/query-bus/QueryHandler';
 import { QueryNotRegisteredError } from '../../domain/query-bus/QueryNotRegisteredError';
+import { Response } from '../../domain/Response';
 
 export default class QueryHandlersMapper {
     private queryHandlersMap: Map<string, QueryHandler<Query, Response>>;

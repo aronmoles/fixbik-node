@@ -9,7 +9,6 @@ export default class InMemoryQueryBus implements QueryBus {
     public ask<R extends Response>(query: Query): Promise<R> {
         const handler = this.queryHandlersMapper.search(query);
 
-        // TODO remove unknown
-        return handler.handle(query) as unknown as Promise<R>;
+        return handler.handle(query) as Promise<R>;
     }
 }
