@@ -9,9 +9,17 @@ export default class ModuleDependencyMapper implements DependencyMapper {
 
     getClassDependencies(name: string): Dependency[] {
         for (const module of this.modules) {
-            for (const moduleController of module.controllers) {
+            const services = [
+                ...(module.controllers || []),
+                ...(module.services || []),
+                ...(module.middlewares || []),
+                ...(module.queryHandlers || []),
+                ...(module.commandHandlers || []),
+                ...(module.domainEventSubscriber || []),
+            ];
+            for (const moduleController of services) {
                 if (moduleController.class.prototype.constructor.name === name) {
-                    return moduleController.dep;
+                    return moduleController.dep || [];
                 }
             }
         }

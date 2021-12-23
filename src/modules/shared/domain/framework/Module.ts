@@ -4,6 +4,7 @@ import { Dependency } from './di/Dependency';
 import { HttpMethod } from '../http/HttpMethod';
 import { ContainerKey } from './di/Container';
 import { Middleware } from './Middleware';
+import { QueryHandler } from '../query-bus/QueryHandler';
 
 export interface ModuleService<T> {
     key: ContainerKey,
@@ -21,4 +22,8 @@ export default interface Module {
     controllers?: ModuleController[],
     middlewares?: ModuleService<Middleware>[],
     services?: ModuleService<any>[],
+
+    queryHandlers?: ModuleService<QueryHandler<any, any>>[],
+    commandHandlers?: ModuleService<any>[],
+    domainEventSubscriber?: ModuleService<any>[],
 }

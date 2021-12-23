@@ -8,7 +8,7 @@ export default class Uuid extends ValueObject<string> {
         this.ensureIsValidUuid(value);
     }
 
-    static random(): Uuid {
+    static generate(): Uuid {
         return new Uuid(v4());
     }
 

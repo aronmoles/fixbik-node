@@ -10,6 +10,9 @@ import { ContainerService } from '../modules/shared/domain/framework/di/Containe
 import { ContainerKeys } from './ContainerKeys';
 import HttpErrorMiddleware from '../modules/shared/infrastructure/HttpErrorMiddleware';
 import TimeMiddleware from '../modules/shared/infrastructure/TimeMiddleware';
+import QueryModuleDiscoverer from '../modules/shared/infrastructure/framework/module/QueryModuleDiscoverer';
+import InMemoryQueryBus from '../modules/shared/infrastructure/query-bus/InMemoryQueryBus';
+import QueryHandlersMapper from '../modules/shared/infrastructure/query-bus/QueryHandlersMapper';
 
 export default class App {
     private readonly container: ContainerService;
@@ -31,6 +34,7 @@ export default class App {
         await this.initDiContainer();
         await this.initMiddleware();
         await this.registerServices();
+        await this.initQueryBus();
         await this.registerRoutes();
         await this.initErrorMiddleware();
         await this.initEventBus();
@@ -62,6 +66,17 @@ export default class App {
             .map((module) => moduleServiceDiscover.discover(module))
             .reduce((prev, current) => prev.concat(current), [])
             .forEach((service) => this.container.addClass(service.key, service.class));
+    }
+
+    private async initQueryBus() {
+        const moduleServiceDiscover = new QueryModuleDiscoverer();
+        const queryHandlers = this.modules
+            .map((module) => moduleServiceDiscover.discover(module))
+            .reduce((prev, current) => prev.concat(current), [])
+            .map((moduleService) => this.container.get(moduleService.key));
+        const queryHandlerMapper = new QueryHandlersMapper(queryHandlers);
+        const queryBus = new InMemoryQueryBus(queryHandlerMapper);
+        this.container.addInstance(ContainerKeys.QueryBus, queryBus)
     }
 
     private async registerRoutes() {
