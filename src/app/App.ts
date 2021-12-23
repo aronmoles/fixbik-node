@@ -3,25 +3,33 @@ import ProcessEnv from './ProcessEnv';
 import { InfoModule } from '../modules/info/Info.module';
 import DependencyContainer from '../modules/shared/infrastructure/framework/di/DependencyContainer';
 import ModuleDependencyMapper from '../modules/shared/infrastructure/framework/di/ModuleDependencyMapper';
-import ServerRoutesModuleDiscoverer from '../modules/shared/infrastructure/framework/module/ServerRoutesModuleDiscoverer';
+import ServerRoutesModuleDiscoverer
+    from '../modules/shared/infrastructure/framework/module/ServerRoutesModuleDiscoverer';
 import ServiceModuleDiscoverer from '../modules/shared/infrastructure/framework/module/ServiceModuleDiscoverer';
 import SystemLogger from '../modules/shared/infrastructure/SystemLogger';
 import { ContainerKeys } from './ContainerKeys';
 import HttpErrorMiddleware from '../modules/shared/infrastructure/HttpErrorMiddleware';
-import TimeMiddleware from '../modules/shared/infrastructure/TimeMiddleware';
-import QueryHandlersModuleDiscoverer from '../modules/shared/infrastructure/framework/module/QueryHandlersModuleDiscoverer';
-import InMemoryQueryBus from '../modules/shared/infrastructure/query-bus/InMemoryQueryBus';
+import QueryHandlersModuleDiscoverer
+    from '../modules/shared/infrastructure/framework/module/QueryHandlersModuleDiscoverer';
 import QueryHandlersMapper from '../modules/shared/infrastructure/query-bus/QueryHandlersMapper';
 import CommandHandlersModuleDiscoverer
     from '../modules/shared/infrastructure/framework/module/CommandHandlersModuleDiscoverer';
 import { CommandHandlersMapper } from '../modules/shared/infrastructure/command-bus/CommandHandlersMapper';
-import { InMemoryCommandBus } from '../modules/shared/infrastructure/command-bus/InMemoryCommandBus';
 import BusTimeMiddleware from '../modules/shared/infrastructure/BusTimeMiddleware';
 import { QueryHandler } from '../modules/shared/domain/query-bus/QueryHandler';
 import Query from '../modules/shared/domain/query-bus/Query';
 import CommandHandler from '../modules/shared/domain/command-bus/CommandHandler';
 import Command from '../modules/shared/domain/command-bus/Command';
 import InMemoryMiddlewareQueryBus from '../modules/shared/infrastructure/query-bus/InMemoryMiddlewareQueryBus';
+import {
+    InMemoryMiddlewareCommandBus,
+} from '../modules/shared/infrastructure/command-bus/InMemoryMiddlewareCommandBus';
+import DomainEventSubscriber from '../modules/shared/domain/event-bus/DomainEventSubscriber';
+import DomainEvent from '../modules/shared/domain/messages/DomainEvent';
+import DomainEventSubscriberModuleDiscoverer
+    from '../modules/shared/infrastructure/framework/module/DomainEventSubscriberModuleDiscoverer';
+import InMemoryEventBus from '../modules/shared/infrastructure/event-bus/InMemoryEventBus';
+import { DomainEventSubscriberMapper } from '../modules/shared/infrastructure/event-bus/DomainEventSubscriberMapper';
 
 export default class App {
     private readonly container: DependencyContainer;
@@ -43,6 +51,7 @@ export default class App {
         await this.initDiContainer();
         await this.initMiddleware();
         await this.registerServices();
+        await this.initEventBus();
         await this.initQueryBus();
         await this.initCommandBus();
         await this.registerRoutes();
@@ -66,7 +75,7 @@ export default class App {
 
     private async initMiddleware() {
         this.server.registerControllerMiddleware([
-            new TimeMiddleware(this.container.get(ContainerKeys.Logger)),
+        //     New TimeMiddleware(this.container.get(ContainerKeys.Logger)),
         ]);
     }
 
@@ -97,8 +106,21 @@ export default class App {
             .reduce((prev, current) => prev.concat(current), [])
             .map((moduleService) => this.container.get<CommandHandler<Command>>(moduleService.key));
         const commandHandlerMapper = new CommandHandlersMapper(commandHandlers);
-        const commandBus = new InMemoryCommandBus(commandHandlerMapper);
+        const commandBus = new InMemoryMiddlewareCommandBus(commandHandlerMapper);
+        commandBus.addMiddleware(new BusTimeMiddleware(this.container.get(ContainerKeys.Logger)))
         this.container.addInstance(ContainerKeys.CommandBus, commandBus)
+    }
+
+    private async initEventBus() {
+        const domainEventSubscriberModuleDiscoverer = new DomainEventSubscriberModuleDiscoverer();
+        const domainEventSubscribers = this.modules
+            .map((module) => domainEventSubscriberModuleDiscoverer.discover(module))
+            .reduce((prev, current) => prev.concat(current), [])
+            .map((moduleService) => this.container.get<DomainEventSubscriber<DomainEvent>>(moduleService.key));
+        const domainEventSubscriberMapper = new DomainEventSubscriberMapper(domainEventSubscribers);
+        const eventBus = new InMemoryEventBus(domainEventSubscriberMapper);
+        // commandBus.addMiddleware(new BusTimeMiddleware(this.container.get(ContainerKeys.Logger)))
+        this.container.addInstance(ContainerKeys.EventBus, eventBus)
     }
 
     private async registerRoutes() {
@@ -112,18 +134,5 @@ export default class App {
         this.server.registerErrorMiddleware([
             new HttpErrorMiddleware(this.container.get(ContainerKeys.Logger)),
         ]);
-    }
-
-    private async initEventBus() {
-        // Const eventBus = container.get('Shared.EventBus') as EventBus;
-        // const subscriberDefinitions = container.findTaggedServiceIds('domainEventSubscriber') as Map<String, Definition>;
-        // const subscribers: Array<DomainEventSubscriber<DomainEvent>> = [];
-        //
-        // subscriberDefinitions.forEach((value: any, key: any) => subscribers.push(container.get(key)));
-        // const domainEventMapping = new DomainEventMapping(subscribers);
-        //
-        // eventBus.setDomainEventMapping(domainEventMapping);
-        // eventBus.addSubscribers(subscribers);
-        // await eventBus.start();
     }
 }

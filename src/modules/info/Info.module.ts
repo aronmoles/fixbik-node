@@ -9,6 +9,8 @@ import InfoQueryHandler from './application/info/InfoQueryHandler';
 import SetInfoService from './application/set-info/SetInfoService';
 import SetInfoCommandHandler from './application/set-info/SetInfoCommandHandler';
 import SetInfoController from './infrastructure/SetInfoController';
+import SendEmailInfoRequestDomainEventSubscriber
+    from './application/send-email/SendEmailInfoRequestDomainEventSubscriber';
 
 export const InfoModuleKeys: ModuleKeys = {
     InfoController: Symbol.for('InfoController'),
@@ -16,6 +18,7 @@ export const InfoModuleKeys: ModuleKeys = {
     InfoService: Symbol.for('InfoService'),
     InfoQueryHandler: Symbol.for('InfoQueryHandler'),
     SetInfoCommandHandler: Symbol.for('SetInfoCommandHandler'),
+    SendEmailInfoRequestDomainEventSubscriber: Symbol.for('SendEmailInfoRequestDomainEventSubscriber'),
     AuthMiddleware: Symbol.for('AuthMiddleware'),
 };
 
@@ -47,6 +50,7 @@ export const InfoModule: Module = {
         {
             key: InfoModuleKeys.InfoService,
             class: InfoService,
+            dep: [ContainerKeys.EventBus],
         },
         {
             key: InfoModuleKeys.SetInfoService,
@@ -66,6 +70,13 @@ export const InfoModule: Module = {
             key: InfoModuleKeys.SetInfoCommandHandler,
             class: SetInfoCommandHandler,
             dep: [InfoModuleKeys.SetInfoService],
+        },
+    ],
+    domainEventSubscribers: [
+        {
+            key: InfoModuleKeys.SendEmailInfoRequestDomainEventSubscriber,
+            class: SendEmailInfoRequestDomainEventSubscriber,
+            dep: [],
         },
     ],
 };

@@ -6,7 +6,7 @@ import { MessageType } from '../../../shared/domain/messages/MessageType';
 export default class SetInfoCommand extends Command {
     constructor() {
         super(
-            MessageId.generate(),
+            MessageId.create(),
             MessageNameFactory.create('modified', 'info', MessageType.COMMAND),
         );
     }

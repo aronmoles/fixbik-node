@@ -6,7 +6,7 @@ import { MessageType } from '../../../shared/domain/messages/MessageType';
 export default class InfoQuery extends Query {
     constructor() {
         super(
-            MessageId.generate(),
+            MessageId.create(),
             MessageNameFactory.create('consulted', 'info', MessageType.QUERY),
         );
     }

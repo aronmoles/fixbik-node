@@ -25,5 +25,5 @@ export default interface Module {
 
     queryHandlers?: ModuleService<QueryHandler<any, any>>[],
     commandHandlers?: ModuleService<any>[],
-    domainEventSubscriber?: ModuleService<any>[],
+    domainEventSubscribers?: ModuleService<any>[],
 }

@@ -13,7 +13,7 @@ export default abstract class AggregateMessage extends Message {
         name: MessageName,
         private readonly aggregateId: Uuid,
         private readonly occurredOn: AggregateMessageOccurredOn,
-        meta: MessageMeta
+        meta: MessageMeta = new MessageMeta()
     ) {
         super(id, type, name, meta);
     }

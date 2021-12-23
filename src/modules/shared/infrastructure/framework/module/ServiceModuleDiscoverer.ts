@@ -10,7 +10,7 @@ export default class ServiceModuleDiscoverer implements ModuleDiscoverer<ModuleS
         services.push(...(module.middlewares || []));
         services.push(...(module.queryHandlers || []));
         services.push(...(module.commandHandlers || []));
-        services.push(...(module.domainEventSubscriber || []));
+        services.push(...(module.domainEventSubscribers || []));
 
         return services;
     }

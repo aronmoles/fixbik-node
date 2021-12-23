@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "start": "NODE_ENV=prod ts-node src/app/start.ts",
-    "dev": "node -v && NODE_ENV=dev ts-node-dev src/app/start.ts",
+    "dev": "NODE_ENV=dev ts-node-dev src/app/start.ts",
     "lint": "node_modules/.bin/eslint 'src/**/*' --fix"
   },
   "dependencies": {

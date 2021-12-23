@@ -72,7 +72,7 @@
         "arrow-body-style": "off",
         "block-scoped-var": "error",
         "camelcase": ["error", { "properties": "always", "ignoreDestructuring":  true }],
-        "capitalized-comments": ["error", "always", {"ignoreInlineComments": true, "ignoreConsecutiveComments": true }],
+        "capitalized-comments": ["off", "always", {"ignoreInlineComments": true, "ignoreConsecutiveComments": true }],
         "class-methods-use-this": "off",
         "complexity": "error",
         "consistent-return": "error",
@@ -272,7 +272,8 @@
         "@typescript-eslint/no-magic-numbers": ["off", { "ignoreEnums": true, "ignoreReadonlyClassProperties": true }],
         "@typescript-eslint/no-misused-promises": "off",
         "@typescript-eslint/no-empty-interface": "off",
-        "@typescript-eslint/restrict-template-expressions": "off"
+        "@typescript-eslint/restrict-template-expressions": "off",
+        "@typescript-eslint/no-floating-promises": "off"
     }
 }
 
