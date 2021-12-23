@@ -1,14 +1,9 @@
-import { CommandHandlersMapper } from './CommandHandlersMapper';
 import Command from '../../domain/command-bus/Command';
 import { InMemoryCommandBus } from './InMemoryCommandBus';
 import BusMiddleware from '../../domain/BusMiddleware';
 
 export class InMemoryMiddlewareCommandBus extends InMemoryCommandBus {
     private readonly middlewares: BusMiddleware<Command, void>[] = [];
-
-    constructor(commandHandlersInformation: CommandHandlersMapper) {
-        super(commandHandlersInformation)
-    }
 
     public addMiddleware(commandBusMiddleware: BusMiddleware<Command, void>) {
         this.middlewares.push(commandBusMiddleware)

@@ -1,15 +1,17 @@
 import DomainEventSubscriber from '../../../shared/domain/event-bus/DomainEventSubscriber';
 import InfoRequestedDomainEvent from '../../domain/InfoRequestedDomainEvent';
-import { sleep } from '../../../shared/infrastructure/Sleep';
+import SendEmailService from './SenEmailService';
+import { CommandBus } from '../../../shared/domain/command-bus/CommandBus';
 
 export default class SendEmailInfoRequestDomainEventSubscriber extends DomainEventSubscriber<InfoRequestedDomainEvent> {
-    constructor() {
+    constructor(
+        private readonly sendEmailService: SendEmailService,
+        private readonly commandBus: CommandBus,
+    ) {
         super(InfoRequestedDomainEvent);
     }
 
     async dispatch(event: InfoRequestedDomainEvent): Promise<void> {
-        await sleep(2000)
-        // eslint-disable-next-line no-console
-        console.log('DISPATCH', this.constructor.name)
+        await this.sendEmailService.invoke();
     }
 }

@@ -1,8 +1,9 @@
 import CommandHandler from '../../domain/command-bus/CommandHandler';
 import Command from '../../domain/command-bus/Command';
 import { CommandNotRegisteredError } from '../../domain/command-bus/CommandNotRegisteredError';
+import { Mapper } from '../../domain/Mapper';
 
-export class CommandHandlersMapper {
+export class CommandHandlersMapper implements Mapper<Command, CommandHandler<Command>> {
     private commandHandlersMap: Map<string, CommandHandler<Command>>;
 
     constructor(commandHandlers: Array<CommandHandler<Command>>) {

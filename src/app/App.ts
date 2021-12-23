@@ -30,6 +30,9 @@ import DomainEventSubscriberModuleDiscoverer
     from '../modules/shared/infrastructure/framework/module/DomainEventSubscriberModuleDiscoverer';
 import InMemoryEventBus from '../modules/shared/infrastructure/event-bus/InMemoryEventBus';
 import { DomainEventSubscriberMapper } from '../modules/shared/infrastructure/event-bus/DomainEventSubscriberMapper';
+import QueryBus from '../modules/shared/domain/query-bus/QueryBus';
+import EventBus from '../modules/shared/domain/event-bus/EventBus';
+import { CommandBus } from '../modules/shared/domain/command-bus/CommandBus';
 
 export default class App {
     private readonly container: DependencyContainer;
@@ -45,6 +48,18 @@ export default class App {
         this.container = new DependencyContainer();
         this.container.addInstance(ContainerKeys.Env, env);
         this.container.addInstance(ContainerKeys.Logger, logger);
+
+        const eventBus = new InMemoryEventBus();
+        // eventBus.addMiddleware(new BusTimeMiddleware(this.container.get(ContainerKeys.Logger)))
+        this.container.addInstance(ContainerKeys.EventBus, eventBus)
+
+        const queryBus = new InMemoryMiddlewareQueryBus();
+        queryBus.addMiddleware(new BusTimeMiddleware(this.container.get(ContainerKeys.Logger)))
+        this.container.addInstance(ContainerKeys.QueryBus, queryBus)
+
+        const commandBus = new InMemoryMiddlewareCommandBus();
+        commandBus.addMiddleware(new BusTimeMiddleware(this.container.get(ContainerKeys.Logger)))
+        this.container.addInstance(ContainerKeys.CommandBus, commandBus)
     }
 
     async start() {
@@ -87,6 +102,17 @@ export default class App {
             .forEach((service) => this.container.addClass(service.key, service.class));
     }
 
+    private async initEventBus() {
+        const domainEventSubscriberModuleDiscoverer = new DomainEventSubscriberModuleDiscoverer();
+        const domainEventSubscribers = this.modules
+            .map((module) => domainEventSubscriberModuleDiscoverer.discover(module))
+            .reduce((prev, current) => prev.concat(current), [])
+            .map((moduleService) => this.container.get<DomainEventSubscriber<DomainEvent>>(moduleService.key));
+        const domainEventSubscriberMapper = new DomainEventSubscriberMapper(domainEventSubscribers);
+        const eventBus = this.container.get<EventBus>(ContainerKeys.EventBus);
+        eventBus.attachMapper(domainEventSubscriberMapper)
+    }
+
     private async initQueryBus() {
         const moduleServiceDiscover = new QueryHandlersModuleDiscoverer();
         const queryHandlers = this.modules
@@ -94,9 +120,8 @@ export default class App {
             .reduce((prev, current) => prev.concat(current), [])
             .map((moduleService) => this.container.get<QueryHandler<Query, Response>>(moduleService.key));
         const queryHandlerMapper = new QueryHandlersMapper(queryHandlers);
-        const queryBus = new InMemoryMiddlewareQueryBus(queryHandlerMapper);
-        queryBus.addMiddleware(new BusTimeMiddleware(this.container.get(ContainerKeys.Logger)))
-        this.container.addInstance(ContainerKeys.QueryBus, queryBus)
+        const queryBus = this.container.get<QueryBus>(ContainerKeys.QueryBus);
+        queryBus.attachMapper(queryHandlerMapper)
     }
 
     private async initCommandBus() {
@@ -106,21 +131,8 @@ export default class App {
             .reduce((prev, current) => prev.concat(current), [])
             .map((moduleService) => this.container.get<CommandHandler<Command>>(moduleService.key));
         const commandHandlerMapper = new CommandHandlersMapper(commandHandlers);
-        const commandBus = new InMemoryMiddlewareCommandBus(commandHandlerMapper);
-        commandBus.addMiddleware(new BusTimeMiddleware(this.container.get(ContainerKeys.Logger)))
-        this.container.addInstance(ContainerKeys.CommandBus, commandBus)
-    }
-
-    private async initEventBus() {
-        const domainEventSubscriberModuleDiscoverer = new DomainEventSubscriberModuleDiscoverer();
-        const domainEventSubscribers = this.modules
-            .map((module) => domainEventSubscriberModuleDiscoverer.discover(module))
-            .reduce((prev, current) => prev.concat(current), [])
-            .map((moduleService) => this.container.get<DomainEventSubscriber<DomainEvent>>(moduleService.key));
-        const domainEventSubscriberMapper = new DomainEventSubscriberMapper(domainEventSubscribers);
-        const eventBus = new InMemoryEventBus(domainEventSubscriberMapper);
-        // commandBus.addMiddleware(new BusTimeMiddleware(this.container.get(ContainerKeys.Logger)))
-        this.container.addInstance(ContainerKeys.EventBus, eventBus)
+        const commandBus = this.container.get<CommandBus>(ContainerKeys.CommandBus);
+        commandBus.attachMapper(commandHandlerMapper)
     }
 
     private async registerRoutes() {
