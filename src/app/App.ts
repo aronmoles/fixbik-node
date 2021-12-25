@@ -54,6 +54,7 @@ export default class App {
 
     async start() {
         await this.initDiContainer();
+        await this.initErrorTracker();
         await this.initEventBus();
         await this.initQueryBus();
         await this.initCommandBus();
@@ -79,6 +80,10 @@ export default class App {
     private async initDiContainer() {
         const modulesDependencyMapper = new ModuleDependencyMapper(this.modules);
         this.container.attachDependencyMapper(modulesDependencyMapper);
+    }
+
+    private async initErrorTracker() {
+        this.container.addClass(ContainerKeys.ErrorTracker, FileErrorTracker)
     }
 
     private async initMiddleware() {
@@ -159,7 +164,7 @@ export default class App {
     private async initErrorMiddleware() {
         this.server.registerErrorMiddleware([
             new HttpErrorMiddleware(this.container.get(ContainerKeys.Logger)),
-            new PersistErrorMiddleware(new FileErrorTracker()),
+            new PersistErrorMiddleware(this.container.get(ContainerKeys.ErrorTracker)),
         ]);
     }
 }
