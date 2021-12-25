@@ -1,0 +1,9 @@
+{
+  "preset": "ts-jest",
+  "testEnvironment": "node",
+  "cacheDirectory": ".tmp/jestCache",
+  "coverageDirectory": "./coverage",
+  "moduleNameMapper": {
+    "@microk/(.*)": "<rootDir>/src/microk/$1"
+  }
+}

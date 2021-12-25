@@ -25,6 +25,7 @@ import { EventJsonDeserializer } from '@microk/event/infrastructure/EventJsonDes
 import { EventSubscriberMapper } from '@microk/event/infrastructure/EventSubscriberMapper';
 import RabbitMqEventbus from '@microk/event/infrastructure/rabbit-mq/RabbitMqEventBus';
 import FileErrorTracker from '@microk/utils/FileErrorTracker';
+import * as http from 'http';
 import { InfoModule } from '../modules/info/Info.module';
 import { AppKeys, AppModule } from './app.module';
 import { EnvKey } from './ProcessEnv';
@@ -62,9 +63,9 @@ export default class App {
         await this.server?.stop();
     }
 
-    // Get httpServer(): http.Server {
-    //     return this.server?.httpServer;
-    // }
+    get httpServer(): http.Server {
+        return this.server?.httpServer;
+    }
 
     private initDiContainer() {
         this.container = new DependencyContainer();

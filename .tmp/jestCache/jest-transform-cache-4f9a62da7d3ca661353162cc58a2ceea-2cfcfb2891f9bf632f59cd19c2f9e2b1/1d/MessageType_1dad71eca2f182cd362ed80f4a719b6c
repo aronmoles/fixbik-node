@@ -1,0 +1,11 @@
+ca070b7561e86537abff6f530bb40b24
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.MessageType = void 0;
+var MessageType;
+(function (MessageType) {
+    MessageType["DOMAIN_EVENT"] = "domain-event";
+    MessageType["COMMAND"] = "command";
+    MessageType["QUERY"] = "query";
+})(MessageType = exports.MessageType || (exports.MessageType = {}));
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiL1VzZXJzL2N1YXRyb29jaGVudGEvTWFnaWNTaG9wcGVyL21hZ2ljc2hvcHBlci1ub2RlL3NyYy9taWNyb2svY29tbW9uL21lc3NhZ2UvTWVzc2FnZVR5cGUudHMiLCJtYXBwaW5ncyI6Ijs7O0FBQUEsSUFBWSxXQUlYO0FBSkQsV0FBWSxXQUFXO0lBQ25CLDRDQUE2QixDQUFBO0lBQzdCLGtDQUFtQixDQUFBO0lBQ25CLDhCQUFlLENBQUE7QUFDbkIsQ0FBQyxFQUpXLFdBQVcsR0FBWCxtQkFBVyxLQUFYLG1CQUFXLFFBSXRCIiwibmFtZXMiOltdLCJzb3VyY2VzIjpbIi9Vc2Vycy9jdWF0cm9vY2hlbnRhL01hZ2ljU2hvcHBlci9tYWdpY3Nob3BwZXItbm9kZS9zcmMvbWljcm9rL2NvbW1vbi9tZXNzYWdlL01lc3NhZ2VUeXBlLnRzIl0sInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBlbnVtIE1lc3NhZ2VUeXBlIHtcbiAgICBET01BSU5fRVZFTlQgPSAnZG9tYWluLWV2ZW50JyxcbiAgICBDT01NQU5EID0gJ2NvbW1hbmQnLFxuICAgIFFVRVJZID0gJ3F1ZXJ5Jyxcbn1cbiJdLCJ2ZXJzaW9uIjozfQ==

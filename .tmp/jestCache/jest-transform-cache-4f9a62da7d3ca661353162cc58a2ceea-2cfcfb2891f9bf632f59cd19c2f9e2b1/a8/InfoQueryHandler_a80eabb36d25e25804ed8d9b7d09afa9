@@ -1,0 +1,402 @@
+574621064930fce230ad8f89b4e31ed7
+"use strict";
+
+/* istanbul ignore next */
+function cov_1cuq1o5rnx() {
+  var path = "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/modules/info/application/info/InfoQueryHandler.ts";
+  var hash = "6303fe0f56d9c88d660bf2d8263672a3987998f6";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/modules/info/application/info/InfoQueryHandler.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 22
+        },
+        end: {
+          line: 4,
+          column: 1
+        }
+      },
+      "1": {
+        start: {
+          line: 3,
+          column: 4
+        },
+        end: {
+          line: 3,
+          column: 62
+        }
+      },
+      "2": {
+        start: {
+          line: 5,
+          column: 0
+        },
+        end: {
+          line: 5,
+          column: 62
+        }
+      },
+      "3": {
+        start: {
+          line: 6,
+          column: 23
+        },
+        end: {
+          line: 6,
+          column: 72
+        }
+      },
+      "4": {
+        start: {
+          line: 7,
+          column: 20
+        },
+        end: {
+          line: 7,
+          column: 59
+        }
+      },
+      "5": {
+        start: {
+          line: 10,
+          column: 8
+        },
+        end: {
+          line: 10,
+          column: 35
+        }
+      },
+      "6": {
+        start: {
+          line: 11,
+          column: 8
+        },
+        end: {
+          line: 11,
+          column: 39
+        }
+      },
+      "7": {
+        start: {
+          line: 14,
+          column: 8
+        },
+        end: {
+          line: 14,
+          column: 41
+        }
+      },
+      "8": {
+        start: {
+          line: 17,
+          column: 0
+        },
+        end: {
+          line: 17,
+          column: 35
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 2,
+            column: 56
+          },
+          end: {
+            line: 2,
+            column: 57
+          }
+        },
+        loc: {
+          start: {
+            line: 2,
+            column: 71
+          },
+          end: {
+            line: 4,
+            column: 1
+          }
+        },
+        line: 2
+      },
+      "1": {
+        name: "(anonymous_1)",
+        decl: {
+          start: {
+            line: 9,
+            column: 4
+          },
+          end: {
+            line: 9,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 9,
+            column: 29
+          },
+          end: {
+            line: 12,
+            column: 5
+          }
+        },
+        line: 9
+      },
+      "2": {
+        name: "(anonymous_2)",
+        decl: {
+          start: {
+            line: 13,
+            column: 4
+          },
+          end: {
+            line: 13,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 13,
+            column: 18
+          },
+          end: {
+            line: 15,
+            column: 5
+          }
+        },
+        line: 13
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 2,
+            column: 22
+          },
+          end: {
+            line: 4,
+            column: 1
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 2,
+            column: 23
+          },
+          end: {
+            line: 2,
+            column: 27
+          }
+        }, {
+          start: {
+            line: 2,
+            column: 31
+          },
+          end: {
+            line: 2,
+            column: 51
+          }
+        }, {
+          start: {
+            line: 2,
+            column: 56
+          },
+          end: {
+            line: 4,
+            column: 1
+          }
+        }],
+        line: 2
+      },
+      "1": {
+        loc: {
+          start: {
+            line: 3,
+            column: 11
+          },
+          end: {
+            line: 3,
+            column: 61
+          }
+        },
+        type: "cond-expr",
+        locations: [{
+          start: {
+            line: 3,
+            column: 37
+          },
+          end: {
+            line: 3,
+            column: 40
+          }
+        }, {
+          start: {
+            line: 3,
+            column: 43
+          },
+          end: {
+            line: 3,
+            column: 61
+          }
+        }],
+        line: 3
+      },
+      "2": {
+        loc: {
+          start: {
+            line: 3,
+            column: 12
+          },
+          end: {
+            line: 3,
+            column: 33
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 3,
+            column: 12
+          },
+          end: {
+            line: 3,
+            column: 15
+          }
+        }, {
+          start: {
+            line: 3,
+            column: 19
+          },
+          end: {
+            line: 3,
+            column: 33
+          }
+        }],
+        line: 3
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0,
+      "2": 0
+    },
+    b: {
+      "0": [0, 0, 0],
+      "1": [0, 0],
+      "2": [0, 0]
+    },
+    inputSourceMap: {
+      file: "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/modules/info/application/info/InfoQueryHandler.ts",
+      mappings: ";;;;;AAAA,yEAAsE;AAEtE,4DAAoC;AAGpC,MAAqB,gBAAiB,SAAQ,2BAAqC;IAC/E,YAA6B,WAAwB;QACjD,KAAK,CAAC,mBAAS,CAAC,CAAA;QADS,gBAAW,GAAX,WAAW,CAAa;IAErD,CAAC;IAED,MAAM,CAAC,KAAgB;QACnB,OAAO,IAAI,CAAC,WAAW,CAAC,MAAM,EAAE,CAAC;IACrC,CAAC;CACJ;AARD,mCAQC",
+      names: [],
+      sources: ["/Users/cuatroochenta/MagicShopper/magicshopper-node/src/modules/info/application/info/InfoQueryHandler.ts"],
+      sourcesContent: ["import { QueryHandler } from '@microk/cqrs/domain/query/QueryHandler';\nimport { InfoResponse } from './InfoResponse';\nimport InfoQuery from './InfoQuery';\nimport InfoService from './InfoService';\n\nexport default class InfoQueryHandler extends QueryHandler<InfoQuery, InfoResponse> {\n    constructor(private readonly infoService: InfoService) {\n        super(InfoQuery)\n    }\n\n    handle(query: InfoQuery): Promise<InfoResponse> {\n        return this.infoService.invoke();\n    }\n}\n"],
+      version: 3
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "6303fe0f56d9c88d660bf2d8263672a3987998f6"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_1cuq1o5rnx = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_1cuq1o5rnx();
+
+var __importDefault =
+/* istanbul ignore next */
+(cov_1cuq1o5rnx().s[0]++,
+/* istanbul ignore next */
+(cov_1cuq1o5rnx().b[0][0]++, this) &&
+/* istanbul ignore next */
+(cov_1cuq1o5rnx().b[0][1]++, this.__importDefault) ||
+/* istanbul ignore next */
+(cov_1cuq1o5rnx().b[0][2]++, function (mod) {
+  /* istanbul ignore next */
+  cov_1cuq1o5rnx().f[0]++;
+  cov_1cuq1o5rnx().s[1]++;
+  return (
+    /* istanbul ignore next */
+    (cov_1cuq1o5rnx().b[2][0]++, mod) &&
+    /* istanbul ignore next */
+    (cov_1cuq1o5rnx().b[2][1]++, mod.__esModule) ?
+    /* istanbul ignore next */
+    (cov_1cuq1o5rnx().b[1][0]++, mod) :
+    /* istanbul ignore next */
+    (cov_1cuq1o5rnx().b[1][1]++, {
+      "default": mod
+    })
+  );
+}));
+
+/* istanbul ignore next */
+cov_1cuq1o5rnx().s[2]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+const QueryHandler_1 =
+/* istanbul ignore next */
+(cov_1cuq1o5rnx().s[3]++, require("@microk/cqrs/domain/query/QueryHandler"));
+const InfoQuery_1 =
+/* istanbul ignore next */
+(cov_1cuq1o5rnx().s[4]++, __importDefault(require("./InfoQuery")));
+
+class InfoQueryHandler extends
+/* istanbul ignore next */
+(QueryHandler_1.QueryHandler) {
+  constructor(infoService) {
+    /* istanbul ignore next */
+    cov_1cuq1o5rnx().f[1]++;
+    cov_1cuq1o5rnx().s[5]++;
+    super(InfoQuery_1.default);
+
+    /* istanbul ignore next */
+    cov_1cuq1o5rnx().s[6]++;
+    this.infoService = infoService;
+  }
+
+  handle(query) {
+    /* istanbul ignore next */
+    cov_1cuq1o5rnx().f[2]++;
+    cov_1cuq1o5rnx().s[7]++;
+    return this.infoService.invoke();
+  }
+
+}
+
+/* istanbul ignore next */
+cov_1cuq1o5rnx().s[8]++;
+exports.default = InfoQueryHandler;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9jdWF0cm9vY2hlbnRhL01hZ2ljU2hvcHBlci9tYWdpY3Nob3BwZXItbm9kZS9zcmMvbW9kdWxlcy9pbmZvL2FwcGxpY2F0aW9uL2luZm8vSW5mb1F1ZXJ5SGFuZGxlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQWFDOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQWJELE1BQUEsY0FBQTtBQUFBO0FBQUEsMEJBQUEsT0FBQSxDQUFBLHdDQUFBLENBQUEsQ0FBQTtBQUVBLE1BQUEsV0FBQTtBQUFBO0FBQUEsMEJBQUEsZUFBQSxDQUFBLE9BQUEsQ0FBQSxhQUFBLENBQUEsQ0FBQSxDQUFBOztBQUdBLE1BQXFCLGdCQUFyQjtBQUFBO0FBQUEsQ0FBOEMsY0FBQSxDQUFBLFlBQTlDLEVBQW1GO0FBQy9FLEVBQUEsV0FBQSxDQUE2QixXQUE3QixFQUFxRDtBQUFBO0FBQUE7QUFBQTtBQUNqRCxVQUFNLFdBQUEsQ0FBQSxPQUFOOztBQURpRDtBQUFBO0FBQXhCLFNBQUEsV0FBQSxHQUFBLFdBQUE7QUFFNUI7O0FBRUQsRUFBQSxNQUFNLENBQUMsS0FBRCxFQUFpQjtBQUFBO0FBQUE7QUFBQTtBQUNuQixXQUFPLEtBQUssV0FBTCxDQUFpQixNQUFqQixFQUFQO0FBQ0g7O0FBUDhFOzs7O0FBQW5GLE9BQUEsQ0FBQSxPQUFBLEdBQUEsZ0JBQUEiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBRdWVyeUhhbmRsZXIgfSBmcm9tICdAbWljcm9rL2NxcnMvZG9tYWluL3F1ZXJ5L1F1ZXJ5SGFuZGxlcic7XG5pbXBvcnQgeyBJbmZvUmVzcG9uc2UgfSBmcm9tICcuL0luZm9SZXNwb25zZSc7XG5pbXBvcnQgSW5mb1F1ZXJ5IGZyb20gJy4vSW5mb1F1ZXJ5JztcbmltcG9ydCBJbmZvU2VydmljZSBmcm9tICcuL0luZm9TZXJ2aWNlJztcblxuZXhwb3J0IGRlZmF1bHQgY2xhc3MgSW5mb1F1ZXJ5SGFuZGxlciBleHRlbmRzIFF1ZXJ5SGFuZGxlcjxJbmZvUXVlcnksIEluZm9SZXNwb25zZT4ge1xuICAgIGNvbnN0cnVjdG9yKHByaXZhdGUgcmVhZG9ubHkgaW5mb1NlcnZpY2U6IEluZm9TZXJ2aWNlKSB7XG4gICAgICAgIHN1cGVyKEluZm9RdWVyeSlcbiAgICB9XG5cbiAgICBoYW5kbGUocXVlcnk6IEluZm9RdWVyeSk6IFByb21pc2U8SW5mb1Jlc3BvbnNlPiB7XG4gICAgICAgIHJldHVybiB0aGlzLmluZm9TZXJ2aWNlLmludm9rZSgpO1xuICAgIH1cbn1cbiJdfQ==

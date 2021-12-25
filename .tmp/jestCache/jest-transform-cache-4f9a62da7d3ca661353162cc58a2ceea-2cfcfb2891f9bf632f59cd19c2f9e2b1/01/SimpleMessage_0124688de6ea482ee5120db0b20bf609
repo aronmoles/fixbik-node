@@ -1,0 +1,286 @@
+c995272eddecd324e698038b97711955
+"use strict";
+
+/* istanbul ignore next */
+function cov_1mr162snp1() {
+  var path = "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/microk/common/message/SimpleMessage.ts";
+  var hash = "f48b5d811bb20a99d742239dd29afb43fbe95c57";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/microk/common/message/SimpleMessage.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 22
+        },
+        end: {
+          line: 4,
+          column: 1
+        }
+      },
+      "1": {
+        start: {
+          line: 3,
+          column: 4
+        },
+        end: {
+          line: 3,
+          column: 62
+        }
+      },
+      "2": {
+        start: {
+          line: 5,
+          column: 0
+        },
+        end: {
+          line: 5,
+          column: 62
+        }
+      },
+      "3": {
+        start: {
+          line: 6,
+          column: 18
+        },
+        end: {
+          line: 6,
+          column: 55
+        }
+      },
+      "4": {
+        start: {
+          line: 9,
+          column: 0
+        },
+        end: {
+          line: 9,
+          column: 32
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 2,
+            column: 56
+          },
+          end: {
+            line: 2,
+            column: 57
+          }
+        },
+        loc: {
+          start: {
+            line: 2,
+            column: 71
+          },
+          end: {
+            line: 4,
+            column: 1
+          }
+        },
+        line: 2
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 2,
+            column: 22
+          },
+          end: {
+            line: 4,
+            column: 1
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 2,
+            column: 23
+          },
+          end: {
+            line: 2,
+            column: 27
+          }
+        }, {
+          start: {
+            line: 2,
+            column: 31
+          },
+          end: {
+            line: 2,
+            column: 51
+          }
+        }, {
+          start: {
+            line: 2,
+            column: 56
+          },
+          end: {
+            line: 4,
+            column: 1
+          }
+        }],
+        line: 2
+      },
+      "1": {
+        loc: {
+          start: {
+            line: 3,
+            column: 11
+          },
+          end: {
+            line: 3,
+            column: 61
+          }
+        },
+        type: "cond-expr",
+        locations: [{
+          start: {
+            line: 3,
+            column: 37
+          },
+          end: {
+            line: 3,
+            column: 40
+          }
+        }, {
+          start: {
+            line: 3,
+            column: 43
+          },
+          end: {
+            line: 3,
+            column: 61
+          }
+        }],
+        line: 3
+      },
+      "2": {
+        loc: {
+          start: {
+            line: 3,
+            column: 12
+          },
+          end: {
+            line: 3,
+            column: 33
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 3,
+            column: 12
+          },
+          end: {
+            line: 3,
+            column: 15
+          }
+        }, {
+          start: {
+            line: 3,
+            column: 19
+          },
+          end: {
+            line: 3,
+            column: 33
+          }
+        }],
+        line: 3
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0
+    },
+    f: {
+      "0": 0
+    },
+    b: {
+      "0": [0, 0, 0],
+      "1": [0, 0],
+      "2": [0, 0]
+    },
+    inputSourceMap: {
+      file: "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/microk/common/message/SimpleMessage.ts",
+      mappings: ";;;;;AAAA,wDAAgC;AAEhC,MAAqB,aAAc,SAAQ,iBAAO;CAEjD;AAFD,gCAEC",
+      names: [],
+      sources: ["/Users/cuatroochenta/MagicShopper/magicshopper-node/src/microk/common/message/SimpleMessage.ts"],
+      sourcesContent: ["import Message from './Message';\n\nexport default class SimpleMessage extends Message {\n\n}\n"],
+      version: 3
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "f48b5d811bb20a99d742239dd29afb43fbe95c57"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_1mr162snp1 = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_1mr162snp1();
+
+var __importDefault =
+/* istanbul ignore next */
+(cov_1mr162snp1().s[0]++,
+/* istanbul ignore next */
+(cov_1mr162snp1().b[0][0]++, this) &&
+/* istanbul ignore next */
+(cov_1mr162snp1().b[0][1]++, this.__importDefault) ||
+/* istanbul ignore next */
+(cov_1mr162snp1().b[0][2]++, function (mod) {
+  /* istanbul ignore next */
+  cov_1mr162snp1().f[0]++;
+  cov_1mr162snp1().s[1]++;
+  return (
+    /* istanbul ignore next */
+    (cov_1mr162snp1().b[2][0]++, mod) &&
+    /* istanbul ignore next */
+    (cov_1mr162snp1().b[2][1]++, mod.__esModule) ?
+    /* istanbul ignore next */
+    (cov_1mr162snp1().b[1][0]++, mod) :
+    /* istanbul ignore next */
+    (cov_1mr162snp1().b[1][1]++, {
+      "default": mod
+    })
+  );
+}));
+
+/* istanbul ignore next */
+cov_1mr162snp1().s[2]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+const Message_1 =
+/* istanbul ignore next */
+(cov_1mr162snp1().s[3]++, __importDefault(require("./Message")));
+
+class SimpleMessage extends
+/* istanbul ignore next */
+(Message_1.default) {}
+
+/* istanbul ignore next */
+cov_1mr162snp1().s[4]++;
+exports.default = SimpleMessage;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9jdWF0cm9vY2hlbnRhL01hZ2ljU2hvcHBlci9tYWdpY3Nob3BwZXItbm9kZS9zcmMvbWljcm9rL2NvbW1vbi9tZXNzYWdlL1NpbXBsZU1lc3NhZ2UudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUEsTUFBQSxTQUFBO0FBQUE7QUFBQSwwQkFBQSxlQUFBLENBQUEsT0FBQSxDQUFBLFdBQUEsQ0FBQSxDQUFBLENBQUE7O0FBRUEsTUFBcUIsYUFBckI7QUFBQTtBQUFBLENBQTJDLFNBQUEsQ0FBQSxPQUEzQyxFQUFrRDs7OztBQUFsRCxPQUFBLENBQUEsT0FBQSxHQUFBLGFBQUEiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgTWVzc2FnZSBmcm9tICcuL01lc3NhZ2UnO1xuXG5leHBvcnQgZGVmYXVsdCBjbGFzcyBTaW1wbGVNZXNzYWdlIGV4dGVuZHMgTWVzc2FnZSB7XG5cbn1cbiJdfQ==

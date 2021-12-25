@@ -1,0 +1,11 @@
+28719fb53ede60f1766ce49f9cc20477
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.sleep = void 0;
+const sleep = (time) => new Promise((resolve) => {
+    setTimeout(() => {
+        resolve(0);
+    }, time);
+});
+exports.sleep = sleep;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiL1VzZXJzL2N1YXRyb29jaGVudGEvTWFnaWNTaG9wcGVyL21hZ2ljc2hvcHBlci1ub2RlL3NyYy9taWNyb2svdXRpbHMvU2xlZXAudHMiLCJtYXBwaW5ncyI6Ijs7O0FBQU8sTUFBTSxLQUFLLEdBQUcsQ0FBQyxJQUFJLEVBQUUsRUFBRSxDQUFDLElBQUksT0FBTyxDQUFDLENBQUMsT0FBTyxFQUFFLEVBQUU7SUFDbkQsVUFBVSxDQUFDLEdBQUcsRUFBRTtRQUNaLE9BQU8sQ0FBQyxDQUFDLENBQUMsQ0FBQztJQUNmLENBQUMsRUFBRSxJQUFJLENBQUMsQ0FBQztBQUNiLENBQUMsQ0FBQyxDQUFBO0FBSlcsUUFBQSxLQUFLLFNBSWhCIiwibmFtZXMiOltdLCJzb3VyY2VzIjpbIi9Vc2Vycy9jdWF0cm9vY2hlbnRhL01hZ2ljU2hvcHBlci9tYWdpY3Nob3BwZXItbm9kZS9zcmMvbWljcm9rL3V0aWxzL1NsZWVwLnRzIl0sInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBjb25zdCBzbGVlcCA9ICh0aW1lKSA9PiBuZXcgUHJvbWlzZSgocmVzb2x2ZSkgPT4ge1xuICAgIHNldFRpbWVvdXQoKCkgPT4ge1xuICAgICAgICByZXNvbHZlKDApO1xuICAgIH0sIHRpbWUpO1xufSlcbiJdLCJ2ZXJzaW9uIjozfQ==
