@@ -1,9 +1,9 @@
 import { HttpMethod } from '@microk/common/http/HttpMethod';
 import Module from '@microk/core/domain/module/Module';
 import { ModuleKeys } from '@microk/core/domain/module/ModuleKeys';
+import { AppKeys } from '../../app/app.module';
 import InfoController from './infrastructure/InfoController';
 import InfoService from './application/info/InfoService';
-import { ContainerKeys } from '../../app/ContainerKeys';
 import InfoQueryHandler from './application/info/InfoQueryHandler';
 import SetInfoService from './application/set-info/SetInfoService';
 import SetInfoCommandHandler from './application/set-info/SetInfoCommandHandler';
@@ -30,38 +30,38 @@ export const InfoModule: Module = {
             class: InfoController,
             httpMethod: HttpMethod.GET,
             path: '/',
-            dep: [ContainerKeys.QueryBus],
+            dep: [AppKeys.QueryBus],
         },
         {
             key: InfoModuleKeys.SetInfoController,
             class: SetInfoController,
             httpMethod: HttpMethod.PUT,
             path: '/',
-            dep: [ContainerKeys.CommandBus],
+            dep: [AppKeys.CommandBus],
         },
     ],
     middlewares: [
         // {
         //     key: InfoModuleKeys.AuthMiddleware,
         //     class: AuthMiddleware,
-        //     dep: [ContainerKeys.Logger],
+        //     dep: [AppKeys.Logger],
         // },
     ],
     services: [
         {
             key: InfoModuleKeys.InfoService,
             class: InfoService,
-            dep: [ContainerKeys.EventBus],
+            dep: [AppKeys.EventBus],
         },
         {
             key: InfoModuleKeys.SetInfoService,
             class: SetInfoService,
-            dep: [ContainerKeys.Logger],
+            dep: [AppKeys.Logger],
         },
         {
             key: InfoModuleKeys.SendEmailService,
             class: SendEmailService,
-            dep: [ContainerKeys.Logger],
+            dep: [AppKeys.Logger],
         },
     ],
     queryHandlers: [
@@ -82,7 +82,7 @@ export const InfoModule: Module = {
         {
             key: InfoModuleKeys.SendEmailInfoRequestDomainEventSubscriber,
             class: SendEmailInfoRequestDomainEventSubscriber,
-            dep: [InfoModuleKeys.SendEmailService, ContainerKeys.CommandBus],
+            dep: [InfoModuleKeys.SendEmailService, AppKeys.CommandBus],
         },
     ],
 };

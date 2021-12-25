@@ -11,6 +11,12 @@ export enum EnvMode {
 export interface EnvKey {
     NODE_ENV: string;
     PORT: string;
+
+    RABBITMQ_HOST: string;
+    RABBITMQ_USER: string;
+    RABBITMQ_PASSWORD: string;
+    RABBITMQ_EXCHANGE: string;
+    RABBITMQ_QUEUE: string;
 }
 
 export default class ProcessEnv implements Env<EnvKey> {
@@ -20,6 +26,12 @@ export default class ProcessEnv implements Env<EnvKey> {
         this.env = {
             NODE_ENV: process.env.NODE_ENV,
             PORT: '3000',
+
+            RABBITMQ_HOST: '',
+            RABBITMQ_USER: '',
+            RABBITMQ_PASSWORD: '',
+            RABBITMQ_EXCHANGE: '',
+            RABBITMQ_QUEUE: '',
         };
 
         // TODO Crear un DotEnv

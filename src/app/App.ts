@@ -1,3 +1,4 @@
+import Env from '@microk/core/domain/Env';
 import Logger from '@microk/core/domain/Logger';
 import DependencyContainer from '@microk/core/infrastructure/di/DependencyContainer';
 import ModuleDependencyMapper from '@microk/core/infrastructure/di/ModuleDependencyMapper';
@@ -8,7 +9,6 @@ import EventSubscriberModuleDiscoverer from '@microk/core/infrastructure/module/
 import QueryHandlersModuleDiscoverer from '@microk/core/infrastructure/module/QueryHandlersModuleDiscoverer';
 import ServerRoutesModuleDiscoverer from '@microk/core/infrastructure/module/ServerRoutesModuleDiscoverer';
 import ServiceModuleDiscoverer from '@microk/core/infrastructure/module/ServiceModuleDiscoverer';
-import SystemLogger from '@microk/core/infrastructure/SystemLogger';
 import Command from '@microk/cqrs/domain/command/Command';
 import { CommandBus } from '@microk/cqrs/domain/command/CommandBus';
 import CommandHandler from '@microk/cqrs/domain/command/CommandHandler';
@@ -16,10 +16,6 @@ import Query from '@microk/cqrs/domain/query/Query';
 import QueryBus from '@microk/cqrs/domain/query/QueryBus';
 import { QueryHandler } from '@microk/cqrs/domain/query/QueryHandler';
 import { CommandHandlersMapper } from '@microk/cqrs/infrastructure/command/CommandHandlersMapper';
-import { InMemoryCommandBus } from '@microk/cqrs/infrastructure/command/InMemoryCommandBus';
-import { MiddlewareCommandBus } from '@microk/cqrs/infrastructure/command/MiddlewareCommandBus';
-import InMemoryQueryBus from '@microk/cqrs/infrastructure/query/InMemoryQueryBus';
-import MiddlewareQueryBus from '@microk/cqrs/infrastructure/query/MiddlewareQueryBus';
 import QueryHandlersMapper from '@microk/cqrs/infrastructure/query/QueryHandlersMapper';
 import DomainEvent from '@microk/event/domain/DomainEvent';
 import EventBus from '@microk/event/domain/EventBus';
@@ -28,39 +24,31 @@ import { EventClassMapper } from '@microk/event/infrastructure/EventClassMapper'
 import { EventJsonDeserializer } from '@microk/event/infrastructure/EventJsonDeserializer';
 import { EventSubscriberMapper } from '@microk/event/infrastructure/EventSubscriberMapper';
 import RabbitMqEventbus from '@microk/event/infrastructure/rabbit-mq/RabbitMqEventBus';
-import StoreMessageBusMiddleware from '@microk/message-store/infrastructure/StoreMessageBusMiddleware';
-import BusTimeMiddleware from '@microk/utils/BusTimeMiddleware';
 import FileErrorTracker from '@microk/utils/FileErrorTracker';
-import FileMessageStore from '@microk/utils/FileMessageStore';
-import { ContainerKeys } from './ContainerKeys';
-import Server from './Server';
-import ProcessEnv from './ProcessEnv';
 import { InfoModule } from '../modules/info/Info.module';
+import { AppKeys, AppModule } from './app.module';
+import { EnvKey } from './ProcessEnv';
+import Server from './Server';
 
 export default class App {
-    private readonly container: DependencyContainer;
+    private container: DependencyContainer;
 
-    private readonly modules = [InfoModule];
+    private readonly appModule = AppModule;
+    private readonly modules = [AppModule, InfoModule];
 
     private readonly server?: Server;
 
     constructor() {
-        const env = new ProcessEnv();
-        const logger = new SystemLogger();
+        this.initDiContainer();
+        this.registerServices();
+        const env = this.container.get<Env<EnvKey>>(AppKeys.Env);
+        const logger = this.container.get<Logger>(AppKeys.Logger);
         this.server = new Server(env, logger);
-        this.container = new DependencyContainer();
-        this.container.addInstance(ContainerKeys.Env, env);
-        this.container.addInstance(ContainerKeys.Logger, logger);
     }
 
     async start() {
-        await this.initDiContainer();
-        await this.initErrorTracker();
-        await this.initEventBus();
-        await this.initQueryBus();
-        await this.initCommandBus();
-        await this.initMiddleware();
-        await this.registerServices();
+        this.initMiddleware();
+        this.initErrorTracker();
         await this.initEventBusMapper();
         await this.initQueryBusMapper();
         await this.initCommandBusMapper();
@@ -78,65 +66,36 @@ export default class App {
     //     return this.server?.httpServer;
     // }
 
-    private async initDiContainer() {
+    private initDiContainer() {
+        this.container = new DependencyContainer();
         const modulesDependencyMapper = new ModuleDependencyMapper(this.modules);
         this.container.attachDependencyMapper(modulesDependencyMapper);
     }
 
-    private async initErrorTracker() {
-        this.container.addClass(ContainerKeys.ErrorTracker, FileErrorTracker)
+    private initErrorTracker() {
+        this.container.addClass(AppKeys.ErrorTracker, FileErrorTracker)
     }
 
-    private async initMiddleware() {
+    private initMiddleware() {
         this.server.registerControllerMiddleware([
-            //     New TimeMiddleware(this.container.get(ContainerKeys.Logger)),
+            // new TimeMiddleware(this.container.get(ContainerKeys.Logger)),
         ]);
     }
 
-    private async initEventBus() {
-        // const eventBus = new InMemoryEventBus();
-
-        const eventBus = new RabbitMqEventbus(
-            {
-                host: 'localhost',
-                user: 'guest',
-                password: 'guest',
-                exchange: 'ExchangeName',
-                queue: 'QueueName',
-            },
-            this.container.get<Logger>(ContainerKeys.Logger),
-        );
-        this.container.addInstance(ContainerKeys.EventBus, eventBus)
-    }
-
-    private async initQueryBus() {
-        const queryBus = new MiddlewareQueryBus(
-            new InMemoryQueryBus(),
-            [
-                new BusTimeMiddleware(this.container.get(ContainerKeys.Logger)),
-                new StoreMessageBusMiddleware(new FileMessageStore()),
-            ]
-        );
-        this.container.addInstance(ContainerKeys.QueryBus, queryBus)
-    }
-
-    private async initCommandBus() {
-        const commandBus = new MiddlewareCommandBus(
-            new InMemoryCommandBus(),
-            [
-                new BusTimeMiddleware(this.container.get(ContainerKeys.Logger)),
-                new StoreMessageBusMiddleware(new FileMessageStore()),
-            ],
-        );
-        this.container.addInstance(ContainerKeys.CommandBus, commandBus)
-    }
-
-    private async registerServices() {
+    private registerServices() {
         const moduleServiceDiscover = new ServiceModuleDiscoverer();
         this.modules
             .map((module) => moduleServiceDiscover.discover(module))
             .reduce((prev, current) => prev.concat(current), [])
-            .forEach((service) => this.container.addClass(service.key, service.class));
+            .forEach((service) => {
+                if (service.class) {
+                    this.container.addClass(service.key, service.class)
+                } else if (service.instance) {
+                    this.container.addInstance(service.key, service.instance)
+                } else {
+                    throw new Error(`<${service.key.toString()}> not defined class or instance.`)
+                }
+            });
     }
 
     private async initQueryBusMapper() {
@@ -146,7 +105,7 @@ export default class App {
             .reduce((prev, current) => prev.concat(current), [])
             .map((moduleService) => this.container.get<QueryHandler<Query, Response>>(moduleService.key));
         const queryHandlerMapper = new QueryHandlersMapper(queryHandlers);
-        const queryBus = this.container.get<QueryBus>(ContainerKeys.QueryBus);
+        const queryBus = this.container.get<QueryBus>(AppKeys.QueryBus);
         queryBus.attachMapper(queryHandlerMapper)
     }
 
@@ -157,7 +116,7 @@ export default class App {
             .reduce((prev, current) => prev.concat(current), [])
             .map((moduleService) => this.container.get<CommandHandler<Command>>(moduleService.key));
         const commandHandlerMapper = new CommandHandlersMapper(commandHandlers);
-        const commandBus = this.container.get<CommandBus>(ContainerKeys.CommandBus);
+        const commandBus = this.container.get<CommandBus>(AppKeys.CommandBus);
         commandBus.attachMapper(commandHandlerMapper)
     }
 
@@ -168,7 +127,7 @@ export default class App {
             .reduce((prev, current) => prev.concat(current), [])
             .map((moduleService) => this.container.get<EventSubscriber<DomainEvent>>(moduleService.key));
         const domainEventSubscriberMapper = new EventSubscriberMapper(domainEventSubscribers);
-        const eventBus = this.container.get<EventBus>(ContainerKeys.EventBus);
+        const eventBus = this.container.get<EventBus>(AppKeys.EventBus);
         eventBus.attachMapper(domainEventSubscriberMapper)
         const domainJsonDeserializer = new EventJsonDeserializer(
             new EventClassMapper(domainEventSubscribers),
@@ -186,8 +145,8 @@ export default class App {
 
     private async initErrorMiddleware() {
         this.server.registerErrorMiddleware([
-            new HttpErrorMiddleware(this.container.get(ContainerKeys.Logger)),
-            new PersistErrorMiddleware(this.container.get(ContainerKeys.ErrorTracker)),
+            new HttpErrorMiddleware(this.container.get(AppKeys.Logger)),
+            new PersistErrorMiddleware(this.container.get(AppKeys.ErrorTracker)),
         ]);
     }
 }

@@ -18,7 +18,7 @@ export default class ModuleDependencyMapper implements DependencyMapper {
                 ...(module.domainEventSubscribers || []),
             ];
             for (const moduleController of services) {
-                if (moduleController.class.prototype.constructor.name === name) {
+                if (moduleController.class && moduleController.class.prototype.constructor.name === name) {
                     return moduleController.dep || [];
                 }
             }

@@ -8,7 +8,8 @@ import { QueryHandler } from '../../../cqrs/domain/query/QueryHandler';
 
 export interface ModuleService<T> {
     key: ContainerKey,
-    class: Type<T>,
+    class?: Type<T>,
+    instance?: T,
     dep?: Dependency[],
 }
 
