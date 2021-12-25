@@ -26,7 +26,6 @@ import DomainEventSubscriber from '../modules/shared/domain/event-bus/DomainEven
 import DomainEvent from '../modules/shared/domain/messages/DomainEvent';
 import DomainEventSubscriberModuleDiscoverer
     from '../modules/shared/infrastructure/framework/module/DomainEventSubscriberModuleDiscoverer';
-import InMemoryEventBus from '../modules/shared/infrastructure/event-bus/InMemoryEventBus';
 import { DomainEventSubscriberMapper } from '../modules/shared/infrastructure/event-bus/DomainEventSubscriberMapper';
 import QueryBus from '../modules/shared/domain/query-bus/QueryBus';
 import EventBus from '../modules/shared/domain/event-bus/EventBus';
@@ -35,6 +34,10 @@ import InMemoryQueryBus from '../modules/shared/infrastructure/query-bus/InMemor
 import { InMemoryCommandBus } from '../modules/shared/infrastructure/command-bus/InMemoryCommandBus';
 import PersistErrorMiddleware from '../modules/shared/infrastructure/PersistErrorMiddleware';
 import FileErrorTracker from '../modules/shared/infrastructure/error/FileErrorTracker';
+import RabbitMqEventbus from '../modules/shared/infrastructure/event-bus/rabbit-mq/RabbitMqEventBus';
+import Logger from '../modules/shared/domain/Logger';
+import { DomainEventJsonDeserializer } from '../modules/shared/infrastructure/event-bus/DomainEventJsonDeserializer';
+import { DomainEventClassMapper } from '../modules/shared/infrastructure/event-bus/DomainEventClassMapper';
 
 export default class App {
     private readonly container: DependencyContainer;
@@ -93,7 +96,18 @@ export default class App {
     }
 
     private async initEventBus() {
-        const eventBus = new InMemoryEventBus();
+        // const eventBus = new InMemoryEventBus();
+
+        const eventBus = new RabbitMqEventbus(
+            {
+                host: 'localhost',
+                user: 'guest',
+                password: 'guest',
+                exchange: 'ExchangeName',
+                queue: 'QueueName',
+            },
+            this.container.get<Logger>(ContainerKeys.Logger),
+        );
         this.container.addInstance(ContainerKeys.EventBus, eventBus)
     }
 
@@ -121,17 +135,6 @@ export default class App {
             .forEach((service) => this.container.addClass(service.key, service.class));
     }
 
-    private async initEventBusMapper() {
-        const domainEventSubscriberModuleDiscoverer = new DomainEventSubscriberModuleDiscoverer();
-        const domainEventSubscribers = this.modules
-            .map((module) => domainEventSubscriberModuleDiscoverer.discover(module))
-            .reduce((prev, current) => prev.concat(current), [])
-            .map((moduleService) => this.container.get<DomainEventSubscriber<DomainEvent>>(moduleService.key));
-        const domainEventSubscriberMapper = new DomainEventSubscriberMapper(domainEventSubscribers);
-        const eventBus = this.container.get<EventBus>(ContainerKeys.EventBus);
-        eventBus.attachMapper(domainEventSubscriberMapper)
-    }
-
     private async initQueryBusMapper() {
         const moduleServiceDiscover = new QueryHandlersModuleDiscoverer();
         const queryHandlers = this.modules
@@ -152,6 +155,22 @@ export default class App {
         const commandHandlerMapper = new CommandHandlersMapper(commandHandlers);
         const commandBus = this.container.get<CommandBus>(ContainerKeys.CommandBus);
         commandBus.attachMapper(commandHandlerMapper)
+    }
+
+    private async initEventBusMapper() {
+        const domainEventSubscriberModuleDiscoverer = new DomainEventSubscriberModuleDiscoverer();
+        const domainEventSubscribers = this.modules
+            .map((module) => domainEventSubscriberModuleDiscoverer.discover(module))
+            .reduce((prev, current) => prev.concat(current), [])
+            .map((moduleService) => this.container.get<DomainEventSubscriber<DomainEvent>>(moduleService.key));
+        const domainEventSubscriberMapper = new DomainEventSubscriberMapper(domainEventSubscribers);
+        const eventBus = this.container.get<EventBus>(ContainerKeys.EventBus);
+        eventBus.attachMapper(domainEventSubscriberMapper)
+        const domainJsonDeserializer = new DomainEventJsonDeserializer(
+            new DomainEventClassMapper(domainEventSubscribers),
+        )
+        // TODO start to all event bus
+        await (eventBus as RabbitMqEventbus).start(domainJsonDeserializer);
     }
 
     private async registerRoutes() {

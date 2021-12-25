@@ -6,8 +6,8 @@ import MessageName from './MessageName';
 import AggregateMessageOccurredOn from './AggregateMessageOccurredOn';
 import MessageId from './MessageId';
 
-export default class DomainEvent extends AggregateMessage {
-    constructor(
+export default abstract class DomainEvent extends AggregateMessage {
+    protected constructor(
         id: MessageId,
         name: MessageName,
         aggregateId: Uuid,

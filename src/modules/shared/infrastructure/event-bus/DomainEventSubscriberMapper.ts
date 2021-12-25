@@ -1,8 +1,9 @@
 import DomainEventSubscriber from '../../domain/event-bus/DomainEventSubscriber';
 import DomainEvent from '../../domain/messages/DomainEvent';
 import MessageName from '../../domain/messages/MessageName';
+import { Mapper } from '../../domain/Mapper';
 
-export class DomainEventSubscriberMapper {
+export class DomainEventSubscriberMapper implements Mapper<MessageName, DomainEventSubscriber<DomainEvent>[]> {
     private domainEventSubscribersMap: Map<string, Array<DomainEventSubscriber<DomainEvent>>>;
 
     constructor(domainEventSubscribers: Array<DomainEventSubscriber<DomainEvent>>) {
@@ -15,13 +16,13 @@ export class DomainEventSubscriberMapper {
         const domainEventSubscribersMap = new Map<string, Array<DomainEventSubscriber<DomainEvent>>>();
 
         domainEventSubscribers.forEach((domainEventSubscriber) => {
-            domainEventSubscriber.subscribedTo().forEach((messageName) => {
-                let domainEventSubscribersInMap = domainEventSubscribersMap.get(messageName.value());
+            domainEventSubscriber.subscribedTo().forEach((domainEventClass) => {
+                let domainEventSubscribersInMap = domainEventSubscribersMap.get(domainEventClass.EVENT_NAME.value());
                 if (!domainEventSubscribersInMap) {
                     domainEventSubscribersInMap = [];
                 }
                 domainEventSubscribersInMap.push(domainEventSubscriber)
-                domainEventSubscribersMap.set(messageName.value(), domainEventSubscribersInMap)
+                domainEventSubscribersMap.set(domainEventClass.EVENT_NAME.value(), domainEventSubscribersInMap)
             })
         });
 

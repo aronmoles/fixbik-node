@@ -12,7 +12,7 @@ export default class MessageMeta implements Serializable {
         private readonly value: MessageMetaType = {},
     ) {}
 
-    toJSON(): PrimitivesObject {
+    toPrimitive(): PrimitivesObject {
         return this.value;
     }
 }

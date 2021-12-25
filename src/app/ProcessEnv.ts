@@ -22,6 +22,7 @@ export default class ProcessEnv implements Env<EnvKey> {
             PORT: '3000',
         };
 
+        // TODO Crear un DotEnv
         const modeEnvFilePath = `${__dirname}/../../.env.${process.env.NODE_ENV}`;
         if (fs.existsSync(modeEnvFilePath)) {
             require('dotenv').config({ path: modeEnvFilePath });

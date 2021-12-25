@@ -19,9 +19,7 @@ export default class InfoRequestedDomainEvent extends DomainEvent {
         );
     }
 
-    static fromPrimitives(
-        aggregateId: string,
-    ): DomainEvent {
-        return new InfoRequestedDomainEvent(new Uuid(aggregateId));
+    static fromPrimitives(args: any): InfoRequestedDomainEvent {
+        return new InfoRequestedDomainEvent(new Uuid(args.aggregateId));
     }
 }

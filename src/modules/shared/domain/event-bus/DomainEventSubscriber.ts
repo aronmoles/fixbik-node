@@ -1,15 +1,14 @@
 import DomainEvent, { DomainEventClass } from '../messages/DomainEvent';
-import MessageName from '../messages/MessageName';
 
 export default abstract class DomainEventSubscriber<E extends DomainEvent> {
-    private readonly _eventNames: MessageName[];
+    private readonly _domainEventClasses: DomainEventClass[];
 
-    protected constructor(...domainEvents: DomainEventClass[]) {
-        this._eventNames = domainEvents.map((domainEvent) => domainEvent.EVENT_NAME);
+    protected constructor(...domainEventClasses: DomainEventClass[]) {
+        this._domainEventClasses = domainEventClasses;
     }
 
-    public subscribedTo(): MessageName[] {
-        return this._eventNames;
+    public subscribedTo(): DomainEventClass[] {
+        return this._domainEventClasses;
     }
 
     public abstract dispatch(event: E): void;
