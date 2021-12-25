@@ -1,12 +1,14 @@
 import Command from '../../domain/command-bus/Command';
-import { InMemoryCommandBus } from './InMemoryCommandBus';
 import BusMiddleware from '../../domain/BusMiddleware';
+import CommandBusDecorator from '../../domain/command-bus/CommandBusDecorator';
+import { CommandBus } from '../../domain/command-bus/CommandBus';
 
-export class InMemoryMiddlewareCommandBus extends InMemoryCommandBus {
-    private readonly middlewares: BusMiddleware<Command, void>[] = [];
+export class MiddlewareCommandBus extends CommandBusDecorator {
+    private readonly middlewares: BusMiddleware<Command, void>[];
 
-    public addMiddleware(commandBusMiddleware: BusMiddleware<Command, void>) {
-        this.middlewares.push(commandBusMiddleware)
+    constructor(commandBus: CommandBus, middlewares: BusMiddleware<Command, void>[]) {
+        super(commandBus);
+        this.middlewares = middlewares;
     }
 
     async dispatch(command: Command): Promise<void> {

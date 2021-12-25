@@ -9,7 +9,7 @@ export default class InfoService {
     }
 
     public async invoke(): Promise<InfoResponse> {
-        // Throw new NotFoundHttpError('Esto es un error tocho');
+        // throw new NotFoundHttpError('Esto es un error tocho');
         await sleep(1200)
 
         this.eventBus.publish([new InfoRequestedDomainEvent(Uuid.create())])

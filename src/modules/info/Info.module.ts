@@ -3,7 +3,6 @@ import InfoController from './infrastructure/InfoController';
 import { ModuleKeys } from '../shared/domain/framework/ModuleKeys';
 import InfoService from './application/info/InfoService';
 import { HttpMethod } from '../shared/domain/http/HttpMethod';
-import AuthMiddleware from './infrastructure/AuthMiddleware';
 import { ContainerKeys } from '../../app/ContainerKeys';
 import InfoQueryHandler from './application/info/InfoQueryHandler';
 import SetInfoService from './application/set-info/SetInfoService';
@@ -42,11 +41,11 @@ export const InfoModule: Module = {
         },
     ],
     middlewares: [
-        {
-            key: InfoModuleKeys.AuthMiddleware,
-            class: AuthMiddleware,
-            dep: [ContainerKeys.Logger],
-        },
+        // {
+        //     key: InfoModuleKeys.AuthMiddleware,
+        //     class: AuthMiddleware,
+        //     dep: [ContainerKeys.Logger],
+        // },
     ],
     services: [
         {

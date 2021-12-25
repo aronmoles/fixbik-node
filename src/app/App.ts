@@ -20,10 +20,8 @@ import { QueryHandler } from '../modules/shared/domain/query-bus/QueryHandler';
 import Query from '../modules/shared/domain/query-bus/Query';
 import CommandHandler from '../modules/shared/domain/command-bus/CommandHandler';
 import Command from '../modules/shared/domain/command-bus/Command';
-import InMemoryMiddlewareQueryBus from '../modules/shared/infrastructure/query-bus/InMemoryMiddlewareQueryBus';
-import {
-    InMemoryMiddlewareCommandBus,
-} from '../modules/shared/infrastructure/command-bus/InMemoryMiddlewareCommandBus';
+import MiddlewareQueryBus from '../modules/shared/infrastructure/query-bus/MiddlewareQueryBus';
+import { MiddlewareCommandBus } from '../modules/shared/infrastructure/command-bus/MiddlewareCommandBus';
 import DomainEventSubscriber from '../modules/shared/domain/event-bus/DomainEventSubscriber';
 import DomainEvent from '../modules/shared/domain/messages/DomainEvent';
 import DomainEventSubscriberModuleDiscoverer
@@ -33,6 +31,10 @@ import { DomainEventSubscriberMapper } from '../modules/shared/infrastructure/ev
 import QueryBus from '../modules/shared/domain/query-bus/QueryBus';
 import EventBus from '../modules/shared/domain/event-bus/EventBus';
 import { CommandBus } from '../modules/shared/domain/command-bus/CommandBus';
+import InMemoryQueryBus from '../modules/shared/infrastructure/query-bus/InMemoryQueryBus';
+import { InMemoryCommandBus } from '../modules/shared/infrastructure/command-bus/InMemoryCommandBus';
+import PersistErrorMiddleware from '../modules/shared/infrastructure/PersistErrorMiddleware';
+import FileErrorTracker from '../modules/shared/infrastructure/error/FileErrorTracker';
 
 export default class App {
     private readonly container: DependencyContainer;
@@ -48,30 +50,21 @@ export default class App {
         this.container = new DependencyContainer();
         this.container.addInstance(ContainerKeys.Env, env);
         this.container.addInstance(ContainerKeys.Logger, logger);
-
-        const eventBus = new InMemoryEventBus();
-        // eventBus.addMiddleware(new BusTimeMiddleware(this.container.get(ContainerKeys.Logger)))
-        this.container.addInstance(ContainerKeys.EventBus, eventBus)
-
-        const queryBus = new InMemoryMiddlewareQueryBus();
-        queryBus.addMiddleware(new BusTimeMiddleware(this.container.get(ContainerKeys.Logger)))
-        this.container.addInstance(ContainerKeys.QueryBus, queryBus)
-
-        const commandBus = new InMemoryMiddlewareCommandBus();
-        commandBus.addMiddleware(new BusTimeMiddleware(this.container.get(ContainerKeys.Logger)))
-        this.container.addInstance(ContainerKeys.CommandBus, commandBus)
     }
 
     async start() {
         await this.initDiContainer();
-        await this.initMiddleware();
-        await this.registerServices();
         await this.initEventBus();
         await this.initQueryBus();
         await this.initCommandBus();
+        await this.initMiddleware();
+        await this.registerServices();
+        await this.initEventBusMapper();
+        await this.initQueryBusMapper();
+        await this.initCommandBusMapper();
         await this.registerRoutes();
         await this.initErrorMiddleware();
-        await this.initEventBus();
+        await this.initEventBusMapper();
         return this.server.listen();
     }
 
@@ -90,8 +83,29 @@ export default class App {
 
     private async initMiddleware() {
         this.server.registerControllerMiddleware([
-        //     New TimeMiddleware(this.container.get(ContainerKeys.Logger)),
+            //     New TimeMiddleware(this.container.get(ContainerKeys.Logger)),
         ]);
+    }
+
+    private async initEventBus() {
+        const eventBus = new InMemoryEventBus();
+        this.container.addInstance(ContainerKeys.EventBus, eventBus)
+    }
+
+    private async initQueryBus() {
+        const queryBus = new MiddlewareQueryBus(
+            new InMemoryQueryBus(),
+            [new BusTimeMiddleware(this.container.get(ContainerKeys.Logger))]
+        );
+        this.container.addInstance(ContainerKeys.QueryBus, queryBus)
+    }
+
+    private async initCommandBus() {
+        const commandBus = new MiddlewareCommandBus(
+            new InMemoryCommandBus(),
+            [new BusTimeMiddleware(this.container.get(ContainerKeys.Logger))],
+        );
+        this.container.addInstance(ContainerKeys.CommandBus, commandBus)
     }
 
     private async registerServices() {
@@ -102,7 +116,7 @@ export default class App {
             .forEach((service) => this.container.addClass(service.key, service.class));
     }
 
-    private async initEventBus() {
+    private async initEventBusMapper() {
         const domainEventSubscriberModuleDiscoverer = new DomainEventSubscriberModuleDiscoverer();
         const domainEventSubscribers = this.modules
             .map((module) => domainEventSubscriberModuleDiscoverer.discover(module))
@@ -113,7 +127,7 @@ export default class App {
         eventBus.attachMapper(domainEventSubscriberMapper)
     }
 
-    private async initQueryBus() {
+    private async initQueryBusMapper() {
         const moduleServiceDiscover = new QueryHandlersModuleDiscoverer();
         const queryHandlers = this.modules
             .map((module) => moduleServiceDiscover.discover(module))
@@ -124,7 +138,7 @@ export default class App {
         queryBus.attachMapper(queryHandlerMapper)
     }
 
-    private async initCommandBus() {
+    private async initCommandBusMapper() {
         const moduleServiceDiscover = new CommandHandlersModuleDiscoverer();
         const commandHandlers = this.modules
             .map((module) => moduleServiceDiscover.discover(module))
@@ -145,6 +159,7 @@ export default class App {
     private async initErrorMiddleware() {
         this.server.registerErrorMiddleware([
             new HttpErrorMiddleware(this.container.get(ContainerKeys.Logger)),
+            new PersistErrorMiddleware(new FileErrorTracker()),
         ]);
     }
 }

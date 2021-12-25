@@ -54,7 +54,9 @@ export default class Server {
 
     registerErrorMiddleware(middlewareList: ErrorMiddleware[]): void {
         middlewareList.forEach((middleware) => {
-            this.express.use(middleware.apply.bind(this));
+            this.express.use((error, req, res, next) => {
+                middleware.apply(error, req, res, next)
+            });
         });
     }
 
