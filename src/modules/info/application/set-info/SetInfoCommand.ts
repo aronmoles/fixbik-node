@@ -1,7 +1,7 @@
-import Command from '../../../shared/domain/command-bus/Command';
-import MessageId from '../../../shared/domain/messages/MessageId';
-import MessageNameFactory from '../../../shared/infrastructure/MessageNameFactory';
-import { MessageType } from '../../../shared/domain/messages/MessageType';
+import MessageId from '@microk/common/message/MessageId';
+import { MessageType } from '@microk/common/message/MessageType';
+import MessageNameFactory from '@microk/common/value-object/MessageNameFactory';
+import Command from '@microk/cqrs/domain/command/Command';
 
 export default class SetInfoCommand extends Command {
     constructor() {

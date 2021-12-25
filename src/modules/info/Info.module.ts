@@ -1,8 +1,8 @@
-import Module from '../shared/domain/framework/Module';
+import { HttpMethod } from '@microk/common/http/HttpMethod';
+import Module from '@microk/core/domain/module/Module';
+import { ModuleKeys } from '@microk/core/domain/module/ModuleKeys';
 import InfoController from './infrastructure/InfoController';
-import { ModuleKeys } from '../shared/domain/framework/ModuleKeys';
 import InfoService from './application/info/InfoService';
-import { HttpMethod } from '../shared/domain/http/HttpMethod';
 import { ContainerKeys } from '../../app/ContainerKeys';
 import InfoQueryHandler from './application/info/InfoQueryHandler';
 import SetInfoService from './application/set-info/SetInfoService';

@@ -5,7 +5,11 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "outDir": "build"
+    "outDir": "build",
+    "baseUrl": "./src",
+    "paths": {
+      "@microk/*": ["microk/*"],
+    }
   },
   "include": [
     "src/**/*"

@@ -1,5 +1,5 @@
-import Logger from '../../../shared/domain/Logger';
-import { sleep } from '../../../shared/infrastructure/Sleep';
+import Logger from '@microk/core/domain/Logger';
+import { sleep } from '@microk/utils/Sleep';
 
 export default class SendEmailService {
     constructor(private readonly logger: Logger) {

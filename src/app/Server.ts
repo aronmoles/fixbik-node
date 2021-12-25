@@ -1,16 +1,16 @@
+import { HttpMethod } from '@microk/common/http/HttpMethod';
+import Env from '@microk/core/domain/Env';
+import { ErrorMiddleware } from '@microk/core/domain/ErrorMiddleware';
+import Controller from '@microk/core/domain/http/Controller';
+import Logger from '@microk/core/domain/Logger';
+import { Middleware } from '@microk/core/domain/Middleware';
 import bodyParser from 'body-parser';
 import compress from 'compression';
 import express, { Request, Response } from 'express';
 import Router from 'express-promise-router';
 import helmet from 'helmet';
 import * as http from 'http';
-import Logger from '../modules/shared/domain/Logger';
 import { EnvKey } from './ProcessEnv';
-import Env from '../modules/shared/domain/Env';
-import { HttpMethod } from '../modules/shared/domain/http/HttpMethod';
-import Controller from '../modules/shared/domain/framework/Controller';
-import { ErrorMiddleware } from '../modules/shared/domain/framework/ErrorMiddleware';
-import { Middleware } from '../modules/shared/domain/framework/Middleware';
 
 export type ServerController = {
     method: HttpMethod,

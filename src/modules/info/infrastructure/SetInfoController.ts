@@ -1,8 +1,8 @@
-import Controller from '../../shared/domain/framework/Controller';
-import { HttpStatus } from '../../shared/domain/http/HttpStatus';
-import { Request } from '../../shared/domain/framework/Request';
-import { Response } from '../../shared/domain/framework/Response';
-import { CommandBus } from '../../shared/domain/command-bus/CommandBus';
+import { HttpStatus } from '@microk/common/http/HttpStatus';
+import Controller from '@microk/core/domain/http/Controller';
+import { Request } from '@microk/core/domain/http/Request';
+import { Response } from '@microk/core/domain/http/Response';
+import { CommandBus } from '@microk/cqrs/domain/command/CommandBus';
 import SetInfoCommand from '../application/set-info/SetInfoCommand';
 
 export default class SetInfoController implements Controller {

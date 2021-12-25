@@ -1,4 +1,4 @@
-import Logger from '../../../shared/domain/Logger';
+import Logger from '@microk/core/domain/Logger';
 
 export default class SetInfoService {
     constructor(private readonly logger: Logger) {

@@ -1,9 +1,9 @@
-import DomainEvent from '../../shared/domain/messages/DomainEvent';
-import MessageId from '../../shared/domain/messages/MessageId';
-import Uuid from '../../shared/domain/value-object/Uuid';
-import AggregateMessageOccurredOn from '../../shared/domain/messages/AggregateMessageOccurredOn';
-import MessageNameFactory from '../../shared/infrastructure/MessageNameFactory';
-import { MessageType } from '../../shared/domain/messages/MessageType';
+import { MessageType } from '@microk/common/message/MessageType';
+import MessageNameFactory from '@microk/common/value-object/MessageNameFactory';
+import Uuid from '@microk/common/value-object/Uuid';
+import DomainEvent from '../../../microk/event/domain/DomainEvent';
+import MessageId from '../../../microk/common/message/MessageId';
+import AggregateMessageOccurredOn from '../../../microk/common/message/AggregateMessageOccurredOn';
 
 export default class InfoRequestedDomainEvent extends DomainEvent {
     static EVENT_NAME = MessageNameFactory.create('requested', 'info', MessageType.DOMAIN_EVENT);

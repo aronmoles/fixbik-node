@@ -1,4 +1,4 @@
-import { QueryHandler } from '../../../shared/domain/query-bus/QueryHandler';
+import { QueryHandler } from '@microk/cqrs/domain/query/QueryHandler';
 import { InfoResponse } from './InfoResponse';
 import InfoQuery from './InfoQuery';
 import InfoService from './InfoService';

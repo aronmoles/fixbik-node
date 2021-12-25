@@ -1,4 +1,4 @@
-import CommandHandler from '../../../shared/domain/command-bus/CommandHandler';
+import CommandHandler from '@microk/cqrs/domain/command/CommandHandler';
 import SetInfoCommand from './SetInfoCommand';
 import SetInfoService from './SetInfoService';
 

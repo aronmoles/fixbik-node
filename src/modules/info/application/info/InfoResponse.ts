@@ -1,6 +1,6 @@
-import { Response } from '../../../shared/domain/Response';
+import { QueryResponse } from '@microk/cqrs/domain/query/QueryResponse';
 
-export interface InfoResponse extends Response {
+export interface InfoResponse extends QueryResponse {
     name: string,
     version: string,
 }

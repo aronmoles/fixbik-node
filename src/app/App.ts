@@ -1,43 +1,41 @@
+import Logger from '@microk/core/domain/Logger';
+import DependencyContainer from '@microk/core/infrastructure/di/DependencyContainer';
+import ModuleDependencyMapper from '@microk/core/infrastructure/di/ModuleDependencyMapper';
+import PersistErrorMiddleware from '@microk/core/infrastructure/error/PersistErrorMiddleware';
+import HttpErrorMiddleware from '@microk/core/infrastructure/HttpErrorMiddleware';
+import CommandHandlersModuleDiscoverer from '@microk/core/infrastructure/module/CommandHandlersModuleDiscoverer';
+import EventSubscriberModuleDiscoverer from '@microk/core/infrastructure/module/EventSubscriberModuleDiscoverer';
+import QueryHandlersModuleDiscoverer from '@microk/core/infrastructure/module/QueryHandlersModuleDiscoverer';
+import ServerRoutesModuleDiscoverer from '@microk/core/infrastructure/module/ServerRoutesModuleDiscoverer';
+import ServiceModuleDiscoverer from '@microk/core/infrastructure/module/ServiceModuleDiscoverer';
+import SystemLogger from '@microk/core/infrastructure/SystemLogger';
+import Command from '@microk/cqrs/domain/command/Command';
+import { CommandBus } from '@microk/cqrs/domain/command/CommandBus';
+import CommandHandler from '@microk/cqrs/domain/command/CommandHandler';
+import Query from '@microk/cqrs/domain/query/Query';
+import QueryBus from '@microk/cqrs/domain/query/QueryBus';
+import { QueryHandler } from '@microk/cqrs/domain/query/QueryHandler';
+import { CommandHandlersMapper } from '@microk/cqrs/infrastructure/command/CommandHandlersMapper';
+import { InMemoryCommandBus } from '@microk/cqrs/infrastructure/command/InMemoryCommandBus';
+import { MiddlewareCommandBus } from '@microk/cqrs/infrastructure/command/MiddlewareCommandBus';
+import InMemoryQueryBus from '@microk/cqrs/infrastructure/query/InMemoryQueryBus';
+import MiddlewareQueryBus from '@microk/cqrs/infrastructure/query/MiddlewareQueryBus';
+import QueryHandlersMapper from '@microk/cqrs/infrastructure/query/QueryHandlersMapper';
+import DomainEvent from '@microk/event/domain/DomainEvent';
+import EventBus from '@microk/event/domain/EventBus';
+import EventSubscriber from '@microk/event/domain/EventSubscriber';
+import { EventClassMapper } from '@microk/event/infrastructure/EventClassMapper';
+import { EventJsonDeserializer } from '@microk/event/infrastructure/EventJsonDeserializer';
+import { EventSubscriberMapper } from '@microk/event/infrastructure/EventSubscriberMapper';
+import RabbitMqEventbus from '@microk/event/infrastructure/rabbit-mq/RabbitMqEventBus';
+import StoreMessageBusMiddleware from '@microk/message-store/infrastructure/StoreMessageBusMiddleware';
+import BusTimeMiddleware from '@microk/utils/BusTimeMiddleware';
+import FileErrorTracker from '@microk/utils/FileErrorTracker';
+import FileMessageStore from '@microk/utils/FileMessageStore';
+import { ContainerKeys } from './ContainerKeys';
 import Server from './Server';
 import ProcessEnv from './ProcessEnv';
 import { InfoModule } from '../modules/info/Info.module';
-import DependencyContainer from '../modules/shared/infrastructure/framework/di/DependencyContainer';
-import ModuleDependencyMapper from '../modules/shared/infrastructure/framework/di/ModuleDependencyMapper';
-import ServerRoutesModuleDiscoverer
-    from '../modules/shared/infrastructure/framework/module/ServerRoutesModuleDiscoverer';
-import ServiceModuleDiscoverer from '../modules/shared/infrastructure/framework/module/ServiceModuleDiscoverer';
-import SystemLogger from '../modules/shared/infrastructure/SystemLogger';
-import { ContainerKeys } from './ContainerKeys';
-import HttpErrorMiddleware from '../modules/shared/infrastructure/HttpErrorMiddleware';
-import QueryHandlersModuleDiscoverer
-    from '../modules/shared/infrastructure/framework/module/QueryHandlersModuleDiscoverer';
-import QueryHandlersMapper from '../modules/shared/infrastructure/query-bus/QueryHandlersMapper';
-import CommandHandlersModuleDiscoverer
-    from '../modules/shared/infrastructure/framework/module/CommandHandlersModuleDiscoverer';
-import { CommandHandlersMapper } from '../modules/shared/infrastructure/command-bus/CommandHandlersMapper';
-import BusTimeMiddleware from '../modules/shared/infrastructure/BusTimeMiddleware';
-import { QueryHandler } from '../modules/shared/domain/query-bus/QueryHandler';
-import Query from '../modules/shared/domain/query-bus/Query';
-import CommandHandler from '../modules/shared/domain/command-bus/CommandHandler';
-import Command from '../modules/shared/domain/command-bus/Command';
-import MiddlewareQueryBus from '../modules/shared/infrastructure/query-bus/MiddlewareQueryBus';
-import { MiddlewareCommandBus } from '../modules/shared/infrastructure/command-bus/MiddlewareCommandBus';
-import DomainEventSubscriber from '../modules/shared/domain/event-bus/DomainEventSubscriber';
-import DomainEvent from '../modules/shared/domain/messages/DomainEvent';
-import DomainEventSubscriberModuleDiscoverer
-    from '../modules/shared/infrastructure/framework/module/DomainEventSubscriberModuleDiscoverer';
-import { DomainEventSubscriberMapper } from '../modules/shared/infrastructure/event-bus/DomainEventSubscriberMapper';
-import QueryBus from '../modules/shared/domain/query-bus/QueryBus';
-import EventBus from '../modules/shared/domain/event-bus/EventBus';
-import { CommandBus } from '../modules/shared/domain/command-bus/CommandBus';
-import InMemoryQueryBus from '../modules/shared/infrastructure/query-bus/InMemoryQueryBus';
-import { InMemoryCommandBus } from '../modules/shared/infrastructure/command-bus/InMemoryCommandBus';
-import PersistErrorMiddleware from '../modules/shared/infrastructure/PersistErrorMiddleware';
-import FileErrorTracker from '../modules/shared/infrastructure/error/FileErrorTracker';
-import RabbitMqEventbus from '../modules/shared/infrastructure/event-bus/rabbit-mq/RabbitMqEventBus';
-import Logger from '../modules/shared/domain/Logger';
-import { DomainEventJsonDeserializer } from '../modules/shared/infrastructure/event-bus/DomainEventJsonDeserializer';
-import { DomainEventClassMapper } from '../modules/shared/infrastructure/event-bus/DomainEventClassMapper';
 
 export default class App {
     private readonly container: DependencyContainer;
@@ -114,7 +112,10 @@ export default class App {
     private async initQueryBus() {
         const queryBus = new MiddlewareQueryBus(
             new InMemoryQueryBus(),
-            [new BusTimeMiddleware(this.container.get(ContainerKeys.Logger))]
+            [
+                new BusTimeMiddleware(this.container.get(ContainerKeys.Logger)),
+                new StoreMessageBusMiddleware(new FileMessageStore()),
+            ]
         );
         this.container.addInstance(ContainerKeys.QueryBus, queryBus)
     }
@@ -122,7 +123,10 @@ export default class App {
     private async initCommandBus() {
         const commandBus = new MiddlewareCommandBus(
             new InMemoryCommandBus(),
-            [new BusTimeMiddleware(this.container.get(ContainerKeys.Logger))],
+            [
+                new BusTimeMiddleware(this.container.get(ContainerKeys.Logger)),
+                new StoreMessageBusMiddleware(new FileMessageStore()),
+            ],
         );
         this.container.addInstance(ContainerKeys.CommandBus, commandBus)
     }
@@ -158,16 +162,16 @@ export default class App {
     }
 
     private async initEventBusMapper() {
-        const domainEventSubscriberModuleDiscoverer = new DomainEventSubscriberModuleDiscoverer();
+        const domainEventSubscriberModuleDiscoverer = new EventSubscriberModuleDiscoverer();
         const domainEventSubscribers = this.modules
             .map((module) => domainEventSubscriberModuleDiscoverer.discover(module))
             .reduce((prev, current) => prev.concat(current), [])
-            .map((moduleService) => this.container.get<DomainEventSubscriber<DomainEvent>>(moduleService.key));
-        const domainEventSubscriberMapper = new DomainEventSubscriberMapper(domainEventSubscribers);
+            .map((moduleService) => this.container.get<EventSubscriber<DomainEvent>>(moduleService.key));
+        const domainEventSubscriberMapper = new EventSubscriberMapper(domainEventSubscribers);
         const eventBus = this.container.get<EventBus>(ContainerKeys.EventBus);
         eventBus.attachMapper(domainEventSubscriberMapper)
-        const domainJsonDeserializer = new DomainEventJsonDeserializer(
-            new DomainEventClassMapper(domainEventSubscribers),
+        const domainJsonDeserializer = new EventJsonDeserializer(
+            new EventClassMapper(domainEventSubscribers),
         )
         // TODO start to all event bus
         await (eventBus as RabbitMqEventbus).start(domainJsonDeserializer);
