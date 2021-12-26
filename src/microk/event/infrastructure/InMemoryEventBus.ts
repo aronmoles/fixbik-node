@@ -1,14 +1,13 @@
 import { Mapper } from '../../common/Mapper';
+import MessageName from '../../common/message/MessageName';
 import DomainEvent from '../domain/DomainEvent';
 import EventBus from '../domain/EventBus';
-import MessageName from '../../common/message/MessageName';
 import EventSubscriber from '../domain/EventSubscriber';
 
 export default class InMemoryEventBus implements EventBus {
-    private domainEventSubscriberMapper: Mapper<MessageName, Array<EventSubscriber<DomainEvent>>>;
-
-    attachMapper(domainEventSubscriberMapper: Mapper<MessageName, Array<EventSubscriber<DomainEvent>>>): void {
-        this.domainEventSubscriberMapper = domainEventSubscriberMapper;
+    constructor(
+        private readonly domainEventSubscriberMapper: Mapper<MessageName, Array<EventSubscriber<DomainEvent>>>,
+    ) {
     }
 
     async publish(events: DomainEvent[]): Promise<void> {

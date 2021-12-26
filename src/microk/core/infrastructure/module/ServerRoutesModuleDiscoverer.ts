@@ -2,11 +2,9 @@ import { ServerController, ServerControllers } from '../../../../app/Server';
 import { Middleware } from '../../domain/Middleware';
 import Module from '../../domain/module/Module';
 import ModuleDiscoverer from '../../domain/module/ModuleDiscoverer';
-import DependencyContainer from '../di/DependencyContainer';
 
 export default class ServerRoutesModuleDiscoverer implements ModuleDiscoverer<ServerControllers> {
     constructor(
-        private readonly dependencyContainer: DependencyContainer,
     ) {}
 
     discover(module: Module): ServerControllers {

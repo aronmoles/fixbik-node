@@ -1,0 +1,68 @@
+services:
+
+  App.Logger:
+    class: ../../../microk/core/infrastructure/SystemLogger
+    arguments: []
+
+  App.Env:
+    class: ../../ProcessEnv
+    arguments: []
+
+  App.CommandHandlersMapper:
+    class: ../../../microk/cqrs/infrastructure/command/CommandHandlersMapper
+    arguments: ['!tagged commandHandler']
+
+  App.CommandBus:
+    class: ../../../microk/cqrs/infrastructure/command/InMemoryCommandBus
+    arguments: ['@App.CommandHandlersMapper']
+
+  App.QueryHandlersMapper:
+    class: ../../../microk/cqrs/infrastructure/query/QueryHandlersMapper
+    arguments: ['!tagged queryHandler']
+
+  App.QueryBus:
+    class: ../../../microk/cqrs/infrastructure/query/InMemoryQueryBus
+    arguments: ['@App.QueryHandlersMapper']
+
+  App.EventSubscriberMapper:
+    class: ../../../microk/event/infrastructure/EventSubscriberMapper
+    arguments: ['!tagged eventSubscriber']
+
+  App.EventBus:
+    class: ../../../microk/event/infrastructure/InMemoryEventBus
+    arguments: ['@App.EventSubscriberMapper']
+
+
+  App.ControllerDiscoverer:
+    class: ../../../microk/core/infrastructure/Discoverer
+    arguments: ['!tagged controller']
+
+  App.MiddlewareDiscoverer:
+    class: ../../../microk/core/infrastructure/Discoverer
+    arguments: ['!tagged middleware']
+
+  App.ErrorMiddlewareDiscoverer:
+    class: ../../../microk/core/infrastructure/Discoverer
+    arguments: ['!tagged errorMiddleware']
+
+  App.ErrorTracker:
+    class: ../../../microk/utils/FileErrorTracker
+    arguments: ['@App.Logger']
+
+  App.PersistErrorMiddleware:
+    class: ../../../microk/core/infrastructure/error/PersistErrorMiddleware
+    arguments: ['@App.ErrorTracker']
+    tags:
+      - { name: errorMiddleware }
+
+  App.HttpErrorMiddleware:
+    class: ../../../microk/core/infrastructure/HttpErrorMiddleware
+    arguments: ['@App.Logger']
+    tags:
+      - { name: errorMiddleware }
+
+#  App.AuthMiddleware:
+#    class: ../../../modules/shared/infrastructure/AuthMiddleware
+#    tags:
+#      - { name: middleware }
+

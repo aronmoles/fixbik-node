@@ -1,0 +1,47 @@
+services:
+
+  Info.InfoController:
+    class: ../../../modules/info/infrastructure/InfoController
+    arguments: ['@App.QueryBus']
+    tags:
+      - { name: controller }
+
+  Info.SetInfoController:
+    class: ../../../modules/info/infrastructure/SetInfoController
+    arguments: ['@App.CommandBus']
+    tags:
+      - { name: controller }
+
+
+  Info.InfoService:
+    class: ../../../modules/info/application/info/InfoService
+    arguments: ['@App.EventBus']
+
+  Info.SetInfoService:
+    class: ../../../modules/info/application/set-info/SetInfoService
+    arguments: ['@App.Logger']
+
+  Info.SendEmailService:
+    class: ../../../modules/info/application/send-email/SendEmailService
+    arguments: ['@App.Logger']
+
+
+  Info.InfoQueryHandler:
+    class: ../../../modules/info/application/info/InfoQueryHandler
+    arguments: ['@Info.InfoService']
+    tags:
+      - { name: queryHandler }
+
+
+  Info.SetInfoCommandHandler:
+    class: ../../../modules/info/application/set-info/SetInfoCommandHandler
+    arguments: ['@Info.SetInfoService']
+    tags:
+      - { name: commandHandler }
+
+
+  Info.SendEmailInfoRequestDomainEventSubscriber:
+    class: ../../../modules/info/application/send-email/SendEmailInfoRequestDomainEventSubscriber
+    arguments: ['@Info.SendEmailService', '@App.CommandBus']
+    tags:
+      - { name: eventSubscriber }

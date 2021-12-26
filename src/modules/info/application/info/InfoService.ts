@@ -1,8 +1,8 @@
 import Uuid from '@microk/common/value-object/Uuid';
 import EventBus from '@microk/event/domain/EventBus';
 import { sleep } from '@microk/utils/Sleep';
-import { InfoResponse } from './InfoResponse';
 import InfoRequestedDomainEvent from '../../domain/InfoRequestedDomainEvent';
+import { InfoResponse } from './InfoResponse';
 
 export default class InfoService {
     constructor(private readonly eventBus: EventBus) {

@@ -16,12 +16,10 @@ export type ServerController = {
     method: HttpMethod,
     path: string,
     controller: Controller,
-}
-
-export type ServerControllers = {
-    serverControllers: ServerController[],
     middlewares: Middleware[],
 }
+
+export type ServerControllers = ServerController[];
 
 export default class Server {
     // TODO Exportar interfaz Server y renombrar a Express Server
@@ -60,37 +58,55 @@ export default class Server {
         });
     }
 
-    registerControllers(serverControllers: ServerControllers): void {
-        const commonRequestHandlers = [];
-        serverControllers.middlewares.forEach((middleware) => {
-            commonRequestHandlers.push((req: Request, res: Response, next: () => void) => {
-                middleware.apply(req, res, next)
-            })
-        })
-
+    registerControllers(controllers: Controller[]): void {
         const router = Router();
-        serverControllers.serverControllers.forEach((serverController) => {
-            switch (serverController.method) {
-            case HttpMethod.GET:
-                router.get(
-                    serverController.path,
-                    ...[
-                        ...commonRequestHandlers,
-                        (req, res) => serverController.controller.run(req, res),
-                    ],
-                );
-                break;
-            case HttpMethod.POST:
-                router.post(serverController.path, (req, res) => serverController.controller.run(req, res));
-                break;
-            case HttpMethod.PUT:
-                router.put(serverController.path, (req, res) => serverController.controller.run(req, res));
-                break;
-            case HttpMethod.DELETE:
-                router.delete(serverController.path, (req, res) => serverController.controller.run(req, res));
-                break;
-            default:
-                throw new Error(`HttpMethod <${serverController.method}> not supported`);
+        controllers.forEach((controller) => {
+            const routerMiddlewares = [];
+            (controller.config().middlewares || []).forEach((middleware) => {
+                routerMiddlewares.push((req: Request, res: Response, next: () => void) => {
+                    middleware.apply(req, res, next)
+                })
+            })
+
+            switch (controller.config().method) {
+                case HttpMethod.GET:
+                    router.get(
+                        controller.config().path,
+                        ...[
+                            ...routerMiddlewares,
+                            (req, res) => controller.run(req, res),
+                        ],
+                    );
+                    break;
+                case HttpMethod.POST:
+                    router.post(
+                        controller.config().path,
+                        ...[
+                            ...routerMiddlewares,
+                            (req, res) => controller.run(req, res),
+                        ],
+                    );
+                    break;
+                case HttpMethod.PUT:
+                    router.put(
+                        controller.config().path,
+                        ...[
+                            ...routerMiddlewares,
+                            (req, res) => controller.run(req, res),
+                        ],
+                    );
+                    break;
+                case HttpMethod.DELETE:
+                    router.delete(
+                        controller.config().path,
+                        ...[
+                            ...routerMiddlewares,
+                            (req, res) => controller.run(req, res),
+                        ],
+                    );
+                    break;
+                default:
+                    throw new Error(`HttpMethod <${controller.config().method}> not supported`);
             }
         });
         this.express.use(router);

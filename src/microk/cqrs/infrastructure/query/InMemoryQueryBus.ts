@@ -5,10 +5,7 @@ import { QueryHandler } from '../../domain/query/QueryHandler';
 import { QueryResponse } from '../../domain/query/QueryResponse';
 
 export default class InMemoryQueryBus implements QueryBus {
-    private queryHandlersMapper: Mapper<Query, QueryHandler<Query, QueryResponse>>;
-
-    attachMapper(queryHandlerMapper: Mapper<Query, QueryHandler<Query, QueryResponse>>): void {
-        this.queryHandlersMapper = queryHandlerMapper;
+    constructor(private readonly queryHandlersMapper: Mapper<Query, QueryHandler<Query, QueryResponse>>) {
     }
 
     ask<R extends QueryResponse>(query: Query): Promise<R> {

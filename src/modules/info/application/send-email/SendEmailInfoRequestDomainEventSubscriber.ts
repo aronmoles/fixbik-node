@@ -1,7 +1,7 @@
 import { CommandBus } from '@microk/cqrs/domain/command/CommandBus';
 import EventSubscriber from '@microk/event/domain/EventSubscriber';
 import InfoRequestedDomainEvent from '../../domain/InfoRequestedDomainEvent';
-import SendEmailService from './SenEmailService';
+import SendEmailService from './SendEmailService';
 
 export default class SendEmailInfoRequestDomainEventSubscriber extends EventSubscriber<InfoRequestedDomainEvent> {
     constructor(
