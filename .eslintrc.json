@@ -16,9 +16,15 @@
     "parserOptions": {
         "project": "./tsconfig.json",
         "ecmaVersion": 2016,
-        "sourceType": "module",
-        "extraFileExtensions": ["yaml"]
+        "sourceType": "module"
     },
+    "overrides": [
+        {
+            "files": ["*.yaml", "*.yml"],
+            "plugins": ["yaml"],
+            "extends": ["plugin:yaml/recommended"]
+        }
+    ],
     "rules": {
         "array-callback-return": ["error", { "allowImplicit":  false, "checkForEach":  false }],
         "constructor-super": "error",
