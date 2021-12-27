@@ -7,22 +7,34 @@ import { PrimitivesObject } from '../PrimitiveType';
 
 export default abstract class Message implements Serializable {
     protected constructor(
-        protected readonly id: MessageId,
-        protected readonly type: MessageType,
+        protected readonly _id: MessageId,
+        protected readonly _type: MessageType,
         protected readonly _name: MessageName,
-        protected readonly meta: MessageMeta = new MessageMeta(),
+        protected readonly _meta: MessageMeta = new MessageMeta(),
     ) {}
+
+    get id(): MessageId {
+        return this._id;
+    }
+
+    get type(): MessageType {
+        return this._type;
+    }
 
     get name(): MessageName {
         return this._name;
     }
 
+    public get meta(): MessageMeta {
+        return this._meta;
+    }
+
     toPrimitive(): PrimitivesObject {
         return {
-            id: this.id.value(),
+            id: this._id.value(),
             name: this._name.value(),
-            type: this.type.toString(),
-            meta: this.meta.toPrimitive(),
+            type: this._type.toString(),
+            meta: this._meta.toPrimitive(),
         };
     }
 }

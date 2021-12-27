@@ -8,7 +8,8 @@ export class MiddlewareCommandBus extends CommandBusDecorator {
 
     constructor(commandBus: CommandBus, middlewares: BusMiddleware<Command, void>[]) {
         super(commandBus);
-        this.middlewares = middlewares;
+        this.middlewares = middlewares
+            .sort((midd1, midd2) => midd2.order() - midd1.order());
     }
 
     async dispatch(command: Command): Promise<void> {

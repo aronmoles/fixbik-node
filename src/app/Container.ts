@@ -13,4 +13,6 @@ if (fs.existsSync(configFile)) {
     throw new Error(`Not exists <${configFile}> configuration file`)
 }
 
+Container.compile()
+
 export default Container;

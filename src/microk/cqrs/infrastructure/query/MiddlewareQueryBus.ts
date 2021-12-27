@@ -9,7 +9,8 @@ export default class MiddlewareQueryBus extends QueryBusDecorator {
 
     constructor(queryBus: QueryBus, middlewares: BusMiddleware<Query, QueryResponse>[]) {
         super(queryBus);
-        this.middlewares = middlewares;
+        this.middlewares = middlewares
+            .sort((midd1, midd2) => midd2.order() - midd1.order());
     }
 
     ask<R extends QueryResponse>(query: Query): Promise<R> {

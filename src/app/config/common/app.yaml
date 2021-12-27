@@ -24,6 +24,12 @@ services:
     class: ../../../microk/cqrs/infrastructure/query/InMemoryQueryBus
     arguments: ['@App.QueryHandlersMapper']
 
+  App.QueryBusDecorator:
+    class: ../../../microk/cqrs/infrastructure/query/MiddlewareQueryBus
+    decorates: App.QueryBus
+    arguments: ['@App.QueryBusDecorator.inner', '!tagged busMiddleware']
+    public: false
+
   App.EventSubscriberMapper:
     class: ../../../microk/event/infrastructure/EventSubscriberMapper
     arguments: ['!tagged eventSubscriber']
@@ -49,6 +55,7 @@ services:
     class: ../../../microk/utils/FileErrorTracker
     arguments: ['@App.Logger']
 
+
   App.PersistErrorMiddleware:
     class: ../../../microk/core/infrastructure/error/PersistErrorMiddleware
     arguments: ['@App.ErrorTracker']
@@ -60,6 +67,22 @@ services:
     arguments: ['@App.Logger']
     tags:
       - { name: errorMiddleware }
+
+
+  App.MessageStore:
+    class: ../../../microk/utils/FileMessageStore
+
+  App.StoreMessageBusMiddleware:
+    class: ../../../microk/message-store/infrastructure/StoreMessageBusMiddleware
+    arguments: ['@App.MessageStore']
+    tags:
+      - { name: busMiddleware }
+
+  App.TimeBusMiddleware:
+    class: ../../../microk/utils/TimeBusMiddleware
+    arguments: ['@App.Logger']
+    tags:
+      - { name: busMiddleware }
 
 #  App.AuthMiddleware:
 #    class: ../../../modules/shared/infrastructure/AuthMiddleware
