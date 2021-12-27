@@ -4,6 +4,8 @@ import Controller from '@microk/core/domain/http/Controller';
 import Logger from '@microk/core/domain/Logger';
 import { Middleware } from '@microk/core/domain/Middleware';
 import Discoverer from '@microk/core/infrastructure/Discoverer';
+import EventBus from '@microk/event/domain/EventBus';
+import RabbitMqEventbus from '@microk/event/infrastructure/rabbit-mq/RabbitMqEventBus';
 import * as http from 'http';
 import Container from './Container';
 import { EnvKey } from './ProcessEnv';
@@ -22,6 +24,7 @@ export default class App {
         this.initMiddleware();
         await this.registerRoutes();
         await this.initErrorMiddleware();
+        await this.configureEventBus(Container.get<EventBus>('App.EventBus'));
         return this.server.listen();
     }
 
@@ -49,5 +52,11 @@ export default class App {
         const errorMiddlewareDiscoverer = Container.get<Discoverer<ErrorMiddleware[]>>('App.ErrorMiddlewareDiscoverer')
         const errorMiddlewares = errorMiddlewareDiscoverer.discover();
         this.server.registerErrorMiddleware(errorMiddlewares);
+    }
+
+    private async configureEventBus(eventBus: EventBus) {
+        if (eventBus instanceof RabbitMqEventbus) {
+            await eventBus.start()
+        }
     }
 }

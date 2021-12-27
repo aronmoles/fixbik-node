@@ -12,19 +12,20 @@ export default class RabbitMqEventbus implements EventBus {
     private readonly connection: Connection;
     private readonly exchange: Exchange;
     private readonly queue: Queue;
-    private readonly logger: Logger;
-    private deserializer?: EventJsonDeserializer;
-    private domainEventSubscriberMapper: Mapper<MessageName, Array<EventSubscriber<DomainEvent>>>;
 
-    constructor(config: RabbitMqConfig, logger: Logger) {
+    constructor(
+        config: RabbitMqConfig,
+        private readonly domainEventSubscriberMapper: Mapper<MessageName, Array<EventSubscriber<DomainEvent>>>,
+        private readonly deserializer: EventJsonDeserializer,
+        private readonly logger: Logger,
+    ) {
         this.logger = logger;
         this.connection = new Connection(`amqp://${config.user}:${config.password}@${config.host}`);
         this.exchange = this.connection.declareExchange(config.exchange, 'fanout', { durable: false });
         this.queue = this.connection.declareQueue(config.queue);
     }
 
-    async start(domainJsonDeserializer: EventJsonDeserializer): Promise<void> {
-        this.deserializer = domainJsonDeserializer;
+    async start(): Promise<void> {
         if (!this.deserializer) {
             throw new Error('RabbitMqEventBus has not being properly initialized, deserializer is missing');
         }
@@ -53,10 +54,6 @@ export default class RabbitMqEventbus implements EventBus {
             },
             { noAck: false }
         );
-    }
-
-    attachMapper(domainEventSubscriberMapper: Mapper<MessageName, Array<EventSubscriber<DomainEvent>>>): void {
-        this.domainEventSubscriberMapper = domainEventSubscriberMapper;
     }
 
     async publish(events: Array<DomainEvent>): Promise<void> {

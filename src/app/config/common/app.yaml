@@ -34,9 +34,27 @@ services:
     class: ../../../microk/event/infrastructure/EventSubscriberMapper
     arguments: ['!tagged eventSubscriber']
 
+  App.RabbitMqConfigFactory:
+    arguments: ['@App.Env']
+    factory:
+      class: ../../../modules/shared/infrastructure/RabbitMqConfigFactory
+      method: 'createConfig'
+
+  App.EventClassMapper:
+    class: ../../../microk/event/infrastructure/EventClassMapper
+    arguments: ['!tagged eventSubscriber']
+
+  App.EventDeserializer:
+    class: ../../../microk/event/infrastructure/EventJsonDeserializer
+    arguments: ['@App.EventClassMapper']
+
   App.EventBus:
-    class: ../../../microk/event/infrastructure/InMemoryEventBus
-    arguments: ['@App.EventSubscriberMapper']
+    class: ../../../microk/event/infrastructure/rabbit-mq/RabbitMqEventBus
+    arguments: ['@App.RabbitMqConfigFactory', '@App.EventSubscriberMapper', '@App.EventDeserializer', '@App.Logger']
+
+#  App.EventBus:
+#    class: ../../../microk/event/infrastructure/InMemoryEventBus
+#    arguments: ['@App.EventSubscriberMapper']
 
 
   App.ControllerDiscoverer:

@@ -1,17 +1,19 @@
 import DomainEvent from '../domain/DomainEvent';
+import EventDeserializer from '../domain/EventDeserializer';
 import { EventClassMapper } from './EventClassMapper';
 import { Optional } from '../../common/Optional';
 
-export class EventJsonDeserializer {
+export class EventJsonDeserializer implements EventDeserializer {
     private mapping: EventClassMapper;
 
     constructor(mapping: EventClassMapper) {
         this.mapping = mapping;
     }
 
-    deserialize(event: string): Optional<DomainEvent> {
-        const eventData = JSON.parse(event).data;
-        const eventMeta = JSON.parse(event).meta;
+    deserialize(eventString: string): Optional<DomainEvent> {
+        const event = JSON.parse(eventString);
+        const eventData = event.data;
+        const eventMeta = event.meta;
         const eventName = eventData.name;
         const eventClass = this.mapping.for(eventName);
 
