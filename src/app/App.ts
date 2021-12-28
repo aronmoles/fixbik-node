@@ -5,7 +5,6 @@ import Logger from '@microk/core/domain/Logger';
 import { Middleware } from '@microk/core/domain/Middleware';
 import Discoverer from '@microk/core/infrastructure/Discoverer';
 import EventBus from '@microk/event/domain/EventBus';
-import RabbitMqEventbus from '@microk/event/infrastructure/rabbit-mq/RabbitMqEventBus';
 import * as http from 'http';
 import Container from './Container';
 import { EnvKey } from './ProcessEnv';
@@ -55,8 +54,6 @@ export default class App {
     }
 
     private async configureEventBus(eventBus: EventBus) {
-        if (eventBus instanceof RabbitMqEventbus) {
-            await eventBus.start()
-        }
+        await eventBus.start()
     }
 }

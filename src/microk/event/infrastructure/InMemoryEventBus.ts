@@ -18,4 +18,7 @@ export default class InMemoryEventBus implements EventBus {
                 })
         }
     }
+
+    async start(): Promise<void> {
+    }
 }
