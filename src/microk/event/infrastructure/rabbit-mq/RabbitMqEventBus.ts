@@ -1,6 +1,8 @@
 import { Connection, Message, Exchange, Queue } from 'amqp-ts';
 import MessageName from '../../../common/message/MessageName';
 import Logger from '../../../core/domain/Logger';
+import WrapperExecutor from '../../../core/domain/WrapperExecutor';
+import Executor from '../../../core/infrastructure/Executor';
 import DomainEvent from '../../domain/DomainEvent';
 import EventBus from '../../domain/EventBus';
 import EventSubscriber from '../../domain/EventSubscriber';
@@ -9,6 +11,8 @@ import { EventJsonDeserializer } from '../EventJsonDeserializer';
 import { Mapper } from '../../../common/Mapper';
 
 export default class RabbitMqEventbus implements EventBus {
+    private readonly executor: Executor<DomainEvent, void>;
+
     private readonly connection: Connection;
     private readonly exchange: Exchange;
     private readonly queue: Queue;
@@ -18,8 +22,10 @@ export default class RabbitMqEventbus implements EventBus {
         private readonly domainEventSubscriberMapper: Mapper<MessageName, Array<EventSubscriber<DomainEvent>>>,
         private readonly deserializer: EventJsonDeserializer,
         private readonly logger: Logger,
+        executors: WrapperExecutor<DomainEvent, void>[] = [],
     ) {
-        this.logger = logger;
+        this.executor = new Executor<DomainEvent, void>(executors);
+
         this.connection = new Connection(`amqp://${config.user}:${config.password}@${config.host}`);
         this.exchange = this.connection.declareExchange(config.exchange, 'fanout', { durable: false });
         this.queue = this.connection.declareQueue(config.queue);
@@ -43,7 +49,9 @@ export default class RabbitMqEventbus implements EventBus {
                         if (subscribers) {
                             const subscribersNames = subscribers.map((subscriber) => subscriber.constructor.name);
                             this.logger.info(`[RabbitMqEventBus] Message processed: ${event.name.toString()} by ${subscribersNames.join(', ')}`);
-                            const subscribersExecutions = subscribers.map((subscriber) => subscriber.dispatch(event));
+                            const subscribersExecutions = subscribers.map((subscriber) => {
+                                return this.executor.run(event, async () => subscriber.dispatch(event))
+                            });
                             await Promise.all(subscribersExecutions);
                         }
                     }

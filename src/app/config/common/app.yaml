@@ -14,7 +14,7 @@ services:
 
   App.CommandBus:
     class: ../../../microk/cqrs/infrastructure/command/InMemoryCommandBus
-    arguments: ['@App.CommandHandlersMapper']
+    arguments: ['@App.CommandHandlersMapper', '!tagged commandExecutor']
 
   App.QueryHandlersMapper:
     class: ../../../microk/cqrs/infrastructure/query/QueryHandlersMapper
@@ -22,13 +22,7 @@ services:
 
   App.QueryBus:
     class: ../../../microk/cqrs/infrastructure/query/InMemoryQueryBus
-    arguments: ['@App.QueryHandlersMapper']
-
-  App.QueryBusDecorator:
-    class: ../../../microk/cqrs/infrastructure/query/MiddlewareQueryBus
-    decorates: App.QueryBus
-    arguments: ['@App.QueryBusDecorator.inner', '!tagged busMiddleware']
-    public: false
+    arguments: ['@App.QueryHandlersMapper', '!tagged queryExecutor']
 
   App.EventSubscriberMapper:
     class: ../../../microk/event/infrastructure/EventSubscriberMapper
@@ -50,11 +44,11 @@ services:
 
   App.EventBus:
     class: ../../../microk/event/infrastructure/rabbit-mq/RabbitMqEventBus
-    arguments: ['@App.RabbitMqConfigFactory', '@App.EventSubscriberMapper', '@App.EventDeserializer', '@App.Logger']
+    arguments: ['@App.RabbitMqConfigFactory', '@App.EventSubscriberMapper', '@App.EventDeserializer', '@App.Logger', '!tagged eventExecutor']
 
 #  App.EventBus:
 #    class: ../../../microk/event/infrastructure/InMemoryEventBus
-#    arguments: ['@App.EventSubscriberMapper']
+#    arguments: ['@App.EventSubscriberMapper', '!tagged eventExecutor']
 
 
   App.ControllerDiscoverer:
@@ -94,13 +88,17 @@ services:
     class: ../../../microk/message-store/infrastructure/StoreMessageBusMiddleware
     arguments: ['@App.MessageStore']
     tags:
-      - { name: busMiddleware }
+      - { name: commandExecutor }
+      - { name: queryExecutor }
+      - { name: eventExecutor }
 
   App.TimeBusMiddleware:
     class: ../../../microk/utils/TimeBusMiddleware
     arguments: ['@App.Logger']
     tags:
-      - { name: busMiddleware }
+      - { name: commandExecutor }
+      - { name: queryExecutor }
+      - { name: eventExecutor }
 
 #  App.AuthMiddleware:
 #    class: ../../../modules/shared/infrastructure/AuthMiddleware
