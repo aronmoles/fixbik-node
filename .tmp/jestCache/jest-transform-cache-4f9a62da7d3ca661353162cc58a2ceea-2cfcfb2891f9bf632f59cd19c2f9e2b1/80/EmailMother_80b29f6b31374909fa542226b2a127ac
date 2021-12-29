@@ -1,0 +1,12 @@
+4f9202d411167f9576ca1deaaeac56ac
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.EmailMother = void 0;
+const MotherCreator_1 = require("./MotherCreator");
+class EmailMother {
+    static random() {
+        return MotherCreator_1.MotherCreator.random().internet.email();
+    }
+}
+exports.EmailMother = EmailMother;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiL1VzZXJzL2N1YXRyb29jaGVudGEvTWFnaWNTaG9wcGVyL21hZ2ljc2hvcHBlci1ub2RlL3Rlc3RzL21vZHVsZXMvc2hhcmVkL2RvbWFpbi9FbWFpbE1vdGhlci50cyIsIm1hcHBpbmdzIjoiOzs7QUFBQSxtREFBZ0Q7QUFFaEQsTUFBYSxXQUFXO0lBQ3BCLE1BQU0sQ0FBQyxNQUFNO1FBQ1QsT0FBTyw2QkFBYSxDQUFDLE1BQU0sRUFBRSxDQUFDLFFBQVEsQ0FBQyxLQUFLLEVBQUUsQ0FBQztJQUNuRCxDQUFDO0NBQ0o7QUFKRCxrQ0FJQyIsIm5hbWVzIjpbXSwic291cmNlcyI6WyIvVXNlcnMvY3VhdHJvb2NoZW50YS9NYWdpY1Nob3BwZXIvbWFnaWNzaG9wcGVyLW5vZGUvdGVzdHMvbW9kdWxlcy9zaGFyZWQvZG9tYWluL0VtYWlsTW90aGVyLnRzIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IE1vdGhlckNyZWF0b3IgfSBmcm9tICcuL01vdGhlckNyZWF0b3InO1xuXG5leHBvcnQgY2xhc3MgRW1haWxNb3RoZXIge1xuICAgIHN0YXRpYyByYW5kb20oKTogc3RyaW5nIHtcbiAgICAgICAgcmV0dXJuIE1vdGhlckNyZWF0b3IucmFuZG9tKCkuaW50ZXJuZXQuZW1haWwoKTtcbiAgICB9XG59XG4iXSwidmVyc2lvbiI6M30=

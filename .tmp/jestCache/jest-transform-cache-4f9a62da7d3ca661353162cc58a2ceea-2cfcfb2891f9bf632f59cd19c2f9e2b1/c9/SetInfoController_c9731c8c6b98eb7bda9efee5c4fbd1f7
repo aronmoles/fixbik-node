@@ -1,0 +1,37 @@
+fb3f5d5059aa579b7663beb45be690d5
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const HttpMethod_1 = require("@microk/common/http/HttpMethod");
+const HttpStatus_1 = require("@microk/common/http/HttpStatus");
+const SetInfoCommand_1 = __importDefault(require("../application/set-info/SetInfoCommand"));
+class SetInfoController {
+    constructor(commandBus) {
+        this.commandBus = commandBus;
+    }
+    config() {
+        return {
+            method: HttpMethod_1.HttpMethod.PUT,
+            path: '/',
+        };
+    }
+    run(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            yield this.commandBus.dispatch(new SetInfoCommand_1.default());
+            res.status(HttpStatus_1.HttpStatus.OK).send();
+        });
+    }
+}
+exports.default = SetInfoController;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiL1VzZXJzL2N1YXRyb29jaGVudGEvTWFnaWNTaG9wcGVyL21hZ2ljc2hvcHBlci1ub2RlL3NyYy9tb2R1bGVzL2luZm8vaW5mcmFzdHJ1Y3R1cmUvU2V0SW5mb0NvbnRyb2xsZXIudHMiLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7QUFBQSwrREFBNEQ7QUFDNUQsK0RBQTREO0FBTTVELDRGQUFvRTtBQUVwRSxNQUFxQixpQkFBaUI7SUFDbEMsWUFDcUIsVUFBc0I7UUFBdEIsZUFBVSxHQUFWLFVBQVUsQ0FBWTtJQUUzQyxDQUFDO0lBRUQsTUFBTTtRQUNGLE9BQU87WUFDSCxNQUFNLEVBQUUsdUJBQVUsQ0FBQyxHQUFHO1lBQ3RCLElBQUksRUFBRSxHQUFHO1NBQ1osQ0FBQztJQUNOLENBQUM7SUFFSyxHQUFHLENBQUMsR0FBWSxFQUFFLEdBQWE7O1lBQ2pDLE1BQU0sSUFBSSxDQUFDLFVBQVUsQ0FBQyxRQUFRLENBQUMsSUFBSSx3QkFBYyxFQUFFLENBQUMsQ0FBQztZQUNyRCxHQUFHLENBQUMsTUFBTSxDQUFDLHVCQUFVLENBQUMsRUFBRSxDQUFDLENBQUMsSUFBSSxFQUFFLENBQUM7UUFDckMsQ0FBQztLQUFBO0NBQ0o7QUFqQkQsb0NBaUJDIiwibmFtZXMiOltdLCJzb3VyY2VzIjpbIi9Vc2Vycy9jdWF0cm9vY2hlbnRhL01hZ2ljU2hvcHBlci9tYWdpY3Nob3BwZXItbm9kZS9zcmMvbW9kdWxlcy9pbmZvL2luZnJhc3RydWN0dXJlL1NldEluZm9Db250cm9sbGVyLnRzIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IEh0dHBNZXRob2QgfSBmcm9tICdAbWljcm9rL2NvbW1vbi9odHRwL0h0dHBNZXRob2QnO1xuaW1wb3J0IHsgSHR0cFN0YXR1cyB9IGZyb20gJ0BtaWNyb2svY29tbW9uL2h0dHAvSHR0cFN0YXR1cyc7XG5pbXBvcnQgQ29udHJvbGxlciBmcm9tICdAbWljcm9rL2NvcmUvZG9tYWluL2h0dHAvQ29udHJvbGxlcic7XG5pbXBvcnQgeyBDb250cm9sbGVyQ29uZmlnIH0gZnJvbSAnQG1pY3Jvay9jb3JlL2RvbWFpbi9odHRwL0NvbnRyb2xsZXJDb25maWcnO1xuaW1wb3J0IHsgUmVxdWVzdCB9IGZyb20gJ0BtaWNyb2svY29yZS9kb21haW4vaHR0cC9SZXF1ZXN0JztcbmltcG9ydCB7IFJlc3BvbnNlIH0gZnJvbSAnQG1pY3Jvay9jb3JlL2RvbWFpbi9odHRwL1Jlc3BvbnNlJztcbmltcG9ydCB7IENvbW1hbmRCdXMgfSBmcm9tICdAbWljcm9rL2NxcnMvZG9tYWluL2NvbW1hbmQvQ29tbWFuZEJ1cyc7XG5pbXBvcnQgU2V0SW5mb0NvbW1hbmQgZnJvbSAnLi4vYXBwbGljYXRpb24vc2V0LWluZm8vU2V0SW5mb0NvbW1hbmQnO1xuXG5leHBvcnQgZGVmYXVsdCBjbGFzcyBTZXRJbmZvQ29udHJvbGxlciBpbXBsZW1lbnRzIENvbnRyb2xsZXIge1xuICAgIGNvbnN0cnVjdG9yKFxuICAgICAgICBwcml2YXRlIHJlYWRvbmx5IGNvbW1hbmRCdXM6IENvbW1hbmRCdXMsXG4gICAgKSB7XG4gICAgfVxuXG4gICAgY29uZmlnKCk6IENvbnRyb2xsZXJDb25maWcge1xuICAgICAgICByZXR1cm4ge1xuICAgICAgICAgICAgbWV0aG9kOiBIdHRwTWV0aG9kLlBVVCxcbiAgICAgICAgICAgIHBhdGg6ICcvJyxcbiAgICAgICAgfTtcbiAgICB9XG5cbiAgICBhc3luYyBydW4ocmVxOiBSZXF1ZXN0LCByZXM6IFJlc3BvbnNlKTogUHJvbWlzZTx2b2lkPiB7XG4gICAgICAgIGF3YWl0IHRoaXMuY29tbWFuZEJ1cy5kaXNwYXRjaChuZXcgU2V0SW5mb0NvbW1hbmQoKSk7XG4gICAgICAgIHJlcy5zdGF0dXMoSHR0cFN0YXR1cy5PSykuc2VuZCgpO1xuICAgIH1cbn1cbiJdLCJ2ZXJzaW9uIjozfQ==

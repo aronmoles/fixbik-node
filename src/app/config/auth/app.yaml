@@ -1,0 +1,25 @@
+services:
+
+  Auth.infrastructure.LoginController:
+    class: ../../../modules/auth/infrastructure/controllers/LoginController
+    arguments: ['@App.QueryBus']
+    tags:
+      - { name: controller }
+
+  Auth.app.LoginService:
+    class: ../../../modules/auth/application/login/LoginService
+    arguments: ['@Auth.domain.AuthUserRepository']
+
+  Auth.app.LoginQueryHandler:
+    class: ../../../modules/auth/application/login/LoginQueryHandler
+    arguments: ['@Auth.app.LoginService']
+    tags:
+      - { name: queryHandler }
+
+  Auth.domain.AuthUserRepository:
+    class: ../../../modules/auth/infrastructure/persistence/TypeOrmAuthUserRepository
+    arguments: ['@App.ConnectionManager']
+
+#  App.Courses.application.CourseCreator:
+#    class: ../../../../../Contexts/Mooc/Courses/application/CourseCreator
+#    arguments: [ '@Mooc.Courses.domain.AuthUserRepository' ]

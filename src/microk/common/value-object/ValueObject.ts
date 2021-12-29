@@ -1,9 +1,17 @@
 import { PrimitiveType } from '../PrimitiveType';
+import { InvalidArgumentError } from './InvalidArgumentError';
 
 export abstract class ValueObject<T extends PrimitiveType> {
     protected constructor(
         private readonly _value: T,
     ) {
+        this.ensureValueIsDefined(_value);
+    }
+
+    private ensureValueIsDefined(value: T): void {
+        if (value === null || value === undefined) {
+            throw new InvalidArgumentError('Value must be defined');
+        }
     }
 
     public value(): T {

@@ -1,10 +1,10 @@
-import { Type } from '../../../common/Type';
+import { NewableClass } from '../../../common/NewableClass';
 import Command from './Command';
 
 export default abstract class CommandHandler<C extends Command> {
     private readonly _commandName: string;
 
-    protected constructor(command: Type<Command>) {
+    protected constructor(command: NewableClass<Command>) {
         this._commandName = command.name;
     }
 

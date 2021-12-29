@@ -1,0 +1,38 @@
+04a026e39af3ce125693900d1bad5fb0
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+/* eslint-disable no-undef */
+const fs = __importStar(require("fs"));
+const node_dependency_injection_1 = require("node-dependency-injection");
+const Container = new node_dependency_injection_1.ContainerBuilder();
+const loader = new node_dependency_injection_1.YamlFileLoader(Container);
+const env = process.env.NODE_ENV || 'dev';
+const configFile = `${__dirname}/config/app_${env}.yaml`;
+if (fs.existsSync(configFile)) {
+    loader.load(configFile);
+}
+else {
+    throw new Error(`Not exists <${configFile}> configuration file`);
+}
+Container.compile();
+exports.default = Container;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiL1VzZXJzL2N1YXRyb29jaGVudGEvTWFnaWNTaG9wcGVyL21hZ2ljc2hvcHBlci1ub2RlL3NyYy9hcHAvQ29udGFpbmVyLnRzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUFBLDZCQUE2QjtBQUM3Qix1Q0FBeUI7QUFDekIseUVBQTZFO0FBRTdFLE1BQU0sU0FBUyxHQUFHLElBQUksNENBQWdCLEVBQUUsQ0FBQztBQUN6QyxNQUFNLE1BQU0sR0FBRyxJQUFJLDBDQUFjLENBQUMsU0FBUyxDQUFDLENBQUM7QUFDN0MsTUFBTSxHQUFHLEdBQUcsT0FBTyxDQUFDLEdBQUcsQ0FBQyxRQUFRLElBQUksS0FBSyxDQUFDO0FBRTFDLE1BQU0sVUFBVSxHQUFHLEdBQUcsU0FBUyxlQUFlLEdBQUcsT0FBTyxDQUFDO0FBQ3pELElBQUksRUFBRSxDQUFDLFVBQVUsQ0FBQyxVQUFVLENBQUMsRUFBRTtJQUMzQixNQUFNLENBQUMsSUFBSSxDQUFDLFVBQVUsQ0FBQyxDQUFDO0NBQzNCO0tBQU07SUFDSCxNQUFNLElBQUksS0FBSyxDQUFDLGVBQWUsVUFBVSxzQkFBc0IsQ0FBQyxDQUFBO0NBQ25FO0FBRUQsU0FBUyxDQUFDLE9BQU8sRUFBRSxDQUFBO0FBRW5CLGtCQUFlLFNBQVMsQ0FBQyIsIm5hbWVzIjpbXSwic291cmNlcyI6WyIvVXNlcnMvY3VhdHJvb2NoZW50YS9NYWdpY1Nob3BwZXIvbWFnaWNzaG9wcGVyLW5vZGUvc3JjL2FwcC9Db250YWluZXIudHMiXSwic291cmNlc0NvbnRlbnQiOlsiLyogZXNsaW50LWRpc2FibGUgbm8tdW5kZWYgKi9cbmltcG9ydCAqIGFzIGZzIGZyb20gJ2ZzJztcbmltcG9ydCB7IENvbnRhaW5lckJ1aWxkZXIsIFlhbWxGaWxlTG9hZGVyIH0gZnJvbSAnbm9kZS1kZXBlbmRlbmN5LWluamVjdGlvbic7XG5cbmNvbnN0IENvbnRhaW5lciA9IG5ldyBDb250YWluZXJCdWlsZGVyKCk7XG5jb25zdCBsb2FkZXIgPSBuZXcgWWFtbEZpbGVMb2FkZXIoQ29udGFpbmVyKTtcbmNvbnN0IGVudiA9IHByb2Nlc3MuZW52Lk5PREVfRU5WIHx8ICdkZXYnO1xuXG5jb25zdCBjb25maWdGaWxlID0gYCR7X19kaXJuYW1lfS9jb25maWcvYXBwXyR7ZW52fS55YW1sYDtcbmlmIChmcy5leGlzdHNTeW5jKGNvbmZpZ0ZpbGUpKSB7XG4gICAgbG9hZGVyLmxvYWQoY29uZmlnRmlsZSk7XG59IGVsc2Uge1xuICAgIHRocm93IG5ldyBFcnJvcihgTm90IGV4aXN0cyA8JHtjb25maWdGaWxlfT4gY29uZmlndXJhdGlvbiBmaWxlYClcbn1cblxuQ29udGFpbmVyLmNvbXBpbGUoKVxuXG5leHBvcnQgZGVmYXVsdCBDb250YWluZXI7XG4iXSwidmVyc2lvbiI6M30=

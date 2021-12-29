@@ -1,0 +1,14 @@
+{
+  "type": "mysql",
+  "host": "localhost",
+  "port": 3306,
+  "username": "root",
+  "password": "cuatroochenta",
+  "database": "fixbike_dev",
+  "entities": ["src/**/**/infrastructure/persistence/typeorm/*{.js,.ts}"],
+  "migrationsTableName": "migrations",
+  "migrations": ["migration/*.ts"],
+  "cli": {
+    "migrationsDir": "migration"
+  }
+}

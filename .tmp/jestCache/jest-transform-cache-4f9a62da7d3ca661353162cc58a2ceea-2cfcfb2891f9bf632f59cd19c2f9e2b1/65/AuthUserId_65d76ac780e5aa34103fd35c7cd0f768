@@ -1,0 +1,11 @@
+295618a1b2eaa404eac000070cc05d63
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const Uuid_1 = __importDefault(require("@microk/common/value-object/Uuid"));
+class AuthUserId extends Uuid_1.default {
+}
+exports.default = AuthUserId;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiL1VzZXJzL2N1YXRyb29jaGVudGEvTWFnaWNTaG9wcGVyL21hZ2ljc2hvcHBlci1ub2RlL3NyYy9tb2R1bGVzL2F1dGgvZG9tYWluL0F1dGhVc2VySWQudHMiLCJtYXBwaW5ncyI6Ijs7Ozs7QUFBQSw0RUFBb0Q7QUFFcEQsTUFBcUIsVUFBVyxTQUFRLGNBQUk7Q0FFM0M7QUFGRCw2QkFFQyIsIm5hbWVzIjpbXSwic291cmNlcyI6WyIvVXNlcnMvY3VhdHJvb2NoZW50YS9NYWdpY1Nob3BwZXIvbWFnaWNzaG9wcGVyLW5vZGUvc3JjL21vZHVsZXMvYXV0aC9kb21haW4vQXV0aFVzZXJJZC50cyJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgVXVpZCBmcm9tICdAbWljcm9rL2NvbW1vbi92YWx1ZS1vYmplY3QvVXVpZCc7XG5cbmV4cG9ydCBkZWZhdWx0IGNsYXNzIEF1dGhVc2VySWQgZXh0ZW5kcyBVdWlkIHtcblxufVxuIl0sInZlcnNpb24iOjN9

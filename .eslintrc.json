@@ -93,7 +93,7 @@
         "func-names": ["error", "never"],
         "func-style": ["error", "declaration", { "allowArrowFunctions": true }],
         "id-denylist": ["error", "err", "e", "cb", "callback"],
-        "id-length": ["error", { "min": 3, "max": 50, "exceptions": ["id", "x", "y", "i", "j", "_"] }],
+        "id-length": ["error", { "min": 2, "max": 50, "exceptions": ["id", "x", "y", "i", "j", "_"] }],
         "max-classes-per-file": ["error", 1],
         "max-depth": ["error", 4],
         "max-lines": ["error", {"max": 300, "skipComments": true}],
@@ -281,6 +281,7 @@
         "@typescript-eslint/no-misused-promises": "off",
         "@typescript-eslint/no-empty-interface": "off",
         "@typescript-eslint/restrict-template-expressions": "off",
+        "@typescript-eslint/await-thenable": "off",
         "@typescript-eslint/no-floating-promises": "off"
     }
 }

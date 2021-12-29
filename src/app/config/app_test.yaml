@@ -2,3 +2,7 @@ imports:
   - { resource: ./app.yaml }
 
 services:
+
+  Test.EnvironmentArranger:
+    class: ../../microk/tests/infrastructure/typeorm/TypeOrmEnvironmentArranger
+    arguments: [ '@App.ConnectionManager' ]

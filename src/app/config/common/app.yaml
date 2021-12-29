@@ -105,3 +105,17 @@ services:
 #    tags:
 #      - { name: middleware }
 
+
+  App.TypeOrmConfig:
+    arguments: ['@App.Env']
+    factory:
+      class: ../../../modules/shared/infrastructure/persistence/typeorm/TypeOrmConfigFactory
+      method: 'createConfig'
+
+  App.ConnectionManager:
+    factory:
+      class: ../../../microk/persistence/infrastructure/typeorm/TypeOrmClientFactory
+      method: 'createClient'
+    arguments: ['@App.TypeOrmConfig']
+
+

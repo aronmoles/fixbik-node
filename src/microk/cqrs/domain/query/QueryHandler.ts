@@ -1,11 +1,11 @@
-import { Type } from '../../../common/Type';
+import { NewableClass } from '../../../common/NewableClass';
 import Query from './Query';
 import { QueryResponse } from './QueryResponse';
 
 export abstract class QueryHandler<Q extends Query, R extends QueryResponse> {
     private readonly _queryName: string;
 
-    protected constructor(query: Type<Query>) {
+    protected constructor(query: NewableClass<Query>) {
         this._queryName = query.name;
     }
 

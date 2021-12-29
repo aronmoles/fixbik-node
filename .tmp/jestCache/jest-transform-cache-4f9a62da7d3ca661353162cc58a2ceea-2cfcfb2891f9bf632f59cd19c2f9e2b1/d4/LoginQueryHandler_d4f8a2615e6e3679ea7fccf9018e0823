@@ -1,0 +1,33 @@
+fa9b0d7ec9e1992635bd2f18b92ad333
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const QueryHandler_1 = require("@microk/cqrs/domain/query/QueryHandler");
+const LoginQuery_1 = __importDefault(require("./LoginQuery"));
+class LoginQueryHandler extends QueryHandler_1.QueryHandler {
+    constructor(loginService) {
+        super(LoginQuery_1.default);
+        this.loginService = loginService;
+    }
+    handle(query) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const token = yield this.loginService.run();
+            return {
+                token,
+            };
+        });
+    }
+}
+exports.default = LoginQueryHandler;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiL1VzZXJzL2N1YXRyb29jaGVudGEvTWFnaWNTaG9wcGVyL21hZ2ljc2hvcHBlci1ub2RlL3NyYy9tb2R1bGVzL2F1dGgvYXBwbGljYXRpb24vbG9naW4vTG9naW5RdWVyeUhhbmRsZXIudHMiLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7QUFBQSx5RUFBc0U7QUFDdEUsOERBQXNDO0FBSXRDLE1BQXFCLGlCQUFrQixTQUFRLDJCQUE0QztJQUN2RixZQUNxQixZQUEwQjtRQUUzQyxLQUFLLENBQUMsb0JBQVUsQ0FBQyxDQUFDO1FBRkQsaUJBQVksR0FBWixZQUFZLENBQWM7SUFHL0MsQ0FBQztJQUVLLE1BQU0sQ0FBQyxLQUFpQjs7WUFDMUIsTUFBTSxLQUFLLEdBQUcsTUFBTSxJQUFJLENBQUMsWUFBWSxDQUFDLEdBQUcsRUFBRSxDQUFDO1lBQzVDLE9BQU87Z0JBQ0gsS0FBSzthQUNSLENBQUM7UUFDTixDQUFDO0tBQUE7Q0FDSjtBQWJELG9DQWFDIiwibmFtZXMiOltdLCJzb3VyY2VzIjpbIi9Vc2Vycy9jdWF0cm9vY2hlbnRhL01hZ2ljU2hvcHBlci9tYWdpY3Nob3BwZXItbm9kZS9zcmMvbW9kdWxlcy9hdXRoL2FwcGxpY2F0aW9uL2xvZ2luL0xvZ2luUXVlcnlIYW5kbGVyLnRzIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IFF1ZXJ5SGFuZGxlciB9IGZyb20gJ0BtaWNyb2svY3Fycy9kb21haW4vcXVlcnkvUXVlcnlIYW5kbGVyJztcbmltcG9ydCBMb2dpblF1ZXJ5IGZyb20gJy4vTG9naW5RdWVyeSc7XG5pbXBvcnQgTG9naW5RdWVyeVJlc3BvbnNlIGZyb20gJy4vTG9naW5RdWVyeVJlc3BvbnNlJztcbmltcG9ydCBMb2dpblNlcnZpY2UgZnJvbSAnLi9Mb2dpblNlcnZpY2UnO1xuXG5leHBvcnQgZGVmYXVsdCBjbGFzcyBMb2dpblF1ZXJ5SGFuZGxlciBleHRlbmRzIFF1ZXJ5SGFuZGxlcjxMb2dpblF1ZXJ5LCBMb2dpblF1ZXJ5UmVzcG9uc2U+IHtcbiAgICBjb25zdHJ1Y3RvcihcbiAgICAgICAgcHJpdmF0ZSByZWFkb25seSBsb2dpblNlcnZpY2U6IExvZ2luU2VydmljZSxcbiAgICApIHtcbiAgICAgICAgc3VwZXIoTG9naW5RdWVyeSk7XG4gICAgfVxuXG4gICAgYXN5bmMgaGFuZGxlKHF1ZXJ5OiBMb2dpblF1ZXJ5KTogUHJvbWlzZTxMb2dpblF1ZXJ5UmVzcG9uc2U+IHtcbiAgICAgICAgY29uc3QgdG9rZW4gPSBhd2FpdCB0aGlzLmxvZ2luU2VydmljZS5ydW4oKTtcbiAgICAgICAgcmV0dXJuIHtcbiAgICAgICAgICAgIHRva2VuLFxuICAgICAgICB9O1xuICAgIH1cbn1cbiJdLCJ2ZXJzaW9uIjozfQ==

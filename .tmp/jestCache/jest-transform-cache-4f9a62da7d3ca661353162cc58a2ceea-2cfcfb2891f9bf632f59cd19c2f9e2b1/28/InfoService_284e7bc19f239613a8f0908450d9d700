@@ -1,0 +1,36 @@
+2c43d85572fc0d5aa90edef9c1c28e96
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const Uuid_1 = __importDefault(require("@microk/common/value-object/Uuid"));
+const Sleep_1 = require("@microk/utils/Sleep");
+const InfoRequestedDomainEvent_1 = __importDefault(require("../../domain/InfoRequestedDomainEvent"));
+class InfoService {
+    constructor(eventBus) {
+        this.eventBus = eventBus;
+    }
+    invoke() {
+        return __awaiter(this, void 0, void 0, function* () {
+            // throw new NotFoundHttpError('Esto es un error tocho');
+            yield (0, Sleep_1.sleep)(1200);
+            this.eventBus.publish([new InfoRequestedDomainEvent_1.default(Uuid_1.default.create())]);
+            return {
+                name: 'is-auth',
+                version: '1.0.0',
+            };
+        });
+    }
+}
+exports.default = InfoService;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiL1VzZXJzL2N1YXRyb29jaGVudGEvTWFnaWNTaG9wcGVyL21hZ2ljc2hvcHBlci1ub2RlL3NyYy9tb2R1bGVzL2luZm8vYXBwbGljYXRpb24vaW5mby9JbmZvU2VydmljZS50cyIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7OztBQUFBLDRFQUFvRDtBQUVwRCwrQ0FBNEM7QUFDNUMscUdBQTZFO0FBRzdFLE1BQXFCLFdBQVc7SUFDNUIsWUFBNkIsUUFBa0I7UUFBbEIsYUFBUSxHQUFSLFFBQVEsQ0FBVTtJQUMvQyxDQUFDO0lBRVksTUFBTTs7WUFDZix5REFBeUQ7WUFDekQsTUFBTSxJQUFBLGFBQUssRUFBQyxJQUFJLENBQUMsQ0FBQTtZQUVqQixJQUFJLENBQUMsUUFBUSxDQUFDLE9BQU8sQ0FBQyxDQUFDLElBQUksa0NBQXdCLENBQUMsY0FBSSxDQUFDLE1BQU0sRUFBRSxDQUFDLENBQUMsQ0FBQyxDQUFBO1lBRXBFLE9BQU87Z0JBQ0gsSUFBSSxFQUFFLFNBQVM7Z0JBQ2YsT0FBTyxFQUFFLE9BQU87YUFDbkIsQ0FBQztRQUNOLENBQUM7S0FBQTtDQUNKO0FBZkQsOEJBZUMiLCJuYW1lcyI6W10sInNvdXJjZXMiOlsiL1VzZXJzL2N1YXRyb29jaGVudGEvTWFnaWNTaG9wcGVyL21hZ2ljc2hvcHBlci1ub2RlL3NyYy9tb2R1bGVzL2luZm8vYXBwbGljYXRpb24vaW5mby9JbmZvU2VydmljZS50cyJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgVXVpZCBmcm9tICdAbWljcm9rL2NvbW1vbi92YWx1ZS1vYmplY3QvVXVpZCc7XG5pbXBvcnQgRXZlbnRCdXMgZnJvbSAnQG1pY3Jvay9ldmVudC9kb21haW4vRXZlbnRCdXMnO1xuaW1wb3J0IHsgc2xlZXAgfSBmcm9tICdAbWljcm9rL3V0aWxzL1NsZWVwJztcbmltcG9ydCBJbmZvUmVxdWVzdGVkRG9tYWluRXZlbnQgZnJvbSAnLi4vLi4vZG9tYWluL0luZm9SZXF1ZXN0ZWREb21haW5FdmVudCc7XG5pbXBvcnQgeyBJbmZvUmVzcG9uc2UgfSBmcm9tICcuL0luZm9SZXNwb25zZSc7XG5cbmV4cG9ydCBkZWZhdWx0IGNsYXNzIEluZm9TZXJ2aWNlIHtcbiAgICBjb25zdHJ1Y3Rvcihwcml2YXRlIHJlYWRvbmx5IGV2ZW50QnVzOiBFdmVudEJ1cykge1xuICAgIH1cblxuICAgIHB1YmxpYyBhc3luYyBpbnZva2UoKTogUHJvbWlzZTxJbmZvUmVzcG9uc2U+IHtcbiAgICAgICAgLy8gdGhyb3cgbmV3IE5vdEZvdW5kSHR0cEVycm9yKCdFc3RvIGVzIHVuIGVycm9yIHRvY2hvJyk7XG4gICAgICAgIGF3YWl0IHNsZWVwKDEyMDApXG5cbiAgICAgICAgdGhpcy5ldmVudEJ1cy5wdWJsaXNoKFtuZXcgSW5mb1JlcXVlc3RlZERvbWFpbkV2ZW50KFV1aWQuY3JlYXRlKCkpXSlcblxuICAgICAgICByZXR1cm4ge1xuICAgICAgICAgICAgbmFtZTogJ2lzLWF1dGgnLFxuICAgICAgICAgICAgdmVyc2lvbjogJzEuMC4wJyxcbiAgICAgICAgfTtcbiAgICB9XG59XG4iXSwidmVyc2lvbiI6M30=

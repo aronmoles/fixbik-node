@@ -17,6 +17,12 @@ export interface EnvKey {
     RABBITMQ_PASSWORD: string;
     RABBITMQ_EXCHANGE: string;
     RABBITMQ_QUEUE: string;
+
+    MYSQL_HOST: string;
+    MYSQL_PORT: string;
+    MYSQL_USER: string;
+    MYSQL_PASSWORD: string;
+    MYSQL_DATABASE: string;
 }
 
 export default class ProcessEnv implements Env<EnvKey> {
@@ -32,6 +38,12 @@ export default class ProcessEnv implements Env<EnvKey> {
             RABBITMQ_PASSWORD: '',
             RABBITMQ_EXCHANGE: '',
             RABBITMQ_QUEUE: '',
+
+            MYSQL_HOST: '',
+            MYSQL_PORT: '',
+            MYSQL_USER: '',
+            MYSQL_PASSWORD: '',
+            MYSQL_DATABASE: '',
         };
 
         // TODO Crear un DotEnv
