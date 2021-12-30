@@ -1,0 +1,47 @@
+f1f2229ea58fa607d7946691beaf53d3
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.TypeOrmAuthUserRepository = void 0;
+const TypeOrmRepository_1 = require("@microk/persistence/infrastructure/typeorm/TypeOrmRepository");
+const AuthUserEmail_1 = __importDefault(require("../../domain/AuthUserEmail"));
+const AuthUserEntity_1 = require("./typeorm/AuthUserEntity");
+class TypeOrmAuthUserRepository extends TypeOrmRepository_1.TypeOrmRepository {
+    entitySchema() {
+        return AuthUserEntity_1.AuthUserEntity;
+    }
+    save(course) {
+        return this.persist(course);
+    }
+    search(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const repository = yield this.repository();
+            const authUser = yield repository.findOne({ id });
+            return authUser;
+        });
+    }
+    customSearch() {
+        return __awaiter(this, void 0, void 0, function* () {
+            const repository = yield this.repository();
+            const authUser = yield repository.findOne({
+                where: {
+                    email: new AuthUserEmail_1.default('amoles@pav.com'),
+                },
+            });
+            return authUser;
+        });
+    }
+}
+exports.TypeOrmAuthUserRepository = TypeOrmAuthUserRepository;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiL1VzZXJzL2N1YXRyb29jaGVudGEvTWFnaWNTaG9wcGVyL21hZ2ljc2hvcHBlci1ub2RlL3NyYy9tb2R1bGVzL2F1dGgvaW5mcmFzdHJ1Y3R1cmUvcGVyc2lzdGVuY2UvVHlwZU9ybUF1dGhVc2VyUmVwb3NpdG9yeS50cyIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7QUFDQSxvR0FBaUc7QUFHakcsK0VBQXVEO0FBR3ZELDZEQUEwRDtBQUUxRCxNQUFhLHlCQUEwQixTQUFRLHFDQUEyQjtJQUM1RCxZQUFZO1FBQ2xCLE9BQU8sK0JBQWMsQ0FBQztJQUMxQixDQUFDO0lBRU0sSUFBSSxDQUFDLE1BQWdCO1FBQ3hCLE9BQU8sSUFBSSxDQUFDLE9BQU8sQ0FBQyxNQUFNLENBQUMsQ0FBQztJQUNoQyxDQUFDO0lBRVksTUFBTSxDQUFDLEVBQWM7O1lBQzlCLE1BQU0sVUFBVSxHQUFHLE1BQU0sSUFBSSxDQUFDLFVBQVUsRUFBRSxDQUFDO1lBRTNDLE1BQU0sUUFBUSxHQUFHLE1BQU0sVUFBVSxDQUFDLE9BQU8sQ0FBQyxFQUFFLEVBQUUsRUFBRSxDQUFDLENBQUM7WUFFbEQsT0FBTyxRQUFRLENBQUM7UUFDcEIsQ0FBQztLQUFBO0lBRUssWUFBWTs7WUFDZCxNQUFNLFVBQVUsR0FBRyxNQUFNLElBQUksQ0FBQyxVQUFVLEVBQUUsQ0FBQztZQUMzQyxNQUFNLFFBQVEsR0FBRyxNQUFNLFVBQVUsQ0FBQyxPQUFPLENBQUM7Z0JBQ3RDLEtBQUssRUFBRTtvQkFDSCxLQUFLLEVBQUUsSUFBSSx1QkFBYSxDQUFDLGdCQUFnQixDQUFDO2lCQUM3QzthQUNKLENBQUMsQ0FBQTtZQUNGLE9BQU8sUUFBUSxDQUFDO1FBQ3BCLENBQUM7S0FBQTtDQUNKO0FBMUJELDhEQTBCQyIsIm5hbWVzIjpbXSwic291cmNlcyI6WyIvVXNlcnMvY3VhdHJvb2NoZW50YS9NYWdpY1Nob3BwZXIvbWFnaWNzaG9wcGVyLW5vZGUvc3JjL21vZHVsZXMvYXV0aC9pbmZyYXN0cnVjdHVyZS9wZXJzaXN0ZW5jZS9UeXBlT3JtQXV0aFVzZXJSZXBvc2l0b3J5LnRzIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IE51bGxhYmxlIH0gZnJvbSAnQG1pY3Jvay9jb21tb24vTnVsbGFibGUnO1xuaW1wb3J0IHsgVHlwZU9ybVJlcG9zaXRvcnkgfSBmcm9tICdAbWljcm9rL3BlcnNpc3RlbmNlL2luZnJhc3RydWN0dXJlL3R5cGVvcm0vVHlwZU9ybVJlcG9zaXRvcnknO1xuaW1wb3J0IHsgRW50aXR5U2NoZW1hIH0gZnJvbSAndHlwZW9ybSc7XG5pbXBvcnQgeyBBdXRoVXNlciB9IGZyb20gJy4uLy4uL2RvbWFpbi9BdXRoVXNlcic7XG5pbXBvcnQgQXV0aFVzZXJFbWFpbCBmcm9tICcuLi8uLi9kb21haW4vQXV0aFVzZXJFbWFpbCc7XG5pbXBvcnQgQXV0aFVzZXJJZCBmcm9tICcuLi8uLi9kb21haW4vQXV0aFVzZXJJZCc7XG5pbXBvcnQgeyBBdXRoVXNlclJlcG9zaXRvcnkgfSBmcm9tICcuLi8uLi9kb21haW4vQXV0aFVzZXJSZXBvc2l0b3J5JztcbmltcG9ydCB7IEF1dGhVc2VyRW50aXR5IH0gZnJvbSAnLi90eXBlb3JtL0F1dGhVc2VyRW50aXR5JztcblxuZXhwb3J0IGNsYXNzIFR5cGVPcm1BdXRoVXNlclJlcG9zaXRvcnkgZXh0ZW5kcyBUeXBlT3JtUmVwb3NpdG9yeTxBdXRoVXNlcj4gaW1wbGVtZW50cyBBdXRoVXNlclJlcG9zaXRvcnkge1xuICAgIHByb3RlY3RlZCBlbnRpdHlTY2hlbWEoKTogRW50aXR5U2NoZW1hPEF1dGhVc2VyPiB7XG4gICAgICAgIHJldHVybiBBdXRoVXNlckVudGl0eTtcbiAgICB9XG5cbiAgICBwdWJsaWMgc2F2ZShjb3Vyc2U6IEF1dGhVc2VyKTogUHJvbWlzZTx2b2lkPiB7XG4gICAgICAgIHJldHVybiB0aGlzLnBlcnNpc3QoY291cnNlKTtcbiAgICB9XG5cbiAgICBwdWJsaWMgYXN5bmMgc2VhcmNoKGlkOiBBdXRoVXNlcklkKTogUHJvbWlzZTxOdWxsYWJsZTxBdXRoVXNlcj4+IHtcbiAgICAgICAgY29uc3QgcmVwb3NpdG9yeSA9IGF3YWl0IHRoaXMucmVwb3NpdG9yeSgpO1xuXG4gICAgICAgIGNvbnN0IGF1dGhVc2VyID0gYXdhaXQgcmVwb3NpdG9yeS5maW5kT25lKHsgaWQgfSk7XG5cbiAgICAgICAgcmV0dXJuIGF1dGhVc2VyO1xuICAgIH1cblxuICAgIGFzeW5jIGN1c3RvbVNlYXJjaCgpOiBQcm9taXNlPE51bGxhYmxlPEF1dGhVc2VyPj4ge1xuICAgICAgICBjb25zdCByZXBvc2l0b3J5ID0gYXdhaXQgdGhpcy5yZXBvc2l0b3J5KCk7XG4gICAgICAgIGNvbnN0IGF1dGhVc2VyID0gYXdhaXQgcmVwb3NpdG9yeS5maW5kT25lKHtcbiAgICAgICAgICAgIHdoZXJlOiB7XG4gICAgICAgICAgICAgICAgZW1haWw6IG5ldyBBdXRoVXNlckVtYWlsKCdhbW9sZXNAcGF2LmNvbScpLFxuICAgICAgICAgICAgfSxcbiAgICAgICAgfSlcbiAgICAgICAgcmV0dXJuIGF1dGhVc2VyO1xuICAgIH1cbn1cbiJdLCJ2ZXJzaW9uIjozfQ==

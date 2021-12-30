@@ -1,0 +1,47 @@
+c233a43460470114b3e67480c59f10ab
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.TypeOrmClientFactory = void 0;
+const typeorm_1 = require("typeorm");
+class TypeOrmClientFactory {
+    static createClient(config) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const connection = yield (0, typeorm_1.createConnection)({
+                    type: 'mysql',
+                    host: config.host,
+                    port: config.port,
+                    username: config.username,
+                    password: config.password,
+                    database: config.database,
+                    // eslint-disable-next-line no-undef
+                    entities: [`${__dirname}/../../../../../src/**/**/infrastructure/persistence/typeorm/*{.js,.ts}`],
+                    synchronize: false,
+                    logging: true,
+                    migrationsTableName: 'migrations',
+                    migrations: ['migration/*.js'],
+                    cli: {
+                        migrationsDir: 'migration',
+                    },
+                });
+                return connection;
+            }
+            catch (error) {
+                // eslint-disable-next-line no-console
+                console.log('error', error);
+                return (0, typeorm_1.getConnection)();
+            }
+        });
+    }
+}
+exports.TypeOrmClientFactory = TypeOrmClientFactory;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiL1VzZXJzL2N1YXRyb29jaGVudGEvTWFnaWNTaG9wcGVyL21hZ2ljc2hvcHBlci1ub2RlL3NyYy9taWNyb2svcGVyc2lzdGVuY2UvaW5mcmFzdHJ1Y3R1cmUvdHlwZW9ybS9UeXBlT3JtQ2xpZW50RmFjdG9yeS50cyIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7QUFBQSxxQ0FBc0U7QUFHdEUsTUFBYSxvQkFBb0I7SUFDN0IsTUFBTSxDQUFPLFlBQVksQ0FBQyxNQUFxQjs7WUFDM0MsSUFBSTtnQkFDQSxNQUFNLFVBQVUsR0FBRyxNQUFNLElBQUEsMEJBQWdCLEVBQUM7b0JBQ3RDLElBQUksRUFBRSxPQUFPO29CQUNiLElBQUksRUFBRSxNQUFNLENBQUMsSUFBSTtvQkFDakIsSUFBSSxFQUFFLE1BQU0sQ0FBQyxJQUFJO29CQUNqQixRQUFRLEVBQUUsTUFBTSxDQUFDLFFBQVE7b0JBQ3pCLFFBQVEsRUFBRSxNQUFNLENBQUMsUUFBUTtvQkFDekIsUUFBUSxFQUFFLE1BQU0sQ0FBQyxRQUFRO29CQUN6QixvQ0FBb0M7b0JBQ3BDLFFBQVEsRUFBRSxDQUFDLEdBQUcsU0FBUyx5RUFBeUUsQ0FBQztvQkFDakcsV0FBVyxFQUFFLEtBQUs7b0JBQ2xCLE9BQU8sRUFBRSxJQUFJO29CQUNiLG1CQUFtQixFQUFFLFlBQVk7b0JBQ2pDLFVBQVUsRUFBRSxDQUFDLGdCQUFnQixDQUFDO29CQUM5QixHQUFHLEVBQUU7d0JBQ0QsYUFBYSxFQUFFLFdBQVc7cUJBQzdCO2lCQUNKLENBQUMsQ0FBQztnQkFFSCxPQUFPLFVBQVUsQ0FBQzthQUNyQjtZQUFDLE9BQU8sS0FBSyxFQUFFO2dCQUNaLHNDQUFzQztnQkFDdEMsT0FBTyxDQUFDLEdBQUcsQ0FBQyxPQUFPLEVBQUUsS0FBSyxDQUFDLENBQUM7Z0JBQzVCLE9BQU8sSUFBQSx1QkFBYSxHQUFFLENBQUM7YUFDMUI7UUFDTCxDQUFDO0tBQUE7Q0FDSjtBQTVCRCxvREE0QkMiLCJuYW1lcyI6W10sInNvdXJjZXMiOlsiL1VzZXJzL2N1YXRyb29jaGVudGEvTWFnaWNTaG9wcGVyL21hZ2ljc2hvcHBlci1ub2RlL3NyYy9taWNyb2svcGVyc2lzdGVuY2UvaW5mcmFzdHJ1Y3R1cmUvdHlwZW9ybS9UeXBlT3JtQ2xpZW50RmFjdG9yeS50cyJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBDb25uZWN0aW9uLCBjcmVhdGVDb25uZWN0aW9uLCBnZXRDb25uZWN0aW9uIH0gZnJvbSAndHlwZW9ybSc7XG5pbXBvcnQgeyBUeXBlT3JtQ29uZmlnIH0gZnJvbSAnLi9UeXBlT3JtQ29uZmlnJztcblxuZXhwb3J0IGNsYXNzIFR5cGVPcm1DbGllbnRGYWN0b3J5IHtcbiAgICBzdGF0aWMgYXN5bmMgY3JlYXRlQ2xpZW50KGNvbmZpZzogVHlwZU9ybUNvbmZpZyk6IFByb21pc2U8Q29ubmVjdGlvbj4ge1xuICAgICAgICB0cnkge1xuICAgICAgICAgICAgY29uc3QgY29ubmVjdGlvbiA9IGF3YWl0IGNyZWF0ZUNvbm5lY3Rpb24oe1xuICAgICAgICAgICAgICAgIHR5cGU6ICdteXNxbCcsXG4gICAgICAgICAgICAgICAgaG9zdDogY29uZmlnLmhvc3QsXG4gICAgICAgICAgICAgICAgcG9ydDogY29uZmlnLnBvcnQsXG4gICAgICAgICAgICAgICAgdXNlcm5hbWU6IGNvbmZpZy51c2VybmFtZSxcbiAgICAgICAgICAgICAgICBwYXNzd29yZDogY29uZmlnLnBhc3N3b3JkLFxuICAgICAgICAgICAgICAgIGRhdGFiYXNlOiBjb25maWcuZGF0YWJhc2UsXG4gICAgICAgICAgICAgICAgLy8gZXNsaW50LWRpc2FibGUtbmV4dC1saW5lIG5vLXVuZGVmXG4gICAgICAgICAgICAgICAgZW50aXRpZXM6IFtgJHtfX2Rpcm5hbWV9Ly4uLy4uLy4uLy4uLy4uL3NyYy8qKi8qKi9pbmZyYXN0cnVjdHVyZS9wZXJzaXN0ZW5jZS90eXBlb3JtLyp7LmpzLC50c31gXSxcbiAgICAgICAgICAgICAgICBzeW5jaHJvbml6ZTogZmFsc2UsXG4gICAgICAgICAgICAgICAgbG9nZ2luZzogdHJ1ZSxcbiAgICAgICAgICAgICAgICBtaWdyYXRpb25zVGFibGVOYW1lOiAnbWlncmF0aW9ucycsXG4gICAgICAgICAgICAgICAgbWlncmF0aW9uczogWydtaWdyYXRpb24vKi5qcyddLFxuICAgICAgICAgICAgICAgIGNsaToge1xuICAgICAgICAgICAgICAgICAgICBtaWdyYXRpb25zRGlyOiAnbWlncmF0aW9uJyxcbiAgICAgICAgICAgICAgICB9LFxuICAgICAgICAgICAgfSk7XG5cbiAgICAgICAgICAgIHJldHVybiBjb25uZWN0aW9uO1xuICAgICAgICB9IGNhdGNoIChlcnJvcikge1xuICAgICAgICAgICAgLy8gZXNsaW50LWRpc2FibGUtbmV4dC1saW5lIG5vLWNvbnNvbGVcbiAgICAgICAgICAgIGNvbnNvbGUubG9nKCdlcnJvcicsIGVycm9yKTtcbiAgICAgICAgICAgIHJldHVybiBnZXRDb25uZWN0aW9uKCk7XG4gICAgICAgIH1cbiAgICB9XG59XG4iXSwidmVyc2lvbiI6M30=

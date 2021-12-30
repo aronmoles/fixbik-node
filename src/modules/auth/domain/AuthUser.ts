@@ -1,7 +1,10 @@
 import { AggregateRoot } from '@microk/common/AggregateRoot';
+import { Nullable } from '@microk/common/Nullable';
 import { PrimitivesObject } from '@microk/common/PrimitiveType';
+import AuthUserAuthenticatedDomainEvent from './AuthUserAuthenticated.DomainEvent';
 import AuthUserEmail from './AuthUserEmail';
 import AuthUserId from './AuthUserId';
+import AuthUserIncorrectPasswordError from './AuthUserIncorrectPasswordError';
 import AuthUserPassword from './AuthUserPassword';
 import AuthUserRecoverPasswordToken from './AuthUserRecoverPasswordToken';
 
@@ -10,7 +13,7 @@ export class AuthUser extends AggregateRoot {
         readonly id: AuthUserId,
         readonly email: AuthUserEmail,
         readonly password: AuthUserPassword,
-        readonly recoverPasswordToken?: AuthUserRecoverPasswordToken,
+        readonly recoverPasswordToken: Nullable<AuthUserRecoverPasswordToken>,
     ) {
         super();
     }
@@ -22,5 +25,12 @@ export class AuthUser extends AggregateRoot {
             password: this.password.value(),
             recoverPasswordToken: this.recoverPasswordToken?.value(),
         };
+    }
+
+    authenticate(password: AuthUserPassword) {
+        if (!this.password.equals(password)) {
+            throw new AuthUserIncorrectPasswordError();
+        }
+        this.record(new AuthUserAuthenticatedDomainEvent(this))
     }
 }

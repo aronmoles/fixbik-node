@@ -1,0 +1,11 @@
+1bc15fe57956f0eea87a7b7baef29067
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const EmailValueObject_1 = __importDefault(require("@microk/common/value-object/EmailValueObject"));
+class AuthUserEmail extends EmailValueObject_1.default {
+}
+exports.default = AuthUserEmail;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiL1VzZXJzL2N1YXRyb29jaGVudGEvTWFnaWNTaG9wcGVyL21hZ2ljc2hvcHBlci1ub2RlL3NyYy9tb2R1bGVzL2F1dGgvZG9tYWluL0F1dGhVc2VyRW1haWwudHMiLCJtYXBwaW5ncyI6Ijs7Ozs7QUFBQSxvR0FBNEU7QUFFNUUsTUFBcUIsYUFBYyxTQUFRLDBCQUFnQjtDQUMxRDtBQURELGdDQUNDIiwibmFtZXMiOltdLCJzb3VyY2VzIjpbIi9Vc2Vycy9jdWF0cm9vY2hlbnRhL01hZ2ljU2hvcHBlci9tYWdpY3Nob3BwZXItbm9kZS9zcmMvbW9kdWxlcy9hdXRoL2RvbWFpbi9BdXRoVXNlckVtYWlsLnRzIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBFbWFpbFZhbHVlT2JqZWN0IGZyb20gJ0BtaWNyb2svY29tbW9uL3ZhbHVlLW9iamVjdC9FbWFpbFZhbHVlT2JqZWN0JztcblxuZXhwb3J0IGRlZmF1bHQgY2xhc3MgQXV0aFVzZXJFbWFpbCBleHRlbmRzIEVtYWlsVmFsdWVPYmplY3Qge1xufVxuIl0sInZlcnNpb24iOjN9

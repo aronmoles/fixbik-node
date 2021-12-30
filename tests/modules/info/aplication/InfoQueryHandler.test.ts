@@ -1,6 +1,6 @@
 import InfoQueryHandler from '../../../../src/modules/info/application/info/InfoQueryHandler';
 import InfoService from '../../../../src/modules/info/application/info/InfoService';
-import EventBusMock from '../__mocks__/EventBusMock';
+import EventBusMock from '../../shared/__mocks__/EventBusMock';
 import InfoQueryMother from '../domain/InfoQueryMother';
 
 let handler: InfoQueryHandler;

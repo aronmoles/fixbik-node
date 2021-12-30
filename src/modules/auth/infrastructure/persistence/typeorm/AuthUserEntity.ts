@@ -4,6 +4,7 @@ import { AuthUser } from '../../../domain/AuthUser';
 import AuthUserEmail from '../../../domain/AuthUserEmail';
 import AuthUserId from '../../../domain/AuthUserId';
 import AuthUserPassword from '../../../domain/AuthUserPassword';
+import AuthUserRecoverPasswordToken from '../../../domain/AuthUserRecoverPasswordToken';
 
 export const AuthUserEntity = new EntitySchema<AuthUser>({
     name: 'AuthUser',
@@ -26,7 +27,7 @@ export const AuthUserEntity = new EntitySchema<AuthUser>({
         recoverPasswordToken: {
             type: String,
             nullable: true,
-            transformer: ValueObjectTransformer(AuthUserPassword),
+            transformer: ValueObjectTransformer(AuthUserRecoverPasswordToken),
         },
     },
 });

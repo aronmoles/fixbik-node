@@ -1,0 +1,405 @@
+ae09ba6167ea77980eab2fd5fad9b9cf
+"use strict";
+
+/* istanbul ignore next */
+function cov_1udniksaoh() {
+  var path = "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/modules/auth/infrastructure/persistence/typeorm/AuthUserEntity.ts";
+  var hash = "8242252bd9bde150fe8814358462c3de2a42f1dd";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/modules/auth/infrastructure/persistence/typeorm/AuthUserEntity.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 22
+        },
+        end: {
+          line: 4,
+          column: 1
+        }
+      },
+      "1": {
+        start: {
+          line: 3,
+          column: 4
+        },
+        end: {
+          line: 3,
+          column: 62
+        }
+      },
+      "2": {
+        start: {
+          line: 5,
+          column: 0
+        },
+        end: {
+          line: 5,
+          column: 62
+        }
+      },
+      "3": {
+        start: {
+          line: 6,
+          column: 0
+        },
+        end: {
+          line: 6,
+          column: 32
+        }
+      },
+      "4": {
+        start: {
+          line: 7,
+          column: 33
+        },
+        end: {
+          line: 7,
+          column: 109
+        }
+      },
+      "5": {
+        start: {
+          line: 8,
+          column: 18
+        },
+        end: {
+          line: 8,
+          column: 36
+        }
+      },
+      "6": {
+        start: {
+          line: 9,
+          column: 19
+        },
+        end: {
+          line: 9,
+          column: 54
+        }
+      },
+      "7": {
+        start: {
+          line: 10,
+          column: 24
+        },
+        end: {
+          line: 10,
+          column: 81
+        }
+      },
+      "8": {
+        start: {
+          line: 11,
+          column: 21
+        },
+        end: {
+          line: 11,
+          column: 75
+        }
+      },
+      "9": {
+        start: {
+          line: 12,
+          column: 27
+        },
+        end: {
+          line: 12,
+          column: 87
+        }
+      },
+      "10": {
+        start: {
+          line: 13,
+          column: 39
+        },
+        end: {
+          line: 13,
+          column: 111
+        }
+      },
+      "11": {
+        start: {
+          line: 14,
+          column: 0
+        },
+        end: {
+          line: 38,
+          column: 3
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 2,
+            column: 56
+          },
+          end: {
+            line: 2,
+            column: 57
+          }
+        },
+        loc: {
+          start: {
+            line: 2,
+            column: 71
+          },
+          end: {
+            line: 4,
+            column: 1
+          }
+        },
+        line: 2
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 2,
+            column: 22
+          },
+          end: {
+            line: 4,
+            column: 1
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 2,
+            column: 23
+          },
+          end: {
+            line: 2,
+            column: 27
+          }
+        }, {
+          start: {
+            line: 2,
+            column: 31
+          },
+          end: {
+            line: 2,
+            column: 51
+          }
+        }, {
+          start: {
+            line: 2,
+            column: 56
+          },
+          end: {
+            line: 4,
+            column: 1
+          }
+        }],
+        line: 2
+      },
+      "1": {
+        loc: {
+          start: {
+            line: 3,
+            column: 11
+          },
+          end: {
+            line: 3,
+            column: 61
+          }
+        },
+        type: "cond-expr",
+        locations: [{
+          start: {
+            line: 3,
+            column: 37
+          },
+          end: {
+            line: 3,
+            column: 40
+          }
+        }, {
+          start: {
+            line: 3,
+            column: 43
+          },
+          end: {
+            line: 3,
+            column: 61
+          }
+        }],
+        line: 3
+      },
+      "2": {
+        loc: {
+          start: {
+            line: 3,
+            column: 12
+          },
+          end: {
+            line: 3,
+            column: 33
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 3,
+            column: 12
+          },
+          end: {
+            line: 3,
+            column: 15
+          }
+        }, {
+          start: {
+            line: 3,
+            column: 19
+          },
+          end: {
+            line: 3,
+            column: 33
+          }
+        }],
+        line: 3
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0
+    },
+    f: {
+      "0": 0
+    },
+    b: {
+      "0": [0, 0, 0],
+      "1": [0, 0],
+      "2": [0, 0]
+    },
+    inputSourceMap: {
+      file: "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/modules/auth/infrastructure/persistence/typeorm/AuthUserEntity.ts",
+      mappings: ";;;;;;AAAA,8GAA2G;AAC3G,qCAAuC;AACvC,uDAAoD;AACpD,kFAA0D;AAC1D,4EAAoD;AACpD,wFAAgE;AAChE,gHAAwF;AAE3E,QAAA,cAAc,GAAG,IAAI,sBAAY,CAAW;IACrD,IAAI,EAAE,UAAU;IAChB,SAAS,EAAE,WAAW;IACtB,MAAM,EAAE,mBAAQ;IAChB,OAAO,EAAE;QACL,EAAE,EAAE;YACA,IAAI,EAAE,MAAM;YACZ,OAAO,EAAE,IAAI;YACb,WAAW,EAAE,IAAA,+CAAsB,EAAC,oBAAU,CAAC;SAClD;QACD,KAAK,EAAE;YACH,IAAI,EAAE,MAAM;YACZ,WAAW,EAAE,IAAA,+CAAsB,EAAC,uBAAa,CAAC;SACrD;QACD,QAAQ,EAAE;YACN,IAAI,EAAE,MAAM;YACZ,WAAW,EAAE,IAAA,+CAAsB,EAAC,0BAAgB,CAAC;SACxD;QACD,oBAAoB,EAAE;YAClB,IAAI,EAAE,MAAM;YACZ,QAAQ,EAAE,IAAI;YACd,WAAW,EAAE,IAAA,+CAAsB,EAAC,sCAA4B,CAAC;SACpE;KACJ;CACJ,CAAC,CAAC",
+      names: [],
+      sources: ["/Users/cuatroochenta/MagicShopper/magicshopper-node/src/modules/auth/infrastructure/persistence/typeorm/AuthUserEntity.ts"],
+      sourcesContent: ["import { ValueObjectTransformer } from '@microk/persistence/infrastructure/typeorm/ValueObjectTransformer';\nimport { EntitySchema } from 'typeorm';\nimport { AuthUser } from '../../../domain/AuthUser';\nimport AuthUserEmail from '../../../domain/AuthUserEmail';\nimport AuthUserId from '../../../domain/AuthUserId';\nimport AuthUserPassword from '../../../domain/AuthUserPassword';\nimport AuthUserRecoverPasswordToken from '../../../domain/AuthUserRecoverPasswordToken';\n\nexport const AuthUserEntity = new EntitySchema<AuthUser>({\n    name: 'AuthUser',\n    tableName: 'auth_user',\n    target: AuthUser,\n    columns: {\n        id: {\n            type: String,\n            primary: true,\n            transformer: ValueObjectTransformer(AuthUserId),\n        },\n        email: {\n            type: String,\n            transformer: ValueObjectTransformer(AuthUserEmail),\n        },\n        password: {\n            type: String,\n            transformer: ValueObjectTransformer(AuthUserPassword),\n        },\n        recoverPasswordToken: {\n            type: String,\n            nullable: true,\n            transformer: ValueObjectTransformer(AuthUserRecoverPasswordToken),\n        },\n    },\n});\n"],
+      version: 3
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "8242252bd9bde150fe8814358462c3de2a42f1dd"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_1udniksaoh = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_1udniksaoh();
+
+var __importDefault =
+/* istanbul ignore next */
+(cov_1udniksaoh().s[0]++,
+/* istanbul ignore next */
+(cov_1udniksaoh().b[0][0]++, this) &&
+/* istanbul ignore next */
+(cov_1udniksaoh().b[0][1]++, this.__importDefault) ||
+/* istanbul ignore next */
+(cov_1udniksaoh().b[0][2]++, function (mod) {
+  /* istanbul ignore next */
+  cov_1udniksaoh().f[0]++;
+  cov_1udniksaoh().s[1]++;
+  return (
+    /* istanbul ignore next */
+    (cov_1udniksaoh().b[2][0]++, mod) &&
+    /* istanbul ignore next */
+    (cov_1udniksaoh().b[2][1]++, mod.__esModule) ?
+    /* istanbul ignore next */
+    (cov_1udniksaoh().b[1][0]++, mod) :
+    /* istanbul ignore next */
+    (cov_1udniksaoh().b[1][1]++, {
+      "default": mod
+    })
+  );
+}));
+
+/* istanbul ignore next */
+cov_1udniksaoh().s[2]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+/* istanbul ignore next */
+cov_1udniksaoh().s[3]++;
+exports.AuthUserEntity = void 0;
+const ValueObjectTransformer_1 =
+/* istanbul ignore next */
+(cov_1udniksaoh().s[4]++, require("@microk/persistence/infrastructure/typeorm/ValueObjectTransformer"));
+const typeorm_1 =
+/* istanbul ignore next */
+(cov_1udniksaoh().s[5]++, require("typeorm"));
+const AuthUser_1 =
+/* istanbul ignore next */
+(cov_1udniksaoh().s[6]++, require("../../../domain/AuthUser"));
+const AuthUserEmail_1 =
+/* istanbul ignore next */
+(cov_1udniksaoh().s[7]++, __importDefault(require("../../../domain/AuthUserEmail")));
+const AuthUserId_1 =
+/* istanbul ignore next */
+(cov_1udniksaoh().s[8]++, __importDefault(require("../../../domain/AuthUserId")));
+const AuthUserPassword_1 =
+/* istanbul ignore next */
+(cov_1udniksaoh().s[9]++, __importDefault(require("../../../domain/AuthUserPassword")));
+const AuthUserRecoverPasswordToken_1 =
+/* istanbul ignore next */
+(cov_1udniksaoh().s[10]++, __importDefault(require("../../../domain/AuthUserRecoverPasswordToken")));
+
+/* istanbul ignore next */
+cov_1udniksaoh().s[11]++;
+exports.AuthUserEntity = new typeorm_1.EntitySchema({
+  name: 'AuthUser',
+  tableName: 'auth_user',
+  target: AuthUser_1.AuthUser,
+  columns: {
+    id: {
+      type: String,
+      primary: true,
+      transformer: (0, ValueObjectTransformer_1.ValueObjectTransformer)(AuthUserId_1.default)
+    },
+    email: {
+      type: String,
+      transformer: (0, ValueObjectTransformer_1.ValueObjectTransformer)(AuthUserEmail_1.default)
+    },
+    password: {
+      type: String,
+      transformer: (0, ValueObjectTransformer_1.ValueObjectTransformer)(AuthUserPassword_1.default)
+    },
+    recoverPasswordToken: {
+      type: String,
+      nullable: true,
+      transformer: (0, ValueObjectTransformer_1.ValueObjectTransformer)(AuthUserRecoverPasswordToken_1.default)
+    }
+  }
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9jdWF0cm9vY2hlbnRhL01hZ2ljU2hvcHBlci9tYWdpY3Nob3BwZXItbm9kZS9zcmMvbW9kdWxlcy9hdXRoL2luZnJhc3RydWN0dXJlL3BlcnNpc3RlbmNlL3R5cGVvcm0vQXV0aFVzZXJFbnRpdHkudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBVUk7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQVZKLE1BQUEsd0JBQUE7QUFBQTtBQUFBLDBCQUFBLE9BQUEsQ0FBQSxtRUFBQSxDQUFBLENBQUE7QUFDQSxNQUFBLFNBQUE7QUFBQTtBQUFBLDBCQUFBLE9BQUEsQ0FBQSxTQUFBLENBQUEsQ0FBQTtBQUNBLE1BQUEsVUFBQTtBQUFBO0FBQUEsMEJBQUEsT0FBQSxDQUFBLDBCQUFBLENBQUEsQ0FBQTtBQUNBLE1BQUEsZUFBQTtBQUFBO0FBQUEsMEJBQUEsZUFBQSxDQUFBLE9BQUEsQ0FBQSwrQkFBQSxDQUFBLENBQUEsQ0FBQTtBQUNBLE1BQUEsWUFBQTtBQUFBO0FBQUEsMEJBQUEsZUFBQSxDQUFBLE9BQUEsQ0FBQSw0QkFBQSxDQUFBLENBQUEsQ0FBQTtBQUNBLE1BQUEsa0JBQUE7QUFBQTtBQUFBLDBCQUFBLGVBQUEsQ0FBQSxPQUFBLENBQUEsa0NBQUEsQ0FBQSxDQUFBLENBQUE7QUFDQSxNQUFBLDhCQUFBO0FBQUE7QUFBQSwyQkFBQSxlQUFBLENBQUEsT0FBQSxDQUFBLDhDQUFBLENBQUEsQ0FBQSxDQUFBOzs7O0FBRWEsT0FBQSxDQUFBLGNBQUEsR0FBaUIsSUFBSSxTQUFBLENBQUEsWUFBSixDQUEyQjtBQUNyRCxFQUFBLElBQUksRUFBRSxVQUQrQztBQUVyRCxFQUFBLFNBQVMsRUFBRSxXQUYwQztBQUdyRCxFQUFBLE1BQU0sRUFBRSxVQUFBLENBQUEsUUFINkM7QUFJckQsRUFBQSxPQUFPLEVBQUU7QUFDTCxJQUFBLEVBQUUsRUFBRTtBQUNBLE1BQUEsSUFBSSxFQUFFLE1BRE47QUFFQSxNQUFBLE9BQU8sRUFBRSxJQUZUO0FBR0EsTUFBQSxXQUFXLEVBQUUsQ0FBQSxHQUFBLHdCQUFBLENBQUEsc0JBQUEsRUFBdUIsWUFBQSxDQUFBLE9BQXZCO0FBSGIsS0FEQztBQU1MLElBQUEsS0FBSyxFQUFFO0FBQ0gsTUFBQSxJQUFJLEVBQUUsTUFESDtBQUVILE1BQUEsV0FBVyxFQUFFLENBQUEsR0FBQSx3QkFBQSxDQUFBLHNCQUFBLEVBQXVCLGVBQUEsQ0FBQSxPQUF2QjtBQUZWLEtBTkY7QUFVTCxJQUFBLFFBQVEsRUFBRTtBQUNOLE1BQUEsSUFBSSxFQUFFLE1BREE7QUFFTixNQUFBLFdBQVcsRUFBRSxDQUFBLEdBQUEsd0JBQUEsQ0FBQSxzQkFBQSxFQUF1QixrQkFBQSxDQUFBLE9BQXZCO0FBRlAsS0FWTDtBQWNMLElBQUEsb0JBQW9CLEVBQUU7QUFDbEIsTUFBQSxJQUFJLEVBQUUsTUFEWTtBQUVsQixNQUFBLFFBQVEsRUFBRSxJQUZRO0FBR2xCLE1BQUEsV0FBVyxFQUFFLENBQUEsR0FBQSx3QkFBQSxDQUFBLHNCQUFBLEVBQXVCLDhCQUFBLENBQUEsT0FBdkI7QUFISztBQWRqQjtBQUo0QyxDQUEzQixDQUFqQiIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IFZhbHVlT2JqZWN0VHJhbnNmb3JtZXIgfSBmcm9tICdAbWljcm9rL3BlcnNpc3RlbmNlL2luZnJhc3RydWN0dXJlL3R5cGVvcm0vVmFsdWVPYmplY3RUcmFuc2Zvcm1lcic7XG5pbXBvcnQgeyBFbnRpdHlTY2hlbWEgfSBmcm9tICd0eXBlb3JtJztcbmltcG9ydCB7IEF1dGhVc2VyIH0gZnJvbSAnLi4vLi4vLi4vZG9tYWluL0F1dGhVc2VyJztcbmltcG9ydCBBdXRoVXNlckVtYWlsIGZyb20gJy4uLy4uLy4uL2RvbWFpbi9BdXRoVXNlckVtYWlsJztcbmltcG9ydCBBdXRoVXNlcklkIGZyb20gJy4uLy4uLy4uL2RvbWFpbi9BdXRoVXNlcklkJztcbmltcG9ydCBBdXRoVXNlclBhc3N3b3JkIGZyb20gJy4uLy4uLy4uL2RvbWFpbi9BdXRoVXNlclBhc3N3b3JkJztcbmltcG9ydCBBdXRoVXNlclJlY292ZXJQYXNzd29yZFRva2VuIGZyb20gJy4uLy4uLy4uL2RvbWFpbi9BdXRoVXNlclJlY292ZXJQYXNzd29yZFRva2VuJztcblxuZXhwb3J0IGNvbnN0IEF1dGhVc2VyRW50aXR5ID0gbmV3IEVudGl0eVNjaGVtYTxBdXRoVXNlcj4oe1xuICAgIG5hbWU6ICdBdXRoVXNlcicsXG4gICAgdGFibGVOYW1lOiAnYXV0aF91c2VyJyxcbiAgICB0YXJnZXQ6IEF1dGhVc2VyLFxuICAgIGNvbHVtbnM6IHtcbiAgICAgICAgaWQ6IHtcbiAgICAgICAgICAgIHR5cGU6IFN0cmluZyxcbiAgICAgICAgICAgIHByaW1hcnk6IHRydWUsXG4gICAgICAgICAgICB0cmFuc2Zvcm1lcjogVmFsdWVPYmplY3RUcmFuc2Zvcm1lcihBdXRoVXNlcklkKSxcbiAgICAgICAgfSxcbiAgICAgICAgZW1haWw6IHtcbiAgICAgICAgICAgIHR5cGU6IFN0cmluZyxcbiAgICAgICAgICAgIHRyYW5zZm9ybWVyOiBWYWx1ZU9iamVjdFRyYW5zZm9ybWVyKEF1dGhVc2VyRW1haWwpLFxuICAgICAgICB9LFxuICAgICAgICBwYXNzd29yZDoge1xuICAgICAgICAgICAgdHlwZTogU3RyaW5nLFxuICAgICAgICAgICAgdHJhbnNmb3JtZXI6IFZhbHVlT2JqZWN0VHJhbnNmb3JtZXIoQXV0aFVzZXJQYXNzd29yZCksXG4gICAgICAgIH0sXG4gICAgICAgIHJlY292ZXJQYXNzd29yZFRva2VuOiB7XG4gICAgICAgICAgICB0eXBlOiBTdHJpbmcsXG4gICAgICAgICAgICBudWxsYWJsZTogdHJ1ZSxcbiAgICAgICAgICAgIHRyYW5zZm9ybWVyOiBWYWx1ZU9iamVjdFRyYW5zZm9ybWVyKEF1dGhVc2VyUmVjb3ZlclBhc3N3b3JkVG9rZW4pLFxuICAgICAgICB9LFxuICAgIH0sXG59KTtcbiJdfQ==

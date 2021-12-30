@@ -1,0 +1,385 @@
+53ec5819bf775a53134c2bc3e06f4698
+"use strict";
+
+/* istanbul ignore next */
+function cov_2c1w4pnagm() {
+  var path = "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/microk/cqrs/infrastructure/query/QueryHandlersMapper.ts";
+  var hash = "80e0c451bcd6928971c62c1456ba26bb0b66f935";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/microk/cqrs/infrastructure/query/QueryHandlersMapper.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 0
+        },
+        end: {
+          line: 2,
+          column: 62
+        }
+      },
+      "1": {
+        start: {
+          line: 3,
+          column: 34
+        },
+        end: {
+          line: 3,
+          column: 87
+        }
+      },
+      "2": {
+        start: {
+          line: 6,
+          column: 8
+        },
+        end: {
+          line: 6,
+          column: 67
+        }
+      },
+      "3": {
+        start: {
+          line: 9,
+          column: 28
+        },
+        end: {
+          line: 9,
+          column: 37
+        }
+      },
+      "4": {
+        start: {
+          line: 10,
+          column: 8
+        },
+        end: {
+          line: 12,
+          column: 11
+        }
+      },
+      "5": {
+        start: {
+          line: 11,
+          column: 12
+        },
+        end: {
+          line: 11,
+          column: 71
+        }
+      },
+      "6": {
+        start: {
+          line: 13,
+          column: 8
+        },
+        end: {
+          line: 13,
+          column: 27
+        }
+      },
+      "7": {
+        start: {
+          line: 16,
+          column: 29
+        },
+        end: {
+          line: 16,
+          column: 78
+        }
+      },
+      "8": {
+        start: {
+          line: 17,
+          column: 8
+        },
+        end: {
+          line: 19,
+          column: 9
+        }
+      },
+      "9": {
+        start: {
+          line: 18,
+          column: 12
+        },
+        end: {
+          line: 18,
+          column: 79
+        }
+      },
+      "10": {
+        start: {
+          line: 20,
+          column: 8
+        },
+        end: {
+          line: 20,
+          column: 28
+        }
+      },
+      "11": {
+        start: {
+          line: 23,
+          column: 0
+        },
+        end: {
+          line: 23,
+          column: 38
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 5,
+            column: 4
+          },
+          end: {
+            line: 5,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 5,
+            column: 31
+          },
+          end: {
+            line: 7,
+            column: 5
+          }
+        },
+        line: 5
+      },
+      "1": {
+        name: "(anonymous_1)",
+        decl: {
+          start: {
+            line: 8,
+            column: 4
+          },
+          end: {
+            line: 8,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 8,
+            column: 34
+          },
+          end: {
+            line: 14,
+            column: 5
+          }
+        },
+        line: 8
+      },
+      "2": {
+        name: "(anonymous_2)",
+        decl: {
+          start: {
+            line: 10,
+            column: 30
+          },
+          end: {
+            line: 10,
+            column: 31
+          }
+        },
+        loc: {
+          start: {
+            line: 10,
+            column: 48
+          },
+          end: {
+            line: 12,
+            column: 9
+          }
+        },
+        line: 10
+      },
+      "3": {
+        name: "(anonymous_3)",
+        decl: {
+          start: {
+            line: 15,
+            column: 4
+          },
+          end: {
+            line: 15,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 15,
+            column: 18
+          },
+          end: {
+            line: 21,
+            column: 5
+          }
+        },
+        line: 15
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 17,
+            column: 8
+          },
+          end: {
+            line: 19,
+            column: 9
+          }
+        },
+        type: "if",
+        locations: [{
+          start: {
+            line: 17,
+            column: 8
+          },
+          end: {
+            line: 19,
+            column: 9
+          }
+        }, {
+          start: {
+            line: undefined,
+            column: undefined
+          },
+          end: {
+            line: undefined,
+            column: undefined
+          }
+        }],
+        line: 17
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    b: {
+      "0": [0, 0]
+    },
+    inputSourceMap: {
+      file: "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/microk/cqrs/infrastructure/query/QueryHandlersMapper.ts",
+      mappings: ";;AAEA,wFAAqF;AAGrF,MAAqB,mBAAmB;IAGpC,YAAY,aAAwD;QAChE,IAAI,CAAC,gBAAgB,GAAG,IAAI,CAAC,cAAc,CAAC,aAAa,CAAC,CAAC;IAC/D,CAAC;IAEO,cAAc,CAClB,aAAwD;QAExD,MAAM,WAAW,GAAG,IAAI,GAAG,EAAE,CAAC;QAE9B,aAAa,CAAC,OAAO,CAAC,CAAC,YAAY,EAAE,EAAE;YACnC,WAAW,CAAC,GAAG,CAAC,YAAY,CAAC,YAAY,EAAE,EAAE,YAAY,CAAC,CAAC;QAC/D,CAAC,CAAC,CAAC;QAEH,OAAO,WAAW,CAAC;IACvB,CAAC;IAEM,MAAM,CAAC,KAAY;QACtB,MAAM,YAAY,GAAG,IAAI,CAAC,gBAAgB,CAAC,GAAG,CAAC,KAAK,CAAC,WAAW,CAAC,IAAI,CAAC,CAAC;QAEvE,IAAI,CAAC,YAAY,EAAE;YACf,MAAM,IAAI,iDAAuB,CAAC,KAAK,CAAC,CAAC;SAC5C;QAED,OAAO,YAAY,CAAC;IACxB,CAAC;CACJ;AA5BD,sCA4BC",
+      names: [],
+      sources: ["/Users/cuatroochenta/MagicShopper/magicshopper-node/src/microk/cqrs/infrastructure/query/QueryHandlersMapper.ts"],
+      sourcesContent: ["import Query from '../../domain/query/Query';\nimport { QueryHandler } from '../../domain/query/QueryHandler';\nimport { QueryNotRegisteredError } from '../../domain/query/QueryNotRegisteredError';\nimport { QueryResponse } from '../../domain/query/QueryResponse';\n\nexport default class QueryHandlersMapper {\n    private queryHandlersMap: Map<string, QueryHandler<Query, QueryResponse>>;\n\n    constructor(queryHandlers: Array<QueryHandler<Query, QueryResponse>>) {\n        this.queryHandlersMap = this.formatHandlers(queryHandlers);\n    }\n\n    private formatHandlers(\n        queryHandlers: Array<QueryHandler<Query, QueryResponse>>\n    ): Map<string, QueryHandler<Query, QueryResponse>> {\n        const handlersMap = new Map();\n\n        queryHandlers.forEach((queryHandler) => {\n            handlersMap.set(queryHandler.subscribedTo(), queryHandler);\n        });\n\n        return handlersMap;\n    }\n\n    public search(query: Query): QueryHandler<Query, QueryResponse> {\n        const queryHandler = this.queryHandlersMap.get(query.constructor.name);\n\n        if (!queryHandler) {\n            throw new QueryNotRegisteredError(query);\n        }\n\n        return queryHandler;\n    }\n}\n"],
+      version: 3
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "80e0c451bcd6928971c62c1456ba26bb0b66f935"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_2c1w4pnagm = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_2c1w4pnagm();
+cov_2c1w4pnagm().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+const QueryNotRegisteredError_1 =
+/* istanbul ignore next */
+(cov_2c1w4pnagm().s[1]++, require("../../domain/query/QueryNotRegisteredError"));
+
+class QueryHandlersMapper {
+  constructor(queryHandlers) {
+    /* istanbul ignore next */
+    cov_2c1w4pnagm().f[0]++;
+    cov_2c1w4pnagm().s[2]++;
+    this.queryHandlersMap = this.formatHandlers(queryHandlers);
+  }
+
+  formatHandlers(queryHandlers) {
+    /* istanbul ignore next */
+    cov_2c1w4pnagm().f[1]++;
+    const handlersMap =
+    /* istanbul ignore next */
+    (cov_2c1w4pnagm().s[3]++, new Map());
+
+    /* istanbul ignore next */
+    cov_2c1w4pnagm().s[4]++;
+    queryHandlers.forEach((queryHandler) => {
+      /* istanbul ignore next */
+      cov_2c1w4pnagm().f[2]++;
+      cov_2c1w4pnagm().s[5]++;
+      handlersMap.set(queryHandler.subscribedTo(), queryHandler);
+    });
+
+    /* istanbul ignore next */
+    cov_2c1w4pnagm().s[6]++;
+    return handlersMap;
+  }
+
+  search(query) {
+    /* istanbul ignore next */
+    cov_2c1w4pnagm().f[3]++;
+    const queryHandler =
+    /* istanbul ignore next */
+    (cov_2c1w4pnagm().s[7]++, this.queryHandlersMap.get(query.constructor.name));
+
+    /* istanbul ignore next */
+    cov_2c1w4pnagm().s[8]++;
+
+    if (!queryHandler) {
+      /* istanbul ignore next */
+      cov_2c1w4pnagm().b[0][0]++;
+      cov_2c1w4pnagm().s[9]++;
+      throw new QueryNotRegisteredError_1.QueryNotRegisteredError(query);
+    } else
+    /* istanbul ignore next */
+    {
+      cov_2c1w4pnagm().b[0][1]++;
+    }
+
+    cov_2c1w4pnagm().s[10]++;
+    return queryHandler;
+  }
+
+}
+
+/* istanbul ignore next */
+cov_2c1w4pnagm().s[11]++;
+exports.default = QueryHandlersMapper;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9jdWF0cm9vY2hlbnRhL01hZ2ljU2hvcHBlci9tYWdpY3Nob3BwZXItbm9kZS9zcmMvbWljcm9rL2NxcnMvaW5mcmFzdHJ1Y3R1cmUvcXVlcnkvUXVlcnlIYW5kbGVyc01hcHBlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBeUJROzs7Ozs7Ozs7Ozs7O0FBdkJSLE1BQUEseUJBQUE7QUFBQTtBQUFBLDBCQUFBLE9BQUEsQ0FBQSw0Q0FBQSxDQUFBLENBQUE7O0FBR0EsTUFBcUIsbUJBQXJCLENBQXdDO0FBR3BDLEVBQUEsV0FBQSxDQUFZLGFBQVosRUFBb0U7QUFBQTtBQUFBO0FBQUE7QUFDaEUsU0FBSyxnQkFBTCxHQUF3QixLQUFLLGNBQUwsQ0FBb0IsYUFBcEIsQ0FBeEI7QUFDSDs7QUFFTyxFQUFBLGNBQWMsQ0FDbEIsYUFEa0IsRUFDc0M7QUFBQTtBQUFBO0FBRXhELFVBQU0sV0FBVztBQUFBO0FBQUEsOEJBQUcsSUFBSSxHQUFKLEVBQUgsQ0FBakI7O0FBRndEO0FBQUE7QUFJeEQsSUFBQSxhQUFhLENBQUMsT0FBZCxDQUFzQixDQUFDLFlBQUQsS0FBaUI7QUFBQTtBQUFBO0FBQUE7QUFDbkMsTUFBQSxXQUFXLENBQUMsR0FBWixDQUFnQixZQUFZLENBQUMsWUFBYixFQUFoQixFQUE2QyxZQUE3QztBQUNILEtBRkQ7O0FBSndEO0FBQUE7QUFReEQsV0FBTyxXQUFQO0FBQ0g7O0FBRU0sRUFBQSxNQUFNLENBQUMsS0FBRCxFQUFhO0FBQUE7QUFBQTtBQUN0QixVQUFNLFlBQVk7QUFBQTtBQUFBLDhCQUFHLEtBQUssZ0JBQUwsQ0FBc0IsR0FBdEIsQ0FBMEIsS0FBSyxDQUFDLFdBQU4sQ0FBa0IsSUFBNUMsQ0FBSCxDQUFsQjs7QUFEc0I7QUFBQTs7QUFHdEIsUUFBSSxDQUFDLFlBQUwsRUFBbUI7QUFBQTtBQUFBO0FBQUE7QUFDZixZQUFNLElBQUkseUJBQUEsQ0FBQSx1QkFBSixDQUE0QixLQUE1QixDQUFOO0FBQ0gsS0FGRDtBQUFBO0FBQUE7QUFBQTtBQUFBOztBQUhzQjtBQU90QixXQUFPLFlBQVA7QUFDSDs7QUEzQm1DOzs7O0FBQXhDLE9BQUEsQ0FBQSxPQUFBLEdBQUEsbUJBQUEiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUXVlcnkgZnJvbSAnLi4vLi4vZG9tYWluL3F1ZXJ5L1F1ZXJ5JztcbmltcG9ydCB7IFF1ZXJ5SGFuZGxlciB9IGZyb20gJy4uLy4uL2RvbWFpbi9xdWVyeS9RdWVyeUhhbmRsZXInO1xuaW1wb3J0IHsgUXVlcnlOb3RSZWdpc3RlcmVkRXJyb3IgfSBmcm9tICcuLi8uLi9kb21haW4vcXVlcnkvUXVlcnlOb3RSZWdpc3RlcmVkRXJyb3InO1xuaW1wb3J0IHsgUXVlcnlSZXNwb25zZSB9IGZyb20gJy4uLy4uL2RvbWFpbi9xdWVyeS9RdWVyeVJlc3BvbnNlJztcblxuZXhwb3J0IGRlZmF1bHQgY2xhc3MgUXVlcnlIYW5kbGVyc01hcHBlciB7XG4gICAgcHJpdmF0ZSBxdWVyeUhhbmRsZXJzTWFwOiBNYXA8c3RyaW5nLCBRdWVyeUhhbmRsZXI8UXVlcnksIFF1ZXJ5UmVzcG9uc2U+PjtcblxuICAgIGNvbnN0cnVjdG9yKHF1ZXJ5SGFuZGxlcnM6IEFycmF5PFF1ZXJ5SGFuZGxlcjxRdWVyeSwgUXVlcnlSZXNwb25zZT4+KSB7XG4gICAgICAgIHRoaXMucXVlcnlIYW5kbGVyc01hcCA9IHRoaXMuZm9ybWF0SGFuZGxlcnMocXVlcnlIYW5kbGVycyk7XG4gICAgfVxuXG4gICAgcHJpdmF0ZSBmb3JtYXRIYW5kbGVycyhcbiAgICAgICAgcXVlcnlIYW5kbGVyczogQXJyYXk8UXVlcnlIYW5kbGVyPFF1ZXJ5LCBRdWVyeVJlc3BvbnNlPj5cbiAgICApOiBNYXA8c3RyaW5nLCBRdWVyeUhhbmRsZXI8UXVlcnksIFF1ZXJ5UmVzcG9uc2U+PiB7XG4gICAgICAgIGNvbnN0IGhhbmRsZXJzTWFwID0gbmV3IE1hcCgpO1xuXG4gICAgICAgIHF1ZXJ5SGFuZGxlcnMuZm9yRWFjaCgocXVlcnlIYW5kbGVyKSA9PiB7XG4gICAgICAgICAgICBoYW5kbGVyc01hcC5zZXQocXVlcnlIYW5kbGVyLnN1YnNjcmliZWRUbygpLCBxdWVyeUhhbmRsZXIpO1xuICAgICAgICB9KTtcblxuICAgICAgICByZXR1cm4gaGFuZGxlcnNNYXA7XG4gICAgfVxuXG4gICAgcHVibGljIHNlYXJjaChxdWVyeTogUXVlcnkpOiBRdWVyeUhhbmRsZXI8UXVlcnksIFF1ZXJ5UmVzcG9uc2U+IHtcbiAgICAgICAgY29uc3QgcXVlcnlIYW5kbGVyID0gdGhpcy5xdWVyeUhhbmRsZXJzTWFwLmdldChxdWVyeS5jb25zdHJ1Y3Rvci5uYW1lKTtcblxuICAgICAgICBpZiAoIXF1ZXJ5SGFuZGxlcikge1xuICAgICAgICAgICAgdGhyb3cgbmV3IFF1ZXJ5Tm90UmVnaXN0ZXJlZEVycm9yKHF1ZXJ5KTtcbiAgICAgICAgfVxuXG4gICAgICAgIHJldHVybiBxdWVyeUhhbmRsZXI7XG4gICAgfVxufVxuIl19

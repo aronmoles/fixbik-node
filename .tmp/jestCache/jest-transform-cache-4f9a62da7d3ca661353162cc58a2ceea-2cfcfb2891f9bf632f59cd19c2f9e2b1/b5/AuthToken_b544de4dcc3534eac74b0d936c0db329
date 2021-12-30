@@ -1,0 +1,185 @@
+0582ac6548bb9a2cb98f6c8354a96b7e
+"use strict";
+
+/* istanbul ignore next */
+function cov_1slzupn2li() {
+  var path = "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/modules/auth/domain/AuthToken.ts";
+  var hash = "6710f2aafb858d9cc8ab847eddfc7329541294cd";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/modules/auth/domain/AuthToken.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 0
+        },
+        end: {
+          line: 2,
+          column: 62
+        }
+      },
+      "1": {
+        start: {
+          line: 3,
+          column: 28
+        },
+        end: {
+          line: 3,
+          column: 84
+        }
+      },
+      "2": {
+        start: {
+          line: 6,
+          column: 8
+        },
+        end: {
+          line: 6,
+          column: 21
+        }
+      },
+      "3": {
+        start: {
+          line: 9,
+          column: 8
+        },
+        end: {
+          line: 9,
+          column: 31
+        }
+      },
+      "4": {
+        start: {
+          line: 12,
+          column: 0
+        },
+        end: {
+          line: 12,
+          column: 28
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 5,
+            column: 4
+          },
+          end: {
+            line: 5,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 5,
+            column: 23
+          },
+          end: {
+            line: 7,
+            column: 5
+          }
+        },
+        line: 5
+      },
+      "1": {
+        name: "(anonymous_1)",
+        decl: {
+          start: {
+            line: 8,
+            column: 4
+          },
+          end: {
+            line: 8,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 8,
+            column: 29
+          },
+          end: {
+            line: 10,
+            column: 5
+          }
+        },
+        line: 8
+      }
+    },
+    branchMap: {},
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0
+    },
+    b: {},
+    inputSourceMap: {
+      file: "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/modules/auth/domain/AuthToken.ts",
+      mappings: ";;AAAA,qFAAkF;AAElF,MAAqB,SAAU,SAAQ,qCAAiB;IACpD,YAAoB,KAAa;QAC7B,KAAK,CAAC,KAAK,CAAC,CAAC;IACjB,CAAC;IAED,MAAM,CAAC,UAAU,CAAC,KAAa;QAC3B,OAAO,IAAI,IAAI,CAAC,KAAK,CAAC,CAAC;IAC3B,CAAC;CACJ;AARD,4BAQC",
+      names: [],
+      sources: ["/Users/cuatroochenta/MagicShopper/magicshopper-node/src/modules/auth/domain/AuthToken.ts"],
+      sourcesContent: ["import { StringValueObject } from '@microk/common/value-object/StringValueObject';\n\nexport default class AuthToken extends StringValueObject {\n    private constructor(value: string) {\n        super(value);\n    }\n\n    static fromString(token: string): AuthToken {\n        return new this(token);\n    }\n}\n"],
+      version: 3
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "6710f2aafb858d9cc8ab847eddfc7329541294cd"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_1slzupn2li = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_1slzupn2li();
+cov_1slzupn2li().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+const StringValueObject_1 =
+/* istanbul ignore next */
+(cov_1slzupn2li().s[1]++, require("@microk/common/value-object/StringValueObject"));
+
+class AuthToken extends
+/* istanbul ignore next */
+(StringValueObject_1.StringValueObject) {
+  constructor(value) {
+    /* istanbul ignore next */
+    cov_1slzupn2li().f[0]++;
+    cov_1slzupn2li().s[2]++;
+    super(value);
+  }
+
+  static fromString(token) {
+    /* istanbul ignore next */
+    cov_1slzupn2li().f[1]++;
+    cov_1slzupn2li().s[3]++;
+    return new this(token);
+  }
+
+}
+
+/* istanbul ignore next */
+cov_1slzupn2li().s[4]++;
+exports.default = AuthToken;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9jdWF0cm9vY2hlbnRhL01hZ2ljU2hvcHBlci9tYWdpY3Nob3BwZXItbm9kZS9zcmMvbW9kdWxlcy9hdXRoL2RvbWFpbi9BdXRoVG9rZW4udHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUFBLE1BQUEsbUJBQUE7QUFBQTtBQUFBLDBCQUFBLE9BQUEsQ0FBQSwrQ0FBQSxDQUFBLENBQUE7O0FBRUEsTUFBcUIsU0FBckI7QUFBQTtBQUFBLENBQXVDLG1CQUFBLENBQUEsaUJBQXZDLEVBQXdEO0FBQ3BELEVBQUEsV0FBQSxDQUFvQixLQUFwQixFQUFpQztBQUFBO0FBQUE7QUFBQTtBQUM3QixVQUFNLEtBQU47QUFDSDs7QUFFZ0IsU0FBVixVQUFVLENBQUMsS0FBRCxFQUFjO0FBQUE7QUFBQTtBQUFBO0FBQzNCLFdBQU8sSUFBSSxJQUFKLENBQVMsS0FBVCxDQUFQO0FBQ0g7O0FBUG1EOzs7O0FBQXhELE9BQUEsQ0FBQSxPQUFBLEdBQUEsU0FBQSIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IFN0cmluZ1ZhbHVlT2JqZWN0IH0gZnJvbSAnQG1pY3Jvay9jb21tb24vdmFsdWUtb2JqZWN0L1N0cmluZ1ZhbHVlT2JqZWN0JztcblxuZXhwb3J0IGRlZmF1bHQgY2xhc3MgQXV0aFRva2VuIGV4dGVuZHMgU3RyaW5nVmFsdWVPYmplY3Qge1xuICAgIHByaXZhdGUgY29uc3RydWN0b3IodmFsdWU6IHN0cmluZykge1xuICAgICAgICBzdXBlcih2YWx1ZSk7XG4gICAgfVxuXG4gICAgc3RhdGljIGZyb21TdHJpbmcodG9rZW46IHN0cmluZyk6IEF1dGhUb2tlbiB7XG4gICAgICAgIHJldHVybiBuZXcgdGhpcyh0b2tlbik7XG4gICAgfVxufVxuIl19

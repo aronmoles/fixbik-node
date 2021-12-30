@@ -7,6 +7,10 @@ import { AuthUserRepository } from '../../domain/AuthUserRepository';
 import { AuthUserEntity } from './typeorm/AuthUserEntity';
 
 export class TypeOrmAuthUserRepository extends TypeOrmRepository<AuthUser> implements AuthUserRepository {
+    protected entitySchema(): EntitySchema<AuthUser> {
+        return AuthUserEntity;
+    }
+
     public save(course: AuthUser): Promise<void> {
         return this.persist(course);
     }
@@ -14,12 +18,6 @@ export class TypeOrmAuthUserRepository extends TypeOrmRepository<AuthUser> imple
     public async search(id: AuthUserId): Promise<Nullable<AuthUser>> {
         const repository = await this.repository();
 
-        const course = await repository.findOne({ id });
-
-        return course;
-    }
-
-    protected entitySchema(): EntitySchema<AuthUser> {
-        return AuthUserEntity;
+        return repository.findOne({ id });
     }
 }

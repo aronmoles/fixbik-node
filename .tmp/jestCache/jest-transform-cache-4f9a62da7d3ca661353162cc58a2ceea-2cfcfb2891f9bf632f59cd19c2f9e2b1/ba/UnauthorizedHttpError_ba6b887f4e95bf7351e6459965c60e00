@@ -1,0 +1,382 @@
+92fe1e780f6e9d823edf8352565586f3
+"use strict";
+
+/* istanbul ignore next */
+function cov_ao4c6lj6a() {
+  var path = "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/microk/common/http/errors/UnauthorizedHttpError.ts";
+  var hash = "6a407c8f7bc5e33770957230a9ae13bd11cecd75";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/microk/common/http/errors/UnauthorizedHttpError.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 22
+        },
+        end: {
+          line: 4,
+          column: 1
+        }
+      },
+      "1": {
+        start: {
+          line: 3,
+          column: 4
+        },
+        end: {
+          line: 3,
+          column: 62
+        }
+      },
+      "2": {
+        start: {
+          line: 5,
+          column: 0
+        },
+        end: {
+          line: 5,
+          column: 62
+        }
+      },
+      "3": {
+        start: {
+          line: 6,
+          column: 20
+        },
+        end: {
+          line: 6,
+          column: 60
+        }
+      },
+      "4": {
+        start: {
+          line: 7,
+          column: 21
+        },
+        end: {
+          line: 7,
+          column: 45
+        }
+      },
+      "5": {
+        start: {
+          line: 10,
+          column: 8
+        },
+        end: {
+          line: 10,
+          column: 79
+        }
+      },
+      "6": {
+        start: {
+          line: 13,
+          column: 0
+        },
+        end: {
+          line: 13,
+          column: 40
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 2,
+            column: 56
+          },
+          end: {
+            line: 2,
+            column: 57
+          }
+        },
+        loc: {
+          start: {
+            line: 2,
+            column: 71
+          },
+          end: {
+            line: 4,
+            column: 1
+          }
+        },
+        line: 2
+      },
+      "1": {
+        name: "(anonymous_1)",
+        decl: {
+          start: {
+            line: 9,
+            column: 4
+          },
+          end: {
+            line: 9,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 9,
+            column: 25
+          },
+          end: {
+            line: 11,
+            column: 5
+          }
+        },
+        line: 9
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 2,
+            column: 22
+          },
+          end: {
+            line: 4,
+            column: 1
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 2,
+            column: 23
+          },
+          end: {
+            line: 2,
+            column: 27
+          }
+        }, {
+          start: {
+            line: 2,
+            column: 31
+          },
+          end: {
+            line: 2,
+            column: 51
+          }
+        }, {
+          start: {
+            line: 2,
+            column: 56
+          },
+          end: {
+            line: 4,
+            column: 1
+          }
+        }],
+        line: 2
+      },
+      "1": {
+        loc: {
+          start: {
+            line: 3,
+            column: 11
+          },
+          end: {
+            line: 3,
+            column: 61
+          }
+        },
+        type: "cond-expr",
+        locations: [{
+          start: {
+            line: 3,
+            column: 37
+          },
+          end: {
+            line: 3,
+            column: 40
+          }
+        }, {
+          start: {
+            line: 3,
+            column: 43
+          },
+          end: {
+            line: 3,
+            column: 61
+          }
+        }],
+        line: 3
+      },
+      "2": {
+        loc: {
+          start: {
+            line: 3,
+            column: 12
+          },
+          end: {
+            line: 3,
+            column: 33
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 3,
+            column: 12
+          },
+          end: {
+            line: 3,
+            column: 15
+          }
+        }, {
+          start: {
+            line: 3,
+            column: 19
+          },
+          end: {
+            line: 3,
+            column: 33
+          }
+        }],
+        line: 3
+      },
+      "3": {
+        loc: {
+          start: {
+            line: 10,
+            column: 52
+          },
+          end: {
+            line: 10,
+            column: 77
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 10,
+            column: 52
+          },
+          end: {
+            line: 10,
+            column: 59
+          }
+        }, {
+          start: {
+            line: 10,
+            column: 63
+          },
+          end: {
+            line: 10,
+            column: 77
+          }
+        }],
+        line: 10
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0
+    },
+    b: {
+      "0": [0, 0, 0],
+      "1": [0, 0],
+      "2": [0, 0],
+      "3": [0, 0]
+    },
+    inputSourceMap: {
+      file: "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/microk/common/http/errors/UnauthorizedHttpError.ts",
+      mappings: ";;;;;AAAA,6DAAqC;AACrC,8CAA2C;AAE3C,MAAqB,qBAAsB,SAAQ,mBAAS;IACxD,YAAY,OAAgB;QACxB,KAAK,CAAC,uBAAU,CAAC,YAAY,EAAE,OAAO,IAAI,cAAc,CAAC,CAAC;IAC9D,CAAC;CACJ;AAJD,wCAIC",
+      names: [],
+      sources: ["/Users/cuatroochenta/MagicShopper/magicshopper-node/src/microk/common/http/errors/UnauthorizedHttpError.ts"],
+      sourcesContent: ["import HttpError from '../HttpError';\nimport { HttpStatus } from '../HttpStatus';\n\nexport default class UnauthorizedHttpError extends HttpError {\n    constructor(message?: string) {\n        super(HttpStatus.UNAUTHORIZED, message || 'Unauthorized');\n    }\n}\n"],
+      version: 3
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "6a407c8f7bc5e33770957230a9ae13bd11cecd75"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_ao4c6lj6a = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_ao4c6lj6a();
+
+var __importDefault =
+/* istanbul ignore next */
+(cov_ao4c6lj6a().s[0]++,
+/* istanbul ignore next */
+(cov_ao4c6lj6a().b[0][0]++, this) &&
+/* istanbul ignore next */
+(cov_ao4c6lj6a().b[0][1]++, this.__importDefault) ||
+/* istanbul ignore next */
+(cov_ao4c6lj6a().b[0][2]++, function (mod) {
+  /* istanbul ignore next */
+  cov_ao4c6lj6a().f[0]++;
+  cov_ao4c6lj6a().s[1]++;
+  return (
+    /* istanbul ignore next */
+    (cov_ao4c6lj6a().b[2][0]++, mod) &&
+    /* istanbul ignore next */
+    (cov_ao4c6lj6a().b[2][1]++, mod.__esModule) ?
+    /* istanbul ignore next */
+    (cov_ao4c6lj6a().b[1][0]++, mod) :
+    /* istanbul ignore next */
+    (cov_ao4c6lj6a().b[1][1]++, {
+      "default": mod
+    })
+  );
+}));
+
+/* istanbul ignore next */
+cov_ao4c6lj6a().s[2]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+const HttpError_1 =
+/* istanbul ignore next */
+(cov_ao4c6lj6a().s[3]++, __importDefault(require("../HttpError")));
+const HttpStatus_1 =
+/* istanbul ignore next */
+(cov_ao4c6lj6a().s[4]++, require("../HttpStatus"));
+
+class UnauthorizedHttpError extends
+/* istanbul ignore next */
+(HttpError_1.default) {
+  constructor(message) {
+    /* istanbul ignore next */
+    cov_ao4c6lj6a().f[1]++;
+    cov_ao4c6lj6a().s[5]++;
+    super(HttpStatus_1.HttpStatus.UNAUTHORIZED,
+    /* istanbul ignore next */
+    (cov_ao4c6lj6a().b[3][0]++, message) ||
+    /* istanbul ignore next */
+    (cov_ao4c6lj6a().b[3][1]++, 'Unauthorized'));
+  }
+
+}
+
+/* istanbul ignore next */
+cov_ao4c6lj6a().s[6]++;
+exports.default = UnauthorizedHttpError;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9jdWF0cm9vY2hlbnRhL01hZ2ljU2hvcHBlci9tYWdpY3Nob3BwZXItbm9kZS9zcmMvbWljcm9rL2NvbW1vbi9odHRwL2Vycm9ycy9VbmF1dGhvcml6ZWRIdHRwRXJyb3IudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUEsTUFBQSxXQUFBO0FBQUE7QUFBQSx5QkFBQSxlQUFBLENBQUEsT0FBQSxDQUFBLGNBQUEsQ0FBQSxDQUFBLENBQUE7QUFDQSxNQUFBLFlBQUE7QUFBQTtBQUFBLHlCQUFBLE9BQUEsQ0FBQSxlQUFBLENBQUEsQ0FBQTs7QUFFQSxNQUFxQixxQkFBckI7QUFBQTtBQUFBLENBQW1ELFdBQUEsQ0FBQSxPQUFuRCxFQUE0RDtBQUN4RCxFQUFBLFdBQUEsQ0FBWSxPQUFaLEVBQTRCO0FBQUE7QUFBQTtBQUFBO0FBQ3hCLFVBQU0sWUFBQSxDQUFBLFVBQUEsQ0FBVyxZQUFqQjtBQUErQjtBQUFBLGdDQUFBLE9BQU87QUFBQTtBQUFBLGdDQUFJLGNBQUosQ0FBdEM7QUFDSDs7QUFIdUQ7Ozs7QUFBNUQsT0FBQSxDQUFBLE9BQUEsR0FBQSxxQkFBQSIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBIdHRwRXJyb3IgZnJvbSAnLi4vSHR0cEVycm9yJztcbmltcG9ydCB7IEh0dHBTdGF0dXMgfSBmcm9tICcuLi9IdHRwU3RhdHVzJztcblxuZXhwb3J0IGRlZmF1bHQgY2xhc3MgVW5hdXRob3JpemVkSHR0cEVycm9yIGV4dGVuZHMgSHR0cEVycm9yIHtcbiAgICBjb25zdHJ1Y3RvcihtZXNzYWdlPzogc3RyaW5nKSB7XG4gICAgICAgIHN1cGVyKEh0dHBTdGF0dXMuVU5BVVRIT1JJWkVELCBtZXNzYWdlIHx8ICdVbmF1dGhvcml6ZWQnKTtcbiAgICB9XG59XG4iXX0=

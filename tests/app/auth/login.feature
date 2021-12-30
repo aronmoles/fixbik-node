@@ -6,14 +6,9 @@ Feature: Login
     Given I send a POST request to "/auth/login" with body:
     """
     {
-      "email": "aron.moles@gmail.com",
-      "password": "cachibache"
+      "email": "test@email.com",
+      "password": "password"
     }
     """
     Then the response status code should be 200
-    Then the response content should be:
-    """
-    {
-      "token": "abcdefghai"
-    }
-    """
+

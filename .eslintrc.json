@@ -282,6 +282,7 @@
         "@typescript-eslint/no-empty-interface": "off",
         "@typescript-eslint/restrict-template-expressions": "off",
         "@typescript-eslint/await-thenable": "off",
+        "@typescript-eslint/unbound-method": "off",
         "@typescript-eslint/no-floating-promises": "off"
     }
 }

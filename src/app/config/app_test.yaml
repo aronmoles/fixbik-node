@@ -6,3 +6,7 @@ services:
   Test.EnvironmentArranger:
     class: ../../microk/tests/infrastructure/typeorm/TypeOrmEnvironmentArranger
     arguments: [ '@App.ConnectionManager' ]
+
+  Test.EnvironmentFixtures:
+    class: ../../microk/tests/infrastructure/typeorm/TypeOrmEnvironmentFixtures
+    arguments: [ '@App.ConnectionManager' ]

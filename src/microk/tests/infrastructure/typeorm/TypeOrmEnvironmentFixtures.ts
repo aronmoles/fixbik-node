@@ -4,7 +4,7 @@ import EnvironmentFixtures from '../../domain/EnvironmentFixtures';
 
 export default class TypeOrmEnvironmentFixtures extends EnvironmentFixtures {
     constructor(
-        private readonly connection: Connection
+        private readonly _client: Promise<Connection>
     ) {
         super();
     }
@@ -13,12 +13,16 @@ export default class TypeOrmEnvironmentFixtures extends EnvironmentFixtures {
         const fixtureFiles = await this.getFiles();
         for (const fixtureFile of fixtureFiles) {
             const fixture = JSON.parse(readFileSync(fixtureFile, 'utf8'));
-            const repository = await this.connection.getRepository(fixture.entity);
+            const repository = await (await this.client()).getRepository(fixture.entity);
             await repository
                 .createQueryBuilder(fixture.entity)
                 .insert()
                 .values(fixture.data)
                 .execute();
         }
+    }
+
+    protected client(): Promise<Connection> {
+        return this._client;
     }
 }

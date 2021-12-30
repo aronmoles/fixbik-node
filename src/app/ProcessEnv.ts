@@ -12,6 +12,8 @@ export interface EnvKey {
     NODE_ENV: string;
     PORT: string;
 
+    JWT_SECRET: string;
+
     RABBITMQ_HOST: string;
     RABBITMQ_USER: string;
     RABBITMQ_PASSWORD: string;
@@ -32,6 +34,8 @@ export default class ProcessEnv implements Env<EnvKey> {
         this.env = {
             NODE_ENV: process.env.NODE_ENV,
             PORT: '3000',
+
+            JWT_SECRET: '',
 
             RABBITMQ_HOST: '',
             RABBITMQ_USER: '',

@@ -1,0 +1,43 @@
+0379bdb748d800f9808aa8f37af17ea0
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const Criteria_1 = require("@microk/common/criteria/Criteria");
+const Filter_1 = require("@microk/common/criteria/Filter");
+const FilterField_1 = require("@microk/common/criteria/FilterField");
+const FilterOperator_1 = require("@microk/common/criteria/FilterOperator");
+const Filters_1 = require("@microk/common/criteria/Filters");
+const FilterValue_1 = require("@microk/common/criteria/FilterValue");
+const Order_1 = require("@microk/common/criteria/Order");
+const NotFoundHttpError_1 = __importDefault(require("@microk/common/http/errors/NotFoundHttpError"));
+class AuthUserSearchByEmail {
+    constructor(authUserRepository) {
+        this.authUserRepository = authUserRepository;
+    }
+    search(email) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const criteria = this.buildCriteria(email);
+            const authUser = yield this.authUserRepository.searchOneByCriteria(criteria);
+            if (!authUser) {
+                throw new NotFoundHttpError_1.default(`Not found user with email <${email.toString()}>`);
+            }
+            return authUser;
+        });
+    }
+    buildCriteria(email) {
+        return new Criteria_1.Criteria(new Filters_1.Filters([new Filter_1.Filter(new FilterField_1.FilterField('email'), FilterOperator_1.FilterOperator.equal(), new FilterValue_1.FilterValue(email.toString()))]), Order_1.Order.none());
+    }
+}
+exports.default = AuthUserSearchByEmail;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiL1VzZXJzL2N1YXRyb29jaGVudGEvTWFnaWNTaG9wcGVyL21hZ2ljc2hvcHBlci1ub2RlL3NyYy9tb2R1bGVzL2F1dGgvYXBwbGljYXRpb24vc2VhcmNoLWJ5LWVtYWlsL0F1dGhVc2VyU2VhcmNoQnlFbWFpbC50cyIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7OztBQUFBLCtEQUE0RDtBQUM1RCwyREFBd0Q7QUFDeEQscUVBQWtFO0FBQ2xFLDJFQUF3RTtBQUN4RSw2REFBMEQ7QUFDMUQscUVBQWtFO0FBQ2xFLHlEQUFzRDtBQUN0RCxxR0FBNkU7QUFLN0UsTUFBcUIscUJBQXFCO0lBQ3RDLFlBQ3FCLGtCQUFzQztRQUF0Qyx1QkFBa0IsR0FBbEIsa0JBQWtCLENBQW9CO0lBRTNELENBQUM7SUFFWSxNQUFNLENBQUMsS0FBb0I7O1lBQ3BDLE1BQU0sUUFBUSxHQUFHLElBQUksQ0FBQyxhQUFhLENBQUMsS0FBSyxDQUFDLENBQUE7WUFDMUMsTUFBTSxRQUFRLEdBQUcsTUFBTSxJQUFJLENBQUMsa0JBQWtCLENBQUMsbUJBQW1CLENBQUMsUUFBUSxDQUFDLENBQUM7WUFFN0UsSUFBSSxDQUFDLFFBQVEsRUFBRTtnQkFDWCxNQUFNLElBQUksMkJBQWlCLENBQUMsOEJBQThCLEtBQUssQ0FBQyxRQUFRLEVBQUUsR0FBRyxDQUFDLENBQUE7YUFDakY7WUFFRCxPQUFPLFFBQVEsQ0FBQztRQUNwQixDQUFDO0tBQUE7SUFFTyxhQUFhLENBQUMsS0FBb0I7UUFDdEMsT0FBTyxJQUFJLG1CQUFRLENBQ2YsSUFBSSxpQkFBTyxDQUFDLENBQUMsSUFBSSxlQUFNLENBQ25CLElBQUkseUJBQVcsQ0FBQyxPQUFPLENBQUMsRUFDeEIsK0JBQWMsQ0FBQyxLQUFLLEVBQUUsRUFDdEIsSUFBSSx5QkFBVyxDQUFDLEtBQUssQ0FBQyxRQUFRLEVBQUUsQ0FBQyxDQUNwQyxDQUFDLENBQUMsRUFDSCxhQUFLLENBQUMsSUFBSSxFQUFFLENBQ2YsQ0FBQztJQUNOLENBQUM7Q0FDSjtBQTNCRCx3Q0EyQkMiLCJuYW1lcyI6W10sInNvdXJjZXMiOlsiL1VzZXJzL2N1YXRyb29jaGVudGEvTWFnaWNTaG9wcGVyL21hZ2ljc2hvcHBlci1ub2RlL3NyYy9tb2R1bGVzL2F1dGgvYXBwbGljYXRpb24vc2VhcmNoLWJ5LWVtYWlsL0F1dGhVc2VyU2VhcmNoQnlFbWFpbC50cyJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBDcml0ZXJpYSB9IGZyb20gJ0BtaWNyb2svY29tbW9uL2NyaXRlcmlhL0NyaXRlcmlhJztcbmltcG9ydCB7IEZpbHRlciB9IGZyb20gJ0BtaWNyb2svY29tbW9uL2NyaXRlcmlhL0ZpbHRlcic7XG5pbXBvcnQgeyBGaWx0ZXJGaWVsZCB9IGZyb20gJ0BtaWNyb2svY29tbW9uL2NyaXRlcmlhL0ZpbHRlckZpZWxkJztcbmltcG9ydCB7IEZpbHRlck9wZXJhdG9yIH0gZnJvbSAnQG1pY3Jvay9jb21tb24vY3JpdGVyaWEvRmlsdGVyT3BlcmF0b3InO1xuaW1wb3J0IHsgRmlsdGVycyB9IGZyb20gJ0BtaWNyb2svY29tbW9uL2NyaXRlcmlhL0ZpbHRlcnMnO1xuaW1wb3J0IHsgRmlsdGVyVmFsdWUgfSBmcm9tICdAbWljcm9rL2NvbW1vbi9jcml0ZXJpYS9GaWx0ZXJWYWx1ZSc7XG5pbXBvcnQgeyBPcmRlciB9IGZyb20gJ0BtaWNyb2svY29tbW9uL2NyaXRlcmlhL09yZGVyJztcbmltcG9ydCBOb3RGb3VuZEh0dHBFcnJvciBmcm9tICdAbWljcm9rL2NvbW1vbi9odHRwL2Vycm9ycy9Ob3RGb3VuZEh0dHBFcnJvcic7XG5pbXBvcnQgeyBBdXRoVXNlciB9IGZyb20gJy4uLy4uL2RvbWFpbi9BdXRoVXNlcic7XG5pbXBvcnQgQXV0aFVzZXJFbWFpbCBmcm9tICcuLi8uLi9kb21haW4vQXV0aFVzZXJFbWFpbCc7XG5pbXBvcnQgeyBBdXRoVXNlclJlcG9zaXRvcnkgfSBmcm9tICcuLi8uLi9kb21haW4vQXV0aFVzZXJSZXBvc2l0b3J5JztcblxuZXhwb3J0IGRlZmF1bHQgY2xhc3MgQXV0aFVzZXJTZWFyY2hCeUVtYWlsIHtcbiAgICBjb25zdHJ1Y3RvcihcbiAgICAgICAgcHJpdmF0ZSByZWFkb25seSBhdXRoVXNlclJlcG9zaXRvcnk6IEF1dGhVc2VyUmVwb3NpdG9yeSxcbiAgICApIHtcbiAgICB9XG5cbiAgICBwdWJsaWMgYXN5bmMgc2VhcmNoKGVtYWlsOiBBdXRoVXNlckVtYWlsKTogUHJvbWlzZTxOb25OdWxsYWJsZTxBdXRoVXNlcj4+IHtcbiAgICAgICAgY29uc3QgY3JpdGVyaWEgPSB0aGlzLmJ1aWxkQ3JpdGVyaWEoZW1haWwpXG4gICAgICAgIGNvbnN0IGF1dGhVc2VyID0gYXdhaXQgdGhpcy5hdXRoVXNlclJlcG9zaXRvcnkuc2VhcmNoT25lQnlDcml0ZXJpYShjcml0ZXJpYSk7XG5cbiAgICAgICAgaWYgKCFhdXRoVXNlcikge1xuICAgICAgICAgICAgdGhyb3cgbmV3IE5vdEZvdW5kSHR0cEVycm9yKGBOb3QgZm91bmQgdXNlciB3aXRoIGVtYWlsIDwke2VtYWlsLnRvU3RyaW5nKCl9PmApXG4gICAgICAgIH1cblxuICAgICAgICByZXR1cm4gYXV0aFVzZXI7XG4gICAgfVxuXG4gICAgcHJpdmF0ZSBidWlsZENyaXRlcmlhKGVtYWlsOiBBdXRoVXNlckVtYWlsKSB7XG4gICAgICAgIHJldHVybiBuZXcgQ3JpdGVyaWEoXG4gICAgICAgICAgICBuZXcgRmlsdGVycyhbbmV3IEZpbHRlcihcbiAgICAgICAgICAgICAgICBuZXcgRmlsdGVyRmllbGQoJ2VtYWlsJyksXG4gICAgICAgICAgICAgICAgRmlsdGVyT3BlcmF0b3IuZXF1YWwoKSxcbiAgICAgICAgICAgICAgICBuZXcgRmlsdGVyVmFsdWUoZW1haWwudG9TdHJpbmcoKSksXG4gICAgICAgICAgICApXSksXG4gICAgICAgICAgICBPcmRlci5ub25lKCksXG4gICAgICAgICk7XG4gICAgfVxufVxuIl0sInZlcnNpb24iOjN9

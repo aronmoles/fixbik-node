@@ -1,0 +1,95 @@
+db6fbf8fd986590cb29d0288f233aea3
+"use strict";
+
+/* istanbul ignore next */
+function cov_1p7z1mj2wa() {
+  var path = "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/microk/tests/domain/EnvironmentArranger.ts";
+  var hash = "627c47f95d27b7f5b3e6e867d7c57ef856537044";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/microk/tests/domain/EnvironmentArranger.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 0
+        },
+        end: {
+          line: 2,
+          column: 62
+        }
+      },
+      "1": {
+        start: {
+          line: 3,
+          column: 0
+        },
+        end: {
+          line: 3,
+          column: 37
+        }
+      },
+      "2": {
+        start: {
+          line: 6,
+          column: 0
+        },
+        end: {
+          line: 6,
+          column: 50
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {},
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0
+    },
+    f: {},
+    b: {},
+    inputSourceMap: {
+      file: "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/microk/tests/domain/EnvironmentArranger.ts",
+      mappings: ";;;AAAA,MAAsB,mBAAmB;CAGxC;AAHD,kDAGC",
+      names: [],
+      sources: ["/Users/cuatroochenta/MagicShopper/magicshopper-node/src/microk/tests/domain/EnvironmentArranger.ts"],
+      sourcesContent: ["export abstract class EnvironmentArranger {\n    public abstract arrange(): Promise<void>;\n    public abstract close(): Promise<void>;\n}\n"],
+      version: 3
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "627c47f95d27b7f5b3e6e867d7c57ef856537044"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_1p7z1mj2wa = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_1p7z1mj2wa();
+cov_1p7z1mj2wa().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+/* istanbul ignore next */
+cov_1p7z1mj2wa().s[1]++;
+exports.EnvironmentArranger = void 0;
+
+class EnvironmentArranger {}
+
+/* istanbul ignore next */
+cov_1p7z1mj2wa().s[2]++;
+exports.EnvironmentArranger = EnvironmentArranger;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9jdWF0cm9vY2hlbnRhL01hZ2ljU2hvcHBlci9tYWdpY3Nob3BwZXItbm9kZS9zcmMvbWljcm9rL3Rlc3RzL2RvbWFpbi9FbnZpcm9ubWVudEFycmFuZ2VyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQSxNQUFzQixtQkFBdEIsQ0FBeUM7Ozs7QUFBekMsT0FBQSxDQUFBLG1CQUFBLEdBQUEsbUJBQUEiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgYWJzdHJhY3QgY2xhc3MgRW52aXJvbm1lbnRBcnJhbmdlciB7XG4gICAgcHVibGljIGFic3RyYWN0IGFycmFuZ2UoKTogUHJvbWlzZTx2b2lkPjtcbiAgICBwdWJsaWMgYWJzdHJhY3QgY2xvc2UoKTogUHJvbWlzZTx2b2lkPjtcbn1cbiJdfQ==

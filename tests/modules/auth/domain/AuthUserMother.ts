@@ -1,3 +1,4 @@
+import AuthenticateQuery from '../../../../src/modules/auth/application/login/AuthenticateQuery';
 import { AuthUser } from '../../../../src/modules/auth/domain/AuthUser';
 import AuthUserEmail from '../../../../src/modules/auth/domain/AuthUserEmail';
 import AuthUserId from '../../../../src/modules/auth/domain/AuthUserId';
@@ -12,16 +13,16 @@ export default class AuthUserMother {
         email: AuthUserEmail,
         password: AuthUserPassword,
     ): AuthUser {
-        return new AuthUser(id, email, password);
+        return new AuthUser(id, email, password, undefined);
     }
 
-    // static fromRequest(request: CreateCourseRequest): Course {
-    //     return this.create(
-    //         CourseIdMother.create(request.id),
-    //         CourseNameMother.create(request.name),
-    //         CourseDurationMother.create(request.duration)
-    //     );
-    // }
+    static fromQuery(query: AuthenticateQuery): AuthUser {
+        return this.create(
+            AuthUserIdMother.random(),
+            query.email,
+            query.password,
+        )
+    }
 
     static random(): AuthUser {
         return this.create(

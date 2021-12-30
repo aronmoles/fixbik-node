@@ -1,0 +1,147 @@
+b6b66c020ddec9c9336cceb67d3c56a3
+"use strict";
+
+/* istanbul ignore next */
+function cov_lfmkd3na5() {
+  var path = "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/modules/shared/infrastructure/persistence/typeorm/TypeOrmConfigFactory.ts";
+  var hash = "57761b277ccefdf62cfcb8d8aa861210a2b45400";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/modules/shared/infrastructure/persistence/typeorm/TypeOrmConfigFactory.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 0
+        },
+        end: {
+          line: 2,
+          column: 62
+        }
+      },
+      "1": {
+        start: {
+          line: 3,
+          column: 0
+        },
+        end: {
+          line: 3,
+          column: 38
+        }
+      },
+      "2": {
+        start: {
+          line: 6,
+          column: 8
+        },
+        end: {
+          line: 12,
+          column: 10
+        }
+      },
+      "3": {
+        start: {
+          line: 15,
+          column: 0
+        },
+        end: {
+          line: 15,
+          column: 52
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 5,
+            column: 4
+          },
+          end: {
+            line: 5,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 5,
+            column: 29
+          },
+          end: {
+            line: 13,
+            column: 5
+          }
+        },
+        line: 5
+      }
+    },
+    branchMap: {},
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    f: {
+      "0": 0
+    },
+    b: {},
+    inputSourceMap: {
+      file: "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/modules/shared/infrastructure/persistence/typeorm/TypeOrmConfigFactory.ts",
+      mappings: ";;;AAIA,MAAa,oBAAoB;IAC7B,MAAM,CAAC,YAAY,CAAC,GAAgB;QAChC,OAAO;YACH,IAAI,EAAE,GAAG,CAAC,GAAG,CAAC,YAAY,CAAC;YAC3B,IAAI,EAAE,MAAM,CAAC,GAAG,CAAC,GAAG,CAAC,YAAY,CAAC,CAAC;YACnC,QAAQ,EAAE,GAAG,CAAC,GAAG,CAAC,YAAY,CAAC;YAC/B,QAAQ,EAAE,GAAG,CAAC,GAAG,CAAC,gBAAgB,CAAC;YACnC,QAAQ,EAAE,GAAG,CAAC,GAAG,CAAC,gBAAgB,CAAC;SACtC,CAAC;IACN,CAAC;CACJ;AAVD,oDAUC",
+      names: [],
+      sources: ["/Users/cuatroochenta/MagicShopper/magicshopper-node/src/modules/shared/infrastructure/persistence/typeorm/TypeOrmConfigFactory.ts"],
+      sourcesContent: ["import Env from '@microk/core/domain/Env';\nimport { TypeOrmConfig } from '@microk/persistence/infrastructure/typeorm/TypeOrmConfig';\nimport { EnvKey } from '../../../../../app/ProcessEnv';\n\nexport class TypeOrmConfigFactory {\n    static createConfig(env: Env<EnvKey>): TypeOrmConfig {\n        return {\n            host: env.get('MYSQL_HOST'),\n            port: Number(env.get('MYSQL_PORT')),\n            username: env.get('MYSQL_USER'),\n            password: env.get('MYSQL_PASSWORD'),\n            database: env.get('MYSQL_DATABASE'),\n        };\n    }\n}\n"],
+      version: 3
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "57761b277ccefdf62cfcb8d8aa861210a2b45400"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_lfmkd3na5 = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_lfmkd3na5();
+cov_lfmkd3na5().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+/* istanbul ignore next */
+cov_lfmkd3na5().s[1]++;
+exports.TypeOrmConfigFactory = void 0;
+
+class TypeOrmConfigFactory {
+  static createConfig(env) {
+    /* istanbul ignore next */
+    cov_lfmkd3na5().f[0]++;
+    cov_lfmkd3na5().s[2]++;
+    return {
+      host: env.get('MYSQL_HOST'),
+      port: Number(env.get('MYSQL_PORT')),
+      username: env.get('MYSQL_USER'),
+      password: env.get('MYSQL_PASSWORD'),
+      database: env.get('MYSQL_DATABASE')
+    };
+  }
+
+}
+
+/* istanbul ignore next */
+cov_lfmkd3na5().s[3]++;
+exports.TypeOrmConfigFactory = TypeOrmConfigFactory;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9jdWF0cm9vY2hlbnRhL01hZ2ljU2hvcHBlci9tYWdpY3Nob3BwZXItbm9kZS9zcmMvbW9kdWxlcy9zaGFyZWQvaW5mcmFzdHJ1Y3R1cmUvcGVyc2lzdGVuY2UvdHlwZW9ybS9UeXBlT3JtQ29uZmlnRmFjdG9yeS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFJQSxNQUFhLG9CQUFiLENBQWlDO0FBQ1YsU0FBWixZQUFZLENBQUMsR0FBRCxFQUFpQjtBQUFBO0FBQUE7QUFBQTtBQUNoQyxXQUFPO0FBQ0gsTUFBQSxJQUFJLEVBQUUsR0FBRyxDQUFDLEdBQUosQ0FBUSxZQUFSLENBREg7QUFFSCxNQUFBLElBQUksRUFBRSxNQUFNLENBQUMsR0FBRyxDQUFDLEdBQUosQ0FBUSxZQUFSLENBQUQsQ0FGVDtBQUdILE1BQUEsUUFBUSxFQUFFLEdBQUcsQ0FBQyxHQUFKLENBQVEsWUFBUixDQUhQO0FBSUgsTUFBQSxRQUFRLEVBQUUsR0FBRyxDQUFDLEdBQUosQ0FBUSxnQkFBUixDQUpQO0FBS0gsTUFBQSxRQUFRLEVBQUUsR0FBRyxDQUFDLEdBQUosQ0FBUSxnQkFBUjtBQUxQLEtBQVA7QUFPSDs7QUFUNEI7Ozs7QUFBakMsT0FBQSxDQUFBLG9CQUFBLEdBQUEsb0JBQUEiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgRW52IGZyb20gJ0BtaWNyb2svY29yZS9kb21haW4vRW52JztcbmltcG9ydCB7IFR5cGVPcm1Db25maWcgfSBmcm9tICdAbWljcm9rL3BlcnNpc3RlbmNlL2luZnJhc3RydWN0dXJlL3R5cGVvcm0vVHlwZU9ybUNvbmZpZyc7XG5pbXBvcnQgeyBFbnZLZXkgfSBmcm9tICcuLi8uLi8uLi8uLi8uLi9hcHAvUHJvY2Vzc0Vudic7XG5cbmV4cG9ydCBjbGFzcyBUeXBlT3JtQ29uZmlnRmFjdG9yeSB7XG4gICAgc3RhdGljIGNyZWF0ZUNvbmZpZyhlbnY6IEVudjxFbnZLZXk+KTogVHlwZU9ybUNvbmZpZyB7XG4gICAgICAgIHJldHVybiB7XG4gICAgICAgICAgICBob3N0OiBlbnYuZ2V0KCdNWVNRTF9IT1NUJyksXG4gICAgICAgICAgICBwb3J0OiBOdW1iZXIoZW52LmdldCgnTVlTUUxfUE9SVCcpKSxcbiAgICAgICAgICAgIHVzZXJuYW1lOiBlbnYuZ2V0KCdNWVNRTF9VU0VSJyksXG4gICAgICAgICAgICBwYXNzd29yZDogZW52LmdldCgnTVlTUUxfUEFTU1dPUkQnKSxcbiAgICAgICAgICAgIGRhdGFiYXNlOiBlbnYuZ2V0KCdNWVNRTF9EQVRBQkFTRScpLFxuICAgICAgICB9O1xuICAgIH1cbn1cbiJdfQ==

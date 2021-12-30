@@ -1,0 +1,184 @@
+92ae5cd9db1cd45d17986db066ddb8f9
+"use strict";
+
+/* istanbul ignore next */
+function cov_2qm9j16drh() {
+  var path = "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/microk/cqrs/domain/query/QueryHandler.ts";
+  var hash = "158eee67f17e1de2a5ab9da14c328553517687ba";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/microk/cqrs/domain/query/QueryHandler.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 0
+        },
+        end: {
+          line: 2,
+          column: 62
+        }
+      },
+      "1": {
+        start: {
+          line: 3,
+          column: 0
+        },
+        end: {
+          line: 3,
+          column: 30
+        }
+      },
+      "2": {
+        start: {
+          line: 6,
+          column: 8
+        },
+        end: {
+          line: 6,
+          column: 37
+        }
+      },
+      "3": {
+        start: {
+          line: 9,
+          column: 8
+        },
+        end: {
+          line: 9,
+          column: 31
+        }
+      },
+      "4": {
+        start: {
+          line: 12,
+          column: 0
+        },
+        end: {
+          line: 12,
+          column: 36
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 5,
+            column: 4
+          },
+          end: {
+            line: 5,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 5,
+            column: 23
+          },
+          end: {
+            line: 7,
+            column: 5
+          }
+        },
+        line: 5
+      },
+      "1": {
+        name: "(anonymous_1)",
+        decl: {
+          start: {
+            line: 8,
+            column: 4
+          },
+          end: {
+            line: 8,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 8,
+            column: 19
+          },
+          end: {
+            line: 10,
+            column: 5
+          }
+        },
+        line: 8
+      }
+    },
+    branchMap: {},
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0
+    },
+    b: {},
+    inputSourceMap: {
+      file: "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/microk/cqrs/domain/query/QueryHandler.ts",
+      mappings: ";;;AAIA,MAAsB,YAAY;IAG9B,YAAsB,KAA0B;QAC5C,IAAI,CAAC,UAAU,GAAG,KAAK,CAAC,IAAI,CAAC;IACjC,CAAC;IAEM,YAAY;QACf,OAAO,IAAI,CAAC,UAAU,CAAC;IAC3B,CAAC;CAGJ;AAZD,oCAYC",
+      names: [],
+      sources: ["/Users/cuatroochenta/MagicShopper/magicshopper-node/src/microk/cqrs/domain/query/QueryHandler.ts"],
+      sourcesContent: ["import { NewableClass } from '../../../common/NewableClass';\nimport Query from './Query';\nimport { QueryResponse } from './QueryResponse';\n\nexport abstract class QueryHandler<Q extends Query, R extends QueryResponse> {\n    private readonly _queryName: string;\n\n    protected constructor(query: NewableClass<Query>) {\n        this._queryName = query.name;\n    }\n\n    public subscribedTo(): string {\n        return this._queryName;\n    }\n\n    abstract handle(query: Q): Promise<R>;\n}\n"],
+      version: 3
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "158eee67f17e1de2a5ab9da14c328553517687ba"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_2qm9j16drh = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_2qm9j16drh();
+cov_2qm9j16drh().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+/* istanbul ignore next */
+cov_2qm9j16drh().s[1]++;
+exports.QueryHandler = void 0;
+
+class QueryHandler {
+  constructor(query) {
+    /* istanbul ignore next */
+    cov_2qm9j16drh().f[0]++;
+    cov_2qm9j16drh().s[2]++;
+    this._queryName = query.name;
+  }
+
+  subscribedTo() {
+    /* istanbul ignore next */
+    cov_2qm9j16drh().f[1]++;
+    cov_2qm9j16drh().s[3]++;
+    return this._queryName;
+  }
+
+}
+
+/* istanbul ignore next */
+cov_2qm9j16drh().s[4]++;
+exports.QueryHandler = QueryHandler;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9jdWF0cm9vY2hlbnRhL01hZ2ljU2hvcHBlci9tYWdpY3Nob3BwZXItbm9kZS9zcmMvbWljcm9rL2NxcnMvZG9tYWluL3F1ZXJ5L1F1ZXJ5SGFuZGxlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFJQSxNQUFzQixZQUF0QixDQUFrQztBQUc5QixFQUFBLFdBQUEsQ0FBc0IsS0FBdEIsRUFBZ0Q7QUFBQTtBQUFBO0FBQUE7QUFDNUMsU0FBSyxVQUFMLEdBQWtCLEtBQUssQ0FBQyxJQUF4QjtBQUNIOztBQUVNLEVBQUEsWUFBWSxHQUFBO0FBQUE7QUFBQTtBQUFBO0FBQ2YsV0FBTyxLQUFLLFVBQVo7QUFDSDs7QUFUNkI7Ozs7QUFBbEMsT0FBQSxDQUFBLFlBQUEsR0FBQSxZQUFBIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgTmV3YWJsZUNsYXNzIH0gZnJvbSAnLi4vLi4vLi4vY29tbW9uL05ld2FibGVDbGFzcyc7XG5pbXBvcnQgUXVlcnkgZnJvbSAnLi9RdWVyeSc7XG5pbXBvcnQgeyBRdWVyeVJlc3BvbnNlIH0gZnJvbSAnLi9RdWVyeVJlc3BvbnNlJztcblxuZXhwb3J0IGFic3RyYWN0IGNsYXNzIFF1ZXJ5SGFuZGxlcjxRIGV4dGVuZHMgUXVlcnksIFIgZXh0ZW5kcyBRdWVyeVJlc3BvbnNlPiB7XG4gICAgcHJpdmF0ZSByZWFkb25seSBfcXVlcnlOYW1lOiBzdHJpbmc7XG5cbiAgICBwcm90ZWN0ZWQgY29uc3RydWN0b3IocXVlcnk6IE5ld2FibGVDbGFzczxRdWVyeT4pIHtcbiAgICAgICAgdGhpcy5fcXVlcnlOYW1lID0gcXVlcnkubmFtZTtcbiAgICB9XG5cbiAgICBwdWJsaWMgc3Vic2NyaWJlZFRvKCk6IHN0cmluZyB7XG4gICAgICAgIHJldHVybiB0aGlzLl9xdWVyeU5hbWU7XG4gICAgfVxuXG4gICAgYWJzdHJhY3QgaGFuZGxlKHF1ZXJ5OiBRKTogUHJvbWlzZTxSPjtcbn1cbiJdfQ==

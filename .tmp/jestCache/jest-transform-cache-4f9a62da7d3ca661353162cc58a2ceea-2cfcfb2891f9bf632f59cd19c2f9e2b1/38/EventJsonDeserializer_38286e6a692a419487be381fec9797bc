@@ -1,0 +1,334 @@
+f136675e1c0dcc331e2b391366c04bb6
+"use strict";
+
+/* istanbul ignore next */
+function cov_935k189fe() {
+  var path = "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/microk/event/infrastructure/EventJsonDeserializer.ts";
+  var hash = "d3f336ebf6bac0695a1384ce49d06c3fe14c6e88";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/microk/event/infrastructure/EventJsonDeserializer.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 0
+        },
+        end: {
+          line: 2,
+          column: 62
+        }
+      },
+      "1": {
+        start: {
+          line: 3,
+          column: 0
+        },
+        end: {
+          line: 3,
+          column: 39
+        }
+      },
+      "2": {
+        start: {
+          line: 6,
+          column: 8
+        },
+        end: {
+          line: 6,
+          column: 31
+        }
+      },
+      "3": {
+        start: {
+          line: 9,
+          column: 22
+        },
+        end: {
+          line: 9,
+          column: 45
+        }
+      },
+      "4": {
+        start: {
+          line: 10,
+          column: 26
+        },
+        end: {
+          line: 10,
+          column: 36
+        }
+      },
+      "5": {
+        start: {
+          line: 11,
+          column: 26
+        },
+        end: {
+          line: 11,
+          column: 36
+        }
+      },
+      "6": {
+        start: {
+          line: 12,
+          column: 26
+        },
+        end: {
+          line: 12,
+          column: 40
+        }
+      },
+      "7": {
+        start: {
+          line: 13,
+          column: 27
+        },
+        end: {
+          line: 13,
+          column: 54
+        }
+      },
+      "8": {
+        start: {
+          line: 14,
+          column: 8
+        },
+        end: {
+          line: 16,
+          column: 9
+        }
+      },
+      "9": {
+        start: {
+          line: 15,
+          column: 12
+        },
+        end: {
+          line: 15,
+          column: 29
+        }
+      },
+      "10": {
+        start: {
+          line: 17,
+          column: 8
+        },
+        end: {
+          line: 24,
+          column: 11
+        }
+      },
+      "11": {
+        start: {
+          line: 27,
+          column: 0
+        },
+        end: {
+          line: 27,
+          column: 54
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 5,
+            column: 4
+          },
+          end: {
+            line: 5,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 5,
+            column: 25
+          },
+          end: {
+            line: 7,
+            column: 5
+          }
+        },
+        line: 5
+      },
+      "1": {
+        name: "(anonymous_1)",
+        decl: {
+          start: {
+            line: 8,
+            column: 4
+          },
+          end: {
+            line: 8,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 8,
+            column: 29
+          },
+          end: {
+            line: 25,
+            column: 5
+          }
+        },
+        line: 8
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 14,
+            column: 8
+          },
+          end: {
+            line: 16,
+            column: 9
+          }
+        },
+        type: "if",
+        locations: [{
+          start: {
+            line: 14,
+            column: 8
+          },
+          end: {
+            line: 16,
+            column: 9
+          }
+        }, {
+          start: {
+            line: undefined,
+            column: undefined
+          },
+          end: {
+            line: undefined,
+            column: undefined
+          }
+        }],
+        line: 14
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0
+    },
+    b: {
+      "0": [0, 0]
+    },
+    inputSourceMap: {
+      file: "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/microk/event/infrastructure/EventJsonDeserializer.ts",
+      mappings: ";;;AAKA,MAAa,qBAAqB;IAG9B,YAAY,OAAyB;QACjC,IAAI,CAAC,OAAO,GAAG,OAAO,CAAC;IAC3B,CAAC;IAED,WAAW,CAAC,WAAmB;QAC3B,MAAM,KAAK,GAAG,IAAI,CAAC,KAAK,CAAC,WAAW,CAAC,CAAC;QACtC,MAAM,SAAS,GAAG,KAAK,CAAC,IAAI,CAAC;QAC7B,MAAM,SAAS,GAAG,KAAK,CAAC,IAAI,CAAC;QAC7B,MAAM,SAAS,GAAG,SAAS,CAAC,IAAI,CAAC;QACjC,MAAM,UAAU,GAAG,IAAI,CAAC,OAAO,CAAC,GAAG,CAAC,SAAS,CAAC,CAAC;QAE/C,IAAI,CAAC,UAAU,EAAE;YACb,OAAO,SAAS,CAAC;SACpB;QAED,OAAO,UAAU,CAAC,cAAc,CAAC;YAC7B,EAAE,EAAE,SAAS,CAAC,EAAE;YAChB,IAAI,EAAE,SAAS,CAAC,IAAI;YACpB,IAAI,EAAE,SAAS,CAAC,IAAI;YACpB,WAAW,EAAE,SAAS,CAAC,WAAW;YAClC,UAAU,EAAE,SAAS,CAAC,UAAU;YAChC,SAAS;SACZ,CAAC,CAAC;IACP,CAAC;CACJ;AA3BD,sDA2BC",
+      names: [],
+      sources: ["/Users/cuatroochenta/MagicShopper/magicshopper-node/src/microk/event/infrastructure/EventJsonDeserializer.ts"],
+      sourcesContent: ["import DomainEvent from '../domain/DomainEvent';\nimport EventDeserializer from '../domain/EventDeserializer';\nimport { EventClassMapper } from './EventClassMapper';\nimport { Optional } from '../../common/Optional';\n\nexport class EventJsonDeserializer implements EventDeserializer {\n    private mapping: EventClassMapper;\n\n    constructor(mapping: EventClassMapper) {\n        this.mapping = mapping;\n    }\n\n    deserialize(eventString: string): Optional<DomainEvent> {\n        const event = JSON.parse(eventString);\n        const eventData = event.data;\n        const eventMeta = event.meta;\n        const eventName = eventData.name;\n        const eventClass = this.mapping.for(eventName);\n\n        if (!eventClass) {\n            return undefined;\n        }\n\n        return eventClass.fromPrimitives({\n            id: eventData.id,\n            name: eventData.name,\n            type: eventData.type,\n            aggregateId: eventData.aggregateId,\n            occurredOn: eventData.occurredOn,\n            eventMeta,\n        });\n    }\n}\n"],
+      version: 3
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "d3f336ebf6bac0695a1384ce49d06c3fe14c6e88"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_935k189fe = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_935k189fe();
+cov_935k189fe().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+/* istanbul ignore next */
+cov_935k189fe().s[1]++;
+exports.EventJsonDeserializer = void 0;
+
+class EventJsonDeserializer {
+  constructor(mapping) {
+    /* istanbul ignore next */
+    cov_935k189fe().f[0]++;
+    cov_935k189fe().s[2]++;
+    this.mapping = mapping;
+  }
+
+  deserialize(eventString) {
+    /* istanbul ignore next */
+    cov_935k189fe().f[1]++;
+    const event =
+    /* istanbul ignore next */
+    (cov_935k189fe().s[3]++, JSON.parse(eventString));
+    const eventData =
+    /* istanbul ignore next */
+    (cov_935k189fe().s[4]++, event.data);
+    const eventMeta =
+    /* istanbul ignore next */
+    (cov_935k189fe().s[5]++, event.meta);
+    const eventName =
+    /* istanbul ignore next */
+    (cov_935k189fe().s[6]++, eventData.name);
+    const eventClass =
+    /* istanbul ignore next */
+    (cov_935k189fe().s[7]++, this.mapping.for(eventName));
+
+    /* istanbul ignore next */
+    cov_935k189fe().s[8]++;
+
+    if (!eventClass) {
+      /* istanbul ignore next */
+      cov_935k189fe().b[0][0]++;
+      cov_935k189fe().s[9]++;
+      return undefined;
+    } else
+    /* istanbul ignore next */
+    {
+      cov_935k189fe().b[0][1]++;
+    }
+
+    cov_935k189fe().s[10]++;
+    return eventClass.fromPrimitives({
+      id: eventData.id,
+      name: eventData.name,
+      type: eventData.type,
+      aggregateId: eventData.aggregateId,
+      occurredOn: eventData.occurredOn,
+      eventMeta
+    });
+  }
+
+}
+
+/* istanbul ignore next */
+cov_935k189fe().s[11]++;
+exports.EventJsonDeserializer = EventJsonDeserializer;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9jdWF0cm9vY2hlbnRhL01hZ2ljU2hvcHBlci9tYWdpY3Nob3BwZXItbm9kZS9zcmMvbWljcm9rL2V2ZW50L2luZnJhc3RydWN0dXJlL0V2ZW50SnNvbkRlc2VyaWFsaXplci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQXFCUzs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBaEJULE1BQWEscUJBQWIsQ0FBa0M7QUFHOUIsRUFBQSxXQUFBLENBQVksT0FBWixFQUFxQztBQUFBO0FBQUE7QUFBQTtBQUNqQyxTQUFLLE9BQUwsR0FBZSxPQUFmO0FBQ0g7O0FBRUQsRUFBQSxXQUFXLENBQUMsV0FBRCxFQUFvQjtBQUFBO0FBQUE7QUFDM0IsVUFBTSxLQUFLO0FBQUE7QUFBQSw2QkFBRyxJQUFJLENBQUMsS0FBTCxDQUFXLFdBQVgsQ0FBSCxDQUFYO0FBQ0EsVUFBTSxTQUFTO0FBQUE7QUFBQSw2QkFBRyxLQUFLLENBQUMsSUFBVCxDQUFmO0FBQ0EsVUFBTSxTQUFTO0FBQUE7QUFBQSw2QkFBRyxLQUFLLENBQUMsSUFBVCxDQUFmO0FBQ0EsVUFBTSxTQUFTO0FBQUE7QUFBQSw2QkFBRyxTQUFTLENBQUMsSUFBYixDQUFmO0FBQ0EsVUFBTSxVQUFVO0FBQUE7QUFBQSw2QkFBRyxLQUFLLE9BQUwsQ0FBYSxHQUFiLENBQWlCLFNBQWpCLENBQUgsQ0FBaEI7O0FBTDJCO0FBQUE7O0FBTzNCLFFBQUksQ0FBQyxVQUFMLEVBQWlCO0FBQUE7QUFBQTtBQUFBO0FBQ2IsYUFBTyxTQUFQO0FBQ0gsS0FGRDtBQUFBO0FBQUE7QUFBQTtBQUFBOztBQVAyQjtBQVczQixXQUFPLFVBQVUsQ0FBQyxjQUFYLENBQTBCO0FBQzdCLE1BQUEsRUFBRSxFQUFFLFNBQVMsQ0FBQyxFQURlO0FBRTdCLE1BQUEsSUFBSSxFQUFFLFNBQVMsQ0FBQyxJQUZhO0FBRzdCLE1BQUEsSUFBSSxFQUFFLFNBQVMsQ0FBQyxJQUhhO0FBSTdCLE1BQUEsV0FBVyxFQUFFLFNBQVMsQ0FBQyxXQUpNO0FBSzdCLE1BQUEsVUFBVSxFQUFFLFNBQVMsQ0FBQyxVQUxPO0FBTTdCLE1BQUE7QUFONkIsS0FBMUIsQ0FBUDtBQVFIOztBQTFCNkI7Ozs7QUFBbEMsT0FBQSxDQUFBLHFCQUFBLEdBQUEscUJBQUEiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgRG9tYWluRXZlbnQgZnJvbSAnLi4vZG9tYWluL0RvbWFpbkV2ZW50JztcbmltcG9ydCBFdmVudERlc2VyaWFsaXplciBmcm9tICcuLi9kb21haW4vRXZlbnREZXNlcmlhbGl6ZXInO1xuaW1wb3J0IHsgRXZlbnRDbGFzc01hcHBlciB9IGZyb20gJy4vRXZlbnRDbGFzc01hcHBlcic7XG5pbXBvcnQgeyBPcHRpb25hbCB9IGZyb20gJy4uLy4uL2NvbW1vbi9PcHRpb25hbCc7XG5cbmV4cG9ydCBjbGFzcyBFdmVudEpzb25EZXNlcmlhbGl6ZXIgaW1wbGVtZW50cyBFdmVudERlc2VyaWFsaXplciB7XG4gICAgcHJpdmF0ZSBtYXBwaW5nOiBFdmVudENsYXNzTWFwcGVyO1xuXG4gICAgY29uc3RydWN0b3IobWFwcGluZzogRXZlbnRDbGFzc01hcHBlcikge1xuICAgICAgICB0aGlzLm1hcHBpbmcgPSBtYXBwaW5nO1xuICAgIH1cblxuICAgIGRlc2VyaWFsaXplKGV2ZW50U3RyaW5nOiBzdHJpbmcpOiBPcHRpb25hbDxEb21haW5FdmVudD4ge1xuICAgICAgICBjb25zdCBldmVudCA9IEpTT04ucGFyc2UoZXZlbnRTdHJpbmcpO1xuICAgICAgICBjb25zdCBldmVudERhdGEgPSBldmVudC5kYXRhO1xuICAgICAgICBjb25zdCBldmVudE1ldGEgPSBldmVudC5tZXRhO1xuICAgICAgICBjb25zdCBldmVudE5hbWUgPSBldmVudERhdGEubmFtZTtcbiAgICAgICAgY29uc3QgZXZlbnRDbGFzcyA9IHRoaXMubWFwcGluZy5mb3IoZXZlbnROYW1lKTtcblxuICAgICAgICBpZiAoIWV2ZW50Q2xhc3MpIHtcbiAgICAgICAgICAgIHJldHVybiB1bmRlZmluZWQ7XG4gICAgICAgIH1cblxuICAgICAgICByZXR1cm4gZXZlbnRDbGFzcy5mcm9tUHJpbWl0aXZlcyh7XG4gICAgICAgICAgICBpZDogZXZlbnREYXRhLmlkLFxuICAgICAgICAgICAgbmFtZTogZXZlbnREYXRhLm5hbWUsXG4gICAgICAgICAgICB0eXBlOiBldmVudERhdGEudHlwZSxcbiAgICAgICAgICAgIGFnZ3JlZ2F0ZUlkOiBldmVudERhdGEuYWdncmVnYXRlSWQsXG4gICAgICAgICAgICBvY2N1cnJlZE9uOiBldmVudERhdGEub2NjdXJyZWRPbixcbiAgICAgICAgICAgIGV2ZW50TWV0YSxcbiAgICAgICAgfSk7XG4gICAgfVxufVxuIl19

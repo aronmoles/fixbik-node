@@ -1,0 +1,12 @@
+cb11efbcf3fc55ab68e5abfdd4f6069d
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.TokenMother = void 0;
+const MotherCreator_1 = require("./MotherCreator");
+class TokenMother {
+    static random() {
+        return MotherCreator_1.MotherCreator.random().datatype.hexaDecimal(50);
+    }
+}
+exports.TokenMother = TokenMother;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiL1VzZXJzL2N1YXRyb29jaGVudGEvTWFnaWNTaG9wcGVyL21hZ2ljc2hvcHBlci1ub2RlL3Rlc3RzL21vZHVsZXMvc2hhcmVkL2RvbWFpbi9Ub2tlbk1vdGhlci50cyIsIm1hcHBpbmdzIjoiOzs7QUFBQSxtREFBZ0Q7QUFFaEQsTUFBYSxXQUFXO0lBQ3BCLE1BQU0sQ0FBQyxNQUFNO1FBQ1QsT0FBTyw2QkFBYSxDQUFDLE1BQU0sRUFBRSxDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUMsRUFBRSxDQUFDLENBQUM7SUFDM0QsQ0FBQztDQUNKO0FBSkQsa0NBSUMiLCJuYW1lcyI6W10sInNvdXJjZXMiOlsiL1VzZXJzL2N1YXRyb29jaGVudGEvTWFnaWNTaG9wcGVyL21hZ2ljc2hvcHBlci1ub2RlL3Rlc3RzL21vZHVsZXMvc2hhcmVkL2RvbWFpbi9Ub2tlbk1vdGhlci50cyJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBNb3RoZXJDcmVhdG9yIH0gZnJvbSAnLi9Nb3RoZXJDcmVhdG9yJztcblxuZXhwb3J0IGNsYXNzIFRva2VuTW90aGVyIHtcbiAgICBzdGF0aWMgcmFuZG9tKCk6IHN0cmluZyB7XG4gICAgICAgIHJldHVybiBNb3RoZXJDcmVhdG9yLnJhbmRvbSgpLmRhdGF0eXBlLmhleGFEZWNpbWFsKDUwKTtcbiAgICB9XG59XG4iXSwidmVyc2lvbiI6M30=

@@ -1,0 +1,286 @@
+4b6fbbf642c123a2e1d5a449669f3552
+"use strict";
+
+/* istanbul ignore next */
+function cov_28jgwctitu() {
+  var path = "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/modules/auth/domain/AuthUserId.ts";
+  var hash = "8c59861b4390be42b613c362fb79ea58394348a0";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/modules/auth/domain/AuthUserId.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 22
+        },
+        end: {
+          line: 4,
+          column: 1
+        }
+      },
+      "1": {
+        start: {
+          line: 3,
+          column: 4
+        },
+        end: {
+          line: 3,
+          column: 62
+        }
+      },
+      "2": {
+        start: {
+          line: 5,
+          column: 0
+        },
+        end: {
+          line: 5,
+          column: 62
+        }
+      },
+      "3": {
+        start: {
+          line: 6,
+          column: 15
+        },
+        end: {
+          line: 6,
+          column: 75
+        }
+      },
+      "4": {
+        start: {
+          line: 9,
+          column: 0
+        },
+        end: {
+          line: 9,
+          column: 29
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 2,
+            column: 56
+          },
+          end: {
+            line: 2,
+            column: 57
+          }
+        },
+        loc: {
+          start: {
+            line: 2,
+            column: 71
+          },
+          end: {
+            line: 4,
+            column: 1
+          }
+        },
+        line: 2
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 2,
+            column: 22
+          },
+          end: {
+            line: 4,
+            column: 1
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 2,
+            column: 23
+          },
+          end: {
+            line: 2,
+            column: 27
+          }
+        }, {
+          start: {
+            line: 2,
+            column: 31
+          },
+          end: {
+            line: 2,
+            column: 51
+          }
+        }, {
+          start: {
+            line: 2,
+            column: 56
+          },
+          end: {
+            line: 4,
+            column: 1
+          }
+        }],
+        line: 2
+      },
+      "1": {
+        loc: {
+          start: {
+            line: 3,
+            column: 11
+          },
+          end: {
+            line: 3,
+            column: 61
+          }
+        },
+        type: "cond-expr",
+        locations: [{
+          start: {
+            line: 3,
+            column: 37
+          },
+          end: {
+            line: 3,
+            column: 40
+          }
+        }, {
+          start: {
+            line: 3,
+            column: 43
+          },
+          end: {
+            line: 3,
+            column: 61
+          }
+        }],
+        line: 3
+      },
+      "2": {
+        loc: {
+          start: {
+            line: 3,
+            column: 12
+          },
+          end: {
+            line: 3,
+            column: 33
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 3,
+            column: 12
+          },
+          end: {
+            line: 3,
+            column: 15
+          }
+        }, {
+          start: {
+            line: 3,
+            column: 19
+          },
+          end: {
+            line: 3,
+            column: 33
+          }
+        }],
+        line: 3
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0
+    },
+    f: {
+      "0": 0
+    },
+    b: {
+      "0": [0, 0, 0],
+      "1": [0, 0],
+      "2": [0, 0]
+    },
+    inputSourceMap: {
+      file: "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/modules/auth/domain/AuthUserId.ts",
+      mappings: ";;;;;AAAA,4EAAoD;AAEpD,MAAqB,UAAW,SAAQ,cAAI;CAE3C;AAFD,6BAEC",
+      names: [],
+      sources: ["/Users/cuatroochenta/MagicShopper/magicshopper-node/src/modules/auth/domain/AuthUserId.ts"],
+      sourcesContent: ["import Uuid from '@microk/common/value-object/Uuid';\n\nexport default class AuthUserId extends Uuid {\n\n}\n"],
+      version: 3
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "8c59861b4390be42b613c362fb79ea58394348a0"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_28jgwctitu = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_28jgwctitu();
+
+var __importDefault =
+/* istanbul ignore next */
+(cov_28jgwctitu().s[0]++,
+/* istanbul ignore next */
+(cov_28jgwctitu().b[0][0]++, this) &&
+/* istanbul ignore next */
+(cov_28jgwctitu().b[0][1]++, this.__importDefault) ||
+/* istanbul ignore next */
+(cov_28jgwctitu().b[0][2]++, function (mod) {
+  /* istanbul ignore next */
+  cov_28jgwctitu().f[0]++;
+  cov_28jgwctitu().s[1]++;
+  return (
+    /* istanbul ignore next */
+    (cov_28jgwctitu().b[2][0]++, mod) &&
+    /* istanbul ignore next */
+    (cov_28jgwctitu().b[2][1]++, mod.__esModule) ?
+    /* istanbul ignore next */
+    (cov_28jgwctitu().b[1][0]++, mod) :
+    /* istanbul ignore next */
+    (cov_28jgwctitu().b[1][1]++, {
+      "default": mod
+    })
+  );
+}));
+
+/* istanbul ignore next */
+cov_28jgwctitu().s[2]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+const Uuid_1 =
+/* istanbul ignore next */
+(cov_28jgwctitu().s[3]++, __importDefault(require("@microk/common/value-object/Uuid")));
+
+class AuthUserId extends
+/* istanbul ignore next */
+(Uuid_1.default) {}
+
+/* istanbul ignore next */
+cov_28jgwctitu().s[4]++;
+exports.default = AuthUserId;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9jdWF0cm9vY2hlbnRhL01hZ2ljU2hvcHBlci9tYWdpY3Nob3BwZXItbm9kZS9zcmMvbW9kdWxlcy9hdXRoL2RvbWFpbi9BdXRoVXNlcklkLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUFBLE1BQUEsTUFBQTtBQUFBO0FBQUEsMEJBQUEsZUFBQSxDQUFBLE9BQUEsQ0FBQSxrQ0FBQSxDQUFBLENBQUEsQ0FBQTs7QUFFQSxNQUFxQixVQUFyQjtBQUFBO0FBQUEsQ0FBd0MsTUFBQSxDQUFBLE9BQXhDLEVBQTRDOzs7O0FBQTVDLE9BQUEsQ0FBQSxPQUFBLEdBQUEsVUFBQSIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBVdWlkIGZyb20gJ0BtaWNyb2svY29tbW9uL3ZhbHVlLW9iamVjdC9VdWlkJztcblxuZXhwb3J0IGRlZmF1bHQgY2xhc3MgQXV0aFVzZXJJZCBleHRlbmRzIFV1aWQge1xuXG59XG4iXX0=

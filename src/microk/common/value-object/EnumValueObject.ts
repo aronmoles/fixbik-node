@@ -1,8 +1,8 @@
 export default abstract class EnumValueObject<T> {
-    readonly value: T;
+    private readonly _value: T;
 
     protected constructor(value: T, public readonly validValues: T[]) {
-        this.value = value;
+        this._value = value;
         this.checkValueIsValid(value);
     }
 
@@ -10,6 +10,10 @@ export default abstract class EnumValueObject<T> {
         if (!this.validValues.includes(value)) {
             this.throwErrorForInvalidValue(value);
         }
+    }
+
+    public value(): T {
+        return this._value;
     }
 
     protected abstract throwErrorForInvalidValue(value: T): void;

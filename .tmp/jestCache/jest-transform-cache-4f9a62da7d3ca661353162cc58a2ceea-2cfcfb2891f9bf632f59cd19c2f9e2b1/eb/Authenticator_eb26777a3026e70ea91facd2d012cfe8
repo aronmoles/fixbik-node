@@ -1,0 +1,31 @@
+351e2428cc1ba55a446c58d7d85e2d0c
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const AuthUserSearchByEmail_1 = __importDefault(require("../search-by-email/AuthUserSearchByEmail"));
+class Authenticator {
+    constructor(authUserRepository, authTokenRepository) {
+        this.authTokenRepository = authTokenRepository;
+        this.authUserSearcherByEmail = new AuthUserSearchByEmail_1.default(authUserRepository);
+    }
+    run(email, password) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const authUser = yield this.authUserSearcherByEmail.search(email);
+            authUser.isValidPassword(password);
+            return this.authTokenRepository.generate(authUser);
+        });
+    }
+}
+exports.default = Authenticator;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiL1VzZXJzL2N1YXRyb29jaGVudGEvTWFnaWNTaG9wcGVyL21hZ2ljc2hvcHBlci1ub2RlL3NyYy9tb2R1bGVzL2F1dGgvYXBwbGljYXRpb24vbG9naW4vQXV0aGVudGljYXRvci50cyIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7OztBQUtBLHFHQUE2RTtBQUU3RSxNQUFxQixhQUFhO0lBRTlCLFlBQ0ksa0JBQXNDLEVBQ3JCLG1CQUF3QztRQUF4Qyx3QkFBbUIsR0FBbkIsbUJBQW1CLENBQXFCO1FBRXpELElBQUksQ0FBQyx1QkFBdUIsR0FBRyxJQUFJLCtCQUFxQixDQUFDLGtCQUFrQixDQUFDLENBQUM7SUFDakYsQ0FBQztJQUVLLEdBQUcsQ0FBQyxLQUFvQixFQUFFLFFBQTBCOztZQUN0RCxNQUFNLFFBQVEsR0FBRyxNQUFNLElBQUksQ0FBQyx1QkFBdUIsQ0FBQyxNQUFNLENBQUMsS0FBSyxDQUFDLENBQUM7WUFFbEUsUUFBUSxDQUFDLGVBQWUsQ0FBQyxRQUFRLENBQUMsQ0FBQztZQUVuQyxPQUFPLElBQUksQ0FBQyxtQkFBbUIsQ0FBQyxRQUFRLENBQUMsUUFBUSxDQUFDLENBQUM7UUFDdkQsQ0FBQztLQUFBO0NBQ0o7QUFoQkQsZ0NBZ0JDIiwibmFtZXMiOltdLCJzb3VyY2VzIjpbIi9Vc2Vycy9jdWF0cm9vY2hlbnRhL01hZ2ljU2hvcHBlci9tYWdpY3Nob3BwZXItbm9kZS9zcmMvbW9kdWxlcy9hdXRoL2FwcGxpY2F0aW9uL2xvZ2luL0F1dGhlbnRpY2F0b3IudHMiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IEF1dGhUb2tlbiBmcm9tICcuLi8uLi9kb21haW4vQXV0aFRva2VuJztcbmltcG9ydCBBdXRoVG9rZW5SZXBvc2l0b3J5IGZyb20gJy4uLy4uL2RvbWFpbi9BdXRoVG9rZW5SZXBvc2l0b3J5JztcbmltcG9ydCBBdXRoVXNlckVtYWlsIGZyb20gJy4uLy4uL2RvbWFpbi9BdXRoVXNlckVtYWlsJztcbmltcG9ydCBBdXRoVXNlclBhc3N3b3JkIGZyb20gJy4uLy4uL2RvbWFpbi9BdXRoVXNlclBhc3N3b3JkJztcbmltcG9ydCB7IEF1dGhVc2VyUmVwb3NpdG9yeSB9IGZyb20gJy4uLy4uL2RvbWFpbi9BdXRoVXNlclJlcG9zaXRvcnknO1xuaW1wb3J0IEF1dGhVc2VyU2VhcmNoQnlFbWFpbCBmcm9tICcuLi9zZWFyY2gtYnktZW1haWwvQXV0aFVzZXJTZWFyY2hCeUVtYWlsJztcblxuZXhwb3J0IGRlZmF1bHQgY2xhc3MgQXV0aGVudGljYXRvciB7XG4gICAgcHJpdmF0ZSByZWFkb25seSBhdXRoVXNlclNlYXJjaGVyQnlFbWFpbDogQXV0aFVzZXJTZWFyY2hCeUVtYWlsO1xuICAgIGNvbnN0cnVjdG9yKFxuICAgICAgICBhdXRoVXNlclJlcG9zaXRvcnk6IEF1dGhVc2VyUmVwb3NpdG9yeSxcbiAgICAgICAgcHJpdmF0ZSByZWFkb25seSBhdXRoVG9rZW5SZXBvc2l0b3J5OiBBdXRoVG9rZW5SZXBvc2l0b3J5LFxuICAgICkge1xuICAgICAgICB0aGlzLmF1dGhVc2VyU2VhcmNoZXJCeUVtYWlsID0gbmV3IEF1dGhVc2VyU2VhcmNoQnlFbWFpbChhdXRoVXNlclJlcG9zaXRvcnkpO1xuICAgIH1cblxuICAgIGFzeW5jIHJ1bihlbWFpbDogQXV0aFVzZXJFbWFpbCwgcGFzc3dvcmQ6IEF1dGhVc2VyUGFzc3dvcmQpOiBQcm9taXNlPEF1dGhUb2tlbj4ge1xuICAgICAgICBjb25zdCBhdXRoVXNlciA9IGF3YWl0IHRoaXMuYXV0aFVzZXJTZWFyY2hlckJ5RW1haWwuc2VhcmNoKGVtYWlsKTtcblxuICAgICAgICBhdXRoVXNlci5pc1ZhbGlkUGFzc3dvcmQocGFzc3dvcmQpO1xuXG4gICAgICAgIHJldHVybiB0aGlzLmF1dGhUb2tlblJlcG9zaXRvcnkuZ2VuZXJhdGUoYXV0aFVzZXIpO1xuICAgIH1cbn1cbiJdLCJ2ZXJzaW9uIjozfQ==

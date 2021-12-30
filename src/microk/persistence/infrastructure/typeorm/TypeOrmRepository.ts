@@ -1,7 +1,12 @@
 import { Connection, EntitySchema, Repository } from 'typeorm';
 import { AggregateRoot } from '../../../common/AggregateRoot';
+import { Criteria } from '../../../common/criteria/Criteria';
+import { Nullable } from '../../../common/Nullable';
+import TypeOrmCriteriaConverter from './TypeOrmCriteriaConverter';
 
 export abstract class TypeOrmRepository<T extends AggregateRoot> {
+    private readonly criteriaConverter = new TypeOrmCriteriaConverter();
+
     constructor(private _client: Promise<Connection>) {
     }
 
@@ -18,5 +23,17 @@ export abstract class TypeOrmRepository<T extends AggregateRoot> {
     protected async persist(aggregateRoot: T): Promise<void> {
         const repository = await this.repository();
         await repository.save(aggregateRoot as any);
+    }
+
+    public async searchByCriteria(criteria: Criteria): Promise<Nullable<T[]>> {
+        const repository = await this.repository();
+        const findOptions = this.criteriaConverter.convert(criteria);
+        return repository.find(findOptions);
+    }
+
+    public async searchOneByCriteria(criteria: Criteria): Promise<Nullable<T>> {
+        const repository = await this.repository();
+        const findOptions = this.criteriaConverter.convert(criteria);
+        return repository.findOne(findOptions);
     }
 }

@@ -1,0 +1,420 @@
+0a92f15e0fb002697bf30bbc9cd297d5
+"use strict";
+
+/* istanbul ignore next */
+function cov_60bpiwci0() {
+  var path = "/Users/cuatroochenta/MagicShopper/magicshopper-node/tests/modules/auth/domain/AuthUserMother.ts";
+  var hash = "308cef0835aeed4c8b3fa11da48e4e8b1826d0b0";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/cuatroochenta/MagicShopper/magicshopper-node/tests/modules/auth/domain/AuthUserMother.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 22
+        },
+        end: {
+          line: 4,
+          column: 1
+        }
+      },
+      "1": {
+        start: {
+          line: 3,
+          column: 4
+        },
+        end: {
+          line: 3,
+          column: 62
+        }
+      },
+      "2": {
+        start: {
+          line: 5,
+          column: 0
+        },
+        end: {
+          line: 5,
+          column: 62
+        }
+      },
+      "3": {
+        start: {
+          line: 6,
+          column: 19
+        },
+        end: {
+          line: 6,
+          column: 74
+        }
+      },
+      "4": {
+        start: {
+          line: 7,
+          column: 30
+        },
+        end: {
+          line: 7,
+          column: 79
+        }
+      },
+      "5": {
+        start: {
+          line: 8,
+          column: 27
+        },
+        end: {
+          line: 8,
+          column: 73
+        }
+      },
+      "6": {
+        start: {
+          line: 9,
+          column: 33
+        },
+        end: {
+          line: 9,
+          column: 85
+        }
+      },
+      "7": {
+        start: {
+          line: 12,
+          column: 8
+        },
+        end: {
+          line: 12,
+          column: 71
+        }
+      },
+      "8": {
+        start: {
+          line: 22,
+          column: 8
+        },
+        end: {
+          line: 22,
+          column: 147
+        }
+      },
+      "9": {
+        start: {
+          line: 25,
+          column: 0
+        },
+        end: {
+          line: 25,
+          column: 33
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 2,
+            column: 56
+          },
+          end: {
+            line: 2,
+            column: 57
+          }
+        },
+        loc: {
+          start: {
+            line: 2,
+            column: 71
+          },
+          end: {
+            line: 4,
+            column: 1
+          }
+        },
+        line: 2
+      },
+      "1": {
+        name: "(anonymous_1)",
+        decl: {
+          start: {
+            line: 11,
+            column: 4
+          },
+          end: {
+            line: 11,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 11,
+            column: 39
+          },
+          end: {
+            line: 13,
+            column: 5
+          }
+        },
+        line: 11
+      },
+      "2": {
+        name: "(anonymous_2)",
+        decl: {
+          start: {
+            line: 21,
+            column: 4
+          },
+          end: {
+            line: 21,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 21,
+            column: 20
+          },
+          end: {
+            line: 23,
+            column: 5
+          }
+        },
+        line: 21
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 2,
+            column: 22
+          },
+          end: {
+            line: 4,
+            column: 1
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 2,
+            column: 23
+          },
+          end: {
+            line: 2,
+            column: 27
+          }
+        }, {
+          start: {
+            line: 2,
+            column: 31
+          },
+          end: {
+            line: 2,
+            column: 51
+          }
+        }, {
+          start: {
+            line: 2,
+            column: 56
+          },
+          end: {
+            line: 4,
+            column: 1
+          }
+        }],
+        line: 2
+      },
+      "1": {
+        loc: {
+          start: {
+            line: 3,
+            column: 11
+          },
+          end: {
+            line: 3,
+            column: 61
+          }
+        },
+        type: "cond-expr",
+        locations: [{
+          start: {
+            line: 3,
+            column: 37
+          },
+          end: {
+            line: 3,
+            column: 40
+          }
+        }, {
+          start: {
+            line: 3,
+            column: 43
+          },
+          end: {
+            line: 3,
+            column: 61
+          }
+        }],
+        line: 3
+      },
+      "2": {
+        loc: {
+          start: {
+            line: 3,
+            column: 12
+          },
+          end: {
+            line: 3,
+            column: 33
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 3,
+            column: 12
+          },
+          end: {
+            line: 3,
+            column: 15
+          }
+        }, {
+          start: {
+            line: 3,
+            column: 19
+          },
+          end: {
+            line: 3,
+            column: 33
+          }
+        }],
+        line: 3
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0,
+      "2": 0
+    },
+    b: {
+      "0": [0, 0, 0],
+      "1": [0, 0],
+      "2": [0, 0]
+    },
+    inputSourceMap: {
+      file: "/Users/cuatroochenta/MagicShopper/magicshopper-node/tests/modules/auth/domain/AuthUserMother.ts",
+      mappings: ";;;;;AAAA,2EAAwE;AAIxE,gFAAwD;AACxD,0EAAkD;AAClD,sFAA8D;AAE9D,MAAqB,cAAc;IAC/B,MAAM,CAAC,MAAM,CACT,EAAc,EACd,KAAoB,EACpB,QAA0B;QAE1B,OAAO,IAAI,mBAAQ,CAAC,EAAE,EAAE,KAAK,EAAE,QAAQ,EAAE,SAAS,CAAC,CAAC;IACxD,CAAC;IAED,6DAA6D;IAC7D,0BAA0B;IAC1B,6CAA6C;IAC7C,iDAAiD;IACjD,wDAAwD;IACxD,SAAS;IACT,IAAI;IAEJ,MAAM,CAAC,MAAM;QACT,OAAO,IAAI,CAAC,MAAM,CACd,0BAAgB,CAAC,MAAM,EAAE,EACzB,6BAAmB,CAAC,MAAM,EAAE,EAC5B,gCAAsB,CAAC,MAAM,EAAE,CAClC,CAAC;IACN,CAAC;CACJ;AAxBD,iCAwBC",
+      names: [],
+      sources: ["/Users/cuatroochenta/MagicShopper/magicshopper-node/tests/modules/auth/domain/AuthUserMother.ts"],
+      sourcesContent: ["import { AuthUser } from '../../../../src/modules/auth/domain/AuthUser';\nimport AuthUserEmail from '../../../../src/modules/auth/domain/AuthUserEmail';\nimport AuthUserId from '../../../../src/modules/auth/domain/AuthUserId';\nimport AuthUserPassword from '../../../../src/modules/auth/domain/AuthUserPassword';\nimport AuthUserEmailMother from './AuthUserEmailMother';\nimport AuthUserIdMother from './AuthUserIdMother';\nimport AuthUserPasswordMother from './AuthUserPasswordMother';\n\nexport default class AuthUserMother {\n    static create(\n        id: AuthUserId,\n        email: AuthUserEmail,\n        password: AuthUserPassword,\n    ): AuthUser {\n        return new AuthUser(id, email, password, undefined);\n    }\n\n    // static fromRequest(request: CreateCourseRequest): Course {\n    //     return this.create(\n    //         CourseIdMother.create(request.id),\n    //         CourseNameMother.create(request.name),\n    //         CourseDurationMother.create(request.duration)\n    //     );\n    // }\n\n    static random(): AuthUser {\n        return this.create(\n            AuthUserIdMother.random(),\n            AuthUserEmailMother.random(),\n            AuthUserPasswordMother.random()\n        );\n    }\n}\n"],
+      version: 3
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "308cef0835aeed4c8b3fa11da48e4e8b1826d0b0"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_60bpiwci0 = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_60bpiwci0();
+
+var __importDefault =
+/* istanbul ignore next */
+(cov_60bpiwci0().s[0]++,
+/* istanbul ignore next */
+(cov_60bpiwci0().b[0][0]++, this) &&
+/* istanbul ignore next */
+(cov_60bpiwci0().b[0][1]++, this.__importDefault) ||
+/* istanbul ignore next */
+(cov_60bpiwci0().b[0][2]++, function (mod) {
+  /* istanbul ignore next */
+  cov_60bpiwci0().f[0]++;
+  cov_60bpiwci0().s[1]++;
+  return (
+    /* istanbul ignore next */
+    (cov_60bpiwci0().b[2][0]++, mod) &&
+    /* istanbul ignore next */
+    (cov_60bpiwci0().b[2][1]++, mod.__esModule) ?
+    /* istanbul ignore next */
+    (cov_60bpiwci0().b[1][0]++, mod) :
+    /* istanbul ignore next */
+    (cov_60bpiwci0().b[1][1]++, {
+      "default": mod
+    })
+  );
+}));
+
+/* istanbul ignore next */
+cov_60bpiwci0().s[2]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+const AuthUser_1 =
+/* istanbul ignore next */
+(cov_60bpiwci0().s[3]++, require("../../../../src/modules/auth/domain/AuthUser"));
+const AuthUserEmailMother_1 =
+/* istanbul ignore next */
+(cov_60bpiwci0().s[4]++, __importDefault(require("./AuthUserEmailMother")));
+const AuthUserIdMother_1 =
+/* istanbul ignore next */
+(cov_60bpiwci0().s[5]++, __importDefault(require("./AuthUserIdMother")));
+const AuthUserPasswordMother_1 =
+/* istanbul ignore next */
+(cov_60bpiwci0().s[6]++, __importDefault(require("./AuthUserPasswordMother")));
+
+class AuthUserMother {
+  static create(id, email, password) {
+    /* istanbul ignore next */
+    cov_60bpiwci0().f[1]++;
+    cov_60bpiwci0().s[7]++;
+    return new AuthUser_1.AuthUser(id, email, password, undefined);
+  } // static fromRequest(request: CreateCourseRequest): Course {
+  //     return this.create(
+  //         CourseIdMother.create(request.id),
+  //         CourseNameMother.create(request.name),
+  //         CourseDurationMother.create(request.duration)
+  //     );
+  // }
+
+
+  static random() {
+    /* istanbul ignore next */
+    cov_60bpiwci0().f[2]++;
+    cov_60bpiwci0().s[8]++;
+    return this.create(AuthUserIdMother_1.default.random(), AuthUserEmailMother_1.default.random(), AuthUserPasswordMother_1.default.random());
+  }
+
+}
+
+/* istanbul ignore next */
+cov_60bpiwci0().s[9]++;
+exports.default = AuthUserMother;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9jdWF0cm9vY2hlbnRhL01hZ2ljU2hvcHBlci9tYWdpY3Nob3BwZXItbm9kZS90ZXN0cy9tb2R1bGVzL2F1dGgvZG9tYWluL0F1dGhVc2VyTW90aGVyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFtQkk7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBbkJKLE1BQUEsVUFBQTtBQUFBO0FBQUEseUJBQUEsT0FBQSxDQUFBLDhDQUFBLENBQUEsQ0FBQTtBQUlBLE1BQUEscUJBQUE7QUFBQTtBQUFBLHlCQUFBLGVBQUEsQ0FBQSxPQUFBLENBQUEsdUJBQUEsQ0FBQSxDQUFBLENBQUE7QUFDQSxNQUFBLGtCQUFBO0FBQUE7QUFBQSx5QkFBQSxlQUFBLENBQUEsT0FBQSxDQUFBLG9CQUFBLENBQUEsQ0FBQSxDQUFBO0FBQ0EsTUFBQSx3QkFBQTtBQUFBO0FBQUEseUJBQUEsZUFBQSxDQUFBLE9BQUEsQ0FBQSwwQkFBQSxDQUFBLENBQUEsQ0FBQTs7QUFFQSxNQUFxQixjQUFyQixDQUFtQztBQUNsQixTQUFOLE1BQU0sQ0FDVCxFQURTLEVBRVQsS0FGUyxFQUdULFFBSFMsRUFHaUI7QUFBQTtBQUFBO0FBQUE7QUFFMUIsV0FBTyxJQUFJLFVBQUEsQ0FBQSxRQUFKLENBQWEsRUFBYixFQUFpQixLQUFqQixFQUF3QixRQUF4QixFQUFrQyxTQUFsQyxDQUFQO0FBQ0gsR0FQOEIsQ0FTL0I7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7OztBQUVhLFNBQU4sTUFBTSxHQUFBO0FBQUE7QUFBQTtBQUFBO0FBQ1QsV0FBTyxLQUFLLE1BQUwsQ0FDSCxrQkFBQSxDQUFBLE9BQUEsQ0FBaUIsTUFBakIsRUFERyxFQUVILHFCQUFBLENBQUEsT0FBQSxDQUFvQixNQUFwQixFQUZHLEVBR0gsd0JBQUEsQ0FBQSxPQUFBLENBQXVCLE1BQXZCLEVBSEcsQ0FBUDtBQUtIOztBQXZCOEI7Ozs7QUFBbkMsT0FBQSxDQUFBLE9BQUEsR0FBQSxjQUFBIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgQXV0aFVzZXIgfSBmcm9tICcuLi8uLi8uLi8uLi9zcmMvbW9kdWxlcy9hdXRoL2RvbWFpbi9BdXRoVXNlcic7XG5pbXBvcnQgQXV0aFVzZXJFbWFpbCBmcm9tICcuLi8uLi8uLi8uLi9zcmMvbW9kdWxlcy9hdXRoL2RvbWFpbi9BdXRoVXNlckVtYWlsJztcbmltcG9ydCBBdXRoVXNlcklkIGZyb20gJy4uLy4uLy4uLy4uL3NyYy9tb2R1bGVzL2F1dGgvZG9tYWluL0F1dGhVc2VySWQnO1xuaW1wb3J0IEF1dGhVc2VyUGFzc3dvcmQgZnJvbSAnLi4vLi4vLi4vLi4vc3JjL21vZHVsZXMvYXV0aC9kb21haW4vQXV0aFVzZXJQYXNzd29yZCc7XG5pbXBvcnQgQXV0aFVzZXJFbWFpbE1vdGhlciBmcm9tICcuL0F1dGhVc2VyRW1haWxNb3RoZXInO1xuaW1wb3J0IEF1dGhVc2VySWRNb3RoZXIgZnJvbSAnLi9BdXRoVXNlcklkTW90aGVyJztcbmltcG9ydCBBdXRoVXNlclBhc3N3b3JkTW90aGVyIGZyb20gJy4vQXV0aFVzZXJQYXNzd29yZE1vdGhlcic7XG5cbmV4cG9ydCBkZWZhdWx0IGNsYXNzIEF1dGhVc2VyTW90aGVyIHtcbiAgICBzdGF0aWMgY3JlYXRlKFxuICAgICAgICBpZDogQXV0aFVzZXJJZCxcbiAgICAgICAgZW1haWw6IEF1dGhVc2VyRW1haWwsXG4gICAgICAgIHBhc3N3b3JkOiBBdXRoVXNlclBhc3N3b3JkLFxuICAgICk6IEF1dGhVc2VyIHtcbiAgICAgICAgcmV0dXJuIG5ldyBBdXRoVXNlcihpZCwgZW1haWwsIHBhc3N3b3JkLCB1bmRlZmluZWQpO1xuICAgIH1cblxuICAgIC8vIHN0YXRpYyBmcm9tUmVxdWVzdChyZXF1ZXN0OiBDcmVhdGVDb3Vyc2VSZXF1ZXN0KTogQ291cnNlIHtcbiAgICAvLyAgICAgcmV0dXJuIHRoaXMuY3JlYXRlKFxuICAgIC8vICAgICAgICAgQ291cnNlSWRNb3RoZXIuY3JlYXRlKHJlcXVlc3QuaWQpLFxuICAgIC8vICAgICAgICAgQ291cnNlTmFtZU1vdGhlci5jcmVhdGUocmVxdWVzdC5uYW1lKSxcbiAgICAvLyAgICAgICAgIENvdXJzZUR1cmF0aW9uTW90aGVyLmNyZWF0ZShyZXF1ZXN0LmR1cmF0aW9uKVxuICAgIC8vICAgICApO1xuICAgIC8vIH1cblxuICAgIHN0YXRpYyByYW5kb20oKTogQXV0aFVzZXIge1xuICAgICAgICByZXR1cm4gdGhpcy5jcmVhdGUoXG4gICAgICAgICAgICBBdXRoVXNlcklkTW90aGVyLnJhbmRvbSgpLFxuICAgICAgICAgICAgQXV0aFVzZXJFbWFpbE1vdGhlci5yYW5kb20oKSxcbiAgICAgICAgICAgIEF1dGhVc2VyUGFzc3dvcmRNb3RoZXIucmFuZG9tKClcbiAgICAgICAgKTtcbiAgICB9XG59XG4iXX0=

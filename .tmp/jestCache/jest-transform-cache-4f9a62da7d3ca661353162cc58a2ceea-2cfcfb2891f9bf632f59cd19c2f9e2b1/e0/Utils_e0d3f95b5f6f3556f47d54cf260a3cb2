@@ -1,0 +1,179 @@
+82f400c6c8aa9831f24e97ac975650e7
+"use strict";
+
+/* istanbul ignore next */
+function cov_vaf19y5ej() {
+  var path = "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/microk/core/infrastructure/Utils.ts";
+  var hash = "fea9a2fb677746b39f42aa1f3eb5f71cea718e5b";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/microk/core/infrastructure/Utils.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 0
+        },
+        end: {
+          line: 2,
+          column: 62
+        }
+      },
+      "1": {
+        start: {
+          line: 3,
+          column: 0
+        },
+        end: {
+          line: 3,
+          column: 35
+        }
+      },
+      "2": {
+        start: {
+          line: 5,
+          column: 4
+        },
+        end: {
+          line: 5,
+          column: 49
+        }
+      },
+      "3": {
+        start: {
+          line: 7,
+          column: 0
+        },
+        end: {
+          line: 7,
+          column: 46
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "isNullOrUndefined",
+        decl: {
+          start: {
+            line: 4,
+            column: 9
+          },
+          end: {
+            line: 4,
+            column: 26
+          }
+        },
+        loc: {
+          start: {
+            line: 4,
+            column: 34
+          },
+          end: {
+            line: 6,
+            column: 1
+          }
+        },
+        line: 4
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 5,
+            column: 11
+          },
+          end: {
+            line: 5,
+            column: 48
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 5,
+            column: 11
+          },
+          end: {
+            line: 5,
+            column: 30
+          }
+        }, {
+          start: {
+            line: 5,
+            column: 34
+          },
+          end: {
+            line: 5,
+            column: 48
+          }
+        }],
+        line: 5
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    f: {
+      "0": 0
+    },
+    b: {
+      "0": [0, 0]
+    },
+    inputSourceMap: {
+      file: "/Users/cuatroochenta/MagicShopper/magicshopper-node/src/microk/core/infrastructure/Utils.ts",
+      mappings: ";;;AAAA,SAAgB,iBAAiB,CAAC,KAAU;IACxC,OAAO,KAAK,KAAK,SAAS,IAAI,KAAK,KAAK,IAAI,CAAC;AACjD,CAAC;AAFD,8CAEC",
+      names: [],
+      sources: ["/Users/cuatroochenta/MagicShopper/magicshopper-node/src/microk/core/infrastructure/Utils.ts"],
+      sourcesContent: ["export function isNullOrUndefined(value: any) {\n    return value === undefined || value === null;\n}\n"],
+      version: 3
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "fea9a2fb677746b39f42aa1f3eb5f71cea718e5b"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_vaf19y5ej = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_vaf19y5ej();
+cov_vaf19y5ej().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+/* istanbul ignore next */
+cov_vaf19y5ej().s[1]++;
+exports.isNullOrUndefined = void 0;
+
+function isNullOrUndefined(value) {
+  /* istanbul ignore next */
+  cov_vaf19y5ej().f[0]++;
+  cov_vaf19y5ej().s[2]++;
+  return (
+    /* istanbul ignore next */
+    (cov_vaf19y5ej().b[0][0]++, value === undefined) ||
+    /* istanbul ignore next */
+    (cov_vaf19y5ej().b[0][1]++, value === null)
+  );
+}
+
+/* istanbul ignore next */
+cov_vaf19y5ej().s[3]++;
+exports.isNullOrUndefined = isNullOrUndefined;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9jdWF0cm9vY2hlbnRhL01hZ2ljU2hvcHBlci9tYWdpY3Nob3BwZXItbm9kZS9zcmMvbWljcm9rL2NvcmUvaW5mcmFzdHJ1Y3R1cmUvVXRpbHMudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUEsU0FBZ0IsaUJBQWhCLENBQWtDLEtBQWxDLEVBQTRDO0FBQUE7QUFBQTtBQUFBO0FBQ3hDLFNBQU87QUFBQTtBQUFBLGdDQUFBLEtBQUssS0FBSyxTQUFWO0FBQUE7QUFBQSxnQ0FBdUIsS0FBSyxLQUFLLElBQWpDO0FBQVA7QUFDSDs7OztBQUZELE9BQUEsQ0FBQSxpQkFBQSxHQUFBLGlCQUFBIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGZ1bmN0aW9uIGlzTnVsbE9yVW5kZWZpbmVkKHZhbHVlOiBhbnkpIHtcbiAgICByZXR1cm4gdmFsdWUgPT09IHVuZGVmaW5lZCB8fCB2YWx1ZSA9PT0gbnVsbDtcbn1cbiJdfQ==
