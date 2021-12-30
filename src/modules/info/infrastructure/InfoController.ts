@@ -2,15 +2,15 @@ import { HttpMethod } from '@microk/common/http/HttpMethod';
 import { HttpStatus } from '@microk/common/http/HttpStatus';
 import Controller from '@microk/core/domain/http/Controller';
 import { ControllerConfig } from '@microk/core/domain/http/ControllerConfig';
+import { ControllerResponse } from '@microk/core/domain/http/ControllerResponse';
 import { Request } from '@microk/core/domain/http/Request';
-import { Response } from '@microk/core/domain/http/Response';
 import QueryBus from '@microk/cqrs/domain/query/QueryBus';
 import InfoQuery from '../application/info/InfoQuery';
 import { InfoResponse } from '../application/info/InfoResponse';
 
-export default class InfoController implements Controller {
+export default class InfoController implements Controller<InfoResponse> {
     constructor(
-       private readonly queryBus: QueryBus,
+        private readonly queryBus: QueryBus,
     ) {
     }
 
@@ -21,8 +21,11 @@ export default class InfoController implements Controller {
         };
     }
 
-    async run(req: Request, res: Response): Promise<void> {
+    async run(req: Request): Promise<ControllerResponse<InfoResponse>> {
         const data = await this.queryBus.ask<InfoResponse>(new InfoQuery());
-        res.status(HttpStatus.OK).send(data);
+        return {
+            status: HttpStatus.OK,
+            data,
+        }
     }
 }

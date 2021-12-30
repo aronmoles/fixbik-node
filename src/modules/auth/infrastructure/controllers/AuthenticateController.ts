@@ -2,13 +2,19 @@ import { HttpMethod } from '@microk/common/http/HttpMethod';
 import { HttpStatus } from '@microk/common/http/HttpStatus';
 import Controller from '@microk/core/domain/http/Controller';
 import { ControllerConfig } from '@microk/core/domain/http/ControllerConfig';
+import { ControllerResponse } from '@microk/core/domain/http/ControllerResponse';
 import { Request } from '@microk/core/domain/http/Request';
-import { Response } from '@microk/core/domain/http/Response';
 import QueryBus from '@microk/cqrs/domain/query/QueryBus';
 import AuthenticateQuery from '../../application/login/AuthenticateQuery';
 import AuthenticateQueryResponse from '../../application/login/AuthenticateQueryResponse';
 
-export default class AuthenticateController implements Controller {
+/**
+ * GET /auth/login
+ * @tags Auth
+ * @summary This is the summary of the endpoint
+ * @return {AuthenticateQueryResponse} 200 - success response
+ */
+export default class AuthenticateController implements Controller<AuthenticateQueryResponse> {
     constructor(
         private readonly queryBus: QueryBus,
     ) {
@@ -21,9 +27,12 @@ export default class AuthenticateController implements Controller {
         };
     }
 
-    async run(req: Request, res: Response): Promise<void> {
+    async run(req: Request): Promise<ControllerResponse<AuthenticateQueryResponse>> {
         const loginQuery = AuthenticateQuery.fromRequest(req);
         const loginQueryResponse = await this.queryBus.ask<AuthenticateQueryResponse>(loginQuery);
-        res.status(HttpStatus.OK).send(loginQueryResponse);
+        return {
+            status: HttpStatus.OK,
+            data: loginQueryResponse,
+        }
     }
 }

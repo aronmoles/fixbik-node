@@ -7,6 +7,7 @@ import { Middleware } from '@microk/core/domain/Middleware';
 import bodyParser from 'body-parser';
 import compress from 'compression';
 import express, { Request, Response } from 'express';
+import expressJSDocSwagger from 'express-jsdoc-swagger';
 import Router from 'express-promise-router';
 import helmet from 'helmet';
 import * as http from 'http';
@@ -15,7 +16,7 @@ import { EnvKey } from './ProcessEnv';
 export type ServerController = {
     method: HttpMethod,
     path: string,
-    controller: Controller,
+    controller: Controller<unknown>,
     middlewares: Middleware[],
 }
 
@@ -42,6 +43,45 @@ export default class Server {
         this.express.use(helmet.hidePoweredBy());
         this.express.use(helmet.frameguard({ action: 'deny' }));
         this.express.use(compress());
+
+        const options = {
+            info: {
+                version: '1.0.0',
+                title: 'FixBike',
+                description: 'Public API',
+                license: {
+                    name: 'MIT',
+                },
+            },
+            security: {
+                jwt: {
+                    type: 'http',
+                    scheme: 'bearer',
+                    bearerFormat: 'jwt',
+                },
+            },
+            baseDir: __dirname,
+            // Glob pattern to find your jsdoc files (multiple patterns can be added in an array)
+            filesPattern: './../**/*.ts',
+            // URL where SwaggerUI will be rendered
+            swaggerUIPath: '/api-docs',
+            // Expose OpenAPI UI
+            exposeSwaggerUI: true,
+            // Expose Open API JSON Docs documentation in `apiDocsPath` path.
+            exposeApiDocs: true,
+            // Open API JSON Docs endpoint.
+            apiDocsPath: '/api-docs.json',
+            // Set non-required fields as nullable by default
+            notRequiredAsNullable: false,
+            // You can customize your UI options.
+            // you can extend swagger-ui-express config. You can checkout an example of this
+            // in the `example/configuration/swaggerOptions.js`
+            swaggerUiOptions: {},
+            // multiple option in case you want more that one instance
+            multiple: true,
+        };
+
+        expressJSDocSwagger(this.express)(options);
     }
 
     registerControllerMiddleware(middlewareList: Middleware[]): void {
@@ -58,7 +98,7 @@ export default class Server {
         });
     }
 
-    registerControllers(controllers: Controller[]): void {
+    registerControllers(controllers: Controller<unknown>[]): void {
         const router = Router();
         controllers.forEach((controller) => {
             const routerMiddlewares = [];
@@ -74,7 +114,10 @@ export default class Server {
                         controller.config().path,
                         ...[
                             ...routerMiddlewares,
-                            (req, res) => controller.run(req, res),
+                            async (req, res) => {
+                                const response = await controller.run(req);
+                                res.status(response.status).send(response.data)
+                            },
                         ],
                     );
                     break;
@@ -83,7 +126,10 @@ export default class Server {
                         controller.config().path,
                         ...[
                             ...routerMiddlewares,
-                            (req, res) => controller.run(req, res),
+                            async (req, res) => {
+                                const response = await controller.run(req);
+                                res.status(response.status).send(response.data)
+                            },
                         ],
                     );
                     break;
@@ -92,7 +138,10 @@ export default class Server {
                         controller.config().path,
                         ...[
                             ...routerMiddlewares,
-                            (req, res) => controller.run(req, res),
+                            async (req, res) => {
+                                const response = await controller.run(req);
+                                res.status(response.status).send(response.data)
+                            },
                         ],
                     );
                     break;
@@ -101,7 +150,10 @@ export default class Server {
                         controller.config().path,
                         ...[
                             ...routerMiddlewares,
-                            (req, res) => controller.run(req, res),
+                            async (req, res) => {
+                                const response = await controller.run(req);
+                                res.status(response.status).send(response.data)
+                            },
                         ],
                     );
                     break;

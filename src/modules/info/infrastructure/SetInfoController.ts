@@ -2,8 +2,8 @@ import { HttpMethod } from '@microk/common/http/HttpMethod';
 import { HttpStatus } from '@microk/common/http/HttpStatus';
 import Controller from '@microk/core/domain/http/Controller';
 import { ControllerConfig } from '@microk/core/domain/http/ControllerConfig';
+import { ControllerResponse } from '@microk/core/domain/http/ControllerResponse';
 import { Request } from '@microk/core/domain/http/Request';
-import { Response } from '@microk/core/domain/http/Response';
 import { CommandBus } from '@microk/cqrs/domain/command/CommandBus';
 import SetInfoCommand from '../application/set-info/SetInfoCommand';
 
@@ -20,8 +20,11 @@ export default class SetInfoController implements Controller {
         };
     }
 
-    async run(req: Request, res: Response): Promise<void> {
+    async run(req: Request): Promise<ControllerResponse<void>> {
         await this.commandBus.dispatch(new SetInfoCommand());
-        res.status(HttpStatus.OK).send();
+        return {
+            status: HttpStatus.OK,
+            data: undefined,
+        }
     }
 }

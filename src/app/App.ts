@@ -42,7 +42,7 @@ export default class App {
     }
 
     private async registerRoutes() {
-        const controllerDiscoverer = Container.get<Discoverer<Controller[]>>('App.ControllerDiscoverer')
+        const controllerDiscoverer = Container.get<Discoverer<Controller<unknown>[]>>('App.ControllerDiscoverer')
         const controllers = controllerDiscoverer.discover();
         this.server.registerControllers(controllers)
     }
