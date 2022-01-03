@@ -1,0 +1,35 @@
+3472d420f7b3aa9f00e9029504a16a9e
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.readFiles = void 0;
+const fs = __importStar(require("fs"));
+const readFile = (filePath) => {
+    return fs.readFileSync(filePath).toString();
+};
+const readFiles = (files) => {
+    if (!files || !Array.isArray(files)) {
+        return [];
+    }
+    return files.map((file) => readFile(file));
+};
+exports.readFiles = readFiles;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiL1VzZXJzL2N1YXRyb29jaGVudGEvTWFnaWNTaG9wcGVyL21hZ2ljc2hvcHBlci1ub2RlL3NyYy9taWNyb2svZG9jcy9vcGVuYXBpL2NvbnN1bWVycy9SZWFkRmlsZXMudHMiLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUFBLHVDQUF5QjtBQUV6QixNQUFNLFFBQVEsR0FBRyxDQUFDLFFBQWdCLEVBQVUsRUFBRTtJQUMxQyxPQUFPLEVBQUUsQ0FBQyxZQUFZLENBQUMsUUFBUSxDQUFDLENBQUMsUUFBUSxFQUFFLENBQUM7QUFDaEQsQ0FBQyxDQUFBO0FBRU0sTUFBTSxTQUFTLEdBQUcsQ0FBQyxLQUFlLEVBQVksRUFBRTtJQUNuRCxJQUFJLENBQUMsS0FBSyxJQUFJLENBQUMsS0FBSyxDQUFDLE9BQU8sQ0FBQyxLQUFLLENBQUMsRUFBRTtRQUNqQyxPQUFPLEVBQUUsQ0FBQztLQUNiO0lBQ0QsT0FBTyxLQUFLLENBQUMsR0FBRyxDQUFDLENBQUMsSUFBSSxFQUFFLEVBQUUsQ0FBQyxRQUFRLENBQUMsSUFBSSxDQUFDLENBQUMsQ0FBQztBQUMvQyxDQUFDLENBQUM7QUFMVyxRQUFBLFNBQVMsYUFLcEIiLCJuYW1lcyI6W10sInNvdXJjZXMiOlsiL1VzZXJzL2N1YXRyb29jaGVudGEvTWFnaWNTaG9wcGVyL21hZ2ljc2hvcHBlci1ub2RlL3NyYy9taWNyb2svZG9jcy9vcGVuYXBpL2NvbnN1bWVycy9SZWFkRmlsZXMudHMiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0ICogYXMgZnMgZnJvbSAnZnMnO1xuXG5jb25zdCByZWFkRmlsZSA9IChmaWxlUGF0aDogc3RyaW5nKTogc3RyaW5nID0+IHtcbiAgICByZXR1cm4gZnMucmVhZEZpbGVTeW5jKGZpbGVQYXRoKS50b1N0cmluZygpO1xufVxuXG5leHBvcnQgY29uc3QgcmVhZEZpbGVzID0gKGZpbGVzOiBzdHJpbmdbXSk6IHN0cmluZ1tdID0+IHtcbiAgICBpZiAoIWZpbGVzIHx8ICFBcnJheS5pc0FycmF5KGZpbGVzKSkge1xuICAgICAgICByZXR1cm4gW107XG4gICAgfVxuICAgIHJldHVybiBmaWxlcy5tYXAoKGZpbGUpID0+IHJlYWRGaWxlKGZpbGUpKTtcbn07XG4iXSwidmVyc2lvbiI6M30=

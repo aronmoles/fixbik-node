@@ -7,12 +7,40 @@ import { Request } from '@microk/core/domain/http/Request';
 import QueryBus from '@microk/cqrs/domain/query/QueryBus';
 import AuthenticateQuery from '../../application/login/AuthenticateQuery';
 import AuthenticateQueryResponse from '../../application/login/AuthenticateQueryResponse';
+import AuthenticateResponseDto from './AuthenticateResponse.Dto';
 
 /**
- * GET /auth/login
- * @tags Auth
- * @summary This is the summary of the endpoint
- * @return {AuthenticateQueryResponse} 200 - success response
+ * @openapi
+ * /auth/authenticate:
+ *   post:
+ *     operationId: authenticate
+ *     tags:
+ *       - Auth
+ *     summary: Authenticate user in app.
+ *     description: ''
+ *     requestBody:
+ *       description: "AuthUser data to authenticate"
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/AuthenticateRequestDto'
+ *     responses:
+ *       201:
+ *         description: "Successful operation. The notification has been created on the server."
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 data:
+ *                   $ref: '#/components/schemas/AuthenticateResponseDto'
+ *       400:
+ *         description: "Bad Request"
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Error'
  */
 export default class AuthenticateController implements Controller<AuthenticateQueryResponse> {
     constructor(
@@ -22,17 +50,19 @@ export default class AuthenticateController implements Controller<AuthenticateQu
 
     config(): ControllerConfig {
         return {
-            path: '/auth/login',
+            path: '/auth/authenticate',
             method: HttpMethod.POST,
         };
     }
 
-    async run(req: Request): Promise<ControllerResponse<AuthenticateQueryResponse>> {
+    async run(req: Request): Promise<ControllerResponse<AuthenticateResponseDto>> {
         const loginQuery = AuthenticateQuery.fromRequest(req);
         const loginQueryResponse = await this.queryBus.ask<AuthenticateQueryResponse>(loginQuery);
         return {
             status: HttpStatus.OK,
-            data: loginQueryResponse,
+            data: {
+                authToken: loginQueryResponse.authToken,
+            },
         }
     }
 }

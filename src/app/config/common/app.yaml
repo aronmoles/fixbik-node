@@ -118,4 +118,10 @@ services:
       method: 'createClient'
     arguments: ['@App.TypeOrmConfig']
 
+  App.ServerOpenApiConfig:
+    arguments: []
+    factory:
+      class: ../../../modules/shared/infrastructure/docs/ServerOpenApiConfigFactory
+      method: 'createConfig'
+
 

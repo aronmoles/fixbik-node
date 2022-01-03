@@ -7,7 +7,7 @@ import { Request } from '@microk/core/domain/http/Request';
 import { CommandBus } from '@microk/cqrs/domain/command/CommandBus';
 import SetInfoCommand from '../application/set-info/SetInfoCommand';
 
-export default class SetInfoController implements Controller {
+export default class SetInfoController implements Controller<void> {
     constructor(
         private readonly commandBus: CommandBus,
     ) {

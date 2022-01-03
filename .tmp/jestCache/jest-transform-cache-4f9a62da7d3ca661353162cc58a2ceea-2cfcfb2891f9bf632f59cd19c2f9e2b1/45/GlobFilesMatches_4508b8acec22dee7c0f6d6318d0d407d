@@ -1,0 +1,42 @@
+e4744216650d9e070833bad98e9e7d9e
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.globFilesMatches = void 0;
+const glob_1 = __importDefault(require("glob"));
+const path = __importStar(require("path"));
+const DEFAULT_EXCLUDED_FOLDER = 'node_modules';
+const DEFAULT_GLOB_OPTIONS = { ignore: '**/node_modules/**' };
+const globFilesMatches = (baseDir, filesPattern, excludedFolder = DEFAULT_EXCLUDED_FOLDER) => {
+    try {
+        const files = glob_1.default.sync(path.resolve(baseDir, filesPattern), DEFAULT_GLOB_OPTIONS);
+        const filteredFiles = files.filter((file) => !file.includes(excludedFolder));
+        return filteredFiles;
+    }
+    catch (error) {
+        throw new Error('Error Glob Files');
+    }
+};
+exports.globFilesMatches = globFilesMatches;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJmaWxlIjoiL1VzZXJzL2N1YXRyb29jaGVudGEvTWFnaWNTaG9wcGVyL21hZ2ljc2hvcHBlci1ub2RlL3NyYy9taWNyb2svZG9jcy9vcGVuYXBpL2NvbnN1bWVycy9HbG9iRmlsZXNNYXRjaGVzLnRzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQSxnREFBd0I7QUFDeEIsMkNBQTZCO0FBRTdCLE1BQU0sdUJBQXVCLEdBQUcsY0FBYyxDQUFDO0FBQy9DLE1BQU0sb0JBQW9CLEdBQUcsRUFBRSxNQUFNLEVBQUUsb0JBQW9CLEVBQUUsQ0FBQztBQUV2RCxNQUFNLGdCQUFnQixHQUFHLENBQzVCLE9BQWUsRUFDZixZQUFvQixFQUNwQixpQkFBeUIsdUJBQXVCLEVBQ2xELEVBQUU7SUFDQSxJQUFJO1FBQ0EsTUFBTSxLQUFLLEdBQUcsY0FBSSxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsT0FBTyxDQUFDLE9BQU8sRUFBRSxZQUFZLENBQUMsRUFBRSxvQkFBb0IsQ0FBQyxDQUFDO1FBQ25GLE1BQU0sYUFBYSxHQUFHLEtBQUssQ0FBQyxNQUFNLENBQUMsQ0FBQyxJQUFJLEVBQUUsRUFBRSxDQUFDLENBQUMsSUFBSSxDQUFDLFFBQVEsQ0FBQyxjQUFjLENBQUMsQ0FBQyxDQUFDO1FBQzdFLE9BQU8sYUFBYSxDQUFDO0tBQ3hCO0lBQUMsT0FBTyxLQUFLLEVBQUU7UUFDWixNQUFNLElBQUksS0FBSyxDQUFDLGtCQUFrQixDQUFDLENBQUM7S0FDdkM7QUFDTCxDQUFDLENBQUE7QUFaWSxRQUFBLGdCQUFnQixvQkFZNUIiLCJuYW1lcyI6W10sInNvdXJjZXMiOlsiL1VzZXJzL2N1YXRyb29jaGVudGEvTWFnaWNTaG9wcGVyL21hZ2ljc2hvcHBlci1ub2RlL3NyYy9taWNyb2svZG9jcy9vcGVuYXBpL2NvbnN1bWVycy9HbG9iRmlsZXNNYXRjaGVzLnRzIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBnbG9iIGZyb20gJ2dsb2InO1xuaW1wb3J0ICogYXMgcGF0aCBmcm9tICdwYXRoJztcblxuY29uc3QgREVGQVVMVF9FWENMVURFRF9GT0xERVIgPSAnbm9kZV9tb2R1bGVzJztcbmNvbnN0IERFRkFVTFRfR0xPQl9PUFRJT05TID0geyBpZ25vcmU6ICcqKi9ub2RlX21vZHVsZXMvKionIH07XG5cbmV4cG9ydCBjb25zdCBnbG9iRmlsZXNNYXRjaGVzID0gKFxuICAgIGJhc2VEaXI6IHN0cmluZyxcbiAgICBmaWxlc1BhdHRlcm46IHN0cmluZyxcbiAgICBleGNsdWRlZEZvbGRlcjogc3RyaW5nID0gREVGQVVMVF9FWENMVURFRF9GT0xERVIsXG4pID0+IHtcbiAgICB0cnkge1xuICAgICAgICBjb25zdCBmaWxlcyA9IGdsb2Iuc3luYyhwYXRoLnJlc29sdmUoYmFzZURpciwgZmlsZXNQYXR0ZXJuKSwgREVGQVVMVF9HTE9CX09QVElPTlMpO1xuICAgICAgICBjb25zdCBmaWx0ZXJlZEZpbGVzID0gZmlsZXMuZmlsdGVyKChmaWxlKSA9PiAhZmlsZS5pbmNsdWRlcyhleGNsdWRlZEZvbGRlcikpO1xuICAgICAgICByZXR1cm4gZmlsdGVyZWRGaWxlcztcbiAgICB9IGNhdGNoIChlcnJvcikge1xuICAgICAgICB0aHJvdyBuZXcgRXJyb3IoJ0Vycm9yIEdsb2IgRmlsZXMnKTtcbiAgICB9XG59XG4iXSwidmVyc2lvbiI6M30=

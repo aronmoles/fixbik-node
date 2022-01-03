@@ -8,7 +8,7 @@ import EventBus from '@microk/event/domain/EventBus';
 import * as http from 'http';
 import Container from './Container';
 import { EnvKey } from './ProcessEnv';
-import Server from './Server';
+import Server, { ServerOpenApiConfig } from './Server';
 
 export default class App {
     private readonly server?: Server;
@@ -16,7 +16,10 @@ export default class App {
     constructor() {
         const env = Container.get<Env<EnvKey>>('App.Env');
         const logger = Container.get<Logger>('App.Logger');
-        this.server = new Server(env, logger);
+        const serverOpenApiConfig = Container.get<ServerOpenApiConfig>('App.ServerOpenApiConfig');
+        this.server = new Server(env, logger, {
+            openapi: serverOpenApiConfig,
+        });
     }
 
     async start() {

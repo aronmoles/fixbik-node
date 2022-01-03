@@ -1,23 +1,32 @@
 import { HttpMethod } from '@microk/common/http/HttpMethod';
+import { HttpStatus } from '@microk/common/http/HttpStatus';
 import Env from '@microk/core/domain/Env';
 import { ErrorMiddleware } from '@microk/core/domain/ErrorMiddleware';
 import Controller from '@microk/core/domain/http/Controller';
 import Logger from '@microk/core/domain/Logger';
 import { Middleware } from '@microk/core/domain/Middleware';
+import OpenApi, { OpenApiConfig } from '@microk/docs/openapi';
 import bodyParser from 'body-parser';
 import compress from 'compression';
-import express, { Request, Response } from 'express';
-import expressJSDocSwagger from 'express-jsdoc-swagger';
+import express, { NextFunction, Request, Response } from 'express';
 import Router from 'express-promise-router';
 import helmet from 'helmet';
 import * as http from 'http';
 import { EnvKey } from './ProcessEnv';
+import yaml from 'yaml';
+import swaggerUi from 'swagger-ui-express';
 
 export type ServerController = {
     method: HttpMethod,
     path: string,
     controller: Controller<unknown>,
     middlewares: Middleware[],
+}
+
+export type ServerOpenApiConfig = OpenApiConfig & { swaggerUIPath?: string, apiDocsPath?: string, format?: 'yaml' | 'json' }
+
+export type ServerOptions = {
+    openapi?: ServerOpenApiConfig,
 }
 
 export type ServerControllers = ServerController[];
@@ -32,7 +41,7 @@ export default class Server {
 
     httpServer?: http.Server;
 
-    constructor(env: Env<EnvKey>, logger: Logger) {
+    constructor(env: Env<EnvKey>, logger: Logger, options?: ServerOptions) {
         this.env = env;
         this.logger = logger;
         this.express = express();
@@ -43,45 +52,38 @@ export default class Server {
         this.express.use(helmet.hidePoweredBy());
         this.express.use(helmet.frameguard({ action: 'deny' }));
         this.express.use(compress());
+        // Disable cache
+        this.express.use((req: Request, res: Response, next: NextFunction) => {
+            res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+            res.header('Expires', '-1');
+            res.header('Pragma', 'no-cache');
+            next();
+        });
+        // Openapi
+        if (options && options.openapi) {
+            const openApi = new OpenApi(options.openapi)
+            const openApiDoc = openApi.generateDocs();
 
-        const options = {
-            info: {
-                version: '1.0.0',
-                title: 'FixBike',
-                description: 'Public API',
-                license: {
-                    name: 'MIT',
-                },
-            },
-            security: {
-                jwt: {
-                    type: 'http',
-                    scheme: 'bearer',
-                    bearerFormat: 'jwt',
-                },
-            },
-            baseDir: __dirname,
-            // Glob pattern to find your jsdoc files (multiple patterns can be added in an array)
-            filesPattern: './../**/*.ts',
-            // URL where SwaggerUI will be rendered
-            swaggerUIPath: '/api-docs',
-            // Expose OpenAPI UI
-            exposeSwaggerUI: true,
-            // Expose Open API JSON Docs documentation in `apiDocsPath` path.
-            exposeApiDocs: true,
-            // Open API JSON Docs endpoint.
-            apiDocsPath: '/api-docs.json',
-            // Set non-required fields as nullable by default
-            notRequiredAsNullable: false,
-            // You can customize your UI options.
-            // you can extend swagger-ui-express config. You can checkout an example of this
-            // in the `example/configuration/swaggerOptions.js`
-            swaggerUiOptions: {},
-            // multiple option in case you want more that one instance
-            multiple: true,
-        };
+            if (options.openapi.apiDocsPath) {
+                this.express.get(options.openapi.apiDocsPath, (req: Request, res: Response) => {
+                    switch (options.openapi.format) {
+                        case 'json':
+                            res.json(openApiDoc);
+                            break;
+                        case 'yaml':
+                            res.setHeader('Content-Type', 'text/yaml')
+                                .send(yaml.stringify(openApiDoc))
+                            break;
+                        default:
+                            res.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    }
+                });
+            }
 
-        expressJSDocSwagger(this.express)(options);
+            if (options.openapi.swaggerUIPath) {
+                this.express.use(options.openapi.swaggerUIPath, swaggerUi.serve, swaggerUi.setup(openApiDoc, {}));
+            }
+        }
     }
 
     registerControllerMiddleware(middlewareList: Middleware[]): void {
