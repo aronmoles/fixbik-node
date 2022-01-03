@@ -4,7 +4,9 @@ import Controller from '@microk/core/domain/http/Controller';
 import { ControllerConfig } from '@microk/core/domain/http/ControllerConfig';
 import { ControllerResponse } from '@microk/core/domain/http/ControllerResponse';
 import { Request } from '@microk/core/domain/http/Request';
+import Inject from '@microk/core/infrastructure/di/Inject.decorator';
 import QueryBus from '@microk/cqrs/domain/query/QueryBus';
+import { Keys } from '../../../shared/infrastructure/di/Keys';
 import AuthenticateQuery from '../../application/login/AuthenticateQuery';
 import AuthenticateQueryResponse from '../../application/login/AuthenticateQueryResponse';
 import AuthenticateResponseDto from './AuthenticateResponse.Dto';
@@ -44,7 +46,7 @@ import AuthenticateResponseDto from './AuthenticateResponse.Dto';
  */
 export default class AuthenticateController implements Controller<AuthenticateQueryResponse> {
     constructor(
-        private readonly queryBus: QueryBus,
+        @Inject(Keys.CQRS.QueryBus) private readonly queryBus: QueryBus,
     ) {
     }
 

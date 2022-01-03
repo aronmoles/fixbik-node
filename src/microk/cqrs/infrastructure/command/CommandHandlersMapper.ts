@@ -1,4 +1,6 @@
 import { Mapper } from '../../../common/Mapper';
+import { ContainerTag } from '../../../core/domain/di/ContainerTag';
+import InjectTag from '../../../core/infrastructure/di/InjecTag.decorator';
 import Command from '../../domain/command/Command';
 import CommandHandler from '../../domain/command/CommandHandler';
 import { CommandNotRegisteredError } from '../../domain/command/CommandNotRegisteredError';
@@ -6,7 +8,9 @@ import { CommandNotRegisteredError } from '../../domain/command/CommandNotRegist
 export class CommandHandlersMapper implements Mapper<Command, CommandHandler<Command>> {
     private commandHandlersMap: Map<string, CommandHandler<Command>>;
 
-    constructor(commandHandlers: Array<CommandHandler<Command>>) {
+    constructor(
+        @InjectTag(ContainerTag.COMMAND_HANDLER) commandHandlers: Array<CommandHandler<Command>>
+    ) {
         this.commandHandlersMap = this.formatHandlers(commandHandlers);
     }
 

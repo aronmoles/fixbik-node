@@ -3,10 +3,11 @@ import { ErrorMiddleware } from '@microk/core/domain/ErrorMiddleware';
 import Controller from '@microk/core/domain/http/Controller';
 import Logger from '@microk/core/domain/Logger';
 import { Middleware } from '@microk/core/domain/Middleware';
-import Discoverer from '@microk/core/infrastructure/Discoverer';
+import Discoverer from '@microk/core/domain/Discoverer';
 import EventBus from '@microk/event/domain/EventBus';
 import * as http from 'http';
-import Container from './Container';
+import { Keys } from '../modules/shared/infrastructure/di/Keys';
+import container from './Container';
 import { EnvKey } from './ProcessEnv';
 import Server, { ServerOpenApiConfig } from './Server';
 
@@ -14,9 +15,9 @@ export default class App {
     private readonly server?: Server;
 
     constructor() {
-        const env = Container.get<Env<EnvKey>>('App.Env');
-        const logger = Container.get<Logger>('App.Logger');
-        const serverOpenApiConfig = Container.get<ServerOpenApiConfig>('App.ServerOpenApiConfig');
+        const env = container.get<Env<EnvKey>>(Keys.App.Env);
+        const logger = container.get<Logger>(Keys.App.Logger);
+        const serverOpenApiConfig = container.get<ServerOpenApiConfig>(Keys.App.ServerOpenApiConfig);
         this.server = new Server(env, logger, {
             openapi: serverOpenApiConfig,
         });
@@ -26,7 +27,7 @@ export default class App {
         this.initMiddleware();
         await this.registerRoutes();
         await this.initErrorMiddleware();
-        await this.configureEventBus(Container.get<EventBus>('App.EventBus'));
+        await this.configureEventBus(container.get<EventBus>(Keys.CQRS.EventBus));
         return this.server.listen();
     }
 
@@ -39,20 +40,20 @@ export default class App {
     }
 
     private initMiddleware() {
-        const middlewareDiscoverer = Container.get<Discoverer<Middleware[]>>('App.MiddlewareDiscoverer')
+        const middlewareDiscoverer = container.get<Discoverer<Middleware[]>>(Keys.App.MiddlewareDiscoverer)
         const middlewares = middlewareDiscoverer.discover();
         this.server.registerControllerMiddleware(middlewares);
     }
 
     private async registerRoutes() {
-        const controllerDiscoverer = Container.get<Discoverer<Controller<unknown>[]>>('App.ControllerDiscoverer')
+        const controllerDiscoverer = container.get<Discoverer<Controller<unknown>[]>>(Keys.App.ControllerDiscoverer)
         const controllers = controllerDiscoverer.discover();
         this.server.registerControllers(controllers)
     }
 
     private async initErrorMiddleware() {
-        const errorMiddlewareDiscoverer = Container.get<Discoverer<ErrorMiddleware[]>>('App.ErrorMiddlewareDiscoverer')
-        const errorMiddlewares = errorMiddlewareDiscoverer.discover();
+        const discoverer = container.get<Discoverer<ErrorMiddleware[]>>(Keys.App.ErrorMiddlewareDiscoverer)
+        const errorMiddlewares = discoverer.discover();
         this.server.registerErrorMiddleware(errorMiddlewares);
     }
 

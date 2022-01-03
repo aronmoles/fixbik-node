@@ -1,4 +1,6 @@
 import { Optional } from '../../common/Optional';
+import { ContainerTag } from '../../core/domain/di/ContainerTag';
+import InjectTag from '../../core/infrastructure/di/InjecTag.decorator';
 import DomainEvent, { DomainEventClass } from '../domain/DomainEvent';
 import EventSubscriber from '../domain/EventSubscriber';
 
@@ -7,7 +9,9 @@ type Mapping = Map<string, DomainEventClass>;
 export class EventClassMapper {
     private mapping: Mapping;
 
-    constructor(mapping: EventSubscriber<DomainEvent>[]) {
+    constructor(
+        @InjectTag(ContainerTag.EVENT_SUBSCRIBER) mapping: EventSubscriber<DomainEvent>[],
+    ) {
         this.mapping = mapping.reduce(this.eventsExtractor(), new Map<string, DomainEventClass>());
     }
 

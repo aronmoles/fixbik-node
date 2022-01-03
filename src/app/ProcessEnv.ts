@@ -3,9 +3,9 @@ import Env from '@microk/core/domain/Env';
 import * as fs from 'fs';
 
 export enum EnvMode {
-    dev,
-    test,
-    prod,
+    dev = 'dev',
+    test = 'test',
+    prod = 'prod',
 }
 
 export interface EnvKey {

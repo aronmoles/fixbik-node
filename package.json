@@ -33,7 +33,6 @@
     "lodash.mergewith": "^4.6.2",
     "mongodb": "^4.2.2",
     "mysql": "^2.18.1",
-    "node-dependency-injection": "^2.7.1",
     "openapi3-ts": "^2.0.1",
     "swagger-ui-express": "^4.3.0",
     "typeorm": "^0.2.41",

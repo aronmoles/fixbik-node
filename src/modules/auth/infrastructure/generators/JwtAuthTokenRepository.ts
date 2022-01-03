@@ -1,5 +1,7 @@
 import Env from '@microk/core/domain/Env';
+import Inject from '@microk/core/infrastructure/di/Inject.decorator';
 import { EnvKey } from '../../../../app/ProcessEnv';
+import { Keys } from '../../../shared/infrastructure/di/Keys';
 import FixBikeJwtPayload from '../../../shared/infrastructure/FixBikeJwtPayload';
 import AuthToken from '../../domain/AuthToken';
 import AuthTokenRepository from '../../domain/AuthTokenRepository';
@@ -9,7 +11,7 @@ import jwt from 'jsonwebtoken';
 
 export default class JwtAuthTokenRepository implements AuthTokenRepository {
     constructor(
-        private readonly env: Env<EnvKey>,
+        @Inject(Keys.App.Env) private readonly env: Env<EnvKey>,
     ) {
     }
 

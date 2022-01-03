@@ -4,13 +4,15 @@ import Controller from '@microk/core/domain/http/Controller';
 import { ControllerConfig } from '@microk/core/domain/http/ControllerConfig';
 import { ControllerResponse } from '@microk/core/domain/http/ControllerResponse';
 import { Request } from '@microk/core/domain/http/Request';
+import Inject from '@microk/core/infrastructure/di/Inject.decorator';
 import QueryBus from '@microk/cqrs/domain/query/QueryBus';
+import { Keys } from '../../shared/infrastructure/di/Keys';
 import InfoQuery from '../application/info/InfoQuery';
 import { InfoResponse } from '../application/info/InfoResponse';
 
 export default class InfoController implements Controller<InfoResponse> {
     constructor(
-        private readonly queryBus: QueryBus,
+        @Inject(Keys.CQRS.QueryBus) private readonly queryBus: QueryBus,
     ) {
     }
 

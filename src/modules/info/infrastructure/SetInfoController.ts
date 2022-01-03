@@ -4,12 +4,14 @@ import Controller from '@microk/core/domain/http/Controller';
 import { ControllerConfig } from '@microk/core/domain/http/ControllerConfig';
 import { ControllerResponse } from '@microk/core/domain/http/ControllerResponse';
 import { Request } from '@microk/core/domain/http/Request';
+import Inject from '@microk/core/infrastructure/di/Inject.decorator';
 import { CommandBus } from '@microk/cqrs/domain/command/CommandBus';
+import { Keys } from '../../shared/infrastructure/di/Keys';
 import SetInfoCommand from '../application/set-info/SetInfoCommand';
 
 export default class SetInfoController implements Controller<void> {
     constructor(
-        private readonly commandBus: CommandBus,
+        @Inject(Keys.CQRS.CommandBus) private readonly commandBus: CommandBus,
     ) {
     }
 

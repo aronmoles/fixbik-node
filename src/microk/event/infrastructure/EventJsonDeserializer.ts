@@ -1,12 +1,16 @@
+import { Keys } from '../../../modules/shared/infrastructure/di/Keys';
+import { Optional } from '../../common/Optional';
+import Inject from '../../core/infrastructure/di/Inject.decorator';
 import DomainEvent from '../domain/DomainEvent';
 import EventDeserializer from '../domain/EventDeserializer';
 import { EventClassMapper } from './EventClassMapper';
-import { Optional } from '../../common/Optional';
 
 export class EventJsonDeserializer implements EventDeserializer {
     private mapping: EventClassMapper;
 
-    constructor(mapping: EventClassMapper) {
+    constructor(
+        @Inject(Keys.CQRS.EventClassMapper) mapping: EventClassMapper
+    ) {
         this.mapping = mapping;
     }
 

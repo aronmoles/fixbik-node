@@ -1,4 +1,6 @@
+import Inject from '@microk/core/infrastructure/di/Inject.decorator';
 import EventBus from '@microk/event/domain/EventBus';
+import { Keys } from '../../../shared/infrastructure/di/Keys';
 import AuthToken from '../../domain/AuthToken';
 import AuthTokenRepository from '../../domain/AuthTokenRepository';
 import AuthUserEmail from '../../domain/AuthUserEmail';
@@ -9,9 +11,9 @@ import AuthUserSearchByEmail from '../search-by-email/AuthUserSearchByEmail';
 export default class Authenticator {
     private readonly authUserSearcherByEmail: AuthUserSearchByEmail;
     constructor(
-        authUserRepository: AuthUserRepository,
-        private readonly authTokenRepository: AuthTokenRepository,
-        private readonly eventBus: EventBus,
+        @Inject(Keys.Auth.AuthUserRepository) authUserRepository: AuthUserRepository,
+        @Inject(Keys.Auth.AuthTokenRepository) private readonly authTokenRepository: AuthTokenRepository,
+        @Inject(Keys.CQRS.EventBus) private readonly eventBus: EventBus,
     ) {
         this.authUserSearcherByEmail = new AuthUserSearchByEmail(authUserRepository);
     }

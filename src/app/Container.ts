@@ -1,19 +1,11 @@
-/* eslint-disable no-undef */
-import * as fs from 'fs';
-import { ContainerBuilder, YamlFileLoader } from 'node-dependency-injection';
-import path from 'path';
+import DependencyContainer from '@microk/core/infrastructure/di/DependencyContainer';
+import { configEnvDependencyContainer } from './config';
+import { EnvMode } from './ProcessEnv';
 
-const Container = new ContainerBuilder();
-const loader = new YamlFileLoader(Container);
+const container = new DependencyContainer();
+
 const env = process.env.NODE_ENV || 'dev';
 
-const configFile = path.join(__dirname, `/app_${env}.yaml`);
-if (fs.existsSync(configFile)) {
-    loader.load(configFile);
-} else {
-    throw new Error(`Not exists <${configFile}> configuration file`)
-}
+configEnvDependencyContainer(container, env as EnvMode);
 
-Container.compile()
-
-export default Container;
+export default container;

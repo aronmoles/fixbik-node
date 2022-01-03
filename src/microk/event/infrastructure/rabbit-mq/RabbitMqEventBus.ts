@@ -1,7 +1,11 @@
 import { Connection, Message, Exchange, Queue } from 'amqp-ts';
+import { Keys } from '../../../../modules/shared/infrastructure/di/Keys';
 import MessageName from '../../../common/message/MessageName';
+import { ContainerTag } from '../../../core/domain/di/ContainerTag';
 import Logger from '../../../core/domain/Logger';
 import WrapperExecutor from '../../../core/domain/WrapperExecutor';
+import Inject from '../../../core/infrastructure/di/Inject.decorator';
+import InjectTag from '../../../core/infrastructure/di/InjecTag.decorator';
 import Executor from '../../../core/infrastructure/Executor';
 import DomainEvent from '../../domain/DomainEvent';
 import EventBus from '../../domain/EventBus';
@@ -10,7 +14,7 @@ import RabbitMqConfig from './RabbitMqConfig';
 import { EventJsonDeserializer } from '../EventJsonDeserializer';
 import { Mapper } from '../../../common/Mapper';
 
-export default class RabbitMqEventbus implements EventBus {
+export default class RabbitMqEventBus implements EventBus {
     private readonly executor: Executor<DomainEvent, void>;
 
     private readonly connection: Connection;
@@ -18,11 +22,12 @@ export default class RabbitMqEventbus implements EventBus {
     private readonly queue: Queue;
 
     constructor(
-        config: RabbitMqConfig,
+        @Inject(Keys.CQRS.RabbitMqConfig) config: RabbitMqConfig,
+        @Inject(Keys.CQRS.EventSubscriberMapper)
         private readonly domainEventSubscriberMapper: Mapper<MessageName, Array<EventSubscriber<DomainEvent>>>,
-        private readonly deserializer: EventJsonDeserializer,
-        private readonly logger: Logger,
-        executors: WrapperExecutor<DomainEvent, void>[] = [],
+        @Inject(Keys.CQRS.EventDeserializer) private readonly deserializer: EventJsonDeserializer,
+        @Inject(Keys.App.Logger) private readonly logger: Logger,
+        @InjectTag(ContainerTag.EVENT_EXECUTOR) executors: WrapperExecutor<DomainEvent, void>[] = [],
     ) {
         this.executor = new Executor<DomainEvent, void>(executors);
 
@@ -57,7 +62,7 @@ export default class RabbitMqEventbus implements EventBus {
                     }
                     message.ack();
                 } catch (error) {
-                    message.reject()
+                    message.nack()
                 }
             },
             { noAck: false }

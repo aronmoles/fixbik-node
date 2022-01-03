@@ -1,5 +1,5 @@
-export default class Discoverer<T> {
-    constructor(
+export default abstract class Discoverer<T> {
+    protected constructor(
         private readonly data: T,
     ) {
     }

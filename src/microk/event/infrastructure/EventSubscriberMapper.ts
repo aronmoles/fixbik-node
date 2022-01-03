@@ -1,12 +1,16 @@
 import { Mapper } from '../../common/Mapper';
 import MessageName from '../../common/message/MessageName';
+import { ContainerTag } from '../../core/domain/di/ContainerTag';
+import InjectTag from '../../core/infrastructure/di/InjecTag.decorator';
 import DomainEvent from '../domain/DomainEvent';
 import EventSubscriber from '../domain/EventSubscriber';
 
 export class EventSubscriberMapper implements Mapper<MessageName, EventSubscriber<DomainEvent>[]> {
     private domainEventSubscribersMap: Map<string, Array<EventSubscriber<DomainEvent>>>;
 
-    constructor(domainEventSubscribers: Array<EventSubscriber<DomainEvent>>) {
+    constructor(
+        @InjectTag(ContainerTag.EVENT_SUBSCRIBER) domainEventSubscribers: Array<EventSubscriber<DomainEvent>>,
+    ) {
         this.domainEventSubscribersMap = this.formatEventSubscribers(domainEventSubscribers);
     }
 

@@ -1,13 +1,17 @@
 import { Connection, EntitySchema, Repository } from 'typeorm';
+import { Keys } from '../../../../modules/shared/infrastructure/di/Keys';
 import { AggregateRoot } from '../../../common/AggregateRoot';
 import { Criteria } from '../../../common/criteria/Criteria';
 import { Nullable } from '../../../common/Nullable';
+import Inject from '../../../core/infrastructure/di/Inject.decorator';
 import TypeOrmCriteriaConverter from './TypeOrmCriteriaConverter';
 
 export abstract class TypeOrmRepository<T extends AggregateRoot> {
     private readonly criteriaConverter = new TypeOrmCriteriaConverter();
 
-    constructor(private _client: Promise<Connection>) {
+    constructor(
+        @Inject(Keys.App.ConnectionManager) private _client: Promise<Connection>
+    ) {
     }
 
     protected abstract entitySchema(): EntitySchema<T>;
