@@ -1,13 +1,18 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "ES6",
     "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
+    "target": "es6",
+    "noImplicitAny": false,
+    "moduleResolution": "node",
+    "sourceMap": false,
+    "rootDir": ".",
+    "strict": false,
+    "noEmit": false,
+    "resolveJsonModule": true,
+    "noUnusedLocals": false,
     "outDir": "build",
     "baseUrl": "./src",
-    "resolveJsonModule": true,
     "paths": {
       "@microk/*": ["microk/*"],
     }
