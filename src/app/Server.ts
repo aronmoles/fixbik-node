@@ -36,6 +36,7 @@ export default class Server {
     // TODO Exportar interfaz Server y renombrar a Express Server
     private readonly logger: Logger;
 
+
     private readonly env: Env<EnvKey>;
 
     private readonly express: express.Express;
