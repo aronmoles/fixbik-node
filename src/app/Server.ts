@@ -15,6 +15,7 @@ import * as http from 'http';
 import { EnvKey } from './ProcessEnv';
 import yaml from 'yaml';
 import swaggerUi from 'swagger-ui-express';
+import cors from 'cors';
 
 export type ServerController = {
     method: HttpMethod,
@@ -52,6 +53,7 @@ export default class Server {
         this.express.use(helmet.hidePoweredBy());
         this.express.use(helmet.frameguard({ action: 'deny' }));
         this.express.use(compress());
+        this.express.use(cors())
         // Disable cache
         this.express.use((req: Request, res: Response, next: NextFunction) => {
             res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
