@@ -1,10 +1,12 @@
 import { readFileSync } from 'fs';
 import { Connection } from 'typeorm';
 import EnvironmentFixtures from '../../domain/EnvironmentFixtures';
+import Inject from '../../../core/infrastructure/di/Inject.decorator';
+import { Keys } from '../../../../modules/shared/infrastructure/di/Keys';
 
 export default class TypeOrmEnvironmentFixtures extends EnvironmentFixtures {
     constructor(
-        private readonly _client: Promise<Connection>
+        @Inject(Keys.App.ConnectionManager) private readonly _client: Promise<Connection>
     ) {
         super();
     }

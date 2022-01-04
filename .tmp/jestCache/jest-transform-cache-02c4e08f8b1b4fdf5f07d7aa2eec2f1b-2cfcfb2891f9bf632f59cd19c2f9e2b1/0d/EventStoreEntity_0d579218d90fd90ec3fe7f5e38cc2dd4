@@ -1,0 +1,540 @@
+533278764cdced7a05f82dd56482a514
+"use strict";
+
+/* istanbul ignore next */
+function cov_17ty3ta5nh() {
+  var path = "/Users/cuatroochenta/FixBik/fixbik-node/src/modules/shared/infrastructure/persistence/typeorm/EventStoreEntity.ts";
+  var hash = "028891c7b6003e0dcb58d576baa6907a85a8aafe";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/cuatroochenta/FixBik/fixbik-node/src/modules/shared/infrastructure/persistence/typeorm/EventStoreEntity.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 22
+        },
+        end: {
+          line: 4,
+          column: 1
+        }
+      },
+      "1": {
+        start: {
+          line: 3,
+          column: 4
+        },
+        end: {
+          line: 3,
+          column: 62
+        }
+      },
+      "2": {
+        start: {
+          line: 5,
+          column: 0
+        },
+        end: {
+          line: 5,
+          column: 62
+        }
+      },
+      "3": {
+        start: {
+          line: 6,
+          column: 0
+        },
+        end: {
+          line: 6,
+          column: 34
+        }
+      },
+      "4": {
+        start: {
+          line: 7,
+          column: 18
+        },
+        end: {
+          line: 7,
+          column: 36
+        }
+      },
+      "5": {
+        start: {
+          line: 8,
+          column: 22
+        },
+        end: {
+          line: 8,
+          column: 96
+        }
+      },
+      "6": {
+        start: {
+          line: 9,
+          column: 33
+        },
+        end: {
+          line: 9,
+          column: 123
+        }
+      },
+      "7": {
+        start: {
+          line: 10,
+          column: 20
+        },
+        end: {
+          line: 10,
+          column: 94
+        }
+      },
+      "8": {
+        start: {
+          line: 11,
+          column: 22
+        },
+        end: {
+          line: 11,
+          column: 98
+        }
+      },
+      "9": {
+        start: {
+          line: 12,
+          column: 15
+        },
+        end: {
+          line: 12,
+          column: 89
+        }
+      },
+      "10": {
+        start: {
+          line: 13,
+          column: 37
+        },
+        end: {
+          line: 13,
+          column: 128
+        }
+      },
+      "11": {
+        start: {
+          line: 14,
+          column: 22
+        },
+        end: {
+          line: 14,
+          column: 98
+        }
+      },
+      "12": {
+        start: {
+          line: 15,
+          column: 0
+        },
+        end: {
+          line: 50,
+          column: 3
+        }
+      },
+      "13": {
+        start: {
+          line: 42,
+          column: 20
+        },
+        end: {
+          line: 42,
+          column: 71
+        }
+      },
+      "14": {
+        start: {
+          line: 45,
+          column: 20
+        },
+        end: {
+          line: 45,
+          column: 85
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 2,
+            column: 56
+          },
+          end: {
+            line: 2,
+            column: 57
+          }
+        },
+        loc: {
+          start: {
+            line: 2,
+            column: 71
+          },
+          end: {
+            line: 4,
+            column: 1
+          }
+        },
+        line: 2
+      },
+      "1": {
+        name: "(anonymous_1)",
+        decl: {
+          start: {
+            line: 41,
+            column: 16
+          },
+          end: {
+            line: 41,
+            column: 17
+          }
+        },
+        loc: {
+          start: {
+            line: 41,
+            column: 25
+          },
+          end: {
+            line: 43,
+            column: 17
+          }
+        },
+        line: 41
+      },
+      "2": {
+        name: "(anonymous_2)",
+        decl: {
+          start: {
+            line: 44,
+            column: 16
+          },
+          end: {
+            line: 44,
+            column: 17
+          }
+        },
+        loc: {
+          start: {
+            line: 44,
+            column: 28
+          },
+          end: {
+            line: 46,
+            column: 17
+          }
+        },
+        line: 44
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 2,
+            column: 22
+          },
+          end: {
+            line: 4,
+            column: 1
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 2,
+            column: 23
+          },
+          end: {
+            line: 2,
+            column: 27
+          }
+        }, {
+          start: {
+            line: 2,
+            column: 31
+          },
+          end: {
+            line: 2,
+            column: 51
+          }
+        }, {
+          start: {
+            line: 2,
+            column: 56
+          },
+          end: {
+            line: 4,
+            column: 1
+          }
+        }],
+        line: 2
+      },
+      "1": {
+        loc: {
+          start: {
+            line: 3,
+            column: 11
+          },
+          end: {
+            line: 3,
+            column: 61
+          }
+        },
+        type: "cond-expr",
+        locations: [{
+          start: {
+            line: 3,
+            column: 37
+          },
+          end: {
+            line: 3,
+            column: 40
+          }
+        }, {
+          start: {
+            line: 3,
+            column: 43
+          },
+          end: {
+            line: 3,
+            column: 61
+          }
+        }],
+        line: 3
+      },
+      "2": {
+        loc: {
+          start: {
+            line: 3,
+            column: 12
+          },
+          end: {
+            line: 3,
+            column: 33
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 3,
+            column: 12
+          },
+          end: {
+            line: 3,
+            column: 15
+          }
+        }, {
+          start: {
+            line: 3,
+            column: 19
+          },
+          end: {
+            line: 3,
+            column: 33
+          }
+        }],
+        line: 3
+      },
+      "3": {
+        loc: {
+          start: {
+            line: 45,
+            column: 53
+          },
+          end: {
+            line: 45,
+            column: 83
+          }
+        },
+        type: "cond-expr",
+        locations: [{
+          start: {
+            line: 45,
+            column: 61
+          },
+          end: {
+            line: 45,
+            column: 78
+          }
+        }, {
+          start: {
+            line: 45,
+            column: 81
+          },
+          end: {
+            line: 45,
+            column: 83
+          }
+        }],
+        line: 45
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0,
+      "12": 0,
+      "13": 0,
+      "14": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0,
+      "2": 0
+    },
+    b: {
+      "0": [0, 0, 0],
+      "1": [0, 0],
+      "2": [0, 0],
+      "3": [0, 0]
+    },
+    inputSourceMap: null,
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "028891c7b6003e0dcb58d576baa6907a85a8aafe"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_17ty3ta5nh = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_17ty3ta5nh();
+
+var __importDefault =
+/* istanbul ignore next */
+(cov_17ty3ta5nh().s[0]++,
+/* istanbul ignore next */
+(cov_17ty3ta5nh().b[0][0]++, this) &&
+/* istanbul ignore next */
+(cov_17ty3ta5nh().b[0][1]++, this.__importDefault) ||
+/* istanbul ignore next */
+(cov_17ty3ta5nh().b[0][2]++, function (mod) {
+  /* istanbul ignore next */
+  cov_17ty3ta5nh().f[0]++;
+  cov_17ty3ta5nh().s[1]++;
+  return (
+    /* istanbul ignore next */
+    (cov_17ty3ta5nh().b[2][0]++, mod) &&
+    /* istanbul ignore next */
+    (cov_17ty3ta5nh().b[2][1]++, mod.__esModule) ?
+    /* istanbul ignore next */
+    (cov_17ty3ta5nh().b[1][0]++, mod) :
+    /* istanbul ignore next */
+    (cov_17ty3ta5nh().b[1][1]++, {
+      "default": mod
+    })
+  );
+}));
+
+/* istanbul ignore next */
+cov_17ty3ta5nh().s[2]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+/* istanbul ignore next */
+cov_17ty3ta5nh().s[3]++;
+exports.EventStoreEntity = void 0;
+const typeorm_1 =
+/* istanbul ignore next */
+(cov_17ty3ta5nh().s[4]++, require("typeorm"));
+const DomainEvent_1 =
+/* istanbul ignore next */
+(cov_17ty3ta5nh().s[5]++, __importDefault(require("../../../../../microk/event/domain/DomainEvent")));
+const ValueObjectTransformer_1 =
+/* istanbul ignore next */
+(cov_17ty3ta5nh().s[6]++, require("../../../../../microk/persistence/infrastructure/typeorm/ValueObjectTransformer"));
+const MessageId_1 =
+/* istanbul ignore next */
+(cov_17ty3ta5nh().s[7]++, __importDefault(require("../../../../../microk/common/message/MessageId")));
+const MessageName_1 =
+/* istanbul ignore next */
+(cov_17ty3ta5nh().s[8]++, __importDefault(require("../../../../../microk/common/message/MessageName")));
+const Uuid_1 =
+/* istanbul ignore next */
+(cov_17ty3ta5nh().s[9]++, __importDefault(require("../../../../../microk/common/value-object/Uuid")));
+const AggregateMessageOccurredOn_1 =
+/* istanbul ignore next */
+(cov_17ty3ta5nh().s[10]++, __importDefault(require("../../../../../microk/common/message/AggregateMessageOccurredOn")));
+const MessageMeta_1 =
+/* istanbul ignore next */
+(cov_17ty3ta5nh().s[11]++, __importDefault(require("../../../../../microk/common/message/MessageMeta")));
+
+/* istanbul ignore next */
+cov_17ty3ta5nh().s[12]++;
+exports.EventStoreEntity = new typeorm_1.EntitySchema({
+  name: 'DomainEvent',
+  tableName: 'event_store',
+  target: DomainEvent_1.default,
+  columns: {
+    id: {
+      type: String,
+      primary: true,
+      transformer: (0, ValueObjectTransformer_1.ValueObjectTransformer)(MessageId_1.default)
+    },
+    name: {
+      type: String,
+      transformer: (0, ValueObjectTransformer_1.ValueObjectTransformer)(MessageName_1.default)
+    },
+    aggregateId: {
+      type: String,
+      transformer: (0, ValueObjectTransformer_1.ValueObjectTransformer)(Uuid_1.default)
+    },
+    occurredOn: {
+      type: String,
+      transformer: (0, ValueObjectTransformer_1.ValueObjectTransformer)(AggregateMessageOccurredOn_1.default)
+    },
+    meta: {
+      type: 'text',
+      nullable: false,
+      transformer: {
+        to(meta) {
+          /* istanbul ignore next */
+          cov_17ty3ta5nh().f[1]++;
+          cov_17ty3ta5nh().s[13]++;
+          return JSON.stringify(meta.toPrimitive(), null, 2);
+        },
+
+        from(value) {
+          /* istanbul ignore next */
+          cov_17ty3ta5nh().f[2]++;
+          cov_17ty3ta5nh().s[14]++;
+          return new MessageMeta_1.default(value ?
+          /* istanbul ignore next */
+          (cov_17ty3ta5nh().b[3][0]++, JSON.parse(value)) :
+          /* istanbul ignore next */
+          (cov_17ty3ta5nh().b[3][1]++, {}));
+        }
+
+      }
+    }
+  }
+});

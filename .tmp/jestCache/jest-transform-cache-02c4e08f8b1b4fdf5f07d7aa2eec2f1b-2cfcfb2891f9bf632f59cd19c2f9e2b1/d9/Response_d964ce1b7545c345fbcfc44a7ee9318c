@@ -1,0 +1,194 @@
+efb8434851d1f10acb45199c956c184a
+"use strict";
+
+/* istanbul ignore next */
+function cov_2lymjn9n2r() {
+  var path = "/Users/cuatroochenta/FixBik/fixbik-node/src/microk/core/domain/http/Response.ts";
+  var hash = "91beb13d4c85fc9fcba0283d0142089bcfab5d83";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/cuatroochenta/FixBik/fixbik-node/src/microk/core/domain/http/Response.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 0
+        },
+        end: {
+          line: 2,
+          column: 62
+        }
+      },
+      "1": {
+        start: {
+          line: 3,
+          column: 21
+        },
+        end: {
+          line: 3,
+          column: 63
+        }
+      },
+      "2": {
+        start: {
+          line: 6,
+          column: 8
+        },
+        end: {
+          line: 12,
+          column: 10
+        }
+      },
+      "3": {
+        start: {
+          line: 15,
+          column: 0
+        },
+        end: {
+          line: 15,
+          column: 27
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 5,
+            column: 4
+          },
+          end: {
+            line: 5,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 5,
+            column: 61
+          },
+          end: {
+            line: 13,
+            column: 5
+          }
+        },
+        line: 5
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 5,
+            column: 19
+          },
+          end: {
+            line: 5,
+            column: 35
+          }
+        },
+        type: "default-arg",
+        locations: [{
+          start: {
+            line: 5,
+            column: 26
+          },
+          end: {
+            line: 5,
+            column: 35
+          }
+        }],
+        line: 5
+      },
+      "1": {
+        loc: {
+          start: {
+            line: 5,
+            column: 37
+          },
+          end: {
+            line: 5,
+            column: 59
+          }
+        },
+        type: "default-arg",
+        locations: [{
+          start: {
+            line: 5,
+            column: 50
+          },
+          end: {
+            line: 5,
+            column: 59
+          }
+        }],
+        line: 5
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    f: {
+      "0": 0
+    },
+    b: {
+      "0": [0],
+      "1": [0]
+    },
+    inputSourceMap: null,
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "91beb13d4c85fc9fcba0283d0142089bcfab5d83"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_2lymjn9n2r = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_2lymjn9n2r();
+cov_2lymjn9n2r().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+const HttpStatus_1 =
+/* istanbul ignore next */
+(cov_2lymjn9n2r().s[1]++, require("../../../common/http/HttpStatus"));
+
+class Response {
+  static success(data =
+  /* istanbul ignore next */
+  (cov_2lymjn9n2r().b[0][0]++, undefined), pagination =
+  /* istanbul ignore next */
+  (cov_2lymjn9n2r().b[1][0]++, undefined)) {
+    /* istanbul ignore next */
+    cov_2lymjn9n2r().f[0]++;
+    cov_2lymjn9n2r().s[2]++;
+    return {
+      status: HttpStatus_1.HttpStatus.OK,
+      content: {
+        data,
+        pagination
+      }
+    };
+  }
+
+}
+
+/* istanbul ignore next */
+cov_2lymjn9n2r().s[3]++;
+exports.default = Response;

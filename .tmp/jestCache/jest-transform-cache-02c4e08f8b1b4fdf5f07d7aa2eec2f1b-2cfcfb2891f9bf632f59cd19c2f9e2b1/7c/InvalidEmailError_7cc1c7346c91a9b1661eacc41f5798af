@@ -1,0 +1,118 @@
+637aad489f25aa581968ea3ff5db3488
+"use strict";
+
+/* istanbul ignore next */
+function cov_1gz0esb1mb() {
+  var path = "/Users/cuatroochenta/FixBik/fixbik-node/src/microk/common/value-object/InvalidEmailError.ts";
+  var hash = "4b791a9853b79c486ecaf2b9a089ba90a0db68bd";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/cuatroochenta/FixBik/fixbik-node/src/microk/common/value-object/InvalidEmailError.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 0
+        },
+        end: {
+          line: 2,
+          column: 62
+        }
+      },
+      "1": {
+        start: {
+          line: 5,
+          column: 8
+        },
+        end: {
+          line: 5,
+          column: 42
+        }
+      },
+      "2": {
+        start: {
+          line: 8,
+          column: 0
+        },
+        end: {
+          line: 8,
+          column: 36
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 4,
+            column: 4
+          },
+          end: {
+            line: 4,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 4,
+            column: 23
+          },
+          end: {
+            line: 6,
+            column: 5
+          }
+        },
+        line: 4
+      }
+    },
+    branchMap: {},
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0
+    },
+    f: {
+      "0": 0
+    },
+    b: {},
+    inputSourceMap: null,
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "4b791a9853b79c486ecaf2b9a089ba90a0db68bd"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_1gz0esb1mb = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_1gz0esb1mb();
+cov_1gz0esb1mb().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+class InvalidEmailError extends Error {
+  constructor(email) {
+    /* istanbul ignore next */
+    cov_1gz0esb1mb().f[0]++;
+    cov_1gz0esb1mb().s[1]++;
+    super(`Invalid email <${email}>`);
+  }
+
+}
+
+/* istanbul ignore next */
+cov_1gz0esb1mb().s[2]++;
+exports.default = InvalidEmailError;

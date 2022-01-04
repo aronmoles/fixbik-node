@@ -8,7 +8,7 @@
     "strict": false,
     "noEmit": false,
     "resolveJsonModule": true,
-    "noUnusedLocals": false,
+    "noUnusedLocals": true,
     "outDir": "build",
     "baseUrl": "./src",
     "experimentalDecorators": true,

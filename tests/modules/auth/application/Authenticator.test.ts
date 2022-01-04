@@ -1,5 +1,3 @@
-import NotFoundHttpError from '@microk/common/http/errors/NotFoundHttpError';
-import UnauthorizedHttpError from '@microk/common/http/errors/UnauthorizedHttpError';
 import AuthenticateQueryHandler from '../../../../src/modules/auth/application/login/AuthenticateQueryHandler';
 import Authenticator from '../../../../src/modules/auth/application/login/Authenticator';
 import AuthTokenRepository from '../../../../src/modules/auth/domain/AuthTokenRepository';
@@ -8,6 +6,8 @@ import AuthTokenRepositoryMock from '../__mocks__/AuthTokenRepositoryMock';
 import AuthUserRepositoryMock from '../__mocks__/AuthUserRepositoryMock';
 import AuthUserMother from '../domain/AuthUserMother';
 import AuthenticateQueryMother from './AuthenticateQueryMother';
+import UnauthorizedHttpError from '../../../../src/microk/common/http/errors/UnauthorizedHttpError';
+import NotFoundHttpError from '../../../../src/microk/common/http/errors/NotFoundHttpError';
 
 let authUserRepository: AuthUserRepositoryMock;
 let authTokenRepository: AuthTokenRepository;

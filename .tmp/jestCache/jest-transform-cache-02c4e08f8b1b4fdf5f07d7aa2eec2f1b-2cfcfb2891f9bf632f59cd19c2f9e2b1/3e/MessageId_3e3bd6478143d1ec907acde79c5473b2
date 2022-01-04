@@ -1,0 +1,322 @@
+e05e1fcdf47b5407be7de531cefb90df
+"use strict";
+
+/* istanbul ignore next */
+function cov_2h1sdl31fq() {
+  var path = "/Users/cuatroochenta/FixBik/fixbik-node/src/microk/common/message/MessageId.ts";
+  var hash = "4a9e9732c14dcc095b08b7bbd8f9ec5e7557ecec";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/cuatroochenta/FixBik/fixbik-node/src/microk/common/message/MessageId.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 22
+        },
+        end: {
+          line: 4,
+          column: 1
+        }
+      },
+      "1": {
+        start: {
+          line: 3,
+          column: 4
+        },
+        end: {
+          line: 3,
+          column: 62
+        }
+      },
+      "2": {
+        start: {
+          line: 5,
+          column: 0
+        },
+        end: {
+          line: 5,
+          column: 62
+        }
+      },
+      "3": {
+        start: {
+          line: 6,
+          column: 15
+        },
+        end: {
+          line: 6,
+          column: 63
+        }
+      },
+      "4": {
+        start: {
+          line: 9,
+          column: 8
+        },
+        end: {
+          line: 9,
+          column: 39
+        }
+      },
+      "5": {
+        start: {
+          line: 12,
+          column: 0
+        },
+        end: {
+          line: 12,
+          column: 28
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 2,
+            column: 56
+          },
+          end: {
+            line: 2,
+            column: 57
+          }
+        },
+        loc: {
+          start: {
+            line: 2,
+            column: 71
+          },
+          end: {
+            line: 4,
+            column: 1
+          }
+        },
+        line: 2
+      },
+      "1": {
+        name: "(anonymous_1)",
+        decl: {
+          start: {
+            line: 8,
+            column: 4
+          },
+          end: {
+            line: 8,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 8,
+            column: 20
+          },
+          end: {
+            line: 10,
+            column: 5
+          }
+        },
+        line: 8
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 2,
+            column: 22
+          },
+          end: {
+            line: 4,
+            column: 1
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 2,
+            column: 23
+          },
+          end: {
+            line: 2,
+            column: 27
+          }
+        }, {
+          start: {
+            line: 2,
+            column: 31
+          },
+          end: {
+            line: 2,
+            column: 51
+          }
+        }, {
+          start: {
+            line: 2,
+            column: 56
+          },
+          end: {
+            line: 4,
+            column: 1
+          }
+        }],
+        line: 2
+      },
+      "1": {
+        loc: {
+          start: {
+            line: 3,
+            column: 11
+          },
+          end: {
+            line: 3,
+            column: 61
+          }
+        },
+        type: "cond-expr",
+        locations: [{
+          start: {
+            line: 3,
+            column: 37
+          },
+          end: {
+            line: 3,
+            column: 40
+          }
+        }, {
+          start: {
+            line: 3,
+            column: 43
+          },
+          end: {
+            line: 3,
+            column: 61
+          }
+        }],
+        line: 3
+      },
+      "2": {
+        loc: {
+          start: {
+            line: 3,
+            column: 12
+          },
+          end: {
+            line: 3,
+            column: 33
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 3,
+            column: 12
+          },
+          end: {
+            line: 3,
+            column: 15
+          }
+        }, {
+          start: {
+            line: 3,
+            column: 19
+          },
+          end: {
+            line: 3,
+            column: 33
+          }
+        }],
+        line: 3
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0
+    },
+    b: {
+      "0": [0, 0, 0],
+      "1": [0, 0],
+      "2": [0, 0]
+    },
+    inputSourceMap: null,
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "4a9e9732c14dcc095b08b7bbd8f9ec5e7557ecec"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_2h1sdl31fq = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_2h1sdl31fq();
+
+var __importDefault =
+/* istanbul ignore next */
+(cov_2h1sdl31fq().s[0]++,
+/* istanbul ignore next */
+(cov_2h1sdl31fq().b[0][0]++, this) &&
+/* istanbul ignore next */
+(cov_2h1sdl31fq().b[0][1]++, this.__importDefault) ||
+/* istanbul ignore next */
+(cov_2h1sdl31fq().b[0][2]++, function (mod) {
+  /* istanbul ignore next */
+  cov_2h1sdl31fq().f[0]++;
+  cov_2h1sdl31fq().s[1]++;
+  return (
+    /* istanbul ignore next */
+    (cov_2h1sdl31fq().b[2][0]++, mod) &&
+    /* istanbul ignore next */
+    (cov_2h1sdl31fq().b[2][1]++, mod.__esModule) ?
+    /* istanbul ignore next */
+    (cov_2h1sdl31fq().b[1][0]++, mod) :
+    /* istanbul ignore next */
+    (cov_2h1sdl31fq().b[1][1]++, {
+      "default": mod
+    })
+  );
+}));
+
+/* istanbul ignore next */
+cov_2h1sdl31fq().s[2]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+const Uuid_1 =
+/* istanbul ignore next */
+(cov_2h1sdl31fq().s[3]++, __importDefault(require("../value-object/Uuid")));
+
+class MessageId extends
+/* istanbul ignore next */
+(Uuid_1.default) {
+  static create() {
+    /* istanbul ignore next */
+    cov_2h1sdl31fq().f[1]++;
+    cov_2h1sdl31fq().s[4]++;
+    return Uuid_1.default.create();
+  }
+
+}
+
+/* istanbul ignore next */
+cov_2h1sdl31fq().s[5]++;
+exports.default = MessageId;

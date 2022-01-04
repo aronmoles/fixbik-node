@@ -1,0 +1,290 @@
+8ab554eab90593db14653782d68e65c4
+"use strict";
+
+/* istanbul ignore next */
+function cov_22pfzb95ei() {
+  var path = "/Users/cuatroochenta/FixBik/fixbik-node/src/microk/core/domain/di/ContainerTag.ts";
+  var hash = "600519e280debc1630beaa1353b59a2d8516832d";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/cuatroochenta/FixBik/fixbik-node/src/microk/core/domain/di/ContainerTag.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 0
+        },
+        end: {
+          line: 2,
+          column: 62
+        }
+      },
+      "1": {
+        start: {
+          line: 3,
+          column: 0
+        },
+        end: {
+          line: 3,
+          column: 30
+        }
+      },
+      "2": {
+        start: {
+          line: 5,
+          column: 0
+        },
+        end: {
+          line: 15,
+          column: 71
+        }
+      },
+      "3": {
+        start: {
+          line: 6,
+          column: 4
+        },
+        end: {
+          line: 6,
+          column: 64
+        }
+      },
+      "4": {
+        start: {
+          line: 7,
+          column: 4
+        },
+        end: {
+          line: 7,
+          column: 70
+        }
+      },
+      "5": {
+        start: {
+          line: 8,
+          column: 4
+        },
+        end: {
+          line: 8,
+          column: 74
+        }
+      },
+      "6": {
+        start: {
+          line: 9,
+          column: 4
+        },
+        end: {
+          line: 9,
+          column: 76
+        }
+      },
+      "7": {
+        start: {
+          line: 10,
+          column: 4
+        },
+        end: {
+          line: 10,
+          column: 64
+        }
+      },
+      "8": {
+        start: {
+          line: 11,
+          column: 4
+        },
+        end: {
+          line: 11,
+          column: 76
+        }
+      },
+      "9": {
+        start: {
+          line: 12,
+          column: 4
+        },
+        end: {
+          line: 12,
+          column: 76
+        }
+      },
+      "10": {
+        start: {
+          line: 13,
+          column: 4
+        },
+        end: {
+          line: 13,
+          column: 72
+        }
+      },
+      "11": {
+        start: {
+          line: 14,
+          column: 4
+        },
+        end: {
+          line: 14,
+          column: 72
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 5,
+            column: 1
+          },
+          end: {
+            line: 5,
+            column: 2
+          }
+        },
+        loc: {
+          start: {
+            line: 5,
+            column: 25
+          },
+          end: {
+            line: 15,
+            column: 1
+          }
+        },
+        line: 5
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 15,
+            column: 18
+          },
+          end: {
+            line: 15,
+            column: 69
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 15,
+            column: 18
+          },
+          end: {
+            line: 15,
+            column: 38
+          }
+        }, {
+          start: {
+            line: 15,
+            column: 43
+          },
+          end: {
+            line: 15,
+            column: 68
+          }
+        }],
+        line: 15
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0,
+      "11": 0
+    },
+    f: {
+      "0": 0
+    },
+    b: {
+      "0": [0, 0]
+    },
+    inputSourceMap: null,
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "600519e280debc1630beaa1353b59a2d8516832d"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_22pfzb95ei = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_22pfzb95ei();
+cov_22pfzb95ei().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+/* istanbul ignore next */
+cov_22pfzb95ei().s[1]++;
+exports.ContainerTag = void 0;
+var ContainerTag;
+
+/* istanbul ignore next */
+cov_22pfzb95ei().s[2]++;
+
+(function (ContainerTag) {
+  /* istanbul ignore next */
+  cov_22pfzb95ei().f[0]++;
+  cov_22pfzb95ei().s[3]++;
+  ContainerTag[ContainerTag["CONTROLLER"] = 0] = "CONTROLLER";
+
+  /* istanbul ignore next */
+  cov_22pfzb95ei().s[4]++;
+  ContainerTag[ContainerTag["QUERY_HANDLER"] = 1] = "QUERY_HANDLER";
+
+  /* istanbul ignore next */
+  cov_22pfzb95ei().s[5]++;
+  ContainerTag[ContainerTag["COMMAND_HANDLER"] = 2] = "COMMAND_HANDLER";
+
+  /* istanbul ignore next */
+  cov_22pfzb95ei().s[6]++;
+  ContainerTag[ContainerTag["EVENT_SUBSCRIBER"] = 3] = "EVENT_SUBSCRIBER";
+
+  /* istanbul ignore next */
+  cov_22pfzb95ei().s[7]++;
+  ContainerTag[ContainerTag["MIDDLEWARE"] = 4] = "MIDDLEWARE";
+
+  /* istanbul ignore next */
+  cov_22pfzb95ei().s[8]++;
+  ContainerTag[ContainerTag["ERROR_MIDDLEWARE"] = 5] = "ERROR_MIDDLEWARE";
+
+  /* istanbul ignore next */
+  cov_22pfzb95ei().s[9]++;
+  ContainerTag[ContainerTag["COMMAND_EXECUTOR"] = 6] = "COMMAND_EXECUTOR";
+
+  /* istanbul ignore next */
+  cov_22pfzb95ei().s[10]++;
+  ContainerTag[ContainerTag["QUERY_EXECUTOR"] = 7] = "QUERY_EXECUTOR";
+
+  /* istanbul ignore next */
+  cov_22pfzb95ei().s[11]++;
+  ContainerTag[ContainerTag["EVENT_EXECUTOR"] = 8] = "EVENT_EXECUTOR";
+})(ContainerTag =
+/* istanbul ignore next */
+(cov_22pfzb95ei().b[0][0]++, exports.ContainerTag) ||
+/* istanbul ignore next */
+(cov_22pfzb95ei().b[0][1]++, exports.ContainerTag = {}));

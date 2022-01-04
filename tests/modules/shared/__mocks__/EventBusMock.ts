@@ -1,5 +1,5 @@
-import DomainEvent from '@microk/event/domain/DomainEvent';
-import EventBus from '@microk/event/domain/EventBus';
+import DomainEvent from '../../../../src/microk/event/domain/DomainEvent';
+import EventBus from '../../../../src/microk/event/domain/EventBus';
 
 export default class EventBusMock implements EventBus {
     private publishSpy = jest.fn();

@@ -30,7 +30,7 @@ export type OpenApiConfig = {
 
 export default class OpenApi {
     private static DEFAULT_EXCLUDED_FOLDER = 'node_modules';
-    private static DEFAULT_GLOB_OPTIONS = { ignore: ['**/node_modules/**', '**/openapi/examples/**'] };
+    private static DEFAULT_GLOB_OPTIONS = { ignore: ['**/node_modules/**'] };
     // eslint-disable-next-line prefer-named-capture-group
     private static COMMENTS_PATTERN = /((\/\*\*+[\s\S]*?\*\/)|(\/\*+.*\*\/)|^\/\/.*?[\r\n])[\r\n]*/gm;
     private static BREAK_LINE = /\n/g;

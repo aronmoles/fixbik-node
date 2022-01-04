@@ -1,0 +1,161 @@
+76cbd1c0262719e7f80ef49ed557db34
+"use strict";
+
+/* istanbul ignore next */
+function cov_1vwxxyvhhr() {
+  var path = "/Users/cuatroochenta/FixBik/fixbik-node/src/microk/cqrs/domain/command/CommandHandler.ts";
+  var hash = "5917094904c172b465002073951ef60a26aeb83c";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/cuatroochenta/FixBik/fixbik-node/src/microk/cqrs/domain/command/CommandHandler.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 0
+        },
+        end: {
+          line: 2,
+          column: 62
+        }
+      },
+      "1": {
+        start: {
+          line: 5,
+          column: 8
+        },
+        end: {
+          line: 5,
+          column: 41
+        }
+      },
+      "2": {
+        start: {
+          line: 8,
+          column: 8
+        },
+        end: {
+          line: 8,
+          column: 33
+        }
+      },
+      "3": {
+        start: {
+          line: 11,
+          column: 0
+        },
+        end: {
+          line: 11,
+          column: 33
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 4,
+            column: 4
+          },
+          end: {
+            line: 4,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 4,
+            column: 25
+          },
+          end: {
+            line: 6,
+            column: 5
+          }
+        },
+        line: 4
+      },
+      "1": {
+        name: "(anonymous_1)",
+        decl: {
+          start: {
+            line: 7,
+            column: 4
+          },
+          end: {
+            line: 7,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 7,
+            column: 19
+          },
+          end: {
+            line: 9,
+            column: 5
+          }
+        },
+        line: 7
+      }
+    },
+    branchMap: {},
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0
+    },
+    b: {},
+    inputSourceMap: null,
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "5917094904c172b465002073951ef60a26aeb83c"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_1vwxxyvhhr = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_1vwxxyvhhr();
+cov_1vwxxyvhhr().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+class CommandHandler {
+  constructor(command) {
+    /* istanbul ignore next */
+    cov_1vwxxyvhhr().f[0]++;
+    cov_1vwxxyvhhr().s[1]++;
+    this._commandName = command.name;
+  }
+
+  subscribedTo() {
+    /* istanbul ignore next */
+    cov_1vwxxyvhhr().f[1]++;
+    cov_1vwxxyvhhr().s[2]++;
+    return this._commandName;
+  }
+
+}
+
+/* istanbul ignore next */
+cov_1vwxxyvhhr().s[3]++;
+exports.default = CommandHandler;

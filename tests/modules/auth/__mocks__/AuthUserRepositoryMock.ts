@@ -1,8 +1,8 @@
-import { Criteria } from '@microk/common/criteria/Criteria';
-import { Nullable } from '@microk/common/Nullable';
 import { AuthUser } from '../../../../src/modules/auth/domain/AuthUser';
 import AuthUserId from '../../../../src/modules/auth/domain/AuthUserId';
 import { AuthUserRepository } from '../../../../src/modules/auth/domain/AuthUserRepository';
+import { Criteria } from '../../../../src/microk/common/criteria/Criteria';
+import { Nullable } from '../../../../src/microk/common/Nullable';
 
 export default class AuthUserRepositoryMock implements AuthUserRepository {
     private readonly saveSpy = jest.fn();

@@ -1,0 +1,215 @@
+3706125ce525a88a14501515d4ee84fa
+"use strict";
+
+/* istanbul ignore next */
+function cov_1zv47kmcfw() {
+  var path = "/Users/cuatroochenta/FixBik/fixbik-node/src/microk/common/http/HttpMethod.ts";
+  var hash = "41866eb14d21c983c8f2941e868e1223a93cec0b";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/cuatroochenta/FixBik/fixbik-node/src/microk/common/http/HttpMethod.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 0
+        },
+        end: {
+          line: 2,
+          column: 62
+        }
+      },
+      "1": {
+        start: {
+          line: 3,
+          column: 0
+        },
+        end: {
+          line: 3,
+          column: 28
+        }
+      },
+      "2": {
+        start: {
+          line: 5,
+          column: 0
+        },
+        end: {
+          line: 10,
+          column: 65
+        }
+      },
+      "3": {
+        start: {
+          line: 6,
+          column: 4
+        },
+        end: {
+          line: 6,
+          column: 30
+        }
+      },
+      "4": {
+        start: {
+          line: 7,
+          column: 4
+        },
+        end: {
+          line: 7,
+          column: 32
+        }
+      },
+      "5": {
+        start: {
+          line: 8,
+          column: 4
+        },
+        end: {
+          line: 8,
+          column: 30
+        }
+      },
+      "6": {
+        start: {
+          line: 9,
+          column: 4
+        },
+        end: {
+          line: 9,
+          column: 36
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 5,
+            column: 1
+          },
+          end: {
+            line: 5,
+            column: 2
+          }
+        },
+        loc: {
+          start: {
+            line: 5,
+            column: 23
+          },
+          end: {
+            line: 10,
+            column: 1
+          }
+        },
+        line: 5
+      }
+    },
+    branchMap: {
+      "0": {
+        loc: {
+          start: {
+            line: 10,
+            column: 16
+          },
+          end: {
+            line: 10,
+            column: 63
+          }
+        },
+        type: "binary-expr",
+        locations: [{
+          start: {
+            line: 10,
+            column: 16
+          },
+          end: {
+            line: 10,
+            column: 34
+          }
+        }, {
+          start: {
+            line: 10,
+            column: 39
+          },
+          end: {
+            line: 10,
+            column: 62
+          }
+        }],
+        line: 10
+      }
+    },
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0
+    },
+    f: {
+      "0": 0
+    },
+    b: {
+      "0": [0, 0]
+    },
+    inputSourceMap: null,
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "41866eb14d21c983c8f2941e868e1223a93cec0b"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_1zv47kmcfw = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_1zv47kmcfw();
+cov_1zv47kmcfw().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+/* istanbul ignore next */
+cov_1zv47kmcfw().s[1]++;
+exports.HttpMethod = void 0;
+var HttpMethod;
+
+/* istanbul ignore next */
+cov_1zv47kmcfw().s[2]++;
+
+(function (HttpMethod) {
+  /* istanbul ignore next */
+  cov_1zv47kmcfw().f[0]++;
+  cov_1zv47kmcfw().s[3]++;
+  HttpMethod["GET"] = "GET";
+
+  /* istanbul ignore next */
+  cov_1zv47kmcfw().s[4]++;
+  HttpMethod["POST"] = "POST";
+
+  /* istanbul ignore next */
+  cov_1zv47kmcfw().s[5]++;
+  HttpMethod["PUT"] = "PUT";
+
+  /* istanbul ignore next */
+  cov_1zv47kmcfw().s[6]++;
+  HttpMethod["DELETE"] = "DELETE";
+})(HttpMethod =
+/* istanbul ignore next */
+(cov_1zv47kmcfw().b[0][0]++, exports.HttpMethod) ||
+/* istanbul ignore next */
+(cov_1zv47kmcfw().b[0][1]++, exports.HttpMethod = {}));

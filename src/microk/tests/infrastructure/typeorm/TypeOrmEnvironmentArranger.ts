@@ -1,8 +1,12 @@
 import { Connection, EntityMetadata } from 'typeorm';
 import { EnvironmentArranger } from '../../domain/EnvironmentArranger';
+import Inject from '../../../core/infrastructure/di/Inject.decorator';
+import { Keys } from '../../../../modules/shared/infrastructure/di/Keys';
 
 export class TypeOrmEnvironmentArranger extends EnvironmentArranger {
-    constructor(private _client: Promise<Connection>) {
+    constructor(
+        @Inject(Keys.App.ConnectionManager) private _client: Promise<Connection>,
+    ) {
         super();
     }
 

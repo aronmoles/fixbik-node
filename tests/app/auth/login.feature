@@ -3,7 +3,7 @@ Feature: Login
   I want to check the api status and result
 
   Scenario: Check login return jwt token
-    Given I send a POST request to "/auth/login" with body:
+    Given I send a POST request to "/auth/authenticate" with body:
     """
     {
       "email": "test@email.com",

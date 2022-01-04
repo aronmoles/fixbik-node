@@ -1,8 +1,9 @@
 import Container from '../../../../../src/app/Container';
 import AuthTokenRepository from '../../../../../src/modules/auth/domain/AuthTokenRepository';
 import AuthUserMother from '../../domain/AuthUserMother';
+import { Keys } from '../../../../../src/modules/shared/infrastructure/di/Keys';
 
-const repository: AuthTokenRepository = Container.get('Auth.domain.AuthTokenRepository');
+const repository: AuthTokenRepository = Container.get(Keys.Auth.AuthTokenRepository);
 
 describe('AuthTokenRepository', () => {
     describe('#generate', () => {

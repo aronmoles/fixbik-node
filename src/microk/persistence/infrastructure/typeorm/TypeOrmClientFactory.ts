@@ -13,8 +13,8 @@ export class TypeOrmClientFactory {
                 database: config.database,
                 // eslint-disable-next-line no-undef
                 entities: [`${__dirname}/../../../../../src/**/**/infrastructure/persistence/typeorm/*{.js,.ts}`],
-                synchronize: false,
-                logging: true,
+                synchronize: true,
+                logging: false,
                 migrationsTableName: 'migrations',
                 migrations: ['migration/*.js'],
                 cli: {

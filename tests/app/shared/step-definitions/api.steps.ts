@@ -1,18 +1,19 @@
 /* eslint-disable no-underscore-dangle */
 import { AfterAll, BeforeAll, Given, Then } from '@cucumber/cucumber';
-import { EnvironmentArranger } from '@microk/tests/domain/EnvironmentArranger';
-import EnvironmentFixtures from '@microk/tests/domain/EnvironmentFixtures';
 import assert from 'assert';
 import request from 'supertest';
 import App from '../../../../src/app/App';
 import Container from '../../../../src/app/Container';
+import { EnvironmentArranger } from '../../../../src/microk/tests/domain/EnvironmentArranger';
+import EnvironmentFixtures from '../../../../src/microk/tests/domain/EnvironmentFixtures';
+import { Keys } from '../../../../src/modules/shared/infrastructure/di/Keys';
 
 let _request: request.Test;
 let _response: request.Response;
 let application: App;
 
-const environmentArranger: EnvironmentArranger = Container.get('Test.EnvironmentArranger');
-const environmentFixtures: EnvironmentFixtures = Container.get('Test.EnvironmentFixtures');
+const environmentArranger: EnvironmentArranger = Container.get(Keys.Test.EnvironmentArranger);
+const environmentFixtures: EnvironmentFixtures = Container.get(Keys.Test.EnvironmentFixtures);
 
 BeforeAll(async () => {
     application = new App();

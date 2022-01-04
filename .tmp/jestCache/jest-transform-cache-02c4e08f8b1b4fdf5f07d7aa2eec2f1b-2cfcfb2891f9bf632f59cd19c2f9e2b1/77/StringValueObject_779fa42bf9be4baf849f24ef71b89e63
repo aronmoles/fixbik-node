@@ -1,0 +1,149 @@
+acb46f9c801b858f062103c28d6d3a64
+"use strict";
+
+/* istanbul ignore next */
+function cov_14lcyuwzh0() {
+  var path = "/Users/cuatroochenta/FixBik/fixbik-node/src/microk/common/value-object/StringValueObject.ts";
+  var hash = "52ff3e51582677d7afff330a227c4eac460ef94a";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "/Users/cuatroochenta/FixBik/fixbik-node/src/microk/common/value-object/StringValueObject.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 0
+        },
+        end: {
+          line: 2,
+          column: 62
+        }
+      },
+      "1": {
+        start: {
+          line: 3,
+          column: 0
+        },
+        end: {
+          line: 3,
+          column: 35
+        }
+      },
+      "2": {
+        start: {
+          line: 4,
+          column: 22
+        },
+        end: {
+          line: 4,
+          column: 46
+        }
+      },
+      "3": {
+        start: {
+          line: 7,
+          column: 8
+        },
+        end: {
+          line: 7,
+          column: 21
+        }
+      },
+      "4": {
+        start: {
+          line: 10,
+          column: 0
+        },
+        end: {
+          line: 10,
+          column: 46
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 6,
+            column: 4
+          },
+          end: {
+            line: 6,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 6,
+            column: 23
+          },
+          end: {
+            line: 8,
+            column: 5
+          }
+        },
+        line: 6
+      }
+    },
+    branchMap: {},
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0
+    },
+    f: {
+      "0": 0
+    },
+    b: {},
+    inputSourceMap: null,
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "52ff3e51582677d7afff330a227c4eac460ef94a"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_14lcyuwzh0 = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_14lcyuwzh0();
+cov_14lcyuwzh0().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+/* istanbul ignore next */
+cov_14lcyuwzh0().s[1]++;
+exports.StringValueObject = void 0;
+const ValueObject_1 =
+/* istanbul ignore next */
+(cov_14lcyuwzh0().s[2]++, require("./ValueObject"));
+
+class StringValueObject extends
+/* istanbul ignore next */
+(ValueObject_1.ValueObject) {
+  constructor(value) {
+    /* istanbul ignore next */
+    cov_14lcyuwzh0().f[0]++;
+    cov_14lcyuwzh0().s[3]++;
+    super(value);
+  }
+
+}
+
+/* istanbul ignore next */
+cov_14lcyuwzh0().s[4]++;
+exports.StringValueObject = StringValueObject;
