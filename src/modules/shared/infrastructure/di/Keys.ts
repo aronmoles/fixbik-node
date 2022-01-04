@@ -25,6 +25,7 @@ export const Keys = {
         RabbitMqConfig: Symbol.for('RabbitMqConfig'),
         EventDeserializer: Symbol.for('EventDeserializer'),
         EventClassMapper: Symbol.for('EventClassMapper'),
+        EventStore: Symbol.for('EventStore'),
     },
     Test: {
         EnvironmentArranger: Symbol.for('EnvironmentArranger'),

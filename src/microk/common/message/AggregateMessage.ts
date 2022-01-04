@@ -12,18 +12,26 @@ export default abstract class AggregateMessage extends Message {
         id: MessageId,
         type: MessageType,
         name: MessageName,
-        protected readonly aggregateId: Uuid,
-        protected readonly occurredOn: AggregateMessageOccurredOn,
+        protected readonly _aggregateId: Uuid,
+        protected readonly _occurredOn: AggregateMessageOccurredOn,
         meta: MessageMeta = new MessageMeta()
     ) {
         super(id, type, name, meta);
     }
 
+    get aggregateId(): Uuid {
+        return this._aggregateId;
+    }
+
+    get occurredOn(): AggregateMessageOccurredOn {
+        return this._occurredOn;
+    }
+
     toPrimitive(): PrimitivesObject {
         return {
             ...super.toPrimitive(),
-            aggregateId: this.aggregateId.value(),
-            occurredOn: this.occurredOn.toString(),
+            aggregateId: this._aggregateId.value(),
+            occurredOn: this._occurredOn.toString(),
         };
     }
 }

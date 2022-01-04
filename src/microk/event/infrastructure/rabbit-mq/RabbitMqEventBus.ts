@@ -13,6 +13,7 @@ import EventSubscriber from '../../domain/EventSubscriber';
 import RabbitMqConfig from './RabbitMqConfig';
 import { EventJsonDeserializer } from '../EventJsonDeserializer';
 import { Mapper } from '../../../common/Mapper';
+import EventStore from '../../domain/EventStore';
 
 export default class RabbitMqEventBus implements EventBus {
     private readonly executor: Executor<DomainEvent, void>;
@@ -26,6 +27,7 @@ export default class RabbitMqEventBus implements EventBus {
         @Inject(Keys.CQRS.EventSubscriberMapper)
         private readonly domainEventSubscriberMapper: Mapper<MessageName, Array<EventSubscriber<DomainEvent>>>,
         @Inject(Keys.CQRS.EventDeserializer) private readonly deserializer: EventJsonDeserializer,
+        @Inject(Keys.CQRS.EventStore) private readonly eventStore: EventStore,
         @Inject(Keys.App.Logger) private readonly logger: Logger,
         @InjectTag(ContainerTag.EVENT_EXECUTOR) executors: WrapperExecutor<DomainEvent, void>[] = [],
     ) {
@@ -70,7 +72,9 @@ export default class RabbitMqEventBus implements EventBus {
     }
 
     async publish(events: Array<DomainEvent>): Promise<void> {
-        events.forEach((event) => {
+        for (const event of events) {
+            await this.eventStore.save(event);
+
             const eventPrimitive = event.toPrimitive();
             const message = new Message({
                 data: {
@@ -81,6 +85,6 @@ export default class RabbitMqEventBus implements EventBus {
             });
             this.logger.info(`[RabbitMqEventBus] Event to be published: ${event.name.toString()}`);
             this.exchange.send(message);
-        });
+        }
     }
 }

@@ -15,11 +15,9 @@ import SetInfoController from '../../modules/info/infrastructure/SetInfoControll
 import { Keys } from '../../modules/shared/infrastructure/di/Keys';
 import ServerOpenApiConfigFactory from '../../modules/shared/infrastructure/docs/ServerOpenApiConfigFactory';
 import { TypeOrmConfigFactory } from '../../modules/shared/infrastructure/persistence/typeorm/TypeOrmConfigFactory';
-import RabbitMqConfigFactory from '../../modules/shared/infrastructure/RabbitMqConfigFactory';
 import ProcessEnv from '../ProcessEnv';
 import QueryHandlersMapper from '../../microk/cqrs/infrastructure/query/QueryHandlersMapper';
 import ErrorMiddlewareDiscoverer from '../../microk/core/infrastructure/discoverer/ErrorMiddlewareDiscoverer';
-import RabbitMqEventBus from '../../microk/event/infrastructure/rabbit-mq/RabbitMqEventBus';
 import FileMessageStore from '../../microk/utils/FileMessageStore';
 import { ContainerTag } from '../../microk/core/domain/di/ContainerTag';
 import ControllerDiscoverer from '../../microk/core/infrastructure/discoverer/ControllerDiscoverer';
@@ -34,10 +32,11 @@ import { EventClassMapper } from '../../microk/event/infrastructure/EventClassMa
 import { TypeOrmClientFactory } from '../../microk/persistence/infrastructure/typeorm/TypeOrmClientFactory';
 import MiddlewareDiscoverer from '../../microk/core/infrastructure/discoverer/MiddlewareDiscoverer';
 import { CommandHandlersMapper } from '../../microk/cqrs/infrastructure/command/CommandHandlersMapper';
-import { EventJsonDeserializer } from '../../microk/event/infrastructure/EventJsonDeserializer';
 import PersistErrorMiddleware from '../../microk/core/infrastructure/error/PersistErrorMiddleware';
 import HttpErrorMiddleware from '../../microk/core/infrastructure/HttpErrorMiddleware';
 import Container from '../../microk/core/domain/di/Container';
+import TypeOrmEventStore from '../../modules/shared/infrastructure/persistence/typeorm/TypeOrmEventStore';
+import InMemoryEventBus from '../../microk/event/infrastructure/InMemoryEventBus';
 
 export const config = (container: Container) => {
     // App
@@ -73,11 +72,15 @@ export const config = (container: Container) => {
     container.addClass(Keys.CQRS.CommandBus, InMemoryCommandBus);
     container.addClass(Keys.CQRS.QueryHandlersMapper, QueryHandlersMapper);
     container.addClass(Keys.CQRS.QueryBus, InMemoryQueryBus);
+
+    // EVENT
     container.addClass(Keys.CQRS.EventSubscriberMapper, EventSubscriberMapper);
-    container.addClass(Keys.CQRS.EventBus, RabbitMqEventBus);
-    container.addClass(Keys.CQRS.EventDeserializer, EventJsonDeserializer);
     container.addClass(Keys.CQRS.EventClassMapper, EventClassMapper);
-    container.addInstance(Keys.CQRS.RabbitMqConfig, RabbitMqConfigFactory.createConfig(env));
+    // container.addClass(Keys.CQRS.EventBus, RabbitMqEventBus);
+    // container.addClass(Keys.CQRS.EventDeserializer, EventJsonDeserializer);
+    // container.addInstance(Keys.CQRS.RabbitMqConfig, RabbitMqConfigFactory.createConfig(env));
+    container.addClass(Keys.CQRS.EventBus, InMemoryEventBus);
+    container.addClass(Keys.CQRS.EventStore, TypeOrmEventStore);
 
     // Info
     container.addClass(Keys.Info.InfoController, InfoController, [ContainerTag.CONTROLLER]);
