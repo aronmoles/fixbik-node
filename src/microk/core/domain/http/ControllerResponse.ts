@@ -1,6 +1,7 @@
 import { HttpStatus } from '../../../common/http/HttpStatus';
+import ResponseContent from './ResponseContent';
 
-export type ControllerResponse<D> = {
+export type ControllerResponse<D = void> = {
     status: HttpStatus,
-    data: D,
+    content: ResponseContent<D>,
 }

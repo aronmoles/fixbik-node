@@ -18,4 +18,9 @@ export default class TypeOrmEventStore extends TypeOrmRepository<DomainEvent> im
     async save(event: DomainEvent): Promise<void> {
         await super.persist(event)
     }
+
+    async countAll(): Promise<number> {
+        const repository = await this.repository()
+        return repository.count();
+    }
 }

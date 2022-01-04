@@ -2,8 +2,8 @@ import EnumValueObject from '../value-object/EnumValueObject';
 import { InvalidArgumentError } from '../value-object/InvalidArgumentError';
 
 export enum OrderTypes {
-  ASC = 'asc',
-  DESC = 'desc',
+  ASC = 'ASC',
+  DESC = 'DESC',
   NONE = 'none'
 }
 

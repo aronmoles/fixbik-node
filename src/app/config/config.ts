@@ -37,6 +37,7 @@ import HttpErrorMiddleware from '../../microk/core/infrastructure/HttpErrorMiddl
 import Container from '../../microk/core/domain/di/Container';
 import TypeOrmEventStore from '../../modules/shared/infrastructure/persistence/typeorm/TypeOrmEventStore';
 import InMemoryEventBus from '../../microk/event/infrastructure/InMemoryEventBus';
+import EventStoreController from '../../modules/shared/infrastructure/event/EventStoreController';
 
 export const config = (container: Container) => {
     // App
@@ -81,6 +82,7 @@ export const config = (container: Container) => {
     // container.addInstance(Keys.CQRS.RabbitMqConfig, RabbitMqConfigFactory.createConfig(env));
     container.addClass(Keys.CQRS.EventBus, InMemoryEventBus);
     container.addClass(Keys.CQRS.EventStore, TypeOrmEventStore);
+    container.addClass(Keys.CQRS.EventStoreController, EventStoreController, [ContainerTag.CONTROLLER]);
 
     // Info
     container.addClass(Keys.Info.InfoController, InfoController, [ContainerTag.CONTROLLER]);

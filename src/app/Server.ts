@@ -119,7 +119,7 @@ export default class Server {
                             ...routerMiddlewares,
                             async (req, res) => {
                                 const response = await controller.run(req);
-                                res.status(response.status).send(response.data)
+                                res.status(response.status).send(response.content)
                             },
                         ],
                     );
@@ -131,7 +131,7 @@ export default class Server {
                             ...routerMiddlewares,
                             async (req, res) => {
                                 const response = await controller.run(req);
-                                res.status(response.status).send(response.data)
+                                res.status(response.status).send(response.content)
                             },
                         ],
                     );
@@ -143,7 +143,7 @@ export default class Server {
                             ...routerMiddlewares,
                             async (req, res) => {
                                 const response = await controller.run(req);
-                                res.status(response.status).send(response.data)
+                                res.status(response.status).send(response.content)
                             },
                         ],
                     );
@@ -155,7 +155,7 @@ export default class Server {
                             ...routerMiddlewares,
                             async (req, res) => {
                                 const response = await controller.run(req);
-                                res.status(response.status).send(response.data)
+                                res.status(response.status).send(response.content)
                             },
                         ],
                     );

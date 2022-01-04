@@ -14,7 +14,7 @@ export class TypeOrmClientFactory {
                 // eslint-disable-next-line no-undef
                 entities: [`${__dirname}/../../../../../src/**/**/infrastructure/persistence/typeorm/*{.js,.ts}`],
                 synchronize: false,
-                logging: false,
+                logging: true,
                 migrationsTableName: 'migrations',
                 migrations: ['migration/*.js'],
                 cli: {

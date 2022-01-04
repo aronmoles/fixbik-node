@@ -12,8 +12,8 @@ export default abstract class AggregateMessage extends Message {
         id: MessageId,
         type: MessageType,
         name: MessageName,
-        protected readonly _aggregateId: Uuid,
-        protected readonly _occurredOn: AggregateMessageOccurredOn,
+        protected _aggregateId: Uuid,
+        protected _occurredOn: AggregateMessageOccurredOn,
         meta: MessageMeta = new MessageMeta()
     ) {
         super(id, type, name, meta);
@@ -23,8 +23,16 @@ export default abstract class AggregateMessage extends Message {
         return this._aggregateId;
     }
 
+    set aggregateId(value: Uuid) {
+        this._aggregateId = value;
+    }
+
     get occurredOn(): AggregateMessageOccurredOn {
         return this._occurredOn;
+    }
+
+    set occurredOn(value: AggregateMessageOccurredOn) {
+        this._occurredOn = value;
     }
 
     toPrimitive(): PrimitivesObject {

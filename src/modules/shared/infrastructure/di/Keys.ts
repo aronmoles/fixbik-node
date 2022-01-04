@@ -26,6 +26,7 @@ export const Keys = {
         EventDeserializer: Symbol.for('EventDeserializer'),
         EventClassMapper: Symbol.for('EventClassMapper'),
         EventStore: Symbol.for('EventStore'),
+        EventStoreController: Symbol.for('EventStoreController'),
     },
     Test: {
         EnvironmentArranger: Symbol.for('EnvironmentArranger'),

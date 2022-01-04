@@ -1,8 +1,8 @@
 import { ControllerConfig } from './ControllerConfig';
 import { ControllerResponse } from './ControllerResponse';
-import { Request } from './Request';
+import { Req } from './Req';
 
 export default interface Controller<R = undefined> {
     config(): ControllerConfig;
-    run(req: Request): Promise<ControllerResponse<R>>;
+    run(req: Req): Promise<ControllerResponse<R>>;
 }

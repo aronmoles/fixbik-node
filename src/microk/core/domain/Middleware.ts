@@ -1,8 +1,8 @@
-import { Request } from './http/Request';
-import { Response } from './http/Response';
+import { Req } from './http/Req';
+import { Res } from './http/Res';
 
 export type MiddlewareNext = () => void;
 
 export interface Middleware {
-    apply(req: Request, res: Response, next: MiddlewareNext): void;
+    apply(req: Req, res: Res, next: MiddlewareNext): void;
 }

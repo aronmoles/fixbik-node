@@ -6,8 +6,8 @@ import AggregateMessageOccurredOn from '../../common/message/AggregateMessageOcc
 import MessageId from '../../common/message/MessageId';
 import Uuid from '../../common/value-object/Uuid';
 
-export default abstract class DomainEvent extends AggregateMessage {
-    protected constructor(
+export default class DomainEvent extends AggregateMessage {
+    constructor(
         id: MessageId,
         name: MessageName,
         aggregateId: Uuid,

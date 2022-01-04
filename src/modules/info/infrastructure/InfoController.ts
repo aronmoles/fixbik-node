@@ -1,14 +1,14 @@
 import { Keys } from '../../shared/infrastructure/di/Keys';
 import InfoQuery from '../application/info/InfoQuery';
 import { InfoResponse } from '../application/info/InfoResponse';
-import { Request } from '../../../microk/core/domain/http/Request';
+import { Req } from '../../../microk/core/domain/http/Req';
 import Inject from '../../../microk/core/infrastructure/di/Inject.decorator';
 import { ControllerConfig } from '../../../microk/core/domain/http/ControllerConfig';
-import { HttpStatus } from '../../../microk/common/http/HttpStatus';
 import QueryBus from '../../../microk/cqrs/domain/query/QueryBus';
 import { ControllerResponse } from '../../../microk/core/domain/http/ControllerResponse';
 import Controller from '../../../microk/core/domain/http/Controller';
 import { HttpMethod } from '../../../microk/common/http/HttpMethod';
+import Response from '../../../microk/core/domain/http/Response';
 
 export default class InfoController implements Controller<InfoResponse> {
     constructor(
@@ -23,11 +23,8 @@ export default class InfoController implements Controller<InfoResponse> {
         };
     }
 
-    async run(req: Request): Promise<ControllerResponse<InfoResponse>> {
+    async run(req: Req): Promise<ControllerResponse<InfoResponse>> {
         const data = await this.queryBus.ask<InfoResponse>(new InfoQuery());
-        return {
-            status: HttpStatus.OK,
-            data,
-        }
+        return Response.success(data)
     }
 }

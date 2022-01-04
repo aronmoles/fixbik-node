@@ -1,3 +1,15 @@
-import { Response as ExpressResponse } from 'express';
+import { ControllerResponse } from './ControllerResponse';
+import { HttpStatus } from '../../../common/http/HttpStatus';
+import ResponseContent from './ResponseContent';
 
-export type Response = ExpressResponse;
+export default class Response {
+    static success<T>(data: T = undefined, pagination: ResponseContent['pagination'] = undefined): ControllerResponse<T> {
+        return {
+            status: HttpStatus.OK,
+            content: {
+                data,
+                pagination,
+            },
+        }
+    }
+}

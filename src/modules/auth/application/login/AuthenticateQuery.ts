@@ -4,10 +4,10 @@ import MessageNameFactory from '../../../../microk/common/value-object/MessageNa
 import { MessageType } from '../../../../microk/common/message/MessageType';
 import MessageId from '../../../../microk/common/message/MessageId';
 import Query from '../../../../microk/cqrs/domain/query/Query';
-import { Request } from '../../../../microk/core/domain/http/Request';
+import { Req } from '../../../../microk/core/domain/http/Req';
 
 export default class AuthenticateQuery extends Query {
-    static fromRequest(req: Request): AuthenticateQuery {
+    static fromRequest(req: Req): AuthenticateQuery {
         return new AuthenticateQuery(
             new AuthUserEmail(req.body.email),
             new AuthUserPassword(req.body.password),

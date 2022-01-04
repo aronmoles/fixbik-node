@@ -4,12 +4,12 @@ import AuthenticateQueryResponse from '../../application/login/AuthenticateQuery
 import AuthenticateResponseDto from './AuthenticateResponse.Dto';
 import Inject from '../../../../microk/core/infrastructure/di/Inject.decorator';
 import { ControllerConfig } from '../../../../microk/core/domain/http/ControllerConfig';
-import { HttpStatus } from '../../../../microk/common/http/HttpStatus';
 import QueryBus from '../../../../microk/cqrs/domain/query/QueryBus';
 import { ControllerResponse } from '../../../../microk/core/domain/http/ControllerResponse';
 import Controller from '../../../../microk/core/domain/http/Controller';
 import { HttpMethod } from '../../../../microk/common/http/HttpMethod';
-import { Request } from '../../../../microk/core/domain/http/Request';
+import { Req } from '../../../../microk/core/domain/http/Req';
+import Response from '../../../../microk/core/domain/http/Response';
 
 /**
  * @openapi
@@ -37,12 +37,12 @@ import { Request } from '../../../../microk/core/domain/http/Request';
  *               properties:
  *                 data:
  *                   $ref: '#/components/schemas/AuthenticateResponseDto'
- *       400:
- *         description: "Bad Request"
+ *       default:
+ *         description: "Error"
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Error'
+ *               $ref: '#/components/schemas/ResponseError'
  */
 export default class AuthenticateController implements Controller<AuthenticateQueryResponse> {
     constructor(
@@ -57,14 +57,11 @@ export default class AuthenticateController implements Controller<AuthenticateQu
         };
     }
 
-    async run(req: Request): Promise<ControllerResponse<AuthenticateResponseDto>> {
+    async run(req: Req): Promise<ControllerResponse<AuthenticateResponseDto>> {
         const loginQuery = AuthenticateQuery.fromRequest(req);
         const loginQueryResponse = await this.queryBus.ask<AuthenticateQueryResponse>(loginQuery);
-        return {
-            status: HttpStatus.OK,
-            data: {
-                authToken: loginQueryResponse.authToken,
-            },
-        }
+        return Response.success({
+            authToken: loginQueryResponse.authToken,
+        })
     }
 }

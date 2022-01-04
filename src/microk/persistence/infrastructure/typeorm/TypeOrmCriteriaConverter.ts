@@ -10,8 +10,7 @@ export default class TypeOrmCriteriaConverter {
 
         if (criteria.hasOrder()) {
             options.order = {
-                name: criteria.order.orderBy.value(),
-                id: criteria.order.orderType.value(),
+                [criteria.order.orderBy.value()]: criteria.order.orderType.value(),
             };
         }
 

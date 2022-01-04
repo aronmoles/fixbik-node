@@ -1,8 +1,8 @@
-import { Request } from './http/Request';
-import { Response } from './http/Response';
+import { Req } from './http/Req';
+import { Res } from './http/Res';
 
 export type ErrorMiddlewareNext = (error: Error) => void;
 
 export interface ErrorMiddleware {
-    apply(error: Error, req: Request, res: Response, next: ErrorMiddlewareNext): void;
+    apply(error: Error, req: Req, res: Res, next: ErrorMiddlewareNext): void;
 }
