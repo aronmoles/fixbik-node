@@ -1,6 +1,6 @@
-import DependencyContainer from '@microk/core/infrastructure/di/DependencyContainer';
 import { configEnvDependencyContainer } from './config';
 import { EnvMode } from './ProcessEnv';
+import DependencyContainer from '../microk/core/infrastructure/di/DependencyContainer';
 
 const container = new DependencyContainer();
 

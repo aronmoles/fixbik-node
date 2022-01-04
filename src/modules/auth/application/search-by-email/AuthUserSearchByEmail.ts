@@ -1,14 +1,14 @@
-import { Criteria } from '@microk/common/criteria/Criteria';
-import { Filter } from '@microk/common/criteria/Filter';
-import { FilterField } from '@microk/common/criteria/FilterField';
-import { FilterOperator } from '@microk/common/criteria/FilterOperator';
-import { Filters } from '@microk/common/criteria/Filters';
-import { FilterValue } from '@microk/common/criteria/FilterValue';
-import { Order } from '@microk/common/criteria/Order';
-import NotFoundHttpError from '@microk/common/http/errors/NotFoundHttpError';
 import { AuthUser } from '../../domain/AuthUser';
 import AuthUserEmail from '../../domain/AuthUserEmail';
 import { AuthUserRepository } from '../../domain/AuthUserRepository';
+import { Order } from '../../../../microk/common/criteria/Order';
+import { FilterOperator } from '../../../../microk/common/criteria/FilterOperator';
+import { Filters } from '../../../../microk/common/criteria/Filters';
+import NotFoundHttpError from '../../../../microk/common/http/errors/NotFoundHttpError';
+import { Filter } from '../../../../microk/common/criteria/Filter';
+import { FilterField } from '../../../../microk/common/criteria/FilterField';
+import { Criteria } from '../../../../microk/common/criteria/Criteria';
+import { FilterValue } from '../../../../microk/common/criteria/FilterValue';
 
 export default class AuthUserSearchByEmail {
     constructor(

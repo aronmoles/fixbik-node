@@ -1,6 +1,6 @@
 /* eslint-disable no-undef, @typescript-eslint/no-var-requires */
-import Env from '@microk/core/domain/Env';
 import * as fs from 'fs';
+import Env from '../microk/core/domain/Env';
 
 export enum EnvMode {
     dev = 'dev',

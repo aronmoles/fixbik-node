@@ -1,9 +1,9 @@
-import Inject from '@microk/core/infrastructure/di/Inject.decorator';
-import { QueryHandler } from '@microk/cqrs/domain/query/QueryHandler';
 import { Keys } from '../../../shared/infrastructure/di/Keys';
 import AuthenticateQuery from './AuthenticateQuery';
 import AuthenticateQueryResponse from './AuthenticateQueryResponse';
 import Authenticator from './Authenticator';
+import Inject from '../../../../microk/core/infrastructure/di/Inject.decorator';
+import { QueryHandler } from '../../../../microk/cqrs/domain/query/QueryHandler';
 
 export default class AuthenticateQueryHandler extends QueryHandler<AuthenticateQuery, AuthenticateQueryResponse> {
     constructor(

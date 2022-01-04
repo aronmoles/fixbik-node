@@ -1,10 +1,10 @@
-import MessageId from '@microk/common/message/MessageId';
-import { MessageType } from '@microk/common/message/MessageType';
-import MessageNameFactory from '@microk/common/value-object/MessageNameFactory';
-import { Request } from '@microk/core/domain/http/Request';
-import Query from '@microk/cqrs/domain/query/Query';
 import AuthUserEmail from '../../domain/AuthUserEmail';
 import AuthUserPassword from '../../domain/AuthUserPassword';
+import MessageNameFactory from '../../../../microk/common/value-object/MessageNameFactory';
+import { MessageType } from '../../../../microk/common/message/MessageType';
+import MessageId from '../../../../microk/common/message/MessageId';
+import Query from '../../../../microk/cqrs/domain/query/Query';
+import { Request } from '../../../../microk/core/domain/http/Request';
 
 export default class AuthenticateQuery extends Query {
     static fromRequest(req: Request): AuthenticateQuery {

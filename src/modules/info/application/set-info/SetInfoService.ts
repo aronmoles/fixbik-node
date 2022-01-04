@@ -1,6 +1,6 @@
-import Logger from '@microk/core/domain/Logger';
-import Inject from '@microk/core/infrastructure/di/Inject.decorator';
 import { Keys } from '../../../shared/infrastructure/di/Keys';
+import Inject from '../../../../microk/core/infrastructure/di/Inject.decorator';
+import Logger from '../../../../microk/core/domain/Logger';
 
 export default class SetInfoService {
     constructor(

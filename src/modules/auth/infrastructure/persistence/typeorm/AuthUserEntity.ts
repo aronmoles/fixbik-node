@@ -1,10 +1,12 @@
-import { ValueObjectTransformer } from '@microk/persistence/infrastructure/typeorm/ValueObjectTransformer';
 import { EntitySchema } from 'typeorm';
 import { AuthUser } from '../../../domain/AuthUser';
 import AuthUserEmail from '../../../domain/AuthUserEmail';
 import AuthUserId from '../../../domain/AuthUserId';
 import AuthUserPassword from '../../../domain/AuthUserPassword';
 import AuthUserRecoverPasswordToken from '../../../domain/AuthUserRecoverPasswordToken';
+import {
+    ValueObjectTransformer,
+} from '../../../../../microk/persistence/infrastructure/typeorm/ValueObjectTransformer';
 
 export const AuthUserEntity = new EntitySchema<AuthUser>({
     name: 'AuthUser',

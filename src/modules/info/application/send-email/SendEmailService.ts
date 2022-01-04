@@ -1,7 +1,7 @@
-import Logger from '@microk/core/domain/Logger';
-import Inject from '@microk/core/infrastructure/di/Inject.decorator';
-import { sleep } from '@microk/utils/Sleep';
 import { Keys } from '../../../shared/infrastructure/di/Keys';
+import Inject from '../../../../microk/core/infrastructure/di/Inject.decorator';
+import { sleep } from '../../../../microk/utils/Sleep';
+import Logger from '../../../../microk/core/domain/Logger';
 
 export default class SendEmailService {
     constructor(

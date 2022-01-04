@@ -1,6 +1,6 @@
-import Env from '@microk/core/domain/Env';
-import { TypeOrmConfig } from '@microk/persistence/infrastructure/typeorm/TypeOrmConfig';
 import { EnvKey } from '../../../../../app/ProcessEnv';
+import Env from '../../../../../microk/core/domain/Env';
+import { TypeOrmConfig } from '../../../../../microk/persistence/infrastructure/typeorm/TypeOrmConfig';
 
 export class TypeOrmConfigFactory {
     static createConfig(env: Env<EnvKey>): TypeOrmConfig {

@@ -1,7 +1,7 @@
-import { Criteria } from '@microk/common/criteria/Criteria';
-import { Nullable } from '@microk/common/Nullable';
 import { AuthUser } from './AuthUser';
 import AuthUserId from './AuthUserId';
+import { Criteria } from '../../../microk/common/criteria/Criteria';
+import { Nullable } from '../../../microk/common/Nullable';
 
 export interface AuthUserRepository {
   save(authUser: AuthUser): Promise<void>;

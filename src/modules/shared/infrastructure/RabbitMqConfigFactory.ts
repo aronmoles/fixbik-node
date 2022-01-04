@@ -1,6 +1,6 @@
-import Env from '@microk/core/domain/Env';
-import RabbitMqConfig from '@microk/event/infrastructure/rabbit-mq/RabbitMqConfig';
 import { EnvKey } from '../../../app/ProcessEnv';
+import Env from '../../../microk/core/domain/Env';
+import RabbitMqConfig from '../../../microk/event/infrastructure/rabbit-mq/RabbitMqConfig';
 
 export default class RabbitMqConfigFactory {
     static createConfig(env: Env<EnvKey>): RabbitMqConfig {

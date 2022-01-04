@@ -4,9 +4,7 @@
     "esModuleInterop": true,
     "target": "es6",
     "noImplicitAny": false,
-    "moduleResolution": "node",
     "sourceMap": false,
-    "rootDir": ".",
     "strict": false,
     "noEmit": false,
     "resolveJsonModule": true,
@@ -14,9 +12,6 @@
     "outDir": "build",
     "baseUrl": "./src",
     "experimentalDecorators": true,
-    "paths": {
-      "@microk/*": ["microk/*"],
-    }
   },
   "include": [
     "src/**/*",

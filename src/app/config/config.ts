@@ -1,24 +1,3 @@
-import Container from '@microk/core/domain/di/Container';
-import { ContainerTag } from '@microk/core/domain/di/ContainerTag';
-import ControllerDiscoverer from '@microk/core/infrastructure/discoverer/ControllerDiscoverer';
-import ErrorMiddlewareDiscoverer from '@microk/core/infrastructure/discoverer/ErrorMiddlewareDiscoverer';
-import MiddlewareDiscoverer from '@microk/core/infrastructure/discoverer/MiddlewareDiscoverer';
-import PersistErrorMiddleware from '@microk/core/infrastructure/error/PersistErrorMiddleware';
-import HttpErrorMiddleware from '@microk/core/infrastructure/HttpErrorMiddleware';
-import SystemLogger from '@microk/core/infrastructure/SystemLogger';
-import { CommandHandlersMapper } from '@microk/cqrs/infrastructure/command/CommandHandlersMapper';
-import { InMemoryCommandBus } from '@microk/cqrs/infrastructure/command/InMemoryCommandBus';
-import InMemoryQueryBus from '@microk/cqrs/infrastructure/query/InMemoryQueryBus';
-import QueryHandlersMapper from '@microk/cqrs/infrastructure/query/QueryHandlersMapper';
-import { EventClassMapper } from '@microk/event/infrastructure/EventClassMapper';
-import { EventJsonDeserializer } from '@microk/event/infrastructure/EventJsonDeserializer';
-import { EventSubscriberMapper } from '@microk/event/infrastructure/EventSubscriberMapper';
-import RabbitMqEventBus from '@microk/event/infrastructure/rabbit-mq/RabbitMqEventBus';
-import StoreMessageBusMiddleware from '@microk/message-store/infrastructure/StoreMessageBusMiddleware';
-import { TypeOrmClientFactory } from '@microk/persistence/infrastructure/typeorm/TypeOrmClientFactory';
-import FileErrorTracker from '@microk/utils/FileErrorTracker';
-import FileMessageStore from '@microk/utils/FileMessageStore';
-import TimeBusMiddleware from '@microk/utils/TimeBusMiddleware';
 import AuthenticateQueryHandler from '../../modules/auth/application/login/AuthenticateQueryHandler';
 import Authenticator from '../../modules/auth/application/login/Authenticator';
 import AuthenticateController from '../../modules/auth/infrastructure/controllers/AuthenticateController';
@@ -38,6 +17,27 @@ import ServerOpenApiConfigFactory from '../../modules/shared/infrastructure/docs
 import { TypeOrmConfigFactory } from '../../modules/shared/infrastructure/persistence/typeorm/TypeOrmConfigFactory';
 import RabbitMqConfigFactory from '../../modules/shared/infrastructure/RabbitMqConfigFactory';
 import ProcessEnv from '../ProcessEnv';
+import QueryHandlersMapper from '../../microk/cqrs/infrastructure/query/QueryHandlersMapper';
+import ErrorMiddlewareDiscoverer from '../../microk/core/infrastructure/discoverer/ErrorMiddlewareDiscoverer';
+import RabbitMqEventBus from '../../microk/event/infrastructure/rabbit-mq/RabbitMqEventBus';
+import FileMessageStore from '../../microk/utils/FileMessageStore';
+import { ContainerTag } from '../../microk/core/domain/di/ContainerTag';
+import ControllerDiscoverer from '../../microk/core/infrastructure/discoverer/ControllerDiscoverer';
+import StoreMessageBusMiddleware from '../../microk/message-store/infrastructure/StoreMessageBusMiddleware';
+import InMemoryQueryBus from '../../microk/cqrs/infrastructure/query/InMemoryQueryBus';
+import FileErrorTracker from '../../microk/utils/FileErrorTracker';
+import { EventSubscriberMapper } from '../../microk/event/infrastructure/EventSubscriberMapper';
+import { InMemoryCommandBus } from '../../microk/cqrs/infrastructure/command/InMemoryCommandBus';
+import SystemLogger from '../../microk/core/infrastructure/SystemLogger';
+import TimeBusMiddleware from '../../microk/utils/TimeBusMiddleware';
+import { EventClassMapper } from '../../microk/event/infrastructure/EventClassMapper';
+import { TypeOrmClientFactory } from '../../microk/persistence/infrastructure/typeorm/TypeOrmClientFactory';
+import MiddlewareDiscoverer from '../../microk/core/infrastructure/discoverer/MiddlewareDiscoverer';
+import { CommandHandlersMapper } from '../../microk/cqrs/infrastructure/command/CommandHandlersMapper';
+import { EventJsonDeserializer } from '../../microk/event/infrastructure/EventJsonDeserializer';
+import PersistErrorMiddleware from '../../microk/core/infrastructure/error/PersistErrorMiddleware';
+import HttpErrorMiddleware from '../../microk/core/infrastructure/HttpErrorMiddleware';
+import Container from '../../microk/core/domain/di/Container';
 
 export const config = (container: Container) => {
     // App

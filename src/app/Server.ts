@@ -1,11 +1,3 @@
-import { HttpMethod } from '@microk/common/http/HttpMethod';
-import { HttpStatus } from '@microk/common/http/HttpStatus';
-import Env from '@microk/core/domain/Env';
-import { ErrorMiddleware } from '@microk/core/domain/ErrorMiddleware';
-import Controller from '@microk/core/domain/http/Controller';
-import Logger from '@microk/core/domain/Logger';
-import { Middleware } from '@microk/core/domain/Middleware';
-import OpenApi, { OpenApiConfig } from '@microk/docs/openapi';
 import bodyParser from 'body-parser';
 import compress from 'compression';
 import express, { NextFunction, Request, Response } from 'express';
@@ -16,6 +8,14 @@ import { EnvKey } from './ProcessEnv';
 import yaml from 'yaml';
 import swaggerUi from 'swagger-ui-express';
 import cors from 'cors';
+import { ErrorMiddleware } from '../microk/core/domain/ErrorMiddleware';
+import OpenApi, { OpenApiConfig } from '../microk/docs/openapi';
+import { HttpStatus } from '../microk/common/http/HttpStatus';
+import Controller from '../microk/core/domain/http/Controller';
+import Env from '../microk/core/domain/Env';
+import { Middleware } from '../microk/core/domain/Middleware';
+import { HttpMethod } from '../microk/common/http/HttpMethod';
+import Logger from '../microk/core/domain/Logger';
 
 export type ServerController = {
     method: HttpMethod,

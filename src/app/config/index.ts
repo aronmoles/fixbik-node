@@ -1,9 +1,9 @@
-import Container from '@microk/core/domain/di/Container';
 import { EnvMode } from '../ProcessEnv';
 import { config } from './config';
 import { configDev } from './configDev';
 import { configProd } from './configProd';
 import { configTest } from './configTest';
+import Container from '../../microk/core/domain/di/Container';
 
 export const configEnvDependencyContainer = (container: Container, env: EnvMode): void => {
     config(container);

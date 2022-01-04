@@ -1,10 +1,10 @@
-import Uuid from '@microk/common/value-object/Uuid';
-import Inject from '@microk/core/infrastructure/di/Inject.decorator';
-import EventBus from '@microk/event/domain/EventBus';
-import { sleep } from '@microk/utils/Sleep';
 import { Keys } from '../../../shared/infrastructure/di/Keys';
 import InfoRequestedDomainEvent from '../../domain/InfoRequestedDomainEvent';
 import { InfoResponse } from './InfoResponse';
+import Inject from '../../../../microk/core/infrastructure/di/Inject.decorator';
+import { sleep } from '../../../../microk/utils/Sleep';
+import Uuid from '../../../../microk/common/value-object/Uuid';
+import EventBus from '../../../../microk/event/domain/EventBus';
 
 export default class InfoService {
     constructor(

@@ -1,5 +1,5 @@
-import { StringValueObject } from '@microk/common/value-object/StringValueObject';
 import InvalidEmailError from './InvalidEmailError';
+import { StringValueObject } from './StringValueObject';
 
 export default class EmailValueObject extends StringValueObject {
     constructor(email: string) {

@@ -1,5 +1,3 @@
-import Inject from '@microk/core/infrastructure/di/Inject.decorator';
-import EventBus from '@microk/event/domain/EventBus';
 import { Keys } from '../../../shared/infrastructure/di/Keys';
 import AuthToken from '../../domain/AuthToken';
 import AuthTokenRepository from '../../domain/AuthTokenRepository';
@@ -7,6 +5,8 @@ import AuthUserEmail from '../../domain/AuthUserEmail';
 import AuthUserPassword from '../../domain/AuthUserPassword';
 import { AuthUserRepository } from '../../domain/AuthUserRepository';
 import AuthUserSearchByEmail from '../search-by-email/AuthUserSearchByEmail';
+import Inject from '../../../../microk/core/infrastructure/di/Inject.decorator';
+import EventBus from '../../../../microk/event/domain/EventBus';
 
 export default class Authenticator {
     private readonly authUserSearcherByEmail: AuthUserSearchByEmail;

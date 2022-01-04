@@ -1,9 +1,9 @@
-import Inject from '@microk/core/infrastructure/di/Inject.decorator';
-import { CommandBus } from '@microk/cqrs/domain/command/CommandBus';
-import EventSubscriber from '@microk/event/domain/EventSubscriber';
 import { Keys } from '../../../shared/infrastructure/di/Keys';
 import InfoRequestedDomainEvent from '../../domain/InfoRequestedDomainEvent';
 import SendEmailService from './SendEmailService';
+import Inject from '../../../../microk/core/infrastructure/di/Inject.decorator';
+import { CommandBus } from '../../../../microk/cqrs/domain/command/CommandBus';
+import EventSubscriber from '../../../../microk/event/domain/EventSubscriber';
 
 export default class SendEmailInfoRequestDomainEventSubscriber extends EventSubscriber<InfoRequestedDomainEvent> {
     constructor(

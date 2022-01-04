@@ -1,12 +1,12 @@
-import { AggregateRoot } from '@microk/common/AggregateRoot';
-import { Nullable } from '@microk/common/Nullable';
-import { PrimitivesObject } from '@microk/common/PrimitiveType';
 import AuthUserAuthenticatedDomainEvent from './AuthUserAuthenticated.DomainEvent';
 import AuthUserEmail from './AuthUserEmail';
 import AuthUserId from './AuthUserId';
 import AuthUserIncorrectPasswordError from './AuthUserIncorrectPasswordError';
 import AuthUserPassword from './AuthUserPassword';
 import AuthUserRecoverPasswordToken from './AuthUserRecoverPasswordToken';
+import { AggregateRoot } from '../../../microk/common/AggregateRoot';
+import { PrimitivesObject } from '../../../microk/common/PrimitiveType';
+import { Nullable } from '../../../microk/common/Nullable';
 
 export class AuthUser extends AggregateRoot {
     constructor(
