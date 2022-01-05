@@ -1,5 +1,3 @@
-import AuthUserEmail from '../../domain/AuthUserEmail';
-import AuthUserPassword from '../../domain/AuthUserPassword';
 import MessageNameFactory from '../../../../microk/common/value-object/MessageNameFactory';
 import { MessageType } from '../../../../microk/common/message/MessageType';
 import MessageId from '../../../../microk/common/message/MessageId';
@@ -9,14 +7,14 @@ import { Req } from '../../../../microk/core/domain/http/Req';
 export default class AuthenticateQuery extends Query {
     static fromRequest(req: Req): AuthenticateQuery {
         return new AuthenticateQuery(
-            new AuthUserEmail(req.body.email),
-            new AuthUserPassword(req.body.password),
+            req.body.email,
+            req.body.password,
         )
     }
 
     constructor(
-        private readonly _email: AuthUserEmail,
-        private readonly _password: AuthUserPassword,
+        private readonly _email: string,
+        private readonly _password: string,
     ) {
         super(
             MessageId.create(),
@@ -24,11 +22,11 @@ export default class AuthenticateQuery extends Query {
         );
     }
 
-    get email(): AuthUserEmail {
+    get email(): string {
         return this._email;
     }
 
-    get password(): AuthUserPassword {
+    get password(): string {
         return this._password;
     }
 }

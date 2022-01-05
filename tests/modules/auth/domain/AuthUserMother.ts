@@ -19,8 +19,8 @@ export default class AuthUserMother {
     static fromQuery(query: AuthenticateQuery): AuthUser {
         return this.create(
             AuthUserIdMother.random(),
-            query.email,
-            query.password,
+            new AuthUserEmail(query.email),
+            new AuthUserPassword(query.password),
         )
     }
 
