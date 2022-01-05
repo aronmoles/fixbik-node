@@ -26,22 +26,27 @@ afterAll(async () => {
 });
 
 describe('BikeRepository', () => {
-    describe('#save', () => {
+    describe('#save & #search', () => {
         it('should save a auth user and search by id', async () => {
-            const bike = BikeMother.create(
-                BikeIdMother.random(),
-                AuthUserIdMother.create('12f09751-a988-48fe-b0aa-c0c2e91b2700'),
-                BikeNameMother.random(),
-                BikeBrandMother.random(),
-                BikeModelMother.random(),
-                BikeYearMother.random(),
-            );
+            const bike = BikeMother.random();
 
             await repository.save(bike);
             const bikeResponse = await repository.search(bike.id);
 
             expect(bikeResponse)
                 .toEqual(bike)
+        });
+    });
+
+    describe('#searchUser', () => {
+        it('should search bikes by user', async () => {
+            const bike = BikeMother.random();
+
+            await repository.save(bike);
+            const bikeList = await repository.searchUser(bike.userId);
+
+            expect(bikeList)
+                .toEqual([bike])
         });
     });
 });

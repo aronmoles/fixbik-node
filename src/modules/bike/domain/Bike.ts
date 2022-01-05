@@ -6,10 +6,8 @@ import BikeBrand from './BikeBrand';
 import BikeModel from './BikeModel';
 import BikeCreatedDomainEvent from './BikeCreatedDomainEvent';
 import AuthUserId from '../../auth/domain/AuthUserId';
-import { AuthUser } from '../../auth/domain/AuthUser';
 
 export default class Bike extends AggregateRoot {
-    user: AuthUser;
     constructor(
         readonly id: BikeId,
         readonly userId: AuthUserId,

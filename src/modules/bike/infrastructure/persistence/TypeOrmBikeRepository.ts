@@ -7,6 +7,7 @@ import Bike from '../../domain/Bike';
 import BikeRepository from '../../domain/BikeRepository';
 import { BikeEntity } from './typeorm/Bike.Entity';
 import BikeId from '../../domain/BikeId';
+import AuthUserId from '../../../auth/domain/AuthUserId';
 
 export class TypeOrmBikeRepository extends TypeOrmRepository<Bike> implements BikeRepository {
     constructor(@Inject(Keys.App.ConnectionManager) client: Promise<Connection>) {
@@ -24,5 +25,10 @@ export class TypeOrmBikeRepository extends TypeOrmRepository<Bike> implements Bi
     public async search(id: BikeId): Promise<Nullable<Bike>> {
         const repository = await this.repository();
         return repository.findOne({ id });
+    }
+
+    public async searchUser(authUserId: AuthUserId): Promise<Nullable<Bike[]>> {
+        const repository = await this.repository();
+        return repository.find({ userId: authUserId.value() });
     }
 }

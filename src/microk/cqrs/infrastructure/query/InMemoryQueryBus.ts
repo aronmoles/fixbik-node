@@ -8,21 +8,20 @@ import Executor from '../../../core/infrastructure/Executor';
 import Query from '../../domain/query/Query';
 import QueryBus from '../../domain/query/QueryBus';
 import { QueryHandler } from '../../domain/query/QueryHandler';
-import { QueryResponse } from '../../domain/query/QueryResponse';
 
 export default class InMemoryQueryBus implements QueryBus {
-    private readonly executor: Executor<Query, QueryResponse>;
+    private readonly executor: Executor<Query, any>;
 
     constructor(
         @Inject(Keys.CQRS.QueryHandlersMapper)
-        private readonly queryHandlersMapper: Mapper<Query, QueryHandler<Query, QueryResponse>>,
+        private readonly queryHandlersMapper: Mapper<Query, QueryHandler<Query, any>>,
         @InjectTag(ContainerTag.QUERY_EXECUTOR)
-        executors: WrapperExecutor<Query, QueryResponse>[] = [],
+        executors: WrapperExecutor<Query, any>[] = [],
     ) {
-        this.executor = new Executor<Query, QueryResponse>(executors);
+        this.executor = new Executor<Query, any>(executors);
     }
 
-    ask<R extends QueryResponse>(query: Query): Promise<R> {
+    ask<R>(query: Query): Promise<R> {
         return this.executor.run(query, () => {
             const handler = this.queryHandlersMapper.search(query);
             return handler.handle(query);

@@ -52,8 +52,13 @@ export const Keys = {
     },
     Bike: {
         BikeRepository: Symbol.for('BikeRepository'),
+
         BikeCreator: Symbol.for('BikeCreator'),
         BikeCreatorCommandHandler: Symbol.for('BikeCreatorCommandHandler'),
         BikeCreatorController: Symbol.for('BikeCreatorController'),
+
+        BikeList: Symbol.for('BikeList'),
+        BikeListQueryHandler: Symbol.for('BikeListQueryHandler'),
+        BikeListController: Symbol.for('BikeListController'),
     },
 }

@@ -1,8 +1,7 @@
 import { NewableClass } from '../../../common/NewableClass';
 import Query from './Query';
-import { QueryResponse } from './QueryResponse';
 
-export abstract class QueryHandler<Q extends Query, R extends QueryResponse> {
+export abstract class QueryHandler<Q extends Query, R> {
     private readonly _queryName: string;
 
     protected constructor(query: NewableClass<Query>) {
