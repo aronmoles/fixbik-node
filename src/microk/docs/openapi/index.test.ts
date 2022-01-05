@@ -108,8 +108,8 @@ const expectedResponse = {
 describe('OpenApi', () => {
     it('should create a valid auth token', () => {
         const openApi = new OpenApi({
-            baseDir: `${__dirname}/examples`,
-            filesPattern: './*.ts',
+            baseDir: __dirname,
+            filesPattern: ['./examples/*.ts'],
             info: {
                 title: 'Test',
                 version: '1.0.0',

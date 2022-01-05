@@ -37,7 +37,7 @@ import HttpErrorMiddleware from '../../microk/core/infrastructure/HttpErrorMiddl
 import Container from '../../microk/core/domain/di/Container';
 import TypeOrmEventStore from '../../modules/shared/infrastructure/persistence/typeorm/TypeOrmEventStore';
 import InMemoryEventBus from '../../microk/event/infrastructure/InMemoryEventBus';
-import EventStoreController from '../../modules/shared/infrastructure/event/EventStoreController';
+import EventStoreController from '../../microk/event/infrastructure/controller/EventStoreController';
 
 export const config = (container: Container) => {
     // App

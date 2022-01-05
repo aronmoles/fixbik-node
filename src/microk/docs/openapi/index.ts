@@ -17,7 +17,7 @@ import YAML from 'yaml';
 
 export type OpenApiConfig = {
     baseDir: string,
-    filesPattern: string,
+    filesPattern: string[],
 
     info: InfoObject;
     servers?: ServerObject[];
@@ -29,8 +29,8 @@ export type OpenApiConfig = {
 }
 
 export default class OpenApi {
-    private static DEFAULT_EXCLUDED_FOLDER = 'node_modules';
-    private static DEFAULT_GLOB_OPTIONS = { ignore: ['**/node_modules/**'] };
+    // private static DEFAULT_EXCLUDED_FOLDER = 'node_modules';
+    // private static DEFAULT_GLOB_OPTIONS = { ignore: ['**/node_modules/**'] };
     // eslint-disable-next-line prefer-named-capture-group
     private static COMMENTS_PATTERN = /((\/\*\*+[\s\S]*?\*\/)|(\/\*+.*\*\/)|^\/\/.*?[\r\n])[\r\n]*/gm;
     private static BREAK_LINE = /\n/g;
@@ -42,12 +42,17 @@ export default class OpenApi {
 
     private globFilesMatches = (
         baseDir: string,
-        filesPattern: string,
-        excludedFolder: string = OpenApi.DEFAULT_EXCLUDED_FOLDER,
+        filesPatterns: string[],
+        // excludedFolder: string = OpenApi.DEFAULT_EXCLUDED_FOLDER,
     ) => {
         try {
-            const files = glob.sync(path.resolve(baseDir, filesPattern), OpenApi.DEFAULT_GLOB_OPTIONS);
-            return files.filter((file) => !file.includes(excludedFolder));
+            const files = [];
+            for (const filesPattern of filesPatterns) {
+                const filesOfPattern = glob.sync(path.resolve(baseDir, filesPattern));
+                files.push(...filesOfPattern);
+            }
+            return files;
+            // return files.filter((file) => !file.includes(excludedFolder));
         } catch (error) {
             throw new Error('Error Glob Files');
         }

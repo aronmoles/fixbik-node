@@ -5,7 +5,11 @@ export default class ServerOpenApiConfigFactory {
     static createConfig(): ServerOpenApiConfig {
         return ({
             baseDir: __dirname,
-            filesPattern: './../../../../**/*.ts',
+            filesPattern: [
+                './../../../**/*.ts',
+                './../../../../microk/**/domain/**/*.ts',
+                './../../../../microk/event/infrastructure/**/*.ts',
+            ],
             swaggerUIPath: '/api-docs',
             apiDocsPath: '/api-docs.yaml',
             format: 'yaml',

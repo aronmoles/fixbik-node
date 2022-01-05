@@ -1,4 +1,4 @@
-import { PrimitivesObject } from '../../../../microk/common/PrimitiveType';
+import { PrimitivesObject } from '../../../common/PrimitiveType';
 
 /**
  * @openapi

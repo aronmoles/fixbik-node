@@ -1,16 +1,16 @@
-import Controller from '../../../../microk/core/domain/http/Controller';
-import { ControllerResponse } from '../../../../microk/core/domain/http/ControllerResponse';
-import { ControllerConfig } from '../../../../microk/core/domain/http/ControllerConfig';
-import { HttpMethod } from '../../../../microk/common/http/HttpMethod';
+import Controller from '../../../core/domain/http/Controller';
+import { ControllerResponse } from '../../../core/domain/http/ControllerResponse';
+import { ControllerConfig } from '../../../core/domain/http/ControllerConfig';
+import { HttpMethod } from '../../../common/http/HttpMethod';
 import DomainEventDto from './DomainEventDto';
-import { Req } from '../../../../microk/core/domain/http/Req';
-import Response from '../../../../microk/core/domain/http/Response';
-import EventStore from '../../../../microk/event/domain/EventStore';
-import Inject from '../../../../microk/core/infrastructure/di/Inject.decorator';
-import { Keys } from '../di/Keys';
-import { Criteria } from '../../../../microk/common/criteria/Criteria';
-import { Order } from '../../../../microk/common/criteria/Order';
-import { Filters } from '../../../../microk/common/criteria/Filters';
+import { Req } from '../../../core/domain/http/Req';
+import Response from '../../../core/domain/http/Response';
+import EventStore from '../../domain/EventStore';
+import Inject from '../../../core/infrastructure/di/Inject.decorator';
+import { Keys } from '../../../../modules/shared/infrastructure/di/Keys';
+import { Criteria } from '../../../common/criteria/Criteria';
+import { Order } from '../../../common/criteria/Order';
+import { Filters } from '../../../common/criteria/Filters';
 
 /**
  * @openapi
