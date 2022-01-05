@@ -50,4 +50,10 @@ export const Keys = {
         AuthUserRepository: Symbol.for('AuthUserRepository'),
         AuthTokenRepository: Symbol.for('AuthTokenRepository'),
     },
+    Bike: {
+        BikeRepository: Symbol.for('BikeRepository'),
+        BikeCreator: Symbol.for('BikeCreator'),
+        BikeCreatorCommandHandler: Symbol.for('BikeCreatorCommandHandler'),
+        BikeCreatorController: Symbol.for('BikeCreatorController'),
+    },
 }

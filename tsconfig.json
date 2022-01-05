@@ -9,7 +9,6 @@
     "noEmit": false,
     "declaration": true,
     "resolveJsonModule": true,
-    "noUnusedLocals": true,
     "outDir": "build",
     "baseUrl": "./src",
     "experimentalDecorators": true,

@@ -1,17 +1,23 @@
 import { PrimitiveType } from '../PrimitiveType';
 import { InvalidArgumentError } from './InvalidArgumentError';
+import { isNullOrUndefined } from '../../core/infrastructure/Utils';
 
 export abstract class ValueObject<T extends PrimitiveType> {
     protected constructor(
         private readonly _value: T,
     ) {
         this.ensureValueIsDefined(_value);
+        this.ensureValidValue(_value);
     }
 
     private ensureValueIsDefined(value: T): void {
-        if (value === null || value === undefined) {
+        if (isNullOrUndefined(value)) {
             throw new InvalidArgumentError('Value must be defined');
         }
+    }
+
+    protected ensureValidValue(_value: T) {
+
     }
 
     public value(): T {

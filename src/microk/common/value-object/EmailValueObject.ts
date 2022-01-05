@@ -2,12 +2,7 @@ import InvalidEmailError from './InvalidEmailError';
 import { StringValueObject } from './StringValueObject';
 
 export default class EmailValueObject extends StringValueObject {
-    constructor(email: string) {
-        super(email);
-        this.ensureIsValidEmail(email);
-    }
-
-    private ensureIsValidEmail(email: string) {
+    protected ensureValidValue(email: string) {
         if (!this.isValidEmail(email)) {
             throw new InvalidEmailError(email)
         }

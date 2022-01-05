@@ -3,7 +3,7 @@ import { UuidMother } from '../../shared/domain/UuidMother';
 
 export default class AuthUserIdMother {
     static create(value: string): AuthUserId {
-        return new AuthUserId(value);
+        return AuthUserId.fromString(value);
     }
 
     static random(): AuthUserId {

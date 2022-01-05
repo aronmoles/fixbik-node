@@ -1,7 +1,7 @@
 import { ValueObject } from './ValueObject';
 
 export abstract class NumberValueObject extends ValueObject<number> {
-    protected constructor(value: number) {
+    constructor(value: number) {
         super(value);
     }
 
