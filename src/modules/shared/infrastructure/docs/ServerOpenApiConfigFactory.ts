@@ -1,5 +1,5 @@
-import { ServerOpenApiConfig } from '../../../../app/Server';
 import * as packageJson from './../../../../../package.json';
+import { ServerOpenApiConfig } from '../../../../microk/core/domain/Server';
 
 export default class ServerOpenApiConfigFactory {
     static createConfig(): ServerOpenApiConfig {

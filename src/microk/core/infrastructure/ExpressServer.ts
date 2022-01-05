@@ -7,41 +7,25 @@ import * as http from 'http';
 import yaml from 'yaml';
 import swaggerUi from 'swagger-ui-express';
 import cors from 'cors';
-import { ErrorMiddleware } from '../microk/core/domain/ErrorMiddleware';
-import OpenApi, { OpenApiConfig } from '../microk/docs/openapi';
-import { HttpStatus } from '../microk/common/http/HttpStatus';
-import Controller from '../microk/core/domain/http/Controller';
-import Env from '../microk/core/domain/env/Env';
-import { Middleware } from '../microk/core/domain/Middleware';
-import { HttpMethod } from '../microk/common/http/HttpMethod';
-import Logger from '../microk/core/domain/Logger';
-import { FixBikEnvType } from './FixBikEnv';
+import { ErrorMiddleware } from '../domain/ErrorMiddleware';
+import OpenApi from '../../docs/openapi';
+import { HttpStatus } from '../../common/http/HttpStatus';
+import Controller from '../domain/http/Controller';
+import Env, { EnvType } from '../domain/env/Env';
+import { Middleware } from '../domain/Middleware';
+import { HttpMethod } from '../../common/http/HttpMethod';
+import Logger from '../domain/Logger';
+import Server, { ServerOptions } from '../domain/Server';
 
-export type ServerController = {
-    method: HttpMethod,
-    path: string,
-    controller: Controller<unknown>,
-    middlewares: Middleware[],
-}
-
-export type ServerOpenApiConfig = OpenApiConfig & { swaggerUIPath?: string, apiDocsPath?: string, format?: 'yaml' | 'json' }
-
-export type ServerOptions = {
-    openapi?: ServerOpenApiConfig,
-}
-
-export type ServerControllers = ServerController[];
-
-export default class Server {
-    // TODO Exportar interfaz Server y renombrar a Express Server
+export default class ExpressServer<E extends EnvType> implements Server {
     private readonly logger: Logger;
-    private readonly env: Env<FixBikEnvType>;
+    private readonly env: Env<E>;
 
     private readonly express: express.Express;
 
-    httpServer?: http.Server;
+    private _httpServer?: http.Server;
 
-    constructor(env: Env<FixBikEnvType>, logger: Logger, options?: ServerOptions) {
+    constructor(env: Env<E>, logger: Logger, options?: ServerOptions) {
         this.env = env;
         this.logger = logger;
         this.express = express();
@@ -85,6 +69,10 @@ export default class Server {
                 this.express.use(options.openapi.swaggerUIPath, swaggerUi.serve, swaggerUi.setup(openApiDoc, {}));
             }
         }
+    }
+
+    public getHttpServer(): http.Server {
+        return this._httpServer;
     }
 
     registerControllerMiddleware(middlewareList: Middleware[]): void {
@@ -169,7 +157,7 @@ export default class Server {
 
     async listen(): Promise<void> {
         return new Promise((resolve) => {
-            this.httpServer = this.express.listen(this.env.get('PORT'), () => {
+            this._httpServer = this.express.listen(this.env.get('PORT'), () => {
                 this.logger.info(
                     `App is running at http://localhost:${this.env.get('PORT')} in ${this.env.get('NODE_ENV')} mode`,
                 );
@@ -181,8 +169,8 @@ export default class Server {
 
     async stop(): Promise<void> {
         return new Promise((resolve, reject) => {
-            if (this.httpServer) {
-                this.httpServer.close((error) => {
+            if (this._httpServer) {
+                this._httpServer.close((error) => {
                     if (error) {
                         reject(error);
                     } else {

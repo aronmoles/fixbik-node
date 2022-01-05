@@ -1,24 +1,21 @@
 import * as http from 'http';
-import { Keys } from '../modules/shared/infrastructure/di/Keys';
-import container from './Container';
-import Server, { ServerOpenApiConfig } from './Server';
-import { ErrorMiddleware } from '../microk/core/domain/ErrorMiddleware';
-import Discoverer from '../microk/core/domain/Discoverer';
-import EventBus from '../microk/event/domain/EventBus';
-import Env from '../microk/core/domain/env/Env';
-import Controller from '../microk/core/domain/http/Controller';
-import { Middleware } from '../microk/core/domain/Middleware';
-import Logger from '../microk/core/domain/Logger';
-import { FixBikEnvType } from './FixBikEnv';
+import { Keys } from '../../../modules/shared/infrastructure/di/Keys';
+import container from '../../../app/Container';
+import ExpressServer from './ExpressServer';
+import { ErrorMiddleware } from '../domain/ErrorMiddleware';
+import Discoverer from '../domain/Discoverer';
+import EventBus from '../../event/domain/EventBus';
+import Env, { EnvType } from '../domain/env/Env';
+import Controller from '../domain/http/Controller';
+import { Middleware } from '../domain/Middleware';
+import Logger from '../domain/Logger';
+import Server, { ServerOpenApiConfig } from '../domain/Server';
 
-export default class App {
+export default abstract class App<E extends EnvType> {
     private readonly server?: Server;
 
-    constructor() {
-        const env = container.get<Env<FixBikEnvType>>(Keys.App.Env);
-        const logger = container.get<Logger>(Keys.App.Logger);
-        const serverOpenApiConfig = container.get<ServerOpenApiConfig>(Keys.App.ServerOpenApiConfig);
-        this.server = new Server(env, logger, {
+    protected constructor(env: Env<E>, logger: Logger, serverOpenApiConfig: ServerOpenApiConfig) {
+        this.server = new ExpressServer(env, logger, {
             openapi: serverOpenApiConfig,
         });
     }
@@ -36,7 +33,7 @@ export default class App {
     }
 
     get httpServer(): http.Server {
-        return this.server?.httpServer;
+        return this.server.getHttpServer();
     }
 
     private initMiddleware() {

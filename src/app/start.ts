@@ -1,7 +1,7 @@
 /* eslint-disable no-console,no-undef,@typescript-eslint/no-magic-numbers */
-import App from './App';
+import FixBikApp from './FixBikApp';
 
-new App()
+new FixBikApp()
     .start()
     .catch((error) => {
         console.log(error);

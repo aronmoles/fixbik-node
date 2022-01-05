@@ -2,7 +2,7 @@
 import { AfterAll, BeforeAll, Given, Then } from '@cucumber/cucumber';
 import assert from 'assert';
 import request from 'supertest';
-import App from '../../../../src/app/App';
+import FixBikApp from '../../../../src/app/FixBikApp';
 import Container from '../../../../src/app/Container';
 import { EnvironmentArranger } from '../../../../src/microk/tests/domain/EnvironmentArranger';
 import EnvironmentFixtures from '../../../../src/microk/tests/domain/EnvironmentFixtures';
@@ -10,21 +10,21 @@ import { Keys } from '../../../../src/modules/shared/infrastructure/di/Keys';
 
 let _request: request.Test;
 let _response: request.Response;
-let application: App;
+let application: FixBikApp;
 
 const environmentArranger: EnvironmentArranger = Container.get(Keys.Test.EnvironmentArranger);
 const environmentFixtures: EnvironmentFixtures = Container.get(Keys.Test.EnvironmentFixtures);
 
 BeforeAll(async () => {
-    application = new App();
+    application = new FixBikApp();
     await application.start();
     await environmentArranger.arrange()
     await environmentFixtures.loadFixtures()
 });
 
 AfterAll(async () => {
-    await application.stop();
     await environmentArranger.close()
+    await application.stop();
 });
 
 Given('I send a GET request to {string}', (route: string) => {
