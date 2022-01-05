@@ -34,9 +34,10 @@ import EventStoreController from '../../microk/event/infrastructure/controller/E
 import FixBikEnv from '../FixBikEnv';
 import AppConfigFactory from '../../../tests/modules/info/infrastructure/AppConfigFactory';
 import { TypeOrmBikeRepository } from '../../modules/bike/infrastructure/persistence/TypeOrmBikeRepository';
-import CreateBikeController from '../../modules/bike/infrastructure/controllers/CreateBikeController';
+import BikeCreatorController from '../../modules/bike/infrastructure/controllers/BikeCreatorController';
 import BikeCreatorCommandHandler from '../../modules/bike/application/create/BikeCreatorCommandHandler';
 import BikeCreator from '../../modules/bike/application/create/BikeCreator';
+import AuthMiddleware from '../../modules/shared/infrastructure/AuthMiddleware';
 
 export const config = (container: Container) => {
     // App
@@ -61,7 +62,7 @@ export const config = (container: Container) => {
         TimeBusMiddleware,
         [ContainerTag.COMMAND_EXECUTOR, ContainerTag.QUERY_EXECUTOR, ContainerTag.EVENT_EXECUTOR],
     );
-    // container.addClass(Keys.App.AuthMiddleware, AuthMiddleware);
+    container.addClass(Keys.App.AuthMiddleware, AuthMiddleware);
     container.addInstance(Keys.App.ServerOpenApiConfig, ServerOpenApiConfigFactory.createConfig());
     container.addInstance(
         Keys.App.ConnectionManager,
@@ -98,7 +99,7 @@ export const config = (container: Container) => {
 
     // Bike
     container.addClass(Keys.Bike.BikeRepository, TypeOrmBikeRepository);
-    container.addClass(Keys.Bike.BikeCreatorController, CreateBikeController, [ContainerTag.CONTROLLER]);
+    container.addClass(Keys.Bike.BikeCreatorController, BikeCreatorController, [ContainerTag.CONTROLLER]);
     container.addClass(Keys.Bike.BikeCreatorCommandHandler, BikeCreatorCommandHandler, [ContainerTag.COMMAND_HANDLER]);
     container.addClass(Keys.Bike.BikeCreator, BikeCreator);
 }

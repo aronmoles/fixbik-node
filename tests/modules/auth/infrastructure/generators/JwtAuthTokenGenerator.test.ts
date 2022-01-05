@@ -10,10 +10,21 @@ describe('AuthTokenRepository', () => {
         it('should generate a new auth token', async () => {
             const authUser = AuthUserMother.random();
 
-            const authToken = await repository.generate(authUser);
+            const authToken = repository.generate(authUser);
 
             expect(authToken).toBeDefined();
             expect(authToken.toString()).toBeDefined();
+        });
+    });
+
+    describe('#decode', () => {
+        it('should decode a token', async () => {
+            const authUser = AuthUserMother.random();
+            const authToken = repository.generate(authUser);
+
+            const data = await repository.decode(authToken);
+            console.log('DATA', data)
+            expect(data).toBeDefined();
         });
     });
 });

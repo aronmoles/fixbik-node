@@ -6,6 +6,6 @@ export default class AuthToken extends StringValueObject {
     }
 
     static fromString(token: string): AuthToken {
-        return new this(token);
+        return new this(token.replace('Bearer ', ''));
     }
 }

@@ -22,4 +22,9 @@ export default class JwtAuthTokenRepository implements AuthTokenRepository {
         const token = jwt.sign(jwtPayload, this.env.get('JWT_SECRET'));
         return AuthToken.fromString(token);
     }
+
+    decode(authToken: AuthToken): FixBikeJwtPayload {
+        const data = jwt.verify(authToken.value(), this.env.get('JWT_SECRET'))
+        return data as FixBikeJwtPayload;
+    }
 }

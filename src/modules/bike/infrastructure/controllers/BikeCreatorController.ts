@@ -8,10 +8,12 @@ import Inject from '../../../../microk/core/infrastructure/di/Inject.decorator';
 import { Keys } from '../../../shared/infrastructure/di/Keys';
 import { CommandBus } from '../../../../microk/cqrs/domain/command/CommandBus';
 import BikeCreatorCommand from '../../application/create/BikeCreatorCommand';
+import AuthMiddleware from '../../../shared/infrastructure/AuthMiddleware';
 
-export default class CreateBikeController implements Controller<void> {
+export default class BikeCreatorController implements Controller<void> {
     constructor(
         @Inject(Keys.CQRS.CommandBus) private readonly commandBus: CommandBus,
+        @Inject(Keys.App.AuthMiddleware) private readonly authMiddleware: AuthMiddleware,
     ) {
     }
 
@@ -19,6 +21,7 @@ export default class CreateBikeController implements Controller<void> {
         return {
             path: '/bike/:id',
             method: HttpMethod.PUT,
+            middlewares: [this.authMiddleware],
         };
     }
 

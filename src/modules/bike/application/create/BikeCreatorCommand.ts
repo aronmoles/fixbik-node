@@ -22,7 +22,7 @@ export default class BikeCreatorCommand extends Command {
     static fromRequest(req: Req): BikeCreatorCommand {
         return new BikeCreatorCommand(
             req.params.id,
-            req.body.user_id,
+            req.auth.authUserId,
             req.body.name,
             req.body.brand,
             req.body.model,
