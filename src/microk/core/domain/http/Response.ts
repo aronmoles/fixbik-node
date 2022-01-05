@@ -12,4 +12,11 @@ export default class Response {
             },
         }
     }
+
+    static created(): ControllerResponse<void> {
+        return {
+            status: HttpStatus.CREATED,
+            content: undefined,
+        }
+    }
 }

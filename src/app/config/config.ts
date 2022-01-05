@@ -34,6 +34,9 @@ import EventStoreController from '../../microk/event/infrastructure/controller/E
 import FixBikEnv from '../FixBikEnv';
 import AppConfigFactory from '../../../tests/modules/info/infrastructure/AppConfigFactory';
 import { TypeOrmBikeRepository } from '../../modules/bike/infrastructure/persistence/TypeOrmBikeRepository';
+import CreateBikeController from '../../modules/bike/infrastructure/controllers/CreateBikeController';
+import BikeCreatorCommandHandler from '../../modules/bike/application/create/BikeCreatorCommandHandler';
+import BikeCreator from '../../modules/bike/application/create/BikeCreator';
 
 export const config = (container: Container) => {
     // App
@@ -95,4 +98,7 @@ export const config = (container: Container) => {
 
     // Bike
     container.addClass(Keys.Bike.BikeRepository, TypeOrmBikeRepository);
+    container.addClass(Keys.Bike.BikeCreatorController, CreateBikeController, [ContainerTag.CONTROLLER]);
+    container.addClass(Keys.Bike.BikeCreatorCommandHandler, BikeCreatorCommandHandler, [ContainerTag.COMMAND_HANDLER]);
+    container.addClass(Keys.Bike.BikeCreator, BikeCreator);
 }
