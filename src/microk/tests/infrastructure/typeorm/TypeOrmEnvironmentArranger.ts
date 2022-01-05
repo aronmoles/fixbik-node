@@ -20,7 +20,9 @@ export class TypeOrmEnvironmentArranger extends EnvironmentArranger {
         try {
             for (const entity of entities) {
                 const repository = (await this.client()).getRepository(entity.name);
+                await repository.query('SET FOREIGN_KEY_CHECKS = 0;');
                 await repository.query(`TRUNCATE TABLE ${entity.tableName};`);
+                await repository.query('SET FOREIGN_KEY_CHECKS = 1;');
             }
         } catch (error) {
             throw new Error(`Unable to clean test database: ${error}`);

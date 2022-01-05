@@ -33,6 +33,7 @@ import InMemoryEventBus from '../../microk/event/infrastructure/InMemoryEventBus
 import EventStoreController from '../../microk/event/infrastructure/controller/EventStoreController';
 import FixBikEnv from '../FixBikEnv';
 import AppConfigFactory from '../../../tests/modules/info/infrastructure/AppConfigFactory';
+import { TypeOrmBikeRepository } from '../../modules/bike/infrastructure/persistence/TypeOrmBikeRepository';
 
 export const config = (container: Container) => {
     // App
@@ -91,4 +92,7 @@ export const config = (container: Container) => {
     container.addClass(Keys.Auth.AuthenticateQueryHandler, AuthenticateQueryHandler, [ContainerTag.QUERY_HANDLER]);
     container.addClass(Keys.Auth.AuthUserRepository, TypeOrmAuthUserRepository);
     container.addClass(Keys.Auth.AuthTokenRepository, JwtAuthTokenRepository);
+
+    // Bike
+    container.addClass(Keys.Bike.BikeRepository, TypeOrmBikeRepository);
 }

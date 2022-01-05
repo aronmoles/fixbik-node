@@ -3,7 +3,7 @@ import { InvalidArgumentError } from './InvalidArgumentError';
 import { isNullOrUndefined } from '../../core/infrastructure/Utils';
 
 export abstract class ValueObject<T extends PrimitiveType> {
-    protected constructor(
+    constructor(
         private readonly _value: T,
     ) {
         this.ensureValueIsDefined(_value);
