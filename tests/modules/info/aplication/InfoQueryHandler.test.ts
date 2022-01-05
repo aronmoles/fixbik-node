@@ -1,15 +1,14 @@
 import InfoQueryHandler from '../../../../src/modules/info/application/info/InfoQueryHandler';
 import InfoService from '../../../../src/modules/info/application/info/InfoService';
-import EventBusMock from '../../shared/__mocks__/EventBusMock';
 import InfoQueryMother from '../domain/InfoQueryMother';
+import AppConfigFactory from '../infrastructure/AppConfigFactory';
 
 let handler: InfoQueryHandler;
-let eventBus: EventBusMock;
 
 beforeEach(() => {
-    eventBus = new EventBusMock();
-    const creator = new InfoService(eventBus);
-    handler = new InfoQueryHandler(creator);
+    const appConfig = AppConfigFactory.getConfig();
+    const infoService = new InfoService(appConfig);
+    handler = new InfoQueryHandler(infoService);
 });
 
 describe('InfoRequest', () => {
@@ -17,7 +16,5 @@ describe('InfoRequest', () => {
         const query = InfoQueryMother.random();
 
         await handler.handle(query);
-
-        eventBus.hasBeenPublishedEvent();
     });
 });

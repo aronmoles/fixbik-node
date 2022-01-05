@@ -5,13 +5,7 @@ import JwtAuthTokenRepository from '../../modules/auth/infrastructure/generators
 import { TypeOrmAuthUserRepository } from '../../modules/auth/infrastructure/persistence/TypeOrmAuthUserRepository';
 import InfoQueryHandler from '../../modules/info/application/info/InfoQueryHandler';
 import InfoService from '../../modules/info/application/info/InfoService';
-import SendEmailInfoRequestDomainEventSubscriber
-    from '../../modules/info/application/send-email/SendEmailInfoRequestDomainEventSubscriber';
-import SendEmailService from '../../modules/info/application/send-email/SendEmailService';
-import SetInfoCommandHandler from '../../modules/info/application/set-info/SetInfoCommandHandler';
-import SetInfoService from '../../modules/info/application/set-info/SetInfoService';
 import InfoController from '../../modules/info/infrastructure/InfoController';
-import SetInfoController from '../../modules/info/infrastructure/SetInfoController';
 import { Keys } from '../../modules/shared/infrastructure/di/Keys';
 import ServerOpenApiConfigFactory from '../../modules/shared/infrastructure/docs/ServerOpenApiConfigFactory';
 import { TypeOrmConfigFactory } from '../../modules/shared/infrastructure/persistence/typeorm/TypeOrmConfigFactory';
@@ -38,12 +32,14 @@ import TypeOrmEventStore from '../../modules/shared/infrastructure/persistence/t
 import InMemoryEventBus from '../../microk/event/infrastructure/InMemoryEventBus';
 import EventStoreController from '../../microk/event/infrastructure/controller/EventStoreController';
 import FixBikEnv from '../FixBikEnv';
+import AppConfigFactory from '../../../tests/modules/info/infrastructure/AppConfigFactory';
 
 export const config = (container: Container) => {
     // App
     const env = new FixBikEnv();
     container.addInstance(Keys.App.Env, env);
     container.addClass(Keys.App.Logger, SystemLogger);
+    container.addInstance(Keys.App.AppConfig, AppConfigFactory.getConfig());
     container.addClass(Keys.App.ControllerDiscoverer, ControllerDiscoverer);
     container.addClass(Keys.App.MiddlewareDiscoverer, MiddlewareDiscoverer);
     container.addClass(Keys.App.ErrorMiddlewareDiscoverer, ErrorMiddlewareDiscoverer);
@@ -86,17 +82,8 @@ export const config = (container: Container) => {
 
     // Info
     container.addClass(Keys.Info.InfoController, InfoController, [ContainerTag.CONTROLLER]);
-    container.addClass(Keys.Info.SetInfoController, SetInfoController, [ContainerTag.CONTROLLER]);
     container.addClass(Keys.Info.InfoService, InfoService);
-    container.addClass(Keys.Info.SetInfoService, SetInfoService);
-    container.addClass(Keys.Info.SendEmailService, SendEmailService);
     container.addClass(Keys.Info.InfoQueryHandler, InfoQueryHandler, [ContainerTag.QUERY_HANDLER]);
-    container.addClass(Keys.Info.SetInfoCommandHandler, SetInfoCommandHandler, [ContainerTag.COMMAND_HANDLER]);
-    container.addClass(
-        Keys.Info.SendEmailInfoRequestDomainEventSubscriber,
-        SendEmailInfoRequestDomainEventSubscriber,
-        [ContainerTag.EVENT_SUBSCRIBER],
-    );
 
     // Auth
     container.addClass(Keys.Auth.AuthenticateController, AuthenticateController, [ContainerTag.CONTROLLER]);

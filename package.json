@@ -1,8 +1,8 @@
 {
-  "name": "magicshopper-node",
+  "name": "fixbik-node",
   "version": "1.0.0",
   "main": "src/app/index.ts",
-  "author": "aaron",
+  "author": "amoles",
   "description": "Description of project",
   "license": "MIT",
   "scripts": {

@@ -14,6 +14,7 @@ export const Keys = {
         AuthMiddleware: Symbol.for('AuthMiddleware'),
         ServerOpenApiConfig: Symbol.for('ServerOpenApiConfig'),
         ConnectionManager: Symbol.for('ConnectionManager'),
+        AppConfig: Symbol.for('AppConfig'),
     },
     CQRS: {
         CommandHandlersMapper: Symbol.for('CommandHandlersMapper'),
