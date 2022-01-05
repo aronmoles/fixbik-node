@@ -15,7 +15,6 @@ import SetInfoController from '../../modules/info/infrastructure/SetInfoControll
 import { Keys } from '../../modules/shared/infrastructure/di/Keys';
 import ServerOpenApiConfigFactory from '../../modules/shared/infrastructure/docs/ServerOpenApiConfigFactory';
 import { TypeOrmConfigFactory } from '../../modules/shared/infrastructure/persistence/typeorm/TypeOrmConfigFactory';
-import ProcessEnv from '../ProcessEnv';
 import QueryHandlersMapper from '../../microk/cqrs/infrastructure/query/QueryHandlersMapper';
 import ErrorMiddlewareDiscoverer from '../../microk/core/infrastructure/discoverer/ErrorMiddlewareDiscoverer';
 import FileMessageStore from '../../microk/utils/FileMessageStore';
@@ -38,10 +37,11 @@ import Container from '../../microk/core/domain/di/Container';
 import TypeOrmEventStore from '../../modules/shared/infrastructure/persistence/typeorm/TypeOrmEventStore';
 import InMemoryEventBus from '../../microk/event/infrastructure/InMemoryEventBus';
 import EventStoreController from '../../microk/event/infrastructure/controller/EventStoreController';
+import FixBikEnv from '../FixBikEnv';
 
 export const config = (container: Container) => {
     // App
-    const env = new ProcessEnv();
+    const env = new FixBikEnv();
     container.addInstance(Keys.App.Env, env);
     container.addClass(Keys.App.Logger, SystemLogger);
     container.addClass(Keys.App.ControllerDiscoverer, ControllerDiscoverer);

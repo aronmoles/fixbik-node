@@ -4,7 +4,6 @@ import express, { NextFunction, Request, Response } from 'express';
 import Router from 'express-promise-router';
 import helmet from 'helmet';
 import * as http from 'http';
-import { EnvKey } from './ProcessEnv';
 import yaml from 'yaml';
 import swaggerUi from 'swagger-ui-express';
 import cors from 'cors';
@@ -12,10 +11,11 @@ import { ErrorMiddleware } from '../microk/core/domain/ErrorMiddleware';
 import OpenApi, { OpenApiConfig } from '../microk/docs/openapi';
 import { HttpStatus } from '../microk/common/http/HttpStatus';
 import Controller from '../microk/core/domain/http/Controller';
-import Env from '../microk/core/domain/Env';
+import Env from '../microk/core/domain/env/Env';
 import { Middleware } from '../microk/core/domain/Middleware';
 import { HttpMethod } from '../microk/common/http/HttpMethod';
 import Logger from '../microk/core/domain/Logger';
+import { FixBikEnvType } from './FixBikEnv';
 
 export type ServerController = {
     method: HttpMethod,
@@ -35,13 +35,13 @@ export type ServerControllers = ServerController[];
 export default class Server {
     // TODO Exportar interfaz Server y renombrar a Express Server
     private readonly logger: Logger;
-    private readonly env: Env<EnvKey>;
+    private readonly env: Env<FixBikEnvType>;
 
     private readonly express: express.Express;
 
     httpServer?: http.Server;
 
-    constructor(env: Env<EnvKey>, logger: Logger, options?: ServerOptions) {
+    constructor(env: Env<FixBikEnvType>, logger: Logger, options?: ServerOptions) {
         this.env = env;
         this.logger = logger;
         this.express = express();

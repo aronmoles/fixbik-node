@@ -1,5 +1,5 @@
-import { EnvKey } from '../../../app/ProcessEnv';
-import Env from '../../../microk/core/domain/Env';
+import { EnvKey } from '../../../microk/core/domain/env/ProcessEnv';
+import Env from '../../../microk/core/domain/env/Env';
 import RabbitMqConfig from '../../../microk/event/infrastructure/rabbit-mq/RabbitMqConfig';
 
 export default class RabbitMqConfigFactory {

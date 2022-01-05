@@ -1,9 +1,9 @@
-import { EnvKey } from '../../../../../app/ProcessEnv';
-import Env from '../../../../../microk/core/domain/Env';
+import Env from '../../../../../microk/core/domain/env/Env';
 import { TypeOrmConfig } from '../../../../../microk/persistence/infrastructure/typeorm/TypeOrmConfig';
+import { FixBikEnvType } from '../../../../../app/FixBikEnv';
 
 export class TypeOrmConfigFactory {
-    static createConfig(env: Env<EnvKey>): TypeOrmConfig {
+    static createConfig(env: Env<FixBikEnvType>): TypeOrmConfig {
         return {
             host: env.get('MYSQL_HOST'),
             port: Number(env.get('MYSQL_PORT')),

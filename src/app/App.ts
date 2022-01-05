@@ -1,21 +1,21 @@
 import * as http from 'http';
 import { Keys } from '../modules/shared/infrastructure/di/Keys';
 import container from './Container';
-import { EnvKey } from './ProcessEnv';
 import Server, { ServerOpenApiConfig } from './Server';
 import { ErrorMiddleware } from '../microk/core/domain/ErrorMiddleware';
 import Discoverer from '../microk/core/domain/Discoverer';
 import EventBus from '../microk/event/domain/EventBus';
-import Env from '../microk/core/domain/Env';
+import Env from '../microk/core/domain/env/Env';
 import Controller from '../microk/core/domain/http/Controller';
 import { Middleware } from '../microk/core/domain/Middleware';
 import Logger from '../microk/core/domain/Logger';
+import { FixBikEnvType } from './FixBikEnv';
 
 export default class App {
     private readonly server?: Server;
 
     constructor() {
-        const env = container.get<Env<EnvKey>>(Keys.App.Env);
+        const env = container.get<Env<FixBikEnvType>>(Keys.App.Env);
         const logger = container.get<Logger>(Keys.App.Logger);
         const serverOpenApiConfig = container.get<ServerOpenApiConfig>(Keys.App.ServerOpenApiConfig);
         this.server = new Server(env, logger, {

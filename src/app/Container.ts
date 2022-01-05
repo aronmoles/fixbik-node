@@ -1,6 +1,6 @@
 import { configEnvDependencyContainer } from './config';
-import { EnvMode } from './ProcessEnv';
 import DependencyContainer from '../microk/core/infrastructure/di/DependencyContainer';
+import { EnvMode } from './FixBikEnv';
 
 const container = new DependencyContainer();
 
