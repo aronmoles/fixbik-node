@@ -1,4 +1,4 @@
-Feature: Create a new bike
+Feature: List bikes of user
 
   Scenario: Given a data bike try yo create a new bike with a user registered
     Given I send a GET request to "/bike"

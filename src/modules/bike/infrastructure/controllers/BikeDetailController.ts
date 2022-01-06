@@ -9,33 +9,36 @@ import { Keys } from '../../../shared/infrastructure/di/Keys';
 import AuthMiddleware from '../../../shared/infrastructure/AuthMiddleware';
 import BikeDto from '../dto/BikeDto';
 import QueryBus from '../../../../microk/cqrs/domain/query/QueryBus';
-import BikeListQuery from '../../application/list/BikeListQuery';
+import BikeDetailQuery from '../../application/detail/BikeDetailQuery';
 
 /**
  * @openapi
- * /bike:
+ * /bike/{id}:
  *   get:
- *     operationId: bikeList
+ *     operationId: bikeDetail
  *     tags:
  *       - Bike
- *     summary: List all bikes of user.
+ *     summary: Detail a bike.
  *     description: ''
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: The Bike UUID
  *     responses:
  *       200:
- *         description: "Array og bikes."
+ *         description: "Bike data."
  *         content:
  *           application/json:
  *             schema:
  *               type: object
  *               properties:
  *                 data:
- *                   type: array
- *                   items:
- *                     $ref: '#/components/schemas/BikeDto'
+ *                   $ref: '#/components/schemas/BikeDto'
  *       default:
  *         $ref: '#/components/schemas/ErrorResponse'
  */
-export default class BikeListController implements Controller {
+export default class BikeDetailController implements Controller {
     constructor(
         @Inject(Keys.CQRS.QueryBus) private readonly queryBus: QueryBus,
         @Inject(Keys.App.AuthMiddleware) private readonly authMiddleware: AuthMiddleware,
@@ -44,15 +47,15 @@ export default class BikeListController implements Controller {
 
     config(): ControllerConfig {
         return {
-            path: '/bike',
+            path: '/bike/:id',
             method: HttpMethod.GET,
             middlewares: [this.authMiddleware],
         };
     }
 
     async run(req: Req): Promise<ControllerResponse> {
-        const query = new BikeListQuery(req.auth.authUserId)
-        const bikeDtos: BikeDto[] = await this.queryBus.ask(query);
-        return Response.success(bikeDtos.map((bikeDto) => bikeDto.toPrimitive()));
+        const query = new BikeDetailQuery(req.params.id, req.auth.authUserId)
+        const bikeDto: BikeDto = await this.queryBus.ask(query);
+        return Response.success(bikeDto.toPrimitive());
     }
 }

@@ -41,6 +41,9 @@ import AuthMiddleware from '../../modules/shared/infrastructure/AuthMiddleware';
 import BikeListController from '../../modules/bike/infrastructure/controllers/BikeListController';
 import BikeListQueryHandler from '../../modules/bike/application/list/BikeListQueryHandler';
 import BikeList from '../../modules/bike/application/list/BikeList';
+import BikeDetail from '../../modules/bike/application/detail/BikeDetail';
+import BikeDetailQueryHandler from '../../modules/bike/application/detail/BikeDetailQueryHandler';
+import BikeDetailController from '../../modules/bike/infrastructure/controllers/BikeDetailController';
 
 export const config = (container: Container) => {
     // App
@@ -108,4 +111,7 @@ export const config = (container: Container) => {
     container.addClass(Keys.Bike.BikeListController, BikeListController, [ContainerTag.CONTROLLER]);
     container.addClass(Keys.Bike.BikeListQueryHandler, BikeListQueryHandler, [ContainerTag.QUERY_HANDLER]);
     container.addClass(Keys.Bike.BikeList, BikeList);
+    container.addClass(Keys.Bike.BikeDetailController, BikeDetailController, [ContainerTag.CONTROLLER]);
+    container.addClass(Keys.Bike.BikeDetailQueryHandler, BikeDetailQueryHandler, [ContainerTag.QUERY_HANDLER]);
+    container.addClass(Keys.Bike.BikeDetail, BikeDetail);
 }
