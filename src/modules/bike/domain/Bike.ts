@@ -6,15 +6,17 @@ import BikeBrand from './BikeBrand';
 import BikeModel from './BikeModel';
 import BikeCreatedDomainEvent from './BikeCreatedDomainEvent';
 import AuthUserId from '../../auth/domain/AuthUserId';
+import BikeUpdatedDomainEvent from './BikeUpdatedDomainEvent';
+import ForbiddenHttpError from '../../../microk/common/http/errors/ForbiddenHttpError';
 
 export default class Bike extends AggregateRoot {
     constructor(
-        readonly id: BikeId,
-        readonly userId: AuthUserId,
-        readonly name: BikeName,
-        readonly brand: BikeBrand,
-        readonly model: BikeModel,
-        readonly year: BikeYear,
+        public readonly id: BikeId,
+        public readonly userId: AuthUserId,
+        public name: BikeName,
+        public brand: BikeBrand,
+        public model: BikeModel,
+        public year: BikeYear,
     ) {
         super();
     }
@@ -43,7 +45,18 @@ export default class Bike extends AggregateRoot {
         }
     }
 
-    belongs(authUserId: AuthUserId): boolean {
-        return this.userId.equals(authUserId);
+    checkBelongs(authUserId: AuthUserId): void {
+        if (!this.userId.equals(authUserId)) {
+            throw new ForbiddenHttpError('Bike not belongs to user')
+        }
+    }
+
+    updateValues(name: BikeName, brand: BikeBrand, model: BikeModel, year: BikeYear) {
+        this.name = name;
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+
+        this.record(new BikeUpdatedDomainEvent(this))
     }
 }

@@ -64,5 +64,9 @@ export const Keys = {
         BikeDetail: Symbol.for('BikeDetail'),
         BikeDetailQueryHandler: Symbol.for('BikeDetailQueryHandler'),
         BikeDetailController: Symbol.for('BikeDetailController'),
+
+        BikeModify: Symbol.for('BikeModify'),
+        BikeModifyCommandHandler: Symbol.for('BikeModifyCommandHandler'),
+        BikeModifyController: Symbol.for('BikeModifyController'),
     },
 }

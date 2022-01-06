@@ -6,15 +6,16 @@ import Bike from './Bike';
 import { MessageType } from '../../../microk/common/message/MessageType';
 import { PrimitivesObject } from '../../../microk/common/PrimitiveType';
 
-export default class BikeCreatedDomainEvent extends DomainEvent {
+export default class BikeUpdatedDomainEvent extends DomainEvent {
     constructor(private readonly bike: Bike) {
         super(
             MessageId.create(),
-            MessageNameFactory.create('created', 'bike', MessageType.DOMAIN_EVENT),
+            MessageNameFactory.create('updated', 'bike', MessageType.DOMAIN_EVENT),
             bike.id,
             AggregateMessageOccurredOn.now(),
         );
     }
+
 
     toPrimitive(): PrimitivesObject {
         return {
