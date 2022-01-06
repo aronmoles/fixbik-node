@@ -50,6 +50,10 @@ import BikeModify from '../../modules/bike/application/modify/BikeModify';
 import BikeRemoveCommandHandler from '../../modules/bike/application/remove/BikeRemoveCommandHandler';
 import BikeRemove from '../../modules/bike/application/remove/BikeRemove';
 import BikeRemoveController from '../../modules/bike/infrastructure/controllers/BikeRemoveController';
+import { TypeOrmFixRepository } from '../../modules/fix/infrastructure/persistence/TypeOrmFixRepository';
+import FixCreatorCommandHandler from '../../modules/fix/application/create/FixCreatorCommandHandler';
+import FixCreator from '../../modules/fix/application/create/FixCreator';
+import FixCreatorController from '../../modules/fix/infrastructure/controllers/FixCreatorController';
 
 export const config = (container: Container) => {
     // App
@@ -126,4 +130,11 @@ export const config = (container: Container) => {
     container.addClass(Keys.Bike.BikeRemoveController, BikeRemoveController, [ContainerTag.CONTROLLER]);
     container.addClass(Keys.Bike.BikeRemoveCommandHandler, BikeRemoveCommandHandler, [ContainerTag.COMMAND_HANDLER]);
     container.addClass(Keys.Bike.BikeRemove, BikeRemove);
+
+    // Fix
+    container.addClass(Keys.Fix.FixRepository, TypeOrmFixRepository);
+
+    container.addClass(Keys.Fix.FixCreatorController, FixCreatorController, [ContainerTag.CONTROLLER]);
+    container.addClass(Keys.Fix.FixCreatorCommandHandler, FixCreatorCommandHandler, [ContainerTag.COMMAND_HANDLER]);
+    container.addClass(Keys.Fix.FixCreator, FixCreator);
 }

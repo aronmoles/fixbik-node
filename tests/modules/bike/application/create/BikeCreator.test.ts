@@ -29,7 +29,7 @@ describe('BikeCreate', () => {
         eventBus.hasBeenPublishedEvent();
     });
 
-    it('should throw NotFoundError if user not exists', async () => {
+    it('should throw AlreadyExistsHttpError if bike already exists', async () => {
         const command = BikeCreatorCommandMother.random();
         bikeRepository.mockReturn(BikeMother.random())
 

@@ -73,4 +73,11 @@ export const Keys = {
         BikeRemoveCommandHandler: Symbol.for('BikeRemoveCommandHandler'),
         BikeRemoveController: Symbol.for('BikeRemoveController'),
     },
+    Fix: {
+        FixRepository: Symbol.for('FixRepository'),
+
+        FixCreator: Symbol.for('FixCreator'),
+        FixCreatorController: Symbol.for('FixCreatorController'),
+        FixCreatorCommandHandler: Symbol.for('FixCreatorCommandHandler'),
+    },
 }
