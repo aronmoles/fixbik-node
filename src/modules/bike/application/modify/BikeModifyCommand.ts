@@ -2,6 +2,7 @@ import Command from '../../../../microk/cqrs/domain/command/Command';
 import MessageNameFactory from '../../../../microk/common/value-object/MessageNameFactory';
 import { MessageType } from '../../../../microk/common/message/MessageType';
 import MessageId from '../../../../microk/common/message/MessageId';
+import { Req } from '../../../../microk/core/domain/http/Req';
 
 export default class BikeModifyCommand extends Command {
     constructor(
@@ -15,6 +16,17 @@ export default class BikeModifyCommand extends Command {
         super(
             MessageId.create(),
             MessageNameFactory.create('modify', 'bike', MessageType.COMMAND),
+        );
+    }
+
+    static fromRequest(req: Req): BikeModifyCommand {
+        return new BikeModifyCommand(
+            req.params.id,
+            req.body.name,
+            req.body.brand,
+            req.body.model,
+            req.body.year,
+            req.auth.authUserId,
         );
     }
 

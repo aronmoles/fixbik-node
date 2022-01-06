@@ -10,10 +10,10 @@ export default class Response {
     ): ControllerResponse {
         return {
             status: HttpStatus.OK,
-            content: {
+            content: data !== undefined ? {
                 data,
                 pagination,
-            },
+            } : undefined,
         }
     }
 

@@ -44,6 +44,9 @@ import BikeList from '../../modules/bike/application/list/BikeList';
 import BikeDetail from '../../modules/bike/application/detail/BikeDetail';
 import BikeDetailQueryHandler from '../../modules/bike/application/detail/BikeDetailQueryHandler';
 import BikeDetailController from '../../modules/bike/infrastructure/controllers/BikeDetailController';
+import BikeModifyController from '../../modules/bike/infrastructure/controllers/BikeModifyController';
+import BikeModifyCommandHandler from '../../modules/bike/application/modify/BikeModifyCommandHandler';
+import BikeModify from '../../modules/bike/application/modify/BikeModify';
 
 export const config = (container: Container) => {
     // App
@@ -114,4 +117,7 @@ export const config = (container: Container) => {
     container.addClass(Keys.Bike.BikeDetailController, BikeDetailController, [ContainerTag.CONTROLLER]);
     container.addClass(Keys.Bike.BikeDetailQueryHandler, BikeDetailQueryHandler, [ContainerTag.QUERY_HANDLER]);
     container.addClass(Keys.Bike.BikeDetail, BikeDetail);
+    container.addClass(Keys.Bike.BikeModifyController, BikeModifyController, [ContainerTag.CONTROLLER]);
+    container.addClass(Keys.Bike.BikeModifyCommandHandler, BikeModifyCommandHandler, [ContainerTag.COMMAND_HANDLER]);
+    container.addClass(Keys.Bike.BikeModify, BikeModify);
 }

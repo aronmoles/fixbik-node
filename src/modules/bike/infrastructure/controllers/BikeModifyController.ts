@@ -7,13 +7,13 @@ import Response from '../../../../microk/core/domain/http/Response';
 import Inject from '../../../../microk/core/infrastructure/di/Inject.decorator';
 import { Keys } from '../../../shared/infrastructure/di/Keys';
 import { CommandBus } from '../../../../microk/cqrs/domain/command/CommandBus';
-import BikeCreatorCommand from '../../application/create/BikeCreatorCommand';
 import AuthMiddleware from '../../../shared/infrastructure/AuthMiddleware';
+import BikeModifyCommand from '../../application/modify/BikeModifyCommand';
 
 /**
  * @openapi
  * /bike/{id}:
- *   post:
+ *   put:
  *     operationId: bikeCreator
  *     tags:
  *       - Bike
@@ -39,7 +39,7 @@ import AuthMiddleware from '../../../shared/infrastructure/AuthMiddleware';
  *       default:
  *         $ref: '#/components/schemas/ErrorResponse'
  */
-export default class BikeCreatorController implements Controller {
+export default class BikeModifyController implements Controller {
     constructor(
         @Inject(Keys.CQRS.CommandBus) private readonly commandBus: CommandBus,
         @Inject(Keys.App.AuthMiddleware) private readonly authMiddleware: AuthMiddleware,
@@ -49,14 +49,14 @@ export default class BikeCreatorController implements Controller {
     config(): ControllerConfig {
         return {
             path: '/bike/:id',
-            method: HttpMethod.POST,
+            method: HttpMethod.PUT,
             middlewares: [this.authMiddleware],
         };
     }
 
     async run(req: Req): Promise<ControllerResponse> {
-        const command = BikeCreatorCommand.fromRequest(req)
+        const command = BikeModifyCommand.fromRequest(req)
         await this.commandBus.dispatch(command);
-        return Response.created();
+        return Response.success();
     }
 }
