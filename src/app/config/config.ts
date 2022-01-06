@@ -57,6 +57,9 @@ import FixCreatorController from '../../modules/fix/infrastructure/controllers/F
 import FixUpdateController from '../../modules/fix/infrastructure/controllers/FixUpdateController';
 import FixUpdateCommandHandler from '../../modules/fix/application/update/FixUpdateCommandHandler';
 import FixUpdate from '../../modules/fix/application/update/FixUpdate';
+import FixRemove from '../../modules/fix/application/remove/FixRemove';
+import FixRemoveController from '../../modules/fix/infrastructure/controllers/FixRemoveController';
+import FixRemoveCommandHandler from '../../modules/fix/application/remove/FixRemoveCommandHandler';
 
 export const config = (container: Container) => {
     // App
@@ -144,4 +147,8 @@ export const config = (container: Container) => {
     container.addClass(Keys.Fix.FixUpdateController, FixUpdateController, [ContainerTag.CONTROLLER]);
     container.addClass(Keys.Fix.FixUpdateCommandHandler, FixUpdateCommandHandler, [ContainerTag.COMMAND_HANDLER]);
     container.addClass(Keys.Fix.FixUpdate, FixUpdate);
+
+    container.addClass(Keys.Fix.FixRemoveController, FixRemoveController, [ContainerTag.CONTROLLER]);
+    container.addClass(Keys.Fix.FixRemoveCommandHandler, FixRemoveCommandHandler, [ContainerTag.COMMAND_HANDLER]);
+    container.addClass(Keys.Fix.FixRemove, FixRemove);
 }

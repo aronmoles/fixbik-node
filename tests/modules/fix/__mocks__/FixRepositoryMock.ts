@@ -34,4 +34,9 @@ export default class FixRepositoryMock implements FixRepository {
         expect(this.saveSpy)
             .toHaveBeenCalledWith(fix)
     }
+
+    hasBenCalledDeleteWith(id: FixId) {
+        expect(this.deleteSpy)
+            .toHaveBeenCalledWith(id)
+    }
 }

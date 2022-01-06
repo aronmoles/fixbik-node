@@ -83,5 +83,9 @@ export const Keys = {
         FixUpdate: Symbol.for('FixUpdate'),
         FixUpdateController: Symbol.for('FixUpdateController'),
         FixUpdateCommandHandler: Symbol.for('FixUpdateCommandHandler'),
+
+        FixRemove: Symbol.for('FixRemove'),
+        FixRemoveController: Symbol.for('FixRemoveController'),
+        FixRemoveCommandHandler: Symbol.for('FixRemoveCommandHandler'),
     },
 }
