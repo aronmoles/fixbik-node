@@ -6,6 +6,7 @@ import AuthUserId from '../../../../src/modules/auth/domain/AuthUserId';
 
 export default class BikeRepositoryMock implements BikeRepository {
     private readonly saveSpy = jest.fn();
+    private readonly deleteSpy = jest.fn();
 
     private bike: Bike;
 
@@ -31,5 +32,14 @@ export default class BikeRepositoryMock implements BikeRepository {
 
     async searchUser(authUserId: AuthUserId): Promise<Nullable<Bike[]>> {
         return [this.bike];
+    }
+
+    async delete(bikeId: BikeId): Promise<void> {
+        this.deleteSpy(bikeId)
+    }
+
+    hasBenCalledDeleteWith(bikeId: BikeId) {
+        expect(this.deleteSpy)
+            .toHaveBeenCalledWith(bikeId)
     }
 }

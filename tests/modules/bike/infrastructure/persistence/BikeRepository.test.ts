@@ -4,12 +4,6 @@ import { Keys } from '../../../../../src/modules/shared/infrastructure/di/Keys';
 import BikeRepository from '../../../../../src/modules/bike/domain/BikeRepository';
 import BikeMother from '../../domain/BikeMother';
 import EnvironmentFixtures from '../../../../../src/microk/tests/domain/EnvironmentFixtures';
-import BikeIdMother from '../../domain/BikeIdMother';
-import AuthUserIdMother from '../../../auth/domain/AuthUserIdMother';
-import BikeNameMother from '../../domain/BikeNameMother';
-import BikeYearMother from '../../domain/BikeYearMother';
-import BikeBrandMother from '../../domain/BikeBrandMother';
-import BikeModelMother from '../../domain/BikeModelMother';
 
 const repository: BikeRepository = Container.get(Keys.Bike.BikeRepository);
 const environmentArranger: EnvironmentArranger = Container.get(Keys.Test.EnvironmentArranger);
@@ -47,6 +41,18 @@ describe('BikeRepository', () => {
 
             expect(bikeList)
                 .toEqual([bike])
+        });
+    });
+
+    describe('#save & #search & #delete', () => {
+        it('should delete a existent bike', async () => {
+            const bike = BikeMother.random();
+            await repository.save(bike);
+
+            await repository.delete(bike.id);
+
+            const bikeResponse = await repository.search(bike.id);
+            expect(bikeResponse).toBeUndefined()
         });
     });
 });

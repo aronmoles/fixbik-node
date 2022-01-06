@@ -31,4 +31,9 @@ export class TypeOrmBikeRepository extends TypeOrmRepository<Bike> implements Bi
         const repository = await this.repository();
         return repository.find({ userId: authUserId.value() });
     }
+
+    async delete(bikeId: BikeId): Promise<void> {
+        const repository = await this.repository();
+        await repository.delete(bikeId.value())
+    }
 }

@@ -46,6 +46,10 @@ Given('I send a PUT request to {string} with body:', (route: string, body: strin
         .send(JSON.parse(body));
 });
 
+Given('I send a DELETE request to {string}', (route: string) => {
+    _request = request(application.httpServer).delete(route);
+});
+
 Given('I authenticate request with token {string}', (token: string) => {
     _request = _request.set('Authorization', `Bearer ${token}`);
 });

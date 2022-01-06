@@ -15,6 +15,7 @@ import AuthUserIdMother from '../../auth/domain/AuthUserIdMother';
 import BikeListQuery from '../../../../src/modules/bike/application/list/BikeListQuery';
 import BikeDetailQuery from '../../../../src/modules/bike/application/detail/BikeDetailQuery';
 import BikeModifyCommand from '../../../../src/modules/bike/application/modify/BikeModifyCommand';
+import BikeRemoveCommand from '../../../../src/modules/bike/application/remove/BikeRemoveCommand';
 
 export default class BikeMother {
     static create(
@@ -79,7 +80,7 @@ export default class BikeMother {
         )
     }
 
-    static fromBikeModifyCommand(command: BikeModifyCommand) {
+    static fromBikeModifyCommand(command: BikeModifyCommand): Bike {
         return this.create(
             BikeId.fromString(command.bikeId),
             AuthUserId.fromString(command.authUserId),
@@ -88,5 +89,16 @@ export default class BikeMother {
             new BikeModel(command.bikeModel),
             new BikeYear(command.bikeYear),
         )
+    }
+
+    static fromBikeRemoveCommand(command: BikeRemoveCommand): Bike {
+        return this.create(
+            BikeId.fromString(command.bikeId),
+            AuthUserId.fromString(command.authUserId),
+            BikeNameMother.random(),
+            BikeBrandMother.random(),
+            BikeModelMother.random(),
+            BikeYearMother.random(),
+        );
     }
 }

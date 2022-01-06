@@ -47,6 +47,9 @@ import BikeDetailController from '../../modules/bike/infrastructure/controllers/
 import BikeModifyController from '../../modules/bike/infrastructure/controllers/BikeModifyController';
 import BikeModifyCommandHandler from '../../modules/bike/application/modify/BikeModifyCommandHandler';
 import BikeModify from '../../modules/bike/application/modify/BikeModify';
+import BikeRemoveCommandHandler from '../../modules/bike/application/remove/BikeRemoveCommandHandler';
+import BikeRemove from '../../modules/bike/application/remove/BikeRemove';
+import BikeRemoveController from '../../modules/bike/infrastructure/controllers/BikeRemoveController';
 
 export const config = (container: Container) => {
     // App
@@ -120,4 +123,7 @@ export const config = (container: Container) => {
     container.addClass(Keys.Bike.BikeModifyController, BikeModifyController, [ContainerTag.CONTROLLER]);
     container.addClass(Keys.Bike.BikeModifyCommandHandler, BikeModifyCommandHandler, [ContainerTag.COMMAND_HANDLER]);
     container.addClass(Keys.Bike.BikeModify, BikeModify);
+    container.addClass(Keys.Bike.BikeRemoveController, BikeRemoveController, [ContainerTag.CONTROLLER]);
+    container.addClass(Keys.Bike.BikeRemoveCommandHandler, BikeRemoveCommandHandler, [ContainerTag.COMMAND_HANDLER]);
+    container.addClass(Keys.Bike.BikeRemove, BikeRemove);
 }
