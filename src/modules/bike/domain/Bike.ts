@@ -42,4 +42,8 @@ export default class Bike extends AggregateRoot {
             year: this.year.value(),
         }
     }
+
+    belongs(authUserId: AuthUserId): boolean {
+        return this.userId.equals(authUserId);
+    }
 }

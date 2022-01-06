@@ -21,7 +21,7 @@ beforeEach(() => {
 describe('BikeCreate', () => {
     it('should create a bike', async () => {
         const command = BikeCreatorCommandMother.random();
-        const bike = BikeMother.fromQuery(command);
+        const bike = BikeMother.fromBikeCreatorCommand(command);
 
         await bikeCreatorCommandHandler.handle(command);
 

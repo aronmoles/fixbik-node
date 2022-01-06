@@ -25,7 +25,7 @@ export abstract class ValueObject<T extends PrimitiveType> {
     }
 
     public equals(other: ValueObject<T>): boolean {
-        return this.value() === other.value();
+        return this.constructor.name === other.constructor.name && this.value() === other.value();
     }
 
     protected toJSON() {

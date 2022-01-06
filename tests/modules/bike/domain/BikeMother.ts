@@ -13,6 +13,7 @@ import BikeCreatorCommand from '../../../../src/modules/bike/application/create/
 import AuthUserId from '../../../../src/modules/auth/domain/AuthUserId';
 import AuthUserIdMother from '../../auth/domain/AuthUserIdMother';
 import BikeListQuery from '../../../../src/modules/bike/application/list/BikeListQuery';
+import BikeDetailQuery from '../../../../src/modules/bike/application/detail/BikeDetailQuery';
 
 export default class BikeMother {
     static create(
@@ -44,7 +45,7 @@ export default class BikeMother {
         )
     }
 
-    static fromBikeCreatorCommand(command: BikeCreatorCommand) {
+    static fromBikeCreatorCommand(command: BikeCreatorCommand): Bike {
         return this.create(
             BikeId.fromString(command.bikeId),
             AuthUserId.fromString(command.userId),
@@ -55,10 +56,21 @@ export default class BikeMother {
         )
     }
 
-    static fromBikeListQuery(query: BikeListQuery) {
+    static fromBikeListQuery(query: BikeListQuery): Bike {
         return this.create(
             BikeIdMother.random(),
-            AuthUserId.fromString(query.authUserId),
+            AuthUserIdMother.create(query.authUserId),
+            BikeNameMother.random(),
+            BikeBrandMother.random(),
+            BikeModelMother.random(),
+            BikeYearMother.random(),
+        )
+    }
+
+    static fromBikeDetailQuery(query: BikeDetailQuery): Bike {
+        return this.create(
+            BikeIdMother.create(query.bikeId),
+            AuthUserIdMother.create(query.authUserId),
             BikeNameMother.random(),
             BikeBrandMother.random(),
             BikeModelMother.random(),
