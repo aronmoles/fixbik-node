@@ -54,6 +54,9 @@ import { TypeOrmFixRepository } from '../../modules/fix/infrastructure/persisten
 import FixCreatorCommandHandler from '../../modules/fix/application/create/FixCreatorCommandHandler';
 import FixCreator from '../../modules/fix/application/create/FixCreator';
 import FixCreatorController from '../../modules/fix/infrastructure/controllers/FixCreatorController';
+import FixUpdateController from '../../modules/fix/infrastructure/controllers/FixUpdateController';
+import FixUpdateCommandHandler from '../../modules/fix/application/update/FixUpdateCommandHandler';
+import FixUpdate from '../../modules/fix/application/update/FixUpdate';
 
 export const config = (container: Container) => {
     // App
@@ -137,4 +140,8 @@ export const config = (container: Container) => {
     container.addClass(Keys.Fix.FixCreatorController, FixCreatorController, [ContainerTag.CONTROLLER]);
     container.addClass(Keys.Fix.FixCreatorCommandHandler, FixCreatorCommandHandler, [ContainerTag.COMMAND_HANDLER]);
     container.addClass(Keys.Fix.FixCreator, FixCreator);
+
+    container.addClass(Keys.Fix.FixUpdateController, FixUpdateController, [ContainerTag.CONTROLLER]);
+    container.addClass(Keys.Fix.FixUpdateCommandHandler, FixUpdateCommandHandler, [ContainerTag.COMMAND_HANDLER]);
+    container.addClass(Keys.Fix.FixUpdate, FixUpdate);
 }

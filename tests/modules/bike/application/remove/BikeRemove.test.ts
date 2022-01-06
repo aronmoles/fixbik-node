@@ -19,7 +19,7 @@ beforeEach(() => {
     );
 });
 
-describe('BikeModify', () => {
+describe('BikeRemove', () => {
     it('should remove a bike', async () => {
         const command = BikeRemoveCommandMother.random();
         const bike = BikeMother.fromBikeRemoveCommand(command);

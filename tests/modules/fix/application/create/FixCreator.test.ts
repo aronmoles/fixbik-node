@@ -21,11 +21,11 @@ beforeEach(() => {
 describe('FixCreator', () => {
     it('should create a fix', async () => {
         const command = FixCreatorCommandMother.random();
-        const bike = FixMother.fromFixCreatorCommand(command);
+        const fix = FixMother.fromFixCreatorCommand(command);
 
         await fixCreatorCommandHandler.handle(command);
 
-        fixRepository.hasBenCalledSaveWith(bike);
+        fixRepository.hasBenCalledSaveWith(fix);
         eventBus.hasBeenPublishedEvent();
     });
 

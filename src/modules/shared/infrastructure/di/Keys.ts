@@ -79,5 +79,9 @@ export const Keys = {
         FixCreator: Symbol.for('FixCreator'),
         FixCreatorController: Symbol.for('FixCreatorController'),
         FixCreatorCommandHandler: Symbol.for('FixCreatorCommandHandler'),
+
+        FixUpdate: Symbol.for('FixUpdate'),
+        FixUpdateController: Symbol.for('FixUpdateController'),
+        FixUpdateCommandHandler: Symbol.for('FixUpdateCommandHandler'),
     },
 }

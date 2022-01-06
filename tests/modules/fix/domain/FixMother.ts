@@ -6,6 +6,7 @@ import AuthUserIdMother from '../../auth/domain/AuthUserIdMother';
 import FixNameMother from './FixNameMother';
 import FixIdMother from './FixIdMother';
 import FixCreatorCommand from '../../../../src/modules/fix/application/create/FixCreatorCommand';
+import FixUpdateCommand from '../../../../src/modules/fix/application/update/FixUpdateCommand';
 
 export default class FixMother {
     static create(
@@ -25,6 +26,14 @@ export default class FixMother {
     }
 
     static fromFixCreatorCommand(command: FixCreatorCommand): Fix {
+        return this.create(
+            FixId.fromString(command.fixId),
+            FixName.fromString(command.fixName),
+            AuthUserId.fromString(command.userId),
+        )
+    }
+
+    static fromFixUpdateCommand(command: FixUpdateCommand): Fix {
         return this.create(
             FixId.fromString(command.fixId),
             FixName.fromString(command.fixName),
