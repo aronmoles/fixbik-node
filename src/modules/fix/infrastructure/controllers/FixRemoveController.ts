@@ -25,7 +25,7 @@ import FixRemoveCommand from '../../application/remove/FixRemoveCommand';
  *         required: true
  *         description: The Fix UUID
  *     responses:
- *       201:
+ *       200:
  *         description: "Successful operation. The Fix has been created on the server."
  *       404:
  *         $ref: '#/components/schemas/ErrorResponse'

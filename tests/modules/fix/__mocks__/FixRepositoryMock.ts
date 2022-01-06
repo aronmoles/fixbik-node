@@ -1,8 +1,8 @@
 import FixRepository from '../../../../src/modules/fix/domain/FixRepository';
-import AuthUserId from '../../../../src/modules/auth/domain/AuthUserId';
 import Fix from '../../../../src/modules/fix/domain/Fix';
 import FixId from '../../../../src/modules/fix/domain/FixId';
 import { Nullable } from '../../../../src/microk/common/Nullable';
+import { Criteria } from '../../../../src/microk/common/criteria/Criteria';
 
 export default class FixRepositoryMock implements FixRepository {
     private mockFix: Fix;
@@ -26,10 +26,6 @@ export default class FixRepositoryMock implements FixRepository {
         return this.mockFix;
     }
 
-    async searchUser(userId: AuthUserId): Promise<Fix[]> {
-        return [this.mockFix];
-    }
-
     hasBenCalledSaveWith(fix: Fix) {
         expect(this.saveSpy)
             .toHaveBeenCalledWith(fix)
@@ -38,5 +34,9 @@ export default class FixRepositoryMock implements FixRepository {
     hasBenCalledDeleteWith(id: FixId) {
         expect(this.deleteSpy)
             .toHaveBeenCalledWith(id)
+    }
+
+    async searchByCriteria(criteria: Criteria): Promise<Fix[]> {
+        return [this.mockFix];
     }
 }

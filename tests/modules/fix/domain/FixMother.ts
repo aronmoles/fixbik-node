@@ -8,6 +8,7 @@ import FixIdMother from './FixIdMother';
 import FixCreatorCommand from '../../../../src/modules/fix/application/create/FixCreatorCommand';
 import FixUpdateCommand from '../../../../src/modules/fix/application/update/FixUpdateCommand';
 import FixRemoveCommand from '../../../../src/modules/fix/application/remove/FixRemoveCommand';
+import FixSearchQuery from '../../../../src/modules/fix/application/search/FixSearchQuery';
 
 export default class FixMother {
     static create(
@@ -47,6 +48,14 @@ export default class FixMother {
             FixId.fromString(command.fixId),
             FixNameMother.random(),
             AuthUserId.fromString(command.userId),
+        )
+    }
+
+    static fromFixSearchQuery(query: FixSearchQuery): Fix {
+        return this.create(
+            FixIdMother.random(),
+            FixName.fromString(query.search),
+            AuthUserId.fromString(query.userId),
         )
     }
 }

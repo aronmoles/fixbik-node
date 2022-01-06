@@ -26,7 +26,7 @@ export abstract class TypeOrmRepository<T> {
         await repository.save(aggregateRoot as any);
     }
 
-    public async searchByCriteria(criteria: Criteria): Promise<Nullable<T[]>> {
+    public async searchByCriteria(criteria: Criteria): Promise<T[]> {
         const repository = await this.repository();
         const findOptions = this.criteriaConverter.convert(criteria);
         return repository.find(findOptions);

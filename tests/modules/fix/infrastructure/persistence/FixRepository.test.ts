@@ -4,6 +4,9 @@ import { Keys } from '../../../../../src/modules/shared/infrastructure/di/Keys';
 import EnvironmentFixtures from '../../../../../src/microk/tests/domain/EnvironmentFixtures';
 import FixRepository from '../../../../../src/modules/fix/domain/FixRepository';
 import FixMother from '../../domain/FixMother';
+import FixSearchCriteriaFactory from '../../../../../src/modules/fix/application/search/FixSearchCriteriaFactory';
+import { WordMother } from '../../../shared/domain/WordMother';
+import { UuidMother } from '../../../shared/domain/UuidMother';
 
 const repository: FixRepository = Container.get(Keys.Fix.FixRepository);
 const environmentArranger: EnvironmentArranger = Container.get(Keys.Test.EnvironmentArranger);
@@ -32,18 +35,6 @@ describe('FixRepository', () => {
         });
     });
 
-    describe('#searchUser', () => {
-        it('should search bikes by user', async () => {
-            const fix = FixMother.random();
-
-            await repository.save(fix);
-            const fixList = await repository.searchUser(fix.userId);
-
-            expect(fixList)
-                .toEqual([fix])
-        });
-    });
-
     describe('#save & #search & #delete', () => {
         it('should delete a existent fix', async () => {
             const fix = FixMother.random();
@@ -53,6 +44,16 @@ describe('FixRepository', () => {
 
             const fixResponse = await repository.search(fix.id);
             expect(fixResponse).toBeUndefined()
+        });
+    });
+
+    describe('#searchByCriteria', () => {
+        it('should return a valid result', async () => {
+            const criteria = FixSearchCriteriaFactory.create(WordMother.random(), UuidMother.random());
+
+            const result = await repository.searchByCriteria(criteria);
+
+            expect(result).toBeDefined()
         });
     });
 });

@@ -60,6 +60,9 @@ import FixUpdate from '../../modules/fix/application/update/FixUpdate';
 import FixRemove from '../../modules/fix/application/remove/FixRemove';
 import FixRemoveController from '../../modules/fix/infrastructure/controllers/FixRemoveController';
 import FixRemoveCommandHandler from '../../modules/fix/application/remove/FixRemoveCommandHandler';
+import FixSearchQueryHandler from '../../modules/fix/application/search/FixSearchQueryHandler';
+import FixSearchController from '../../modules/fix/infrastructure/controllers/FixSearchController';
+import FixSearch from '../../modules/fix/application/search/FixSearch';
 
 export const config = (container: Container) => {
     // App
@@ -151,4 +154,8 @@ export const config = (container: Container) => {
     container.addClass(Keys.Fix.FixRemoveController, FixRemoveController, [ContainerTag.CONTROLLER]);
     container.addClass(Keys.Fix.FixRemoveCommandHandler, FixRemoveCommandHandler, [ContainerTag.COMMAND_HANDLER]);
     container.addClass(Keys.Fix.FixRemove, FixRemove);
+
+    container.addClass(Keys.Fix.FixSearchController, FixSearchController, [ContainerTag.CONTROLLER]);
+    container.addClass(Keys.Fix.FixSearchQueryHandler, FixSearchQueryHandler, [ContainerTag.QUERY_HANDLER]);
+    container.addClass(Keys.Fix.FixSearch, FixSearch);
 }
