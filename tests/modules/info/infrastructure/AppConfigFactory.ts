@@ -1,4 +1,4 @@
-import AppConfig from '../domain/AppConfig';
+import AppConfig from '../../../../src/modules/info/domain/AppConfig';
 import data from './../../../../package.json';
 
 export default class AppConfigFactory {

@@ -1,6 +1,6 @@
-import { QueryResponse } from '../../../../microk/cqrs/domain/query/QueryResponse';
+import { PrimitivesObject } from '../../../../microk/common/PrimitiveType';
 
-export interface InfoResponse extends QueryResponse {
+export interface InfoResponse extends PrimitivesObject {
     name: string,
     version: string,
     description: string,

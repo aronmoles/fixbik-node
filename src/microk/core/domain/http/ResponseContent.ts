@@ -3,21 +3,28 @@ import { PrimitivesObject } from '../../../common/PrimitiveType';
 
 /**
  * @openapi
- * ResponseError:
- *   type: object
- *   properties:
- *     code:
- *       type: integer
- *       required: true
- *     title:
- *       type: string
- *       required: true
- *     detail:
- *       type: string
- *       required: true
+ * ErrorResponse:
+ *   description: "Error"
+ *   content:
+ *     application/json:
+ *       schema:
+ *         type: object
+ *         properties:
+ *           error:
+ *             type: object
+ *             properties:
+ *               code:
+ *                 type: integer
+ *                 required: true
+ *               title:
+ *                 type: string
+ *                 required: true
+ *               detail:
+ *                 type: string
+ *                 required: true
  */
-export default interface ResponseContent<D = void> {
-    data?: D,
+export default interface ResponseContent {
+    data?: PrimitivesObject | PrimitivesObject[],
     error?: {
         code: HttpStatus,
         title: string,

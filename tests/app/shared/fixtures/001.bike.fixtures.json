@@ -1,0 +1,13 @@
+{
+  "entity": "Bike",
+  "data": [
+    {
+      "id": "bb92ffb6-396a-4a9b-880a-73c789f5198d",
+      "userId": "12f09751-a988-48fe-b0aa-c0c2e91b2700",
+      "name": "Carretera",
+      "brand": "MMR",
+      "model": "Adrenaline SLD",
+      "year": 2018
+    }
+  ]
+}

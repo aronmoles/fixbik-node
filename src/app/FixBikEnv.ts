@@ -25,6 +25,8 @@ export interface FixBikEnvType extends EnvType {
     MYSQL_USER: string;
     MYSQL_PASSWORD: string;
     MYSQL_DATABASE: string;
+    MYSQL_SYNCHRONIZE: string;
+    MYSQL_LOGGING: string;
 }
 
 export default class FixBikEnv extends DotEnv<FixBikEnvType> {
@@ -46,6 +48,8 @@ export default class FixBikEnv extends DotEnv<FixBikEnvType> {
             MYSQL_USER: '',
             MYSQL_PASSWORD: '',
             MYSQL_DATABASE: '',
+            MYSQL_SYNCHRONIZE: 'false',
+            MYSQL_LOGGING: 'false',
         });
 
         if (!Object.keys(EnvMode).includes(this.get('NODE_ENV'))) {

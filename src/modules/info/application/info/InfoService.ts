@@ -1,7 +1,7 @@
 import { InfoResponse } from './InfoResponse';
 import Inject from '../../../../microk/core/infrastructure/di/Inject.decorator';
 import { Keys } from '../../../shared/infrastructure/di/Keys';
-import AppConfig from '../../../../../tests/modules/info/domain/AppConfig';
+import AppConfig from '../../domain/AppConfig';
 
 export default class InfoService {
     constructor(
@@ -10,6 +10,6 @@ export default class InfoService {
     }
 
     public async invoke(): Promise<InfoResponse> {
-        return this.appConfig;
+        return this.appConfig as InfoResponse;
     }
 }

@@ -43,7 +43,7 @@ export default abstract class App<E extends EnvType> {
     }
 
     private async registerRoutes() {
-        const controllerDiscoverer = container.get<Discoverer<Controller<unknown>[]>>(Keys.App.ControllerDiscoverer)
+        const controllerDiscoverer = container.get<Discoverer<Controller[]>>(Keys.App.ControllerDiscoverer)
         const controllers = controllerDiscoverer.discover();
         this.server.registerControllers(controllers)
     }

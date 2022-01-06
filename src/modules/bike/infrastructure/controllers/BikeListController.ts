@@ -6,57 +6,53 @@ import { HttpMethod } from '../../../../microk/common/http/HttpMethod';
 import Response from '../../../../microk/core/domain/http/Response';
 import Inject from '../../../../microk/core/infrastructure/di/Inject.decorator';
 import { Keys } from '../../../shared/infrastructure/di/Keys';
-import { CommandBus } from '../../../../microk/cqrs/domain/command/CommandBus';
-import BikeCreatorCommand from '../../application/create/BikeCreatorCommand';
 import AuthMiddleware from '../../../shared/infrastructure/AuthMiddleware';
+import BikeDto from '../dto/BikeDto';
+import QueryBus from '../../../../microk/cqrs/domain/query/QueryBus';
+import BikeListQuery from '../../application/list/BikeListQuery';
 
 /**
  * @openapi
- * /bike/{id}:
- *   put:
- *     operationId: bikeCreator
+ * /bike:
+ *   get:
+ *     operationId: bikeList
  *     tags:
  *       - Bike
- *     summary: Create a new Bike.
+ *     summary: List all bikes of user.
  *     description: ''
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         description: The Bike UUID
- *     requestBody:
- *       description: "Bike data"
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             $ref: '#/components/schemas/BikeRequestDto'
  *     responses:
- *       201:
- *         description: "Successful operation. The Bike has been created on the server."
- *       409:
- *         $ref: '#/components/schemas/ErrorResponse'
+ *       200:
+ *         description: "Successful authentication."
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     $ref: '#/components/schemas/BikeDto'
  *       default:
  *         $ref: '#/components/schemas/ErrorResponse'
  */
-export default class BikeCreatorController implements Controller {
+export default class BikeListController implements Controller {
     constructor(
-        @Inject(Keys.CQRS.CommandBus) private readonly commandBus: CommandBus,
+        @Inject(Keys.CQRS.QueryBus) private readonly queryBus: QueryBus,
         @Inject(Keys.App.AuthMiddleware) private readonly authMiddleware: AuthMiddleware,
     ) {
     }
 
     config(): ControllerConfig {
         return {
-            path: '/bike/:id',
-            method: HttpMethod.PUT,
+            path: '/bike',
+            method: HttpMethod.GET,
             middlewares: [this.authMiddleware],
         };
     }
 
     async run(req: Req): Promise<ControllerResponse> {
-        const command = BikeCreatorCommand.fromRequest(req)
-        await this.commandBus.dispatch(command);
-        return Response.created();
+        const query = new BikeListQuery(req.auth.authUserId)
+        const bikeDtos: BikeDto[] = await this.queryBus.ask(query);
+        return Response.success(bikeDtos.map((bikeDto) => bikeDto.toPrimitive()));
     }
 }

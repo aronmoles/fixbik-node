@@ -1,5 +1,5 @@
 /* eslint-disable no-underscore-dangle */
-import { AfterAll, BeforeAll, Given, Then } from '@cucumber/cucumber';
+import { AfterAll, Before, BeforeAll, Given, Then } from '@cucumber/cucumber';
 import assert from 'assert';
 import request from 'supertest';
 import FixBikApp from '../../../../src/app/FixBikApp';
@@ -18,9 +18,12 @@ const environmentFixtures: EnvironmentFixtures = Container.get(Keys.Test.Environ
 BeforeAll(async () => {
     application = new FixBikApp();
     await application.start();
+});
+
+Before(async () => {
     await environmentArranger.arrange()
     await environmentFixtures.loadFixtures()
-});
+})
 
 AfterAll(async () => {
     await environmentArranger.close()
@@ -43,6 +46,10 @@ Given('I send a PUT request to {string} with body:', (route: string, body: strin
         .send(JSON.parse(body));
 });
 
+Given('I authenticate request with token {string}', (token: string) => {
+    _request = _request.set('Authorization', `Bearer ${token}`);
+});
+
 Then('the response status code should be {int}', async (status: number) => {
     _response = await _request.expect(status);
 });
@@ -51,6 +58,11 @@ Then('the response should be empty', () => {
     assert.deepEqual(_response.body, {});
 });
 
-Then('the response content should be:', (response) => {
+Then('the response content should be:', (response: string) => {
     assert.deepEqual(_response.body, JSON.parse(response));
+});
+
+Then('log response', () => {
+    // eslint-disable-next-line no-console
+    console.log('RESPONSE', _response.body);
 });

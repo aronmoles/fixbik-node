@@ -1,7 +1,6 @@
 import { Keys } from '../../../shared/infrastructure/di/Keys';
 import AuthenticateQuery from '../../application/login/AuthenticateQuery';
 import AuthenticateQueryResponse from '../../application/login/AuthenticateQueryResponse';
-import AuthenticateResponseDto from './AuthenticateResponse.Dto';
 import Inject from '../../../../microk/core/infrastructure/di/Inject.decorator';
 import { ControllerConfig } from '../../../../microk/core/domain/http/ControllerConfig';
 import QueryBus from '../../../../microk/cqrs/domain/query/QueryBus';
@@ -28,8 +27,8 @@ import Response from '../../../../microk/core/domain/http/Response';
  *           schema:
  *             $ref: '#/components/schemas/AuthenticateRequestDto'
  *     responses:
- *       201:
- *         description: "Successful operation. The notification has been created on the server."
+ *       200:
+ *         description: "Successful authentication."
  *         content:
  *           application/json:
  *             schema:
@@ -37,14 +36,12 @@ import Response from '../../../../microk/core/domain/http/Response';
  *               properties:
  *                 data:
  *                   $ref: '#/components/schemas/AuthenticateResponseDto'
+ *       404:
+ *         $ref: '#/components/schemas/ErrorResponse'
  *       default:
- *         description: "Error"
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/schemas/ErrorResponse'
  */
-export default class AuthenticateController implements Controller<AuthenticateQueryResponse> {
+export default class AuthenticateController implements Controller {
     constructor(
         @Inject(Keys.CQRS.QueryBus) private readonly queryBus: QueryBus,
     ) {
@@ -57,7 +54,7 @@ export default class AuthenticateController implements Controller<AuthenticateQu
         };
     }
 
-    async run(req: Req): Promise<ControllerResponse<AuthenticateResponseDto>> {
+    async run(req: Req): Promise<ControllerResponse> {
         const loginQuery = AuthenticateQuery.fromRequest(req);
         const loginQueryResponse = await this.queryBus.ask<AuthenticateQueryResponse>(loginQuery);
         return Response.success({

@@ -10,6 +10,8 @@ export class TypeOrmConfigFactory {
             username: env.get('MYSQL_USER'),
             password: env.get('MYSQL_PASSWORD'),
             database: env.get('MYSQL_DATABASE'),
+            synchronize: env.get('MYSQL_SYNCHRONIZE') === 'true',
+            logging: env.get('MYSQL_LOGGING') === 'true',
         };
     }
 }

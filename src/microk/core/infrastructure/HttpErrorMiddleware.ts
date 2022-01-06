@@ -17,7 +17,7 @@ export default class HttpErrorMiddleware implements ErrorMiddleware {
         this.logger.error(`Error: ${error.message}`);
         const statusCode = error instanceof HttpError ? error.code : HttpStatus.INTERNAL_SERVER_ERROR;
 
-        const responseContent: ResponseContent<void> = {
+        const responseContent: ResponseContent = {
             error: {
                 code: statusCode,
                 title: error.name,

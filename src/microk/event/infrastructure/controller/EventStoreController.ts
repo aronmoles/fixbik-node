@@ -2,7 +2,6 @@ import Controller from '../../../core/domain/http/Controller';
 import { ControllerResponse } from '../../../core/domain/http/ControllerResponse';
 import { ControllerConfig } from '../../../core/domain/http/ControllerConfig';
 import { HttpMethod } from '../../../common/http/HttpMethod';
-import DomainEventDto from './DomainEventDto';
 import { Req } from '../../../core/domain/http/Req';
 import Response from '../../../core/domain/http/Response';
 import EventStore from '../../domain/EventStore';
@@ -32,13 +31,9 @@ import { Filters } from '../../../common/criteria/Filters';
  *                 data:
  *                   $ref: '#/components/schemas/DomainEventDto'
  *       default:
- *         description: "Error"
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/ResponseError'
+ *         $ref: '#/components/schemas/ErrorResponse'
  */
-export default class EventStoreController implements Controller<DomainEventDto[]> {
+export default class EventStoreController implements Controller {
     private static LIMIT_PER_PAGE = 50;
 
     constructor(
@@ -53,7 +48,7 @@ export default class EventStoreController implements Controller<DomainEventDto[]
         };
     }
 
-    async run(req: Req): Promise<ControllerResponse<DomainEventDto[]>> {
+    async run(req: Req): Promise<ControllerResponse> {
         const page = Number(req.query.page ?? 0);
 
         const criteria = new Criteria(
@@ -66,7 +61,7 @@ export default class EventStoreController implements Controller<DomainEventDto[]
         const countAll = await this.eventStore.countAll()
 
         return Response.success(
-            domainEvents.map((domainEvent) => domainEvent.toPrimitive() as unknown as DomainEventDto),
+            domainEvents.map((domainEvent) => domainEvent.toPrimitive()),
             {
                 current: page,
                 totalPages: Math.ceil(countAll / EventStoreController.LIMIT_PER_PAGE),

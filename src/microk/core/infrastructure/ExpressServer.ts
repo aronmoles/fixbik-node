@@ -89,7 +89,7 @@ export default class ExpressServer<E extends EnvType> implements Server {
         });
     }
 
-    registerControllers(controllers: Controller<unknown>[]): void {
+    registerControllers(controllers: Controller[]): void {
         const router = Router();
         controllers.forEach((controller) => {
             const routerMiddlewares = [];

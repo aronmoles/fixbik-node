@@ -4,4 +4,6 @@ export type TypeOrmConfig = {
     username: string;
     password: string;
     database: string;
+    synchronize: boolean;
+    logging: boolean;
 };

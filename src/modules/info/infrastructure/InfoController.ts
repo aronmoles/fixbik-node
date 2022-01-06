@@ -10,7 +10,7 @@ import Controller from '../../../microk/core/domain/http/Controller';
 import { HttpMethod } from '../../../microk/common/http/HttpMethod';
 import Response from '../../../microk/core/domain/http/Response';
 
-export default class InfoController implements Controller<InfoResponse> {
+export default class InfoController implements Controller {
     constructor(
         @Inject(Keys.CQRS.QueryBus) private readonly queryBus: QueryBus,
     ) {
@@ -23,7 +23,7 @@ export default class InfoController implements Controller<InfoResponse> {
         };
     }
 
-    async run(req: Req): Promise<ControllerResponse<InfoResponse>> {
+    async run(req: Req): Promise<ControllerResponse> {
         const data = await this.queryBus.ask<InfoResponse>(new InfoQuery());
         return Response.success(data)
     }
