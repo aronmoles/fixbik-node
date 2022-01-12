@@ -1,5 +1,5 @@
-import { MessageType } from '../message/MessageType';
-import MessageName from '../message/MessageName';
+import { MessageType } from './MessageType';
+import MessageName from './MessageName';
 
 export default class MessageNameFactory {
     private static readonly DEFAULT_VERSION = 1;

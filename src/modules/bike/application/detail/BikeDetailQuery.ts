@@ -1,6 +1,6 @@
 import Query from '../../../../microk/cqrs/domain/query/Query';
 import MessageId from '../../../../microk/common/message/MessageId';
-import MessageNameFactory from '../../../../microk/common/value-object/MessageNameFactory';
+import MessageNameFactory from '../../../../microk/common/message/MessageNameFactory';
 import { MessageType } from '../../../../microk/common/message/MessageType';
 
 export default class BikeDetailQuery extends Query {

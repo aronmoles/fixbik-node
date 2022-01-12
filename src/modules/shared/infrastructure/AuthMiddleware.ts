@@ -5,7 +5,7 @@ import { Res } from '../../../microk/core/domain/http/Res';
 import Inject from '../../../microk/core/infrastructure/di/Inject.decorator';
 import { Keys } from './di/Keys';
 import AuthTokenRepository from '../../auth/domain/AuthTokenRepository';
-import { isNullOrUndefined } from '../../../microk/core/infrastructure/Utils';
+import { isNullOrUndefined } from '../../../microk/common/isNullOrUndefined';
 import AuthToken from '../../auth/domain/AuthToken';
 
 export default class AuthMiddleware implements Middleware {

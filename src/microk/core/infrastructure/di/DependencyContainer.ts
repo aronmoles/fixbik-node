@@ -6,7 +6,7 @@ import Container, {
     ContainerServiceType,
 } from '../../domain/di/Container';
 import { ContainerTag } from '../../domain/di/ContainerTag';
-import { isNullOrUndefined } from '../Utils';
+import { isNullOrUndefined } from '../../../common/isNullOrUndefined';
 
 export const INJECT_TARGET = { name: 'Inject' };
 

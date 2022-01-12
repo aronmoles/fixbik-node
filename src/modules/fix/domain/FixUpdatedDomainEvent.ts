@@ -1,6 +1,6 @@
 import DomainEvent from '../../../microk/event/domain/DomainEvent';
 import MessageId from '../../../microk/common/message/MessageId';
-import MessageNameFactory from '../../../microk/common/value-object/MessageNameFactory';
+import MessageNameFactory from '../../../microk/common/message/MessageNameFactory';
 import { MessageType } from '../../../microk/common/message/MessageType';
 import AggregateMessageOccurredOn from '../../../microk/common/message/AggregateMessageOccurredOn';
 import Fix from './Fix';

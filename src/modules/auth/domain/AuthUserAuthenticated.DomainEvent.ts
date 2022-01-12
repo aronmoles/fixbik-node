@@ -1,6 +1,6 @@
 import { AuthUser } from './AuthUser';
 import DomainEvent from '../../../microk/event/domain/DomainEvent';
-import MessageNameFactory from '../../../microk/common/value-object/MessageNameFactory';
+import MessageNameFactory from '../../../microk/common/message/MessageNameFactory';
 import { MessageType } from '../../../microk/common/message/MessageType';
 import AggregateMessageOccurredOn from '../../../microk/common/message/AggregateMessageOccurredOn';
 import MessageId from '../../../microk/common/message/MessageId';

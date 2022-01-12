@@ -1,4 +1,4 @@
-import { isNullOrUndefined } from '../../core/infrastructure/Utils';
+import { isNullOrUndefined } from '../isNullOrUndefined';
 import { Filters } from './Filters';
 import { Order } from './Order';
 

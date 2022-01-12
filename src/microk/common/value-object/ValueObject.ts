@@ -1,6 +1,6 @@
 import { PrimitiveType } from '../PrimitiveType';
 import { InvalidArgumentError } from './InvalidArgumentError';
-import { isNullOrUndefined } from '../../core/infrastructure/Utils';
+import { isNullOrUndefined } from '../isNullOrUndefined';
 
 export abstract class ValueObject<T extends PrimitiveType> {
     constructor(
