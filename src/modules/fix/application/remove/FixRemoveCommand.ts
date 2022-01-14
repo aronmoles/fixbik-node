@@ -28,7 +28,7 @@ export default class FixRemoveCommand extends Command {
         return {
             ...super.toPrimitive(),
             attributes: {
-                fixId: this._fixId,
+                id: this._fixId,
                 userId: this._userId,
             },
         };

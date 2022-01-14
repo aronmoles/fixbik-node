@@ -28,8 +28,8 @@ export default class BikeRemoveCommand extends Command {
         return {
             ...super.toPrimitive(),
             attributes: {
-                bikeId: this._bikeId,
-                authUserId: this._authUserId,
+                id: this._bikeId,
+                userId: this._authUserId,
             },
         };
     }

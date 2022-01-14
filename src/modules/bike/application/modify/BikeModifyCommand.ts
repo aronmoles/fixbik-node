@@ -3,6 +3,7 @@ import MessageNameFactory from '../../../../microk/common/message/MessageNameFac
 import { MessageType } from '../../../../microk/common/message/MessageType';
 import MessageId from '../../../../microk/common/message/MessageId';
 import { Req } from '../../../../microk/core/domain/http/Req';
+import { PrimitivesObject } from '../../../../microk/common/PrimitiveType';
 
 export default class BikeModifyCommand extends Command {
     constructor(
@@ -52,5 +53,19 @@ export default class BikeModifyCommand extends Command {
 
     get authUserId(): string {
         return this._authUserId;
+    }
+
+    toPrimitive(): PrimitivesObject {
+        return {
+            ...super.toPrimitive(),
+            attributes: {
+                id: this.bikeId,
+                name: this.bikeName,
+                brand: this.bikeBrand,
+                model: this.bikeModel,
+                year: this.bikeYear,
+                userId: this.authUserId,
+            },
+        };
     }
 }
