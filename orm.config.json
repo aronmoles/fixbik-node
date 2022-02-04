@@ -4,7 +4,7 @@
   "port": 3306,
   "username": "root",
   "password": "cuatroochenta",
-  "database": "fixbike_dev",
+  "database": "fixbik_dev",
   "entities": ["src/**/**/infrastructure/persistence/typeorm/*{.js,.ts}"],
   "migrationsTableName": "migrations",
   "migrations": ["migration/*.ts"],
